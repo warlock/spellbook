@@ -13,18 +13,18 @@
 7 silly cache add   rawSpec: '.',
 7 silly cache add   spec: '/home/josep/Documentos/whois2array',
 7 silly cache add   type: 'directory' }
-8 verbose addLocalDirectory /home/josep/.npm/whois2array/0.0.2/package.tgz not in flight; packing
-9 verbose tar pack [ '/home/josep/.npm/whois2array/0.0.2/package.tgz',
+8 verbose addLocalDirectory /home/josep/.npm/whois2array/0.0.1/package.tgz not in flight; packing
+9 verbose tar pack [ '/home/josep/.npm/whois2array/0.0.1/package.tgz',
 9 verbose tar pack   '/home/josep/Documentos/whois2array' ]
-10 verbose tarball /home/josep/.npm/whois2array/0.0.2/package.tgz
+10 verbose tarball /home/josep/.npm/whois2array/0.0.1/package.tgz
 11 verbose folder /home/josep/Documentos/whois2array
-12 info prepublish whois2array@0.0.2
-13 verbose addLocalTarball adding from inside cache /home/josep/.npm/whois2array/0.0.2/package.tgz
-14 silly cache afterAdd whois2array@0.0.2
-15 verbose afterAdd /home/josep/.npm/whois2array/0.0.2/package/package.json not in flight; writing
-16 verbose afterAdd /home/josep/.npm/whois2array/0.0.2/package/package.json written
+12 info prepublish whois2array@0.0.1
+13 verbose addLocalTarball adding from inside cache /home/josep/.npm/whois2array/0.0.1/package.tgz
+14 silly cache afterAdd whois2array@0.0.1
+15 verbose afterAdd /home/josep/.npm/whois2array/0.0.1/package/package.json not in flight; writing
+16 verbose afterAdd /home/josep/.npm/whois2array/0.0.1/package/package.json written
 17 silly publish { name: 'whois2array',
-17 silly publish   version: '0.0.2',
+17 silly publish   version: '0.0.1',
 17 silly publish   description: 'Make array from whois',
 17 silly publish   main: 'index.js',
 17 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
@@ -41,9 +41,9 @@
 17 silly publish   homepage: 'https://github.com/warlock/whois2array#readme',
 17 silly publish   readme: '# whois2array\nNodeJS whois2array script\n',
 17 silly publish   readmeFilename: 'README.md',
-17 silly publish   gitHead: '468340a8ad16c0cf47130e59d1f50e0f1a367826',
-17 silly publish   _id: 'whois2array@0.0.2',
-17 silly publish   _shasum: '638c5245eee6169bc8f4a5ae30230722f9541947',
+17 silly publish   gitHead: '290e61fb06412aa70bb9932d872f38c8cde3beca',
+17 silly publish   _id: 'whois2array@0.0.1',
+17 silly publish   _shasum: '59c0030b49494554b1c1e4018bf1df84bb9be260',
 17 silly publish   _from: '.' }
 18 verbose getPublishConfig undefined
 19 silly mapToRegistry name whois2array
@@ -51,28 +51,28 @@
 21 silly mapToRegistry registry https://registry.npmjs.org/
 22 silly mapToRegistry uri https://registry.npmjs.org/whois2array
 23 verbose publish registryBase https://registry.npmjs.org/
-24 silly publish uploading /home/josep/.npm/whois2array/0.0.2/package.tgz
+24 silly publish uploading /home/josep/.npm/whois2array/0.0.1/package.tgz
 25 verbose request uri https://registry.npmjs.org/whois2array
 26 verbose request sending authorization for write operation
-27 info attempt registry request try #1 at 15:45:42
+27 info attempt registry request try #1 at 15:46:29
 28 verbose request using bearer token for auth
-29 verbose request id c64c8c3df1083bc9
+29 verbose request id a3bbb83bd17bb1ce
 30 http request PUT https://registry.npmjs.org/whois2array
 31 http 403 https://registry.npmjs.org/whois2array
 32 verbose headers { 'content-type': 'application/json',
 32 verbose headers   'cache-control': 'max-age=60',
 32 verbose headers   'content-length': '95',
 32 verbose headers   'accept-ranges': 'bytes',
-32 verbose headers   date: 'Wed, 17 Jun 2015 13:45:43 GMT',
+32 verbose headers   date: 'Wed, 17 Jun 2015 13:46:30 GMT',
 32 verbose headers   via: '1.1 varnish',
 32 verbose headers   connection: 'keep-alive',
-32 verbose headers   'x-served-by': 'cache-ams4133-AMS',
+32 verbose headers   'x-served-by': 'cache-lcy1121-LCY',
 32 verbose headers   'x-cache': 'MISS',
 32 verbose headers   'x-cache-hits': '0',
-32 verbose headers   'x-timer': 'S1434548742.513721,VS0,VE662' }
+32 verbose headers   'x-timer': 'S1434548789.306219,VS0,VE965' }
 33 verbose request invalidating /home/josep/.npm/registry.npmjs.org/whois2array on PUT
 34 error publish Failed PUT 403
-35 verbose stack Error: "You cannot publish over the previously published version 0.0.2." : whois2array
+35 verbose stack Error: "You cannot publish over the previously published version 0.0.1." : whois2array
 35 verbose stack     at CachingRegistryClient.<anonymous> (/home/josep/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
 35 verbose stack     at Request._callback (/home/josep/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
 35 verbose stack     at Request.self.callback (/home/josep/local/lib/node_modules/npm/node_modules/request/request.js:368:22)
@@ -91,7 +91,7 @@
 41 error node v0.12.3
 42 error npm  v2.9.1
 43 error code E403
-44 error "You cannot publish over the previously published version 0.0.2." : whois2array
+44 error "You cannot publish over the previously published version 0.0.1." : whois2array
 45 error If you need help, you may report this error at:
 45 error     <https://github.com/npm/npm/issues>
 46 verbose exit [ 1, true ]
