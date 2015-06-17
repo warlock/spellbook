@@ -1,0 +1,24 @@
+{
+  "name": "whois2array",
+  "version": "0.0.1",
+  "description": "Make array from whois",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warlock/whois2array.git"
+  },
+  "keywords": [
+    "whois",
+    "array",
+    "json"
+  ],
+  "author": "Josep Subils Rigau <octozon@gmail.com> (http://octozon.com)",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/warlock/whois2array/issues"
+  },
+  "homepage": "https://github.com/warlock/whois2array#readme"
+}
