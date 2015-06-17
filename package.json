@@ -1,6 +1,6 @@
 {
   "name": "whois2array",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Make array from whois",
   "main": "index.js",
   "scripts": {
