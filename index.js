@@ -10,7 +10,10 @@ exports.whois = function (domini, callback) {
                 for (var i in lines) {
 			if (lines[i].indexOf(':') != -1) {
 				var cut = lines[i].split(":");
-				if (cut[0] != undefined && cut[1] != undefined) {
+				var c1 = cut[0].replace(/^\s+/g,'').replace(/\s+$/g,'');
+				var c2 = cut[1].replace(/^\s+/g,'').replace(/\s+$/g,'');
+
+				if (c1 != undefined && c2 != undefined) {
 					domini[cut[0]] = cut[1];
 				}
 			}
