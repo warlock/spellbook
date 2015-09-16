@@ -20,8 +20,8 @@ exports.whois = function (domini, callback) {
 	});
 
 	query.on('close', function (code) {
-                callback(null, domini);
-        });
+        callback(null, domini);
+    });
 
 };
 
