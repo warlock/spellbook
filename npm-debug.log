@@ -38,11 +38,11 @@
 17 silly publish   license: 'GPL',
 17 silly publish   bugs: { url: 'https://github.com/warlock/spellbook/issues' },
 17 silly publish   homepage: 'https://github.com/warlock/spellbook#readme',
-17 silly publish   readme: '# SpellBook\nWarning: Development version.\n\nImport module:\n\nvar sp = require("spellbook");\n\n\nCLASS EXTENSION:\n\nArray.deleteOf(\'element\');\n\n\nvar list = [\'a\', \'b\', \'c\'];\n\nlist.deleteOf(\'b\');\n\n-> [\'a\', \'c\']\n\n\nArray.clear();\n\nvar list = [\'a\', \'b\', \'c\'];\n\nlist.clear();\n\n-> []\n\nTOOLS:\n\nDomain extractor:\n\nsp.getDomain("http://www.dondominio.com");\n\n',
+17 silly publish   readme: '# SpellBook\nWarning: Development version.\n\nImport module:\n\nvar sp = require("spellbook");\n\n\nCLASS EXTENSION:\n\nArray.deleteOf(\'element\');\n\n\nvar list = [\'a\', \'b\', \'c\'];\n\nlist.deleteOf(\'b\');\n\n-> [\'a\', \'c\']\n\n\nArray.clear();\n\nvar list = [\'a\', \'b\', \'c\'];\n\nlist.clear();\n\n-> []\n\nTOOLS:\n\nRange:\n\nsb.range(0,10);\n\n-> [0,1,2,3,4,5,6,7,8,9,10]\n\nsb.range(-100,100,20);\n\n-> [-100,-80,-60,-40,-20,0,20,40,60,80,100]\n\nsb.range(\'A\',\'F\');\n\n-> [\'A\',\'B\',\'C\',\'D\',\'E\',\'F\')\n\nsb.range(\'m\',\'r\');\n\n-> [\'m\',\'n\',\'o\',\'p\',\'q\',\'r\']\n\n\nDomain extractor:\n\nsp.getDomain("http://www.dondominio.com");\n\n',
 17 silly publish   readmeFilename: 'README.md',
-17 silly publish   gitHead: 'cf50c70a4497974f4ac153fe940a480ab023ed29',
+17 silly publish   gitHead: '2902f3afc67b4aef64c41327f89eea88420767c7',
 17 silly publish   _id: 'spellbook@0.0.3',
-17 silly publish   _shasum: '94948627dec54473ae59ec43e8b7937b246bbd7a',
+17 silly publish   _shasum: 'd71bdbb59ec6e0ebab37d17db68c5232fdb8e1bc',
 17 silly publish   _from: '.' }
 18 verbose getPublishConfig undefined
 19 silly mapToRegistry name spellbook
@@ -53,22 +53,22 @@
 24 silly publish uploading /home/josep/.npm/spellbook/0.0.3/package.tgz
 25 verbose request uri http://registry.npmjs.org/spellbook
 26 verbose request sending authorization for write operation
-27 info attempt registry request try #1 at 10:28:43
+27 info attempt registry request try #1 at 11:15:28
 28 verbose request using bearer token for auth
-29 verbose request id 3a64b13678b74709
+29 verbose request id 7d44d7fee24b670a
 30 http request PUT http://registry.npmjs.org/spellbook
 31 http 403 http://registry.npmjs.org/spellbook
 32 verbose headers { 'content-type': 'application/json',
 32 verbose headers   'cache-control': 'max-age=60',
 32 verbose headers   'content-length': '95',
 32 verbose headers   'accept-ranges': 'bytes',
-32 verbose headers   date: 'Mon, 16 Nov 2015 09:28:44 GMT',
+32 verbose headers   date: 'Mon, 16 Nov 2015 10:15:29 GMT',
 32 verbose headers   via: '1.1 varnish',
 32 verbose headers   connection: 'keep-alive',
-32 verbose headers   'x-served-by': 'cache-lcy1125-LCY',
+32 verbose headers   'x-served-by': 'cache-fra1238-FRA',
 32 verbose headers   'x-cache': 'MISS',
 32 verbose headers   'x-cache-hits': '0',
-32 verbose headers   'x-timer': 'S1447666123.628480,VS0,VE998' }
+32 verbose headers   'x-timer': 'S1447668928.253665,VS0,VE1163' }
 33 verbose request invalidating /home/josep/.npm/registry.npmjs.org/spellbook on PUT
 34 error publish Failed PUT 403
 35 verbose stack Error: "You cannot publish over the previously published version 0.0.3." : spellbook
