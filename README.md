@@ -12,6 +12,7 @@ Array.deleteOf('element');
 
 
 var list = ['a', 'b', 'c'];
+
 list.deleteOf('b');
 
 -> ['a', 'c']
@@ -28,5 +29,6 @@ list.clear();
 TOOLS:
 
 Domain extractor:
+
 sp.getDomain("http://www.dondominio.com");
 
