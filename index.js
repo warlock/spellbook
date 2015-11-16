@@ -1,8 +1,17 @@
 /* Spellbook Class Extension */
 
 if (!Array.prototype.remove) {
-	Array.prototype.remove = function (element) {
-		return this.splice(this.indexOf(element),1);
+	Array.prototype.remove = function (obj) {
+		var self = this;
+		if (typeof obj === "object" && obj instanceof Array) {
+			obj.forEach(function (value) {
+				self.splice(self.indexOf(value),1);
+			});
+			return self;
+		} else {
+			this.splice(this.indexOf(obj),1);
+			return this;
+		}
 	}
 }
 
@@ -46,27 +55,27 @@ var Spellbook = function () {
     		return A;
 	}
 
-	this.isFunction = function ( fn ) {
+	this.isFunction = function (fn) {
     		return typeof fn === 'function';
 	}
 
-	this.isArray = function ( obj ) {
+	this.isArray = function (obj) {
 		return typeof obj === "object" && obj instanceof Array;
 	}	
 
-	this.isObject = function ( obj ) {
+	this.isObject = function (obj ) {
  		return typeof obj === "object" && (isArray(obj) === false );
 	}
 
-	this.isNumber = function ( obj ) {
+	this.isNumber = function (obj) {
     		return typeof obj === "number" || obj instanceof Number;
 	}
 
-	this.isString = function ( obj ) {
+	this.isString = function (obj ) {
     		return typeof obj === "string" || obj instanceof String;
 	}
 
-	this.isBoolean = function ( obj ) {
+	this.isBoolean = function (obj) {
  	   	return typeof obj === "boolean";
 	}
 }

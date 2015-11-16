@@ -1,20 +1,27 @@
 # SpellBook
 Warning: Development version.
 
-##Import module:
+#Import module:
 ```javascript
 var sp = require("spellbook");
 ```
 
-##CLASS EXTENSION:
+#CLASS EXTENSION:
 
-Array.remove('element');
+Array.remove(obj);
 
 ```javascript
 var list = ['a', 'b', 'c'];
 list.remove('b');
 ```
 -> ['a', 'c']
+
+```javascript
+var date = new Date();
+var list = ['a', 'b', 1, '2', date];
+list.remove(['b', 1, date]);
+```
+-> ['a', 1, '2']
 
 
 Array.clear();
@@ -24,7 +31,7 @@ list.clear();
 ```
 -> []
 
-##TOOLS:
+#TOOLS:
 
 Range:
 ```javascript
