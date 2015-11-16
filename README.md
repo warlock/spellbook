@@ -8,12 +8,12 @@ var sp = require("spellbook");
 
 CLASS EXTENSION:
 
-Array.deleteOf('element');
+Array.remove('element');
 
 
 var list = ['a', 'b', 'c'];
 
-list.deleteOf('b');
+list.remove('b');
 
 -> ['a', 'c']
 

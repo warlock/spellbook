@@ -1,7 +1,7 @@
 /* Spellbook Class Extension */
 
-if (!Array.prototype.deleteOf) {
-	Array.prototype.deleteOf = function (element) {
+if (!Array.prototype.remove) {
+	Array.prototype.remove = function (element) {
 		return this.splice(this.indexOf(element),1);
 	}
 }
