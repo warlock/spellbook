@@ -12,65 +12,6 @@ if (!Array.prototype.clear) {
     };
 }
 
-/*
-function isFunction( fn ) {
-    return typeof fn === 'function';
-}
-
-function isArray( obj ) {
-    return typeof obj === "object" && obj instanceof Array;
-}
-
-
-function isObject( obj ) {
-    return typeof obj === "object" && (isArray(obj) === false );
-}
-
-function isNumber( obj ) {
-    return typeof obj === "number" || obj instanceof Number;
-}
-
-function isString( obj ) {
-    return typeof obj === "string" || obj instanceof String;
-}
-
-function isBoolean( obj ) {
-    return typeof obj === "boolean";
-}
-
-Array.range = function( start, max, step ) {
-
-    if( arguments.length === 0 )        throw "range method needs one or more arguments"
-    if( start && !start.isNumber())     throw _MESSAGE_OF_INVALID_ARGUMENTS("start", "Number");
-    if( max   && !max.isNumber())       throw _MESSAGE_OF_INVALID_ARGUMENTS("max", "Number");
-    if( step  && !step.isNumber())      throw _MESSAGE_OF_INVALID_ARGUMENTS("step", "Number");
-
-
-    var arr = [];
-    _range(arr, start, max, step);
-
-    return arr;
-};
-
-
-function _range( arr, start, max, step ) {
-    step = step || 1;
-
-    if( !arr || !arr.isArray() ) throw _MESSAGE_OF_NULL_ARGUMENTS("arr");
-    if( !max ) {
-        max     = start;
-        start   = 0;
-    }
-
-    if( start >= max ) return;
-
-    for(var i=start; i<max; i+= step) {
-        arr.push( i );
-    }
-}
-
-*/
-
 /* Spellbook Utils */
 
 var Spellbook = function () {
@@ -103,6 +44,30 @@ var Spellbook = function () {
         		A= s.split('');        
     		}
     		return A;
+	}
+
+	this.isFunction = function ( fn ) {
+    		return typeof fn === 'function';
+	}
+
+	this.isArray = function ( obj ) {
+		return typeof obj === "object" && obj instanceof Array;
+	}	
+
+	this.isObject = function ( obj ) {
+ 		return typeof obj === "object" && (isArray(obj) === false );
+	}
+
+	this.isNumber = function ( obj ) {
+    		return typeof obj === "number" || obj instanceof Number;
+	}
+
+	this.isString = function ( obj ) {
+    		return typeof obj === "string" || obj instanceof String;
+	}
+
+	this.isBoolean = function ( obj ) {
+ 	   	return typeof obj === "boolean";
 	}
 }
 
