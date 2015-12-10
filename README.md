@@ -51,6 +51,18 @@ sb.range('m','r');
 ```
 -> ['m','n','o','p','q','r']
 
+## OBJECT CLONE:
+
+Clone Object in javascript ES5 width ES6 style:
+```javascript
+var NewObject = sb.assing(Object);
+```
+Can use clone word:
+```javascript
+var NewObject = sb.clone(Object);
+```
+
+
 
 Domain extractor:
 ```javascript

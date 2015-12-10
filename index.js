@@ -78,6 +78,25 @@ var Spellbook = function () {
 	this.isBoolean = function (obj) {
  	   	return typeof obj === "boolean";
 	}
+
+ 	this.clone(obj) {
+		if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj)
+			return obj;
+
+		var temp = obj.constructor();
+		for(var key in obj) {
+			if(Object.prototype.hasOwnProperty.call(obj, key)) {
+				obj['isActiveClone'] = null;
+				temp[key] = clone(obj[key]);
+				delete obj['isActiveClone'];
+			}
+		} 
+		return temp;
+	}
+
+	this.assign(obj) {
+		return this.clone(obj);
+	}
 }
 
 module.exports = new Spellbook();
