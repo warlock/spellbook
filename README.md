@@ -53,12 +53,12 @@ sb.range('m','r');
 
 Clone Object in javascript ES5 width ES6 style:
 ```javascript
-var NewObject = sb.assing(Object);
-var NewObject = sb.clone(Object);
+var NewObject = sb.assing(obj);
+var NewObject = sb.clone(obj);
 ```
 Remove object from Array:
 ```
-sb.remove(object1, object2);
+sb.remove(array, obj);
 ```
 
 Clear all values from Array:
