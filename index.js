@@ -97,6 +97,22 @@ var Spellbook = function () {
 	this.assign(obj) {
 		return this.clone(obj);
 	}
+
+	this.remove = function (array, obj) {
+                if (typeof obj === "object" && obj instanceof Array) {
+                        obj.forEach(function (value) {
+                                array.splice(array.indexOf(value),1);
+                        });
+                        return array;
+                } else {
+                        this.splice(array.indexOf(obj),1);
+                        return array;
+                }
+        }
+
+	this.clear = function (array) {
+		array.splice(0, array.length);
+	};
 }
 
 module.exports = new Spellbook();
