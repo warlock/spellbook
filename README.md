@@ -3,7 +3,7 @@ Library for extend the javascript habilities.
 
 ## Import module:
 ```javascript
-var sp = require("spellbook");
+var sb = require("spellbook");
 ```
 
 ## CLASS EXTENSION:
