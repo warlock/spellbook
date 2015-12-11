@@ -1,9 +1,14 @@
 # SpellBook
 Library for extend the javascript habilities.
 
-## Import module:
+## Node.Js : Import module:
 ```javascript
 var sb = require("spellbook");
+```
+
+## Web : Import module:
+```html
+<script src="spellbook.js"></script>
 ```
 
 ## CLASS EXTENSION:

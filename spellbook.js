@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /* Spellbook Class Extension */
 
 if (!Array.prototype.remove) {
@@ -63,7 +64,7 @@ var Spellbook = function () {
 		return typeof obj === "object" && obj instanceof Array;
 	}	
 
-	this.isObject = function (obj ) {
+	this.isObject = function (obj) {
  		return typeof obj === "object" && (isArray(obj) === false );
 	}
 
@@ -79,7 +80,7 @@ var Spellbook = function () {
  	   	return typeof obj === "boolean";
 	}
 
- 	this.clone(obj) {
+ 	this.clone = function (obj) {
 		if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj)
 			return obj;
 
@@ -94,7 +95,7 @@ var Spellbook = function () {
 		return temp;
 	}
 
-	this.assign(obj) {
+	this.assign = function (obj) {
 		return this.clone(obj);
 	}
 
@@ -116,3 +117,5 @@ var Spellbook = function () {
 }
 
 module.exports = new Spellbook();
+
+},{}]},{},[1]);
