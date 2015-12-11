@@ -116,6 +116,6 @@ var Spellbook = function () {
 	};
 }
 
-module.exports = new Spellbook();
+window.sb = new Spellbook();
 
 },{}]},{},[1]);

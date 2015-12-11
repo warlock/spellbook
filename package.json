@@ -1,8 +1,8 @@
 {
   "name": "spellbook",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Javascript tools and Class extensions",
-  "main": "spellbook.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

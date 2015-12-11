@@ -115,4 +115,5 @@ var Spellbook = function () {
 	};
 }
 
-module.exports = new Spellbook();
+//module.exports = new Spellbook();
+window.sb = new Spellbook();
