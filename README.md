@@ -8,7 +8,7 @@ var sb = require("spellbook");
 
 ## Web : Import module:
 ```html
-<script src="spellbook.js"></script>
+<script src="spellbook/spellbook.js"></script>
 ```
 
 ## CLASS EXTENSION:
