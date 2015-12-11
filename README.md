@@ -9,6 +9,9 @@ var sb = require("spellbook");
 ## Web : Import module:
 ```html
 <script src="spellbook/spellbook.js"></script>
+<script>
+  console.log(sb.range(5,10));
+</script>
 ```
 
 ## CLASS EXTENSION:
