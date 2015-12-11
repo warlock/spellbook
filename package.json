@@ -11,7 +11,12 @@
     "url": "git+https://github.com/warlock/spellbook.git"
   },
   "keywords": [
-    "spellbook"
+    "spellbook",
+    "extension",
+    "javascript",
+    "array",
+    "object",
+    "range"
   ],
   "author": "Josep Subils Rigau <octozon@gmail.com> (http://octozon.com)",
   "license": "GPL",
