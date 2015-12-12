@@ -1,5 +1,13 @@
-# SpellBook
-Library for extend the javascript habilities.
+SpellBook
+===
+> Library for extend the javascript habilities.
+http://warlock.github.io/spellbook
+http://npmjs.com/package/spellbook
+
+## INSTALL/DOWNLOAD
+```sh
+npm install spellbook
+```
 
 ## Node.Js : Import module:
 ```javascript
