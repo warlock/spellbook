@@ -21,8 +21,11 @@ if (!Array.prototype.clear) {
 }
 
 /* Spellbook Utils */
-
 var Spellbook = function () {
+	this.test = function () {
+		return "Testing Spellbook";
+	};
+
 	this.range = function(a, b, step) {
     		var A= [];
     		if(typeof a == 'number'){
@@ -87,25 +90,37 @@ var Spellbook = function () {
 	}
 
 	this.remove = function (array, obj) {
-                if (typeof obj === "object" && obj instanceof Array) {
-                        obj.forEach(function (value) {
-                                array.splice(array.indexOf(value),1);
-                        });
-                        return array;
-                } else {
-                        this.splice(array.indexOf(obj),1);
-                        return array;
-                }
+		if (typeof array === 'array') {
+                	if (typeof obj === "object" && obj instanceof Array) {
+                        	obj.forEach(function (value) {
+                                	array.splice(array.indexOf(value),1);
+                        	});
+                        	return array;
+                	} else {
+                        	array.splice(array.indexOf(obj),1);
+                       		return array;
+                	}
+		}
         }
 
 	this.clear = function (array) {
 		array.splice(0, array.length);
 	};
+
+	this.times = function (number, callback) {
+		if (typeof number === 'number' && number > 0) {
+			if ( typeof callback === 'function') {
+				for (var i = 0; i < number; i++) {
+					callback();
+				}
+			}
+		}
+	};
 }
 
 
 if (typeof process === 'object') {
-	module.exports = Spellbook;
+	module.exports = new Spellbook;
 } else {
 	var sb = new Spellbook();
 }

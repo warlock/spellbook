@@ -73,13 +73,20 @@ var NewObject = sb.assing(obj);
 var NewObject = sb.clone(obj);
 ```
 Remove object from Array:
-```
+```javascript
 sb.remove(array, obj);
 ```
 
 Clear all values from Array:
-```
+```javascript
 sb.clear(array);
+```
+
+Iterators:
+```
+sb.times(10, function () {
+	console.log("Abracadabra!");
+});
 ```
 
 Class check:
