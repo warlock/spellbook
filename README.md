@@ -22,7 +22,8 @@ var sb = require("spellbook");
 </script>
 ```
 
-## CLASS EXTENSION:
+## CLASS EXTENSION
+>Existing methods has been ignored:
 
 Array.remove(obj);
 
@@ -46,6 +47,44 @@ var list = ['a', 'b', 'c'];
 list.clear();
 ```
 -> []
+
+Object.get("key");
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.get("fire");
+```
+-> {"fire": 5}
+
+Object.get(["key1","key2"]);
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.get("fire", "ice");
+```
+-> {"fire": 5, "ice": 4}
+
+
+Object.extend(obj);
+```javascript
+var spells = {"fire": 5, "ice": 4};
+var newspells = {"electro": 6, "wind": 7};
+spells.extend(newspells);
+```
+-> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
+
+Object.remove("key");
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.remove("fire");
+```
+-> {"ice": 4, "electro": 6, "wind": 7}
+
+
+Object.remove(["key1", "key2"]);
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.remove(["fire", "ice"]);
+```
+-> {"electro": 6, "wind": 7}
 
 ## TOOLS:
 
@@ -83,10 +122,15 @@ sb.clear(array);
 ```
 
 Iterators:
-```
+```javascript
 sb.times(10, function () {
 	console.log("Abracadabra!");
 });
+```
+
+Random number:
+```javascript
+console.log(sb.random(5,10);
 ```
 
 Class check:
