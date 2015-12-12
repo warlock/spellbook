@@ -23,7 +23,7 @@ var sb = require("spellbook");
 ```
 
 ## CLASS EXTENSION
->Existing methods has been ignored:
+>Existing class methods will be ignored
 
 Array.remove(obj);
 
