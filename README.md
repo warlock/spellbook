@@ -1,7 +1,9 @@
 SpellBook
 ===
 > Library for extend the javascript habilities.
+
 http://warlock.github.io/spellbook
+
 http://npmjs.com/package/spellbook
 
 ## INSTALL/DOWNLOAD
@@ -25,7 +27,7 @@ var sb = require("spellbook");
 ## CLASS EXTENSION
 >Existing class methods will be ignored
 
-Array.remove(obj);
+**Array.remove(obj);**
 
 ```javascript
 var list = ['a', 'b', 'c'];
@@ -41,29 +43,28 @@ list.remove(['b', 1, date]);
 -> ['a', '2']
 
 
-Array.clear();
+**Array.clear();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.clear();
 ```
 -> []
 
-Object.get("key");
+**Object.get("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.get("fire");
 ```
 -> {"fire": 5}
 
-Object.get(["key1","key2"]);
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.get("fire", "ice");
+spells.get(["fire", "ice"]);
 ```
 -> {"fire": 5, "ice": 4}
 
 
-Object.extend(obj);
+**Object.extend(obj);**
 ```javascript
 var spells = {"fire": 5, "ice": 4};
 var newspells = {"electro": 6, "wind": 7};
@@ -71,15 +72,13 @@ spells.extend(newspells);
 ```
 -> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
 
-Object.remove("key");
+**Object.remove("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.remove("fire");
 ```
 -> {"ice": 4, "electro": 6, "wind": 7}
 
-
-Object.remove(["key1", "key2"]);
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.remove(["fire", "ice"]);
@@ -88,52 +87,56 @@ spells.remove(["fire", "ice"]);
 
 ## TOOLS:
 
-Range:
+**Range:**
 ```javascript
 sb.range(0,10);
 ```
 -> [0,1,2,3,4,5,6,7,8,9,10]
+
 ```javascript
 sb.range(-100,100,20);
 ```
 -> [-100,-80,-60,-40,-20,0,20,40,60,80,100]
+
 ```javascript
 sb.range('A','F');
 ```
 -> ['A','B','C','D','E','F')
+
 ```javascript
 sb.range('m','r');
 ```
 -> ['m','n','o','p','q','r']
 
-Clone Object in javascript ES5 width ES6 style:
+**Clone Object in javascript ES5 width ES6 style:**
 ```javascript
 var NewObject = sb.assing(obj);
 var NewObject = sb.clone(obj);
 ```
-Remove object from Array:
+**Remove Object from Array:**
 ```javascript
 sb.remove(array, obj);
 ```
 
-Clear all values from Array:
+**Clear all values from Array:**
 ```javascript
 sb.clear(array);
 ```
 
-Iterators:
+**Iterators:**
 ```javascript
 sb.times(10, function () {
-	console.log("Abracadabra!");
+        console.log("Abracadabra!");
 });
 ```
 
-Random number:
+**Random number:**
 ```javascript
-console.log(sb.random(5,10);
+sb.random(5,10);
 ```
+-> 6
 
-Class check:
+**Class boolean check:**
 ```javascript
 sb.isFunction(obj);
 sb.isArray(obj);
@@ -142,3 +145,4 @@ sb.isNumber(obj);
 sb.isString(obj);
 sb.isBoolean(obj);
 ```
+
