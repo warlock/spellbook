@@ -30,13 +30,13 @@ var sb = require("spellbook");
 **Array.remove(obj);**
 
 ```javascript
-var list = ['a', 2, 'c', 2];
+var list = ['a', 2, 'c'];
 list.remove(2);
 ```
 -> ['a', 'c']
 
 ```javascript
-var list = ['a', 2, 'c', 2];
+var list = ['a', 2, 'c'];
 list.remove([2,'a']);
 ```
 -> ['c']
@@ -203,3 +203,4 @@ sb.isNumber(obj);
 sb.isString(obj);
 sb.isBoolean(obj);
 ```
+
