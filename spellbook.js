@@ -228,7 +228,13 @@ var Spellbook = function () {
 			);
 		};
 		return isDate(theDate, theFormat);
-	};	
+	};
+
+	this.excerpt = function (str, nwords) {
+		var words = str.split(' ');
+		words.splice(nwords, words.length-1);
+		return words.join(' ');
+	}
 };
 
 

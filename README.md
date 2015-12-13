@@ -177,6 +177,12 @@ sb.checkDate('dd-mm-yyyy', '30/02/2015');
 ```
 -> false
 
+**Limit of words:**
+```javascript
+sb.excerpt('One, two, Freddy\'s coming for you', 3);
+```
+-> 'One, two, Freddy's'
+
 **Class boolean check:**
 ```javascript
 sb.isFunction(obj);
