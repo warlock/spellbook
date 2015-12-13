@@ -171,6 +171,12 @@ sb.random(5,10);
 ```
 -> 6
 
+**Real date validator:**
+```javascript
+sb.checkDate('dd-mm-yyyy', '30/02/2015');
+```
+-> false
+
 **Class boolean check:**
 ```javascript
 sb.isFunction(obj);
