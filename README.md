@@ -78,6 +78,13 @@ list.last();
 ```
 -> 'c'
 
+**Array.inArray();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.inArray('b');
+```
+-> true
+
 **Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};

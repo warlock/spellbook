@@ -53,6 +53,17 @@ if (!Array.prototype.last) {
         }
 }
 
+if (!Array.prototype.inArray) {
+	Array.prototype.inArray = function (value) {
+		for (var i=0; i < this.length; i++) {
+			if (this[i] === value) {
+				return true;
+			};
+		};
+		return false;
+	};
+};
+
 if (!Object.prototype.extend) {
 	Object.prototype.extend = function(obj) {
 		for (var i in obj) {
