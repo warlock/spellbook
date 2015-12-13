@@ -50,16 +50,23 @@ list.clear();
 ```
 -> []
 
-**Object.get("key");**
+**Array.random();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.random();
+```
+-> 'b'
+
+**Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.get("fire");
+spells.getKeys("fire");
 ```
 -> {"fire": 5}
 
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.get(["fire", "ice"]);
+spells.getKeys(["fire", "ice"]);
 ```
 -> {"fire": 5, "ice": 4}
 

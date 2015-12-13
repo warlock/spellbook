@@ -20,6 +20,14 @@ if (!Array.prototype.clear) {
     };
 };
 
+if (!Array.prototype.random) {
+	Array.prototype.random = function() {
+		self = this;
+		var index = Math.floor(Math.random() * (this.length));
+		return self[index];
+	};
+};
+
 if (!Object.prototype.extend) {
 	Object.prototype.extend = function(obj) {
 		for (var i in obj) {
@@ -43,8 +51,8 @@ if (!Object.prototype.remove) {
 	};
 };
 
-if (!Object.prototype.get) {
-	Object.prototype.get = function(keys) {
+if (!Object.prototype.getKeys) {
+	Object.prototype.getKeys = function(keys) {
 		var self = this;
 		if (typeof obj === "object" && obj instanceof Array) {
 			var obj = {};
