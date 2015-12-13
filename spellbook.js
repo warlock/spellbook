@@ -3,12 +3,20 @@ if (!Array.prototype.remove) {
 	Array.prototype.remove = function (obj) {
 		var self = this;
 		if (typeof obj === "object" && obj instanceof Array) {
-			obj.forEach(function (value) {
-				self.splice(self.indexOf(value),1);
+			obj.forEach(function (svalue) {
+				self.forEach(function (value) {
+					if (value == svalue) {
+						self.splice(self.indexOf(value),1);
+					}
+				});
 			});
 			return self;
 		} else {
-			this.splice(this.indexOf(obj),1);
+			self.forEach(function (value) {
+				if (value === obj) {
+					self.splice(self.indexOf(obj),1);
+				}
+			});
 			return this;
 		};
 	};
@@ -180,18 +188,24 @@ var Spellbook = function () {
 	};
 
 	this.remove = function (array, obj) {
-		if (typeof array === 'array') {
-                	if (typeof obj === "object" && obj instanceof Array) {
-                        	obj.forEach(function (value) {
-                                	array.splice(array.indexOf(value),1);
-                        	});
-                        	return array;
-                	} else {
-                        	array.splice(array.indexOf(obj),1);
-                       		return array;
-                	};
-		};
-        };
+		if (typeof obj === "object" && obj instanceof Array) {
+			obj.forEach(function (svalue) {
+				array.forEach(function (value) {
+					if (value == svalue) {
+						array.splice(array.indexOf(value),1);
+					}
+				});
+			});
+			return array;
+		} else {
+			array.forEach(function (value) {
+				if (value === obj) {
+					array.splice(array.indexOf(obj),1);
+				}
+			});
+			return array;
+		}
+	};
 
 	this.clear = function (array) {
 		array.splice(0, array.length);

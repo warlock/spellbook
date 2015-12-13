@@ -30,10 +30,16 @@ var sb = require("spellbook");
 **Array.remove(obj);**
 
 ```javascript
-var list = ['a', 'b', 'c'];
-list.remove('b');
+var list = ['a', 2, 'c'];
+list.remove(2);
 ```
 -> ['a', 'c']
+
+```javascript
+var list = ['a', 2, 'c'];
+list.remove([2,'a']);
+```
+-> ['c']
 
 ```javascript
 var date = new Date();
@@ -148,9 +154,13 @@ sb.range('m','r');
 var NewObject = sb.assing(obj);
 var NewObject = sb.clone(obj);
 ```
-**Remove Object from Array:**
+**Remove Objects from Array:**
 ```javascript
 sb.remove(array, obj);
+```
+
+```javascript
+sb.remove(array, [obj1, obj2]);
 ```
 
 **Clear all values from Array:**
