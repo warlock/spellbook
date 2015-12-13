@@ -64,6 +64,20 @@ list.shuffle();
 ```
 -> ['c', 'a', 'b']
 
+**Array.first();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.first();
+```
+-> 'a'
+
+**Array.last();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.last();
+```
+-> 'c'
+
 **Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
