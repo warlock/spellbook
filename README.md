@@ -48,7 +48,6 @@ list.remove(['b', 1, date]);
 ```
 -> ['a', '2']
 
-
 **Array.clear();**
 ```javascript
 var list = ['a', 'b', 'c'];
@@ -104,7 +103,6 @@ spells.getKeys(["fire", "ice"]);
 ```
 -> {"fire": 5, "ice": 4}
 
-
 **Object.extend(obj);**
 ```javascript
 var spells = {"fire": 5, "ice": 4};
@@ -125,6 +123,7 @@ var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.remove(["fire", "ice"]);
 ```
 -> {"electro": 6, "wind": 7}
+
 
 ## TOOLS:
 
