@@ -19,7 +19,7 @@
     "range"
   ],
   "author": "Josep Subils Rigau <octozon@gmail.com> (http://octozon.com)",
-  "license": "GPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/warlock/spellbook/issues"
   },
