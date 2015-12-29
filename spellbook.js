@@ -54,13 +54,15 @@ if (!Array.prototype.last) {
 }
 
 if (!Array.prototype.inArray) {
-	Array.prototype.inArray = function (value) {
-		for (var i=0; i < this.length; i++) {
-			if (this[i] === value) {
-				return true;
-			};
-		};
-		return false;
+        Array.prototype.inArray = function (value) {
+		return !!~this.indexOf(value);
+        };
+};
+
+
+if (!Array.prototype.contains) {
+	Array.prototype.contains = function (value) {
+		return !!~this.indexOf(value);
 	};
 };
 
@@ -192,6 +194,14 @@ var Spellbook = function () {
 
 	this.clear = function (array) {
 		array.splice(0, array.length);
+	};
+
+	this.inArray = function (a, b) {
+		return !!~a.indexOf(b);
+	};
+
+	this.contains = function (a, b) {
+		return !!~a.indexOf(b);
 	};
 
 	this.times = function (number, callback) {

@@ -90,6 +90,13 @@ list.inArray('b');
 ```
 -> true
 
+**Array.contains();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.contains('b');
+```
+-> true
+
 **Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
@@ -166,6 +173,12 @@ sb.remove(array, [obj1, obj2]);
 **Clear all values from Array:**
 ```javascript
 sb.clear(array);
+```
+
+**Find Objects from Array:**
+```javascript
+sb.contains(array, obj);
+sb.inArray(array, obj);
 ```
 
 **Iterators:**
