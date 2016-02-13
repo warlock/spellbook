@@ -155,7 +155,7 @@ sb.range('m','r');
 ```
 -> ['m','n','o','p','q','r']
 
-**Clone Object in javascript ES5 width ES6 style:**
+**Clone Object in javascript ES5 with ES6 style:**
 ```javascript
 var NewObject = sb.assing(obj);
 var NewObject = sb.clone(obj);
