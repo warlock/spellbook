@@ -4,7 +4,7 @@ if (!Array.prototype.remove) {
 		var self = this;
 		if (typeof obj !== "object" && !obj instanceof Array) {
 			obj = [obj];
-		};
+		}
 		return self.filter(function(e){
  			if(obj.indexOf(e)<0) {
 				return e
@@ -12,13 +12,13 @@ if (!Array.prototype.remove) {
 		});
 		
 	};
-};
+}
 
 if (!Array.prototype.clear) {
     Array.prototype.clear = function() {
        this.splice(0, this.length);
     };
-};
+}
 
 if (!Array.prototype.random) {
 	Array.prototype.random = function() {
@@ -26,7 +26,7 @@ if (!Array.prototype.random) {
 		var index = Math.floor(Math.random() * (this.length));
 		return self[index];
 	};
-};
+}
 
 if (!Array.prototype.shuffle) {
 	Array.prototype.shuffle = function() {
@@ -57,14 +57,14 @@ if (!Array.prototype.inArray) {
         Array.prototype.inArray = function (value) {
 		return !!~this.indexOf(value);
         };
-};
+}
 
 
 if (!Array.prototype.contains) {
 	Array.prototype.contains = function (value) {
 		return !!~this.indexOf(value);
 	};
-};
+}
 
 if (!Object.prototype.extend) {
 	Object.prototype.extend = function(obj) {
@@ -74,7 +74,7 @@ if (!Object.prototype.extend) {
 			};
 		};
 	};
-};
+}
 
 if (!Object.prototype.remove) {
 	Object.prototype.remove = function(keys) {
@@ -87,7 +87,7 @@ if (!Object.prototype.remove) {
 			delete(self[keys]);
 		};
 	};
-};
+}
 
 if (!Object.prototype.getKeys) {
 	Object.prototype.getKeys = function(keys) {
@@ -102,7 +102,66 @@ if (!Object.prototype.getKeys) {
 		}
 		return obj;
 	};
-};
+}
+
+if (!String.prototype.repeatify) {
+   String.prototype.repeatify = function(num) {
+      var strArray = [];
+      for (var i = 0; i < num; i++) {
+        strArray.push(this.normalize());
+      }
+      return strArray;
+    };
+}
+
+if (!Number.prototype.times) {
+	Number.prototype.times = function (callback) {
+		if (this % 1 === 0)
+		for (var i = 0; i < this; i++) {
+			callback()
+		}
+	}
+}
+
+if (!Number.prototype.isInteger) {
+	Number.prototype.isInteger = function () {
+		this.isInteger = function (num) {
+			return num % 1 === 0;
+		}
+	}
+}
+
+if (!Array.prototype.isArray) {
+	this.isArray = function () {
+		return typeof this === "object" && this instanceof Array;
+	};
+}
+
+
+if (!Function.prototype.isFunction) {
+	this.isFunction = function () {
+		return typeof this === 'function';
+	};
+}
+
+if (!Object.prototype.isObject) {
+	this.isObject = function () {
+ 		return typeof this === "object" && (isArray(this) === false );
+	};
+}
+
+if (!String.prototype.isString) {
+	this.isString = function () {
+    	return typeof this === "string" || this instanceof String;
+	};
+}
+
+if (!Boolean.prototype.isBoolean) {
+	this.isBoolean = function () {
+ 	   	return typeof this === "boolean";
+	};
+}
+
 
 /* Spellbook Utils */
 var Spellbook = function () {
@@ -111,55 +170,59 @@ var Spellbook = function () {
 	};
 
 	this.range = function(a, b, step) {
-    		var A= [];
-    		if(typeof a == 'number'){
-        		A[0]= a;
-        		step = step || 1;
-        		while(a+step<= b){
-            			A[A.length]= a+= step;
-        		};
-    		} else {
-        		var s = 'abcdefghijklmnopqrstuvwxyz';
-        		if(a=== a.toUpperCase()){
-            			b=b.toUpperCase();
-            			s= s.toUpperCase();
-        		};
-        		s= s.substring(s.indexOf(a), s.indexOf(b)+ 1);
-        		A= s.split('');        
-    		};
-    		return A;
+    	var A= [];
+    	if(typeof a == 'number'){
+        	A[0]= a;
+        	step = step || 1;
+        	while(a+step<= b) {
+           		A[A.length]= a+= step;
+        	}
+    	} else {
+        	var s = 'abcdefghijklmnopqrstuvwxyz';
+        	if(a=== a.toUpperCase()) {
+           		b=b.toUpperCase();
+           		s= s.toUpperCase();
+        	}
+        	s= s.substring(s.indexOf(a), s.indexOf(b)+ 1);
+        	A= s.split('');        
+    	}
+    	return A;
 	};
 
 	this.isFunction = function (fn) {
-    		return typeof fn === 'function';
+    	return typeof fn === 'function';
 	};
 
 	this.isArray = function (obj) {
 		return typeof obj === "object" && obj instanceof Array;
-	};	
+	};
 
 	this.isObject = function (obj) {
  		return typeof obj === "object" && (isArray(obj) === false );
 	};
 
 	this.isNumber = function (obj) {
-    		return typeof obj === "number" || obj instanceof Number;
+    	return typeof obj === "number" || obj instanceof Number;
 	};
 
 	this.isString = function (obj ) {
-    		return typeof obj === "string" || obj instanceof String;
+    	return typeof obj === "string" || obj instanceof String;
 	};
 
 	this.isBoolean = function (obj) {
  	   	return typeof obj === "boolean";
 	};
 
+	this.isInteger = function (obj) {
+		return obj % 1 === 0;
+	}
+
 	this.random = function (min, max) {
 		if (typeof min === "number" && typeof max === "number") {
 			return Math.floor(Math.random() * (max - min)) + min;
 		} else {
 			return 0;
-		};
+		}
 	};
 
  	this.clone = function (obj) {
@@ -172,8 +235,8 @@ var Spellbook = function () {
 				obj['isActiveClone'] = null;
 				temp[key] = clone(obj[key]);
 				delete obj['isActiveClone'];
-			};
-		};
+			}
+		}
 		return temp;
 	};
 
@@ -182,14 +245,14 @@ var Spellbook = function () {
 	};
 
 	this.remove = function (array, obj) {
-                if (typeof obj !== "object" && !obj instanceof Array) {
-                        obj = [obj];
-                };
-                return array.filter(function(e){
-                        if(obj.indexOf(e)<0) {
-                                return e
-                        }
-                });
+        if (typeof obj !== "object" && !obj instanceof Array) {
+            obj = [obj];
+        }
+        return array.filter(function(e){
+        	if(obj.indexOf(e)<0) {
+                return e
+            }
+        });
 	};
 
 	this.clear = function (array) {
@@ -209,9 +272,9 @@ var Spellbook = function () {
 			if ( typeof callback === 'function') {
 				for (var i = 0; i < number; i++) {
 					callback();
-				};
-			};
-		};
+				}
+			}
+		}
 	};
 
 	this.checkDate = function (value, userFormat) {
@@ -243,7 +306,6 @@ var Spellbook = function () {
 		return words.join(' ');
 	}
 };
-
 
 if (typeof process === 'object') {
 	module.exports = new Spellbook;

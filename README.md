@@ -97,6 +97,13 @@ list.contains('b');
 ```
 -> true
 
+**Array.isArray();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.isArray();
+```
+-> true
+
 **Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
@@ -131,6 +138,63 @@ spells.remove(["fire", "ice"]);
 ```
 -> {"electro": 6, "wind": 7}
 
+**Object.isObject();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.isObject();
+```
+-> true
+
+**Boolean.isBoolean();**
+```javascript
+var boh = false;
+boh.isBoolean();
+```
+-> true
+
+**Function.isFunction();**
+```javascript
+var fun = function () { return "hi"; };
+fun.isFunction();
+```
+-> true
+
+**String.isString();**
+```javascript
+var talk = "hi!";
+talk.isString();
+```
+-> true
+
+**String.repeatify(num);**
+```javascript
+"hi".reatify(5);
+```
+-> ['hi','hi','hi','hi','hi']
+
+**Number.times();**
+```javascript
+(3).times(function () {
+	console.log("hi!");
+});
+```
+-> hi!
+-> hi!
+-> hi!
+
+**Number.isNumber();**
+```javascript
+var num = 5.2;
+num.isNumber();
+```
+-> true
+
+**Number.isInteger();**
+```javascript
+var num = 5;
+num.isInteger();
+```
+-> true
 
 ## TOOLS:
 
@@ -212,12 +276,12 @@ sb.isFunction(obj);
 sb.isArray(obj);
 sb.isObject(obj);
 sb.isNumber(obj);
+sb.isInteger(obj);
 sb.isString(obj);
 sb.isBoolean(obj);
 ```
 
 ## License
-
 All the code here is under MIT license. Which means you could do virtually anything with the code.
 I will appreciate it very much if you keep an attribution where appropriate.
 
