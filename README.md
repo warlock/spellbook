@@ -179,7 +179,9 @@ talk.isString();
 });
 ```
 -> hi!
+
 -> hi!
+
 -> hi!
 
 **Number.isNumber();**
