@@ -66,6 +66,30 @@ if (!Array.prototype.contains) {
 	};
 }
 
+if (!Array.prototype.each) {
+	Array.prototype.each = function (interval, callback, response) {
+		var self = this;
+		var i = 0;
+		if (typeof interval !== "function" ) {
+			var inter = setInterval(function () {
+				callback(self[i], i);
+				i++;
+				if (i === self.length) {
+					clearInterval(inter);
+					if (typeof response === "function")response();
+				}
+			}, interval);
+		} else {
+			for (var i = 0; i < self.length; i++) {
+				interval(self[i], i);
+				if (typeof callback === "function") {
+					if (i === self.length - 1) callback();
+				}
+			}
+		}
+	}
+}
+
 if (!Object.prototype.extend) {
 	Object.prototype.extend = function(obj) {
 		for (var i in obj) {
