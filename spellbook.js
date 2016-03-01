@@ -95,7 +95,7 @@ if (!Array.prototype.eachEnd) {
 		var self = this;
 		var i = 0;
 		var done = function () {
-			if (i < self.length) {
+			if (i < self.length -1) {
 				i++;
 				callback(self[i], i, done);
 			} else {
@@ -343,7 +343,7 @@ var Spellbook = function () {
 	this.eachEnd = function (array, callback, response) {
 		var i = 0;
 		var done = function () {
-			if (i < array.length) {
+			if (i < array.length -1) {
 				i++;
 				callback(array[i], i, done);
 			} else {
