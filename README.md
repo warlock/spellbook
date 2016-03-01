@@ -107,8 +107,8 @@ list.isArray();
 **Array.each();**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(function (res) {
-    console.log("res: " + res );
+list.each(function (res, i) {
+    console.log("index: " + i +" res: " + res );
 });
 ```
 -> a
@@ -118,7 +118,7 @@ list.each(function (res) {
 **Array.each(); With end function**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(function (res) {
+list.each(function (res, i) {
     console.log("res: " + res );
 }, function () {
     console.log("End");
@@ -132,7 +132,7 @@ list.each(function (res) {
 **Array.each(); Iteration with time interval and end function**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(5000, function (res) {
+list.each(5000, function (res, i) {
     console.log("res: " + res );
 }, function () {
     console.log("End");
@@ -142,6 +142,22 @@ list.each(5000, function (res) {
 -> b // Wait 5 seconds
 -> c
 -> End
+
+**Array.eachEnd(); Run next when the method "done" is executed.**
+```javascript
+var list = ['a', 'b', 'c'];
+list.eachEnd(function (res, i, done) {
+    console.log("res: " + res );
+    setTimeout(function () {
+        done();
+    }, 8000);
+}, function () {
+    console.log("End");
+});
+```
+-> a // Wait 8 seconds;
+-> b // Wait 8 seconds;
+-> c // Wait 8 seconds;
 
 **Object.getKeys("key");**
 ```javascript

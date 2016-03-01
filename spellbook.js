@@ -90,6 +90,24 @@ if (!Array.prototype.each) {
 	}
 }
 
+if (!Array.prototype.eachEnd) {
+	Array.prototype.eachEnd = function (callback, response) {
+		var self = this;
+		var i = 0;
+		var done = function () {
+			if (i < self.length) {
+				i++;
+				callback(self[i], i, done);
+			} else {
+				if (typeof response === 'function') {
+					response();
+				}
+			}
+		}
+		callback(self[i], i, done);
+	}
+}
+
 if (!Object.prototype.extend) {
 	Object.prototype.extend = function(obj) {
 		for (var i in obj) {
@@ -320,6 +338,21 @@ var Spellbook = function () {
 				}
 			}
 		}
+	}
+
+	this.eachEnd = function (array, callback, response) {
+		var i = 0;
+		var done = function () {
+			if (i < array.length) {
+				i++;
+				callback(array[i], i, done);
+			} else {
+				if (typeof response === 'function') {
+					response();
+				}
+			}
+		}
+		callback(self[i], i, done);
 	}
 
 	this.checkDate = function (value, userFormat) {
