@@ -104,6 +104,45 @@ list.isArray();
 ```
 -> true
 
+**Array.each();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.each(function (res) {
+    console.log("res: " + res );
+});
+```
+-> a
+-> b
+-> c
+
+**Array.each(); With end function**
+```javascript
+var list = ['a', 'b', 'c'];
+list.each(function (res) {
+    console.log("res: " + res );
+}, function () {
+    console.log("End");
+});
+```
+-> a
+-> b
+-> c
+-> End
+
+**Array.each(); Iteration with time interval and end function**
+```javascript
+var list = ['a', 'b', 'c'];
+list.each(5000, function (res) {
+    console.log("res: " + res );
+}, function () {
+    console.log("End");
+});
+```
+-> a // Wait 5 seconds
+-> b // Wait 5 seconds
+-> c
+-> End
+
 **Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
@@ -179,9 +218,7 @@ talk.isString();
 });
 ```
 -> hi!
-
 -> hi!
-
 -> hi!
 
 **Number.isNumber();**
@@ -246,6 +283,34 @@ sb.clear(array);
 sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
+
+**Array iteration with end function**
+```javascript
+var list = ['a', 'b', 'c'];
+sb.each(list, function (res) {
+    console.log("res: " + res );
+}, function () {
+    console.log("End");
+});
+```
+-> a // Wait 5 seconds
+-> b // Wait 5 seconds
+-> c
+-> End
+
+**Array iteration with time interval and end function**
+```javascript
+var list = ['a', 'b', 'c'];
+sb.each(list, 5000, function (res) {
+    console.log("res: " + res );
+}, function () {
+    console.log("End");
+});
+```
+-> a // Wait 5 seconds
+-> b // Wait 5 seconds
+-> c
+-> End
 
 **Iterators:**
 ```javascript

@@ -15,9 +15,9 @@ if (!Array.prototype.remove) {
 }
 
 if (!Array.prototype.clear) {
-    Array.prototype.clear = function() {
-       this.splice(0, this.length);
-    };
+	Array.prototype.clear = function() {
+		this.splice(0, this.length);
+	};
 }
 
 if (!Array.prototype.random) {
@@ -43,13 +43,13 @@ if (!Array.prototype.shuffle) {
 
 if (!Array.prototype.first) {
         Array.prototype.first = function() {
-        return this[0];
+       		return this[0];
         }
 }
 
 if (!Array.prototype.last) {
         Array.prototype.last = function() {
-        return this[this.length - 1];
+        	return this[this.length - 1];
         }
 }
 
@@ -76,7 +76,7 @@ if (!Array.prototype.each) {
 				i++;
 				if (i === self.length) {
 					clearInterval(inter);
-					if (typeof response === "function")response();
+					if (typeof response === "function") response();
 				}
 			}, interval);
 		} else {
@@ -300,6 +300,27 @@ var Spellbook = function () {
 			}
 		}
 	};
+
+	this.each = function (array, interval, callback, response) {
+		var i = 0;
+		if (typeof interval !== "function" ) {
+			var inter = setInterval(function () {
+				callback(array[i], i);
+				i++;
+				if (i === array.length) {
+					clearInterval(inter);
+					if (typeof response === "function") response();
+				}
+			}, interval);
+		} else {
+			for (var i = 0; i < array.length; i++) {
+				interval(array[i], i);
+				if (typeof callback === "function") {
+					if (i === array.length - 1) callback();
+				}
+			}
+		}
+	}
 
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
