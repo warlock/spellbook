@@ -352,7 +352,7 @@ var Spellbook = function () {
 				}
 			}
 		}
-		callback(self[i], i, done);
+		callback(array[i], i, done);
 	}
 
 	this.checkDate = function (value, userFormat) {
