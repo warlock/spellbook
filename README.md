@@ -112,7 +112,9 @@ list.each(function (res, i) {
 });
 ```
 -> a
+
 -> b
+
 -> c
 
 **Array.each(); With end function**
@@ -125,8 +127,11 @@ list.each(function (res, i) {
 });
 ```
 -> a
+
 -> b
+
 -> c
+
 -> End
 
 **Array.each(); Iteration with time interval and end function**
@@ -139,8 +144,11 @@ list.each(5000, function (res, i) {
 });
 ```
 -> a // Wait 5 seconds
+
 -> b // Wait 5 seconds
+
 -> c
+
 -> End
 
 **Array.eachEnd(); Run next when the method "done" is executed.**
@@ -156,7 +164,9 @@ list.eachEnd(function (res, i, done) {
 });
 ```
 -> a // Wait 8 seconds;
+
 -> b // Wait 8 seconds;
+
 -> c // Wait 8 seconds;
 
 **Object.getKeys("key");**
@@ -234,7 +244,9 @@ talk.isString();
 });
 ```
 -> hi!
+
 -> hi!
+
 -> hi!
 
 **Number.isNumber();**
@@ -310,9 +322,13 @@ sb.each(list, function (res) {
 });
 ```
 -> a // Wait 5 seconds
+
 -> b // Wait 5 seconds
+
 -> c
+
 -> End
+
 
 **Array iteration with time interval and end function**
 ```javascript
@@ -324,9 +340,30 @@ sb.each(list, 5000, function (res) {
 });
 ```
 -> a // Wait 5 seconds
+
 -> b // Wait 5 seconds
+
 -> c
+
 -> End
+
+**Run next when the method "done" is executed.**
+```javascript
+var list = ['a', 'b', 'c'];
+sb.eachEnd(list, function (res, i, done) {
+    console.log("res: " + res );
+    setTimeout(function () {
+        done();
+    }, 8000);
+}, function () {
+    console.log("End");
+});
+```
+-> a // Wait 8 seconds;
+
+-> b // Wait 8 seconds;
+
+-> c // Wait 8 seconds;
 
 **Iterators:**
 ```javascript
