@@ -169,6 +169,8 @@ list.eachEnd(function (res, i, done) {
 
 -> c // Wait 8 seconds;
 
+-> End
+
 **Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
