@@ -33,76 +33,109 @@ var sb = require("spellbook");
 var list = ['a', 2, 'c', 2];
 list.remove(2);
 ```
+
+```
 -> ['a', 'c']
+```
 
 ```javascript
 var list = ['a', 2, 'c', 2];
 list.remove([2,'a']);
 ```
+
+```
 -> ['c']
+```
 
 ```javascript
 var date = new Date();
 var list = ['a', 'b', 1, '2', date];
 list.remove(['b', 1, date]);
 ```
+
+```
 -> ['a', '2']
+```
 
 **Array.clear();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.clear();
 ```
+
+```
 -> []
+```
 
 **Array.random();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.random();
 ```
+
+```
 -> 'b'
+```
 
 **Array.shuffle();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.shuffle();
 ```
+
+```
 -> ['c', 'a', 'b']
+```
 
 **Array.first();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.first();
 ```
+
+```
 -> 'a'
+```
 
 **Array.last();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.last();
 ```
+
+```
 -> 'c'
+```
 
 **Array.inArray();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.inArray('b');
 ```
+
+```
 -> true
+```
 
 **Array.contains();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.contains('b');
 ```
+
+```
 -> true
+```
 
 **Array.isArray();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.isArray();
 ```
+
+```
 -> true
+```
 
 **Array.each();**
 ```javascript
@@ -111,11 +144,12 @@ list.each(function (res, i) {
     console.log("index: " + i +" res: " + res );
 });
 ```
+
+```
 -> a
-
 -> b
-
 -> c
+```
 
 **Array.each(); With end function**
 ```javascript
@@ -126,13 +160,13 @@ list.each(function (res, i) {
     console.log("End");
 });
 ```
+
+```
 -> a
-
 -> b
-
 -> c
-
 -> End
+```
 
 **Array.each(); Iteration with time interval and end function**
 ```javascript
@@ -143,13 +177,13 @@ list.each(5000, function (res, i) {
     console.log("End");
 });
 ```
+
+```
 -> a // Wait 5 seconds
-
 -> b // Wait 5 seconds
-
 -> c
-
 -> End
+```
 
 **Array.eachEnd(); Run next when the method "done" is executed.**
 ```javascript
@@ -163,26 +197,32 @@ list.eachEnd(function (res, i, done) {
     console.log("End");
 });
 ```
+
+```
 -> a // Wait 8 seconds;
-
 -> b // Wait 8 seconds;
-
 -> c // Wait 8 seconds;
-
 -> End
+```
 
 **Object.getKeys("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.getKeys("fire");
 ```
+
+```
 -> {"fire": 5}
+```
 
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.getKeys(["fire", "ice"]);
 ```
+
+```
 -> {"fire": 5, "ice": 4}
+```
 
 **Object.extend(obj);**
 ```javascript
@@ -190,54 +230,78 @@ var spells = {"fire": 5, "ice": 4};
 var newspells = {"electro": 6, "wind": 7};
 spells.extend(newspells);
 ```
+
+```
 -> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
+```
 
 **Object.remove("key");**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.remove("fire");
 ```
+
+```
 -> {"ice": 4, "electro": 6, "wind": 7}
+```
 
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.remove(["fire", "ice"]);
 ```
+
+```
 -> {"electro": 6, "wind": 7}
+```
 
 **Object.isObject();**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.isObject();
 ```
+
+```
 -> true
+```
 
 **Boolean.isBoolean();**
 ```javascript
 var boh = false;
 boh.isBoolean();
 ```
+
+```
 -> true
+```
 
 **Function.isFunction();**
 ```javascript
 var fun = function () { return "hi"; };
 fun.isFunction();
 ```
+
+```
 -> true
+```
 
 **String.isString();**
 ```javascript
 var talk = "hi!";
 talk.isString();
 ```
+
+```
 -> true
+```
 
 **String.repeatify(num);**
 ```javascript
 "hi".reatify(5);
 ```
+
+```
 -> ['hi','hi','hi','hi','hi']
+```
 
 **Number.times();**
 ```javascript
@@ -245,25 +309,32 @@ talk.isString();
 	console.log("hi!");
 });
 ```
--> hi!
 
+```
 -> hi!
-
 -> hi!
+-> hi!
+```
 
 **Number.isNumber();**
 ```javascript
 var num = 5.2;
 num.isNumber();
 ```
+
+```
 -> true
+```
 
 **Number.isInteger();**
 ```javascript
 var num = 5;
 num.isInteger();
 ```
+
+```
 -> true
+```
 
 ## TOOLS:
 
@@ -271,22 +342,34 @@ num.isInteger();
 ```javascript
 sb.range(0,10);
 ```
+
+```
 -> [0,1,2,3,4,5,6,7,8,9,10]
+```
 
 ```javascript
 sb.range(-100,100,20);
 ```
+
+```
 -> [-100,-80,-60,-40,-20,0,20,40,60,80,100]
+```
 
 ```javascript
 sb.range('A','F');
 ```
+
+```
 -> ['A','B','C','D','E','F')
+```
 
 ```javascript
 sb.range('m','r');
 ```
+
+```
 -> ['m','n','o','p','q','r']
+```
 
 **Clone Object in javascript ES5 with ES6 style:**
 ```javascript
@@ -323,14 +406,13 @@ sb.each(list, function (res) {
     console.log("End");
 });
 ```
+
+```
 -> a // Wait 5 seconds
-
 -> b // Wait 5 seconds
-
 -> c
-
 -> End
-
+```
 
 **Array iteration with time interval and end function**
 ```javascript
@@ -341,13 +423,13 @@ sb.each(list, 5000, function (res) {
     console.log("End");
 });
 ```
+
+```
 -> a // Wait 5 seconds
-
 -> b // Wait 5 seconds
-
 -> c
-
 -> End
+```
 
 **Run next when the method "done" is executed.**
 ```javascript
@@ -361,11 +443,12 @@ sb.eachEnd(list, function (res, i, done) {
     console.log("End");
 });
 ```
+
+```
 -> a // Wait 8 seconds;
-
 -> b // Wait 8 seconds;
-
 -> c // Wait 8 seconds;
+```
 
 **Iterators:**
 ```javascript
@@ -378,19 +461,28 @@ sb.times(10, function () {
 ```javascript
 sb.random(5,10);
 ```
+
+```
 -> 6
+```
 
 **Real date validator:**
 ```javascript
 sb.checkDate('dd-mm-yyyy', '30/02/2015');
 ```
+
+```
 -> false
+```
 
 **Limit of words:**
 ```javascript
 sb.excerpt('One, two, Freddy\'s coming for you', 3);
 ```
+
+```
 -> 'One, two, Freddy's'
+```
 
 **Class boolean check:**
 ```javascript
