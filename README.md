@@ -37,7 +37,7 @@ list.remove(2);
 -> ['a', 'c']
 ```
 
-```javascript
+```javascript 
 var list = ['a', 2, 'c', 2];
 list.remove([2,'a']);
 ```
@@ -126,7 +126,7 @@ list.isArray();
 -> true
 ```
 
-**Array.each(interval, callback_loop(item, index), callback_end);**
+**Array.each(callback_loop(item, index)); Array iteration.**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.each(function (item, i) {
@@ -134,12 +134,12 @@ list.each(function (item, i) {
 });
 ```
 ```
--> a
--> b
--> c
+-> item: a
+-> item: b
+-> item: c
 ```
 
-**Array.each(interval, callback_loop(item, index), callback_end); With end function**
+**Array.each(callback_loop(item, index), callback_end); Array iteration with ending function.**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.each(function (item, i) {
@@ -149,13 +149,13 @@ list.each(function (item, i) {
 });
 ```
 ```
--> a
--> b
--> c
+-> item: a
+-> item: b
+-> item: c
 -> End
 ```
 
-**Array.each(interval, callback_loop(item, index), callback_end); Iteration with time interval and ending function**
+**Array.each(interval, callback_loop(item, index), callback_end); Iteration with time interval and ending function.**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.each(5000, function (item, i) {
@@ -165,13 +165,13 @@ list.each(5000, function (item, i) {
 });
 ```
 ```
--> a // Wait 5 seconds
--> b // Wait 5 seconds
--> c
+-> item: a // Wait 5 seconds
+-> item: b // Wait 5 seconds
+-> item: c
 -> End
 ```
 
-**Array.eachEnd(callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed**
+**Array.eachEnd(callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.eachEnd(function (item, i, next) {
@@ -184,9 +184,9 @@ list.eachEnd(function (item, i, next) {
 });
 ```
 ```
--> a // Wait 8 seconds;
--> b // Wait 8 seconds;
--> c // Wait 8 seconds;
+-> item: a // Wait 8 seconds;
+-> item: b // Wait 8 seconds;
+-> item: c // Wait 8 seconds;
 -> End
 ```
 
@@ -278,7 +278,7 @@ talk.isString();
 -> ['hi','hi','hi','hi','hi']
 ```
 
-**(Number).times(callback(number)); Iterates function "number" times.**
+**(Number).times(callback(iteration)); Iterates function "number" times.**
 ```javascript
 (3).times(function (i) {
 	console.log("hi!");
@@ -348,9 +348,6 @@ var NewObject = sb.clone(obj);
 **Remove Objects from Array:**
 ```javascript
 sb.remove(array, obj);
-```
-
-```javascript
 sb.remove(array, [obj1, obj2]);
 ```
 
@@ -365,7 +362,7 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
-**sb.each(array, callback_loop(item, index), callback_end); Array iteration with time interval and end function**
+**sb.each(array, callback_loop(item, index)); Array iteration.**
 ```javascript
 var list = ['a', 'b', 'c'];
 sb.each(list, function (item, i) {
@@ -375,13 +372,28 @@ sb.each(list, function (item, i) {
 });
 ```
 ```
--> a // Wait 5 seconds
--> b // Wait 5 seconds
--> c
+-> item: a
+-> item: b
+-> item: c
+```
+
+**sb.each(array, callback_loop(item, index), callback_end); Array iteration with ending function.**
+```javascript
+var list = ['a', 'b', 'c'];
+sb.each(list, function (item, i) {
+    console.log("item: " + item );
+}, function () {
+    console.log("End");
+});
+```
+```
+-> item: a
+-> item: b
+-> item: c
 -> End
 ```
 
-**Array iteration with time interval and end function**
+**sb.each(array, interval, callback_loop(item, index), callback_end); Array iteration with ending function.**
 ```javascript
 var list = ['a', 'b', 'c'];
 sb.each(list, 5000, function (item, i) {
@@ -391,17 +403,17 @@ sb.each(list, 5000, function (item, i) {
 });
 ```
 ```
--> a // Wait 5 seconds
--> b // Wait 5 seconds
--> c
+-> item: a // Wait 5 seconds
+-> item: b // Wait 5 seconds
+-> item: c
 -> End
 ```
 
-**sb.eachEnd(array, callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed**
+**sb.eachEnd(array, callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
 var list = ['a', 'b', 'c'];
-sb.eachEnd(list, function (res, i, next) {
-    console.log("res: " + res );
+sb.eachEnd(list, function (item, i, next) {
+    console.log("item: " + item );
     setTimeout(function () {
         next();
     }, 8000);
@@ -410,16 +422,22 @@ sb.eachEnd(list, function (res, i, next) {
 });
 ```
 ```
--> a // Wait 8 seconds;
--> b // Wait 8 seconds;
--> c // Wait 8 seconds;
+-> item: a // Wait 8 seconds;
+-> item: b // Wait 8 seconds;
+-> item: c // Wait 8 seconds;
+-> End
 ```
 
-**sb.times(number, callback(number)); Iterates function "number" times.**
+**sb.times(number, callback(iteration)); Iterates function "number" times.**
 ```javascript
-sb.times(10, function (iteration) {
+sb.times(3, function (iteration) {
         console.log("Abracadabra!");
 });
+```
+```
+-> Abracadabra!
+-> Abracadabra!
+-> Abracadabra!
 ```
 
 **Random number:**
