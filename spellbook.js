@@ -162,7 +162,7 @@ if (!Number.prototype.times) {
 		for (var i = 0; i < this; i++) {
 			callback()
 		}
-	}
+	};
 }
 
 if (!Number.prototype.isInteger) {
@@ -383,10 +383,61 @@ var Spellbook = function () {
 		words.splice(nwords, words.length-1);
 		return words.join(' ');
 	}
+
+
+
 };
 
 if (typeof process === 'object') {
 	module.exports = new Spellbook;
 } else {
+	Spellbook.prototype.get = function (url, callback) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', encodeURI(url));
+		xhr.onload = function() {
+    		if (xhr.status === 200) {
+    			callback(false, xhr.responseText);
+    		} else {
+        		callback("Request failed.  Returned status of " + status);
+    		}
+		};
+		xhr.send();
+	}
+
+	Spellbook.prototype.post = function (url, data, header, callback) {
+		function param(object) {
+    		var encodedString = '';
+    		for (var prop in object) {
+        		if (object.hasOwnProperty(prop)) {
+            		if (encodedString.length > 0) {
+                		encodedString += '&';
+            		}
+            		encodedString += encodeURI(prop + '=' + object[prop]);
+        		}
+    		}
+    		return encodedString;
+		}
+
+		if (typeof header === "function") {
+			callback = header;
+			header = "application/json";
+			var finaldata = JSON.stringify(data);
+		} else {
+			var finaldata = param(data);
+		}
+
+    	xhr = new XMLHttpRequest();
+		xhr.open('POST', encodeURI(url));
+		xhr.setRequestHeader('Content-Type', header);
+		xhr.onload = function() {
+    		if (xhr.status === 200 && xhr.responseText !== undefined) {
+        		callback(null, xhr.responseText);
+    		} else if (xhr.status !== 200) {
+        		callback('Request failed.  Returned status of ' + xhr.status);
+    		}
+		};
+		xhr.send(finaldata);
+	}
+
 	var sb = new Spellbook();
 }
