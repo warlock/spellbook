@@ -33,7 +33,6 @@ var sb = require("spellbook");
 var list = ['a', 2, 'c', 2];
 list.remove(2);
 ```
-
 ```
 -> ['a', 'c']
 ```
@@ -42,7 +41,6 @@ list.remove(2);
 var list = ['a', 2, 'c', 2];
 list.remove([2,'a']);
 ```
-
 ```
 -> ['c']
 ```
@@ -52,7 +50,6 @@ var date = new Date();
 var list = ['a', 'b', 1, '2', date];
 list.remove(['b', 1, date]);
 ```
-
 ```
 -> ['a', '2']
 ```
@@ -62,7 +59,6 @@ list.remove(['b', 1, date]);
 var list = ['a', 'b', 'c'];
 list.clear();
 ```
-
 ```
 -> []
 ```
@@ -72,7 +68,6 @@ list.clear();
 var list = ['a', 'b', 'c'];
 list.random();
 ```
-
 ```
 -> 'b'
 ```
@@ -82,7 +77,6 @@ list.random();
 var list = ['a', 'b', 'c'];
 list.shuffle();
 ```
-
 ```
 -> ['c', 'a', 'b']
 ```
@@ -92,7 +86,6 @@ list.shuffle();
 var list = ['a', 'b', 'c'];
 list.first();
 ```
-
 ```
 -> 'a'
 ```
@@ -102,27 +95,24 @@ list.first();
 var list = ['a', 'b', 'c'];
 list.last();
 ```
-
 ```
 -> 'c'
 ```
 
-**Array.inArray();**
+**Array.inArray(item);**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.inArray('b');
 ```
-
 ```
 -> true
 ```
 
-**Array.contains();**
+**Array.contains(item);**
 ```javascript
 var list = ['a', 'b', 'c'];
 list.contains('b');
 ```
-
 ```
 -> true
 ```
@@ -132,35 +122,32 @@ list.contains('b');
 var list = ['a', 'b', 'c'];
 list.isArray();
 ```
-
 ```
 -> true
 ```
 
-**Array.each();**
+**Array.each(interval, callback_loop(item, index), callback_end);**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(function (res, i) {
-    console.log("index: " + i +" res: " + res );
+list.each(function (item, i) {
+    console.log("index: " + i +" item: " + item );
 });
 ```
-
 ```
 -> a
 -> b
 -> c
 ```
 
-**Array.each(); With end function**
+**Array.each(interval, callback_loop(item, index), callback_end); With end function**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(function (res, i) {
-    console.log("res: " + res );
+list.each(function (item, i) {
+    console.log("item: " + item );
 }, function () {
     console.log("End");
 });
 ```
-
 ```
 -> a
 -> b
@@ -168,16 +155,15 @@ list.each(function (res, i) {
 -> End
 ```
 
-**Array.each(); Iteration with time interval and end function**
+**Array.each(interval, callback_loop(item, index), callback_end); Iteration with time interval and ending function**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(5000, function (res, i) {
-    console.log("res: " + res );
+list.each(5000, function (item, i) {
+    console.log("item: " + item );
 }, function () {
     console.log("End");
 });
 ```
-
 ```
 -> a // Wait 5 seconds
 -> b // Wait 5 seconds
@@ -185,19 +171,18 @@ list.each(5000, function (res, i) {
 -> End
 ```
 
-**Array.eachEnd(); Run next when the method "done" is executed.**
+**Array.eachEnd(callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.eachEnd(function (res, i, done) {
-    console.log("res: " + res );
+list.eachEnd(function (item, i, next) {
+    console.log("item: " + item );
     setTimeout(function () {
-        done();
+        next();
     }, 8000);
 }, function () {
     console.log("End");
 });
 ```
-
 ```
 -> a // Wait 8 seconds;
 -> b // Wait 8 seconds;
@@ -205,12 +190,11 @@ list.eachEnd(function (res, i, done) {
 -> End
 ```
 
-**Object.getKeys("key");**
+**Object.getKeys(keys);**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.getKeys("fire");
 ```
-
 ```
 -> {"fire": 5}
 ```
@@ -219,7 +203,6 @@ spells.getKeys("fire");
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.getKeys(["fire", "ice"]);
 ```
-
 ```
 -> {"fire": 5, "ice": 4}
 ```
@@ -230,17 +213,15 @@ var spells = {"fire": 5, "ice": 4};
 var newspells = {"electro": 6, "wind": 7};
 spells.extend(newspells);
 ```
-
 ```
 -> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
 ```
 
-**Object.remove("key");**
+**Object.remove(keys);**
 ```javascript
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.remove("fire");
 ```
-
 ```
 -> {"ice": 4, "electro": 6, "wind": 7}
 ```
@@ -249,7 +230,6 @@ spells.remove("fire");
 var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
 spells.remove(["fire", "ice"]);
 ```
-
 ```
 -> {"electro": 6, "wind": 7}
 ```
@@ -259,7 +239,6 @@ spells.remove(["fire", "ice"]);
 var list = ['a', 'b', 'c'];
 list.isObject();
 ```
-
 ```
 -> true
 ```
@@ -269,7 +248,6 @@ list.isObject();
 var boh = false;
 boh.isBoolean();
 ```
-
 ```
 -> true
 ```
@@ -279,7 +257,6 @@ boh.isBoolean();
 var fun = function () { return "hi"; };
 fun.isFunction();
 ```
-
 ```
 -> true
 ```
@@ -289,7 +266,6 @@ fun.isFunction();
 var talk = "hi!";
 talk.isString();
 ```
-
 ```
 -> true
 ```
@@ -298,18 +274,16 @@ talk.isString();
 ```javascript
 "hi".reatify(5);
 ```
-
 ```
 -> ['hi','hi','hi','hi','hi']
 ```
 
-**Number.times();**
+**(Number).times(callback(number)); Iterates function "number" times.**
 ```javascript
-(3).times(function () {
+(3).times(function (i) {
 	console.log("hi!");
 });
 ```
-
 ```
 -> hi!
 -> hi!
@@ -321,7 +295,6 @@ talk.isString();
 var num = 5.2;
 num.isNumber();
 ```
-
 ```
 -> true
 ```
@@ -331,7 +304,6 @@ num.isNumber();
 var num = 5;
 num.isInteger();
 ```
-
 ```
 -> true
 ```
@@ -342,7 +314,6 @@ num.isInteger();
 ```javascript
 sb.range(0,10);
 ```
-
 ```
 -> [0,1,2,3,4,5,6,7,8,9,10]
 ```
@@ -350,7 +321,6 @@ sb.range(0,10);
 ```javascript
 sb.range(-100,100,20);
 ```
-
 ```
 -> [-100,-80,-60,-40,-20,0,20,40,60,80,100]
 ```
@@ -358,7 +328,6 @@ sb.range(-100,100,20);
 ```javascript
 sb.range('A','F');
 ```
-
 ```
 -> ['A','B','C','D','E','F')
 ```
@@ -366,7 +335,6 @@ sb.range('A','F');
 ```javascript
 sb.range('m','r');
 ```
-
 ```
 -> ['m','n','o','p','q','r']
 ```
@@ -397,16 +365,15 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
-**Array iteration with end function**
+**sb.each(array, callback_loop(item, index), callback_end); Array iteration with time interval and end function**
 ```javascript
 var list = ['a', 'b', 'c'];
-sb.each(list, function (res) {
-    console.log("res: " + res );
+sb.each(list, function (item, i) {
+    console.log("item: " + item );
 }, function () {
     console.log("End");
 });
 ```
-
 ```
 -> a // Wait 5 seconds
 -> b // Wait 5 seconds
@@ -417,13 +384,12 @@ sb.each(list, function (res) {
 **Array iteration with time interval and end function**
 ```javascript
 var list = ['a', 'b', 'c'];
-sb.each(list, 5000, function (res) {
-    console.log("res: " + res );
+sb.each(list, 5000, function (item, i) {
+    console.log("item: " + item );
 }, function () {
     console.log("End");
 });
 ```
-
 ```
 -> a // Wait 5 seconds
 -> b // Wait 5 seconds
@@ -431,28 +397,27 @@ sb.each(list, 5000, function (res) {
 -> End
 ```
 
-**Run next when the method "done" is executed.**
+**sb.eachEnd(array, callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed**
 ```javascript
 var list = ['a', 'b', 'c'];
-sb.eachEnd(list, function (res, i, done) {
+sb.eachEnd(list, function (res, i, next) {
     console.log("res: " + res );
     setTimeout(function () {
-        done();
+        next();
     }, 8000);
 }, function () {
     console.log("End");
 });
 ```
-
 ```
 -> a // Wait 8 seconds;
 -> b // Wait 8 seconds;
 -> c // Wait 8 seconds;
 ```
 
-**Iterators:**
+**sb.times(number, callback(number)); Iterates function "number" times.**
 ```javascript
-sb.times(10, function () {
+sb.times(10, function (iteration) {
         console.log("Abracadabra!");
 });
 ```
@@ -461,7 +426,6 @@ sb.times(10, function () {
 ```javascript
 sb.random(5,10);
 ```
-
 ```
 -> 6
 ```
@@ -470,7 +434,6 @@ sb.random(5,10);
 ```javascript
 sb.checkDate('dd-mm-yyyy', '30/02/2015');
 ```
-
 ```
 -> false
 ```
@@ -479,7 +442,6 @@ sb.checkDate('dd-mm-yyyy', '30/02/2015');
 ```javascript
 sb.excerpt('One, two, Freddy\'s coming for you', 3);
 ```
-
 ```
 -> 'One, two, Freddy's'
 ```
@@ -499,7 +461,6 @@ sb.isBoolean(obj);
 >Perform an asynchronous HTTP (Ajax) request
 
 **sb.get(url, callback);**
-
 ```javascript
 sb.get("http://api:3000/api/clients", function (err, resp) {
     if (err) {
@@ -512,7 +473,6 @@ sb.get("http://api:3000/api/clients", function (err, resp) {
 ```
 
 **sb.post(url, object, [optional, default: "application/json"], callback);**
-
 ```javascript
 sb.post("http://api:3000/api/spells", { "name" : "fire", "dmg" : 5 }, function (err, resp) {
     if (err) {

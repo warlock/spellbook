@@ -158,9 +158,10 @@ if (!String.prototype.repeatify) {
 
 if (!Number.prototype.times) {
 	Number.prototype.times = function (callback) {
-		if (this % 1 === 0)
-		for (var i = 0; i < this; i++) {
-			callback()
+		if (this % 1 === 0) {
+			for (var i = 0; i < this; i++) {
+				callback(i)
+			}
 		}
 	};
 }
@@ -313,7 +314,7 @@ var Spellbook = function () {
 		if (typeof number === 'number' && number > 0) {
 			if ( typeof callback === 'function') {
 				for (var i = 0; i < number; i++) {
-					callback();
+					callback(i);
 				}
 			}
 		}
