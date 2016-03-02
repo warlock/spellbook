@@ -393,7 +393,7 @@ sb.each(list, function (item, i) {
 -> End
 ```
 
-**sb.each(array, interval, callback_loop(item, index), callback_end); Array iteration with ending function.**
+**sb.each(array, interval, callback_loop(item, index), callback_end); Iteration with time interval and ending function.**
 ```javascript
 var list = ['a', 'b', 'c'];
 sb.each(list, 5000, function (item, i) {
