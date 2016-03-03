@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Javascript tools and Class extensions",
   "main": "spellbook.js",
   "scripts": {
@@ -19,7 +19,11 @@
     "range",
     "util",
     "stdlib",
-    "modules"
+    "modules",
+    "async",
+    "each",
+    "promise",
+    "promises"
   ],
   "author": "Josep Subils Rigau <octozon@gmail.com> (http://octozon.com)",
   "license": "MIT",

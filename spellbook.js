@@ -356,6 +356,37 @@ var Spellbook = function () {
 		callback(array[i], i, done);
 	}
 
+	this.waterfall = function (callbacks, response) {
+		var i = 0;
+		var done = function (data, respdata) {
+			if (i < callbacks.length-1) {
+				i++;
+				if (data) {
+					if (data === true) {
+						if (typeof response === 'function') response(respdata);
+					} else {
+						callbacks[i](done, data);
+					}
+				} else {
+					callbacks[i](done);
+				}
+			} else {
+				if (typeof response === 'function') {
+					if (data) {
+						if (data === true) {
+							response(respdata);
+						} else {
+							response(data);
+						}
+					} else {
+						response();
+					}
+				}
+			}
+		}
+		if (callbacks instanceof Array) callbacks[i](done);
+	}
+
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
  		var delimiter = /[^mdy]/.exec(userFormat)[0];

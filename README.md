@@ -428,6 +428,48 @@ sb.eachEnd(list, function (item, i, next) {
 -> End
 ```
 
+**sb.waterfall(functions_array, callback_end); Runs next function when "done" method is executed.**
+```javascript
+sb.waterfall([
+    function (done) {
+        console.log("fire");
+        done(5);
+    },
+    function (done, data) {
+        console.log("ice: " + data);
+        done("win");
+    }
+], function (data) {
+    console.log("End: " + data);
+})
+```
+```
+-> fire
+-> ice: 5
+-> End: win
+```
+
+**sb.waterfall Break the fall with "true"**
+```javascript
+sb.waterfall([
+    function (done) {
+        console.log("fire");
+        done(true, 5);
+    },
+    function (done, data) {
+        console.log("ice: " + data);
+        done("win");
+    }
+], function (data) {
+    console.log("End: " + data);
+})
+```
+```
+-> fire
+-> End: 5
+```
+
+
 **sb.times(number, callback(iteration)); Iterates function "number" times.**
 ```javascript
 sb.times(3, function (iteration) {
