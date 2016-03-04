@@ -387,6 +387,19 @@ var Spellbook = function () {
 		if (callbacks instanceof Array) callbacks[i](done);
 	}
 
+	this.forever = function (callback, response) {
+		var check = false;
+		var done = function (data) {
+			check = true;
+			if (typeof response === 'function') {
+				response(data);
+			}
+		}
+		while (check === false) {
+			callback(done);
+		}
+	}
+
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
  		var delimiter = /[^mdy]/.exec(userFormat)[0];
@@ -415,9 +428,6 @@ var Spellbook = function () {
 		words.splice(nwords, words.length-1);
 		return words.join(' ');
 	}
-
-
-
 };
 
 if (typeof process === 'object') {

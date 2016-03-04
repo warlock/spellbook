@@ -469,6 +469,34 @@ sb.waterfall([
 -> End: 5
 ```
 
+**sb.forever Loops forever**
+```javascript
+sb.forever(function (done) {
+    console.log("Hi!")
+})
+```
+
+**sb.forever Loops forever and break the loop**
+```javascript
+var i = 0;
+sb.forever(function (done) {
+    console.log("loop: " + i);
+    if (i>=3) {
+        done("Now Break!!")
+    }
+    i++;
+}, function (data) {
+    console.log("Response: " + data);
+})
+```
+
+```
+-> loop: 0
+-> loop: 1
+-> loop: 2
+-> loop: 3
+-> Response: Now Break!!
+```
 
 **sb.times(number, callback(iteration)); Iterates function "number" times.**
 ```javascript
