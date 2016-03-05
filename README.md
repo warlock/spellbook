@@ -2,7 +2,7 @@ SpellBook
 ===
 > Library for extend the javascript habilities.
 
-http://warlock.github.io/spellbook
+http://www.spellbook.io
 
 http://npmjs.com/package/spellbook
 

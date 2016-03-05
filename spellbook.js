@@ -1,4 +1,4 @@
-/* Spellbook Class Extension */
+// http://www.spellbook.io
 if (!Array.prototype.remove) {
 	Array.prototype.remove = function (obj) {
 		var self = this;
@@ -186,8 +186,6 @@ if (!Boolean.prototype.isBoolean) {
 	};
 }
 
-
-/* Spellbook Utils */
 var Spellbook = function () {
 	this.test = function () {
 		return "Testing Spellbook";
