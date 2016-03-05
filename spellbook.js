@@ -69,18 +69,23 @@ if (!Array.prototype.contains) {
 if (!Array.prototype.each) {
 	Array.prototype.each = function (callback, response) {
 		var self = this;
+		var end = function (data) {
+			if (typeof response === 'function') {
+				response(data);
+			}
+		}
 		var i = 0;
 		var done = function () {
 			if (i < self.length -1) {
 				i++;
-				callback(self[i], i, done);
+				callback(self[i], i, done, end);
 			} else {
 				if (typeof response === 'function') {
 					response();
 				}
 			}
 		}
-		callback(self[i], i, done);
+		callback(self[i], i, done, end);
 	}
 }
 
@@ -301,14 +306,19 @@ var Spellbook = function () {
 		var done = function () {
 			if (i < array.length -1) {
 				i++;
-				callback(array[i], i, done);
+				callback(array[i], i, done, end);
 			} else {
 				if (typeof response === 'function') {
 					response();
 				}
 			}
 		}
-		callback(array[i], i, done);
+		var end = function (data) {
+			if (typeof response === 'function') {
+				response(data);
+			}
+		}
+		callback(array[i], i, done, end);
 	}
 
 	this.waterfall = function (callbacks, response) {
@@ -343,9 +353,7 @@ var Spellbook = function () {
 	}
 
 	this.forever = function (callback, response) {
-		var check = false;
 		var end = function (data) {
-			check = true;
 			if (typeof response === 'function') {
 				response(data);
 			}

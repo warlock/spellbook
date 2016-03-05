@@ -126,23 +126,49 @@ list.isArray();
 -> true
 ```
 
-**Array.each(callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
+**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(function (item, i, next) {
+list.each(function (item, i, next, end) {
     console.log("item: " + item );
     setTimeout(function () {
         next();
-    }, 8000);
+    }, 3000);
 }, function () {
     console.log("End");
 });
 ```
 ```
--> item: a // Wait 8 seconds;
--> item: b // Wait 8 seconds;
--> item: c // Wait 8 seconds;
+-> item: a // Wait 3 seconds;
+-> item: b // Wait 3 seconds;
+-> item: c // Wait 3 seconds;
 -> End
+```
+
+**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**
+```javascript
+var list = ['a', 'b', 'c'];
+list.each(function (item, i, next, end) {
+    console.log("item: " + item );
+    setTimeout(function () {
+        if (i === 1) {
+            end("Bye!");
+        } else {
+            next();
+        }
+    }, 3000);
+}, function (data) {
+    if (data) {
+        console.log("End: " + data);
+    } else {
+        console.log("End");
+    }
+});
+```
+```
+-> item: a // Wait 3 seconds;
+-> item: b // Wait 3 seconds;
+-> End: Bye!
 ```
 
 **Object.getKeys(keys);**
@@ -317,23 +343,49 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
-**sb.each(array, callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
+**sb.each(array, callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
 var list = ['a', 'b', 'c'];
-sb.each(list, function (item, i, next) {
+sb.each(list, function (item, i, next, end) {
     console.log("item: " + item );
     setTimeout(function () {
         next();
-    }, 8000);
+    }, 3000);
 }, function () {
     console.log("End");
 });
 ```
 ```
--> item: a // Wait 8 seconds;
--> item: b // Wait 8 seconds;
--> item: c // Wait 8 seconds;
+-> item: a // Wait 3 seconds;
+-> item: b // Wait 3 seconds;
+-> item: c // Wait 3 seconds;
 -> End
+```
+
+**sb.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**
+```javascript
+var list = ['a', 'b', 'c'];
+sb.each(list, function (item, i, next, end) {
+    console.log("item: " + item );
+    setTimeout(function () {
+        if (i === 1) {
+            end("Bye!");
+        } else {
+            next();
+        }
+    }, 3000);
+}, function (data) {
+    if (data) {
+        console.log("End: " + data);
+    } else {
+        console.log("End");
+    }
+});
+```
+```
+-> item: a // Wait 3 seconds;
+-> item: b // Wait 3 seconds;
+-> End: Bye!
 ```
 
 **sb.waterfall(functions_array, callback_end); Runs next function when "done" method is executed.**
