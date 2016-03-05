@@ -478,6 +478,11 @@ sb.forever(function (next, end) {
     }, 3000);
 });
 ```
+```
+-> Hi! // Wait 3 seconds;
+-> Hi! // Wait 3 seconds;
+-> ...
+``` 
 
 **sb.forever Loops forever and break the loop**
 ```javascript
@@ -497,10 +502,10 @@ sb.forever(function (next, end) {
 ```
 
 ```
--> loop: 0
--> loop: 1
--> loop: 2
--> loop: 3
+-> loop: 0 // Wait 3 seconds;
+-> loop: 1 // Wait 3 seconds;
+-> loop: 2 // Wait 3 seconds;
+-> loop: 3 // Wait 3 seconds;
 -> Response: Now Break!!
 ```
 
