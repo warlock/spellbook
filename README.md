@@ -441,7 +441,7 @@ sb.waterfall([
     }
 ], function (data) {
     console.log("End: " + data);
-})
+});
 ```
 ```
 -> fire
@@ -462,7 +462,7 @@ sb.waterfall([
     }
 ], function (data) {
     console.log("End: " + data);
-})
+});
 ```
 ```
 -> fire
@@ -471,23 +471,29 @@ sb.waterfall([
 
 **sb.forever Loops forever**
 ```javascript
-sb.forever(function (done) {
+sb.forever(function (next, end) {
     console.log("Hi!")
-})
+    setTimeout(function () {
+        next();
+    }, 3000);
+});
 ```
 
 **sb.forever Loops forever and break the loop**
 ```javascript
 var i = 0;
-sb.forever(function (done) {
+sb.forever(function (next, end) {
     console.log("loop: " + i);
     if (i>=3) {
-        done("Now Break!!")
+        end("Now Break!!")
     }
     i++;
+    setTimeout(function () {
+        next();
+    }, 3000);
 }, function (data) {
     console.log("Response: " + data);
-})
+});
 ```
 
 ```

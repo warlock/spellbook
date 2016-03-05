@@ -389,16 +389,18 @@ var Spellbook = function () {
 
 	this.forever = function (callback, response) {
 		var check = false;
-		var done = function (data) {
+		var end = function (data) {
 			check = true;
 			if (typeof response === 'function') {
 				response(data);
 			}
 		}
-		while (check === false) {
-			callback(done);
+		var next = function (data) {
+			callback(next, end);
 		}
+		callback(next, end);
 	}
+
 
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
