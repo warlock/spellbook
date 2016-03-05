@@ -126,55 +126,10 @@ list.isArray();
 -> true
 ```
 
-**Array.each(callback_loop(item, index)); Array iteration.**
+**Array.each(callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
 var list = ['a', 'b', 'c'];
-list.each(function (item, i) {
-    console.log("index: " + i +" item: " + item );
-});
-```
-```
--> item: a
--> item: b
--> item: c
-```
-
-**Array.each(callback_loop(item, index), callback_end); Array iteration with ending function.**
-```javascript
-var list = ['a', 'b', 'c'];
-list.each(function (item, i) {
-    console.log("item: " + item );
-}, function () {
-    console.log("End");
-});
-```
-```
--> item: a
--> item: b
--> item: c
--> End
-```
-
-**Array.each(interval, callback_loop(item, index), callback_end); Iteration with time interval and ending function.**
-```javascript
-var list = ['a', 'b', 'c'];
-list.each(5000, function (item, i) {
-    console.log("item: " + item );
-}, function () {
-    console.log("End");
-});
-```
-```
--> item: a // Wait 5 seconds
--> item: b // Wait 5 seconds
--> item: c
--> End
-```
-
-**Array.eachEnd(callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
-```javascript
-var list = ['a', 'b', 'c'];
-list.eachEnd(function (item, i, next) {
+list.each(function (item, i, next) {
     console.log("item: " + item );
     setTimeout(function () {
         next();
@@ -362,57 +317,10 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
-**sb.each(array, callback_loop(item, index)); Array iteration.**
+**sb.each(array, callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
 var list = ['a', 'b', 'c'];
-sb.each(list, function (item, i) {
-    console.log("item: " + item );
-}, function () {
-    console.log("End");
-});
-```
-```
--> item: a
--> item: b
--> item: c
-```
-
-**sb.each(array, callback_loop(item, index), callback_end); Array iteration with ending function.**
-```javascript
-var list = ['a', 'b', 'c'];
-sb.each(list, function (item, i) {
-    console.log("item: " + item );
-}, function () {
-    console.log("End");
-});
-```
-```
--> item: a
--> item: b
--> item: c
--> End
-```
-
-**sb.each(array, interval, callback_loop(item, index), callback_end); Iteration with time interval and ending function.**
-```javascript
-var list = ['a', 'b', 'c'];
-sb.each(list, 5000, function (item, i) {
-    console.log("item: " + item );
-}, function () {
-    console.log("End");
-});
-```
-```
--> item: a // Wait 5 seconds
--> item: b // Wait 5 seconds
--> item: c
--> End
-```
-
-**sb.eachEnd(array, callback_loop(item, index, next_method), callback_end); Runs next loop when "next" method is executed.**
-```javascript
-var list = ['a', 'b', 'c'];
-sb.eachEnd(list, function (item, i, next) {
+sb.each(list, function (item, i, next) {
     console.log("item: " + item );
     setTimeout(function () {
         next();

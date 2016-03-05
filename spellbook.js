@@ -67,31 +67,7 @@ if (!Array.prototype.contains) {
 }
 
 if (!Array.prototype.each) {
-	Array.prototype.each = function (interval, callback, response) {
-		var self = this;
-		var i = 0;
-		if (typeof interval !== "function" ) {
-			var inter = setInterval(function () {
-				callback(self[i], i);
-				i++;
-				if (i === self.length) {
-					clearInterval(inter);
-					if (typeof response === "function") response();
-				}
-			}, interval);
-		} else {
-			for (var i = 0; i < self.length; i++) {
-				interval(self[i], i);
-				if (typeof callback === "function") {
-					if (i === self.length - 1) callback();
-				}
-			}
-		}
-	}
-}
-
-if (!Array.prototype.eachEnd) {
-	Array.prototype.eachEnd = function (callback, response) {
+	Array.prototype.each = function (callback, response) {
 		var self = this;
 		var i = 0;
 		var done = function () {
@@ -320,28 +296,7 @@ var Spellbook = function () {
 		}
 	};
 
-	this.each = function (array, interval, callback, response) {
-		var i = 0;
-		if (typeof interval !== "function" ) {
-			var inter = setInterval(function () {
-				callback(array[i], i);
-				i++;
-				if (i === array.length) {
-					clearInterval(inter);
-					if (typeof response === "function") response();
-				}
-			}, interval);
-		} else {
-			for (var i = 0; i < array.length; i++) {
-				interval(array[i], i);
-				if (typeof callback === "function") {
-					if (i === array.length - 1) callback();
-				}
-			}
-		}
-	}
-
-	this.eachEnd = function (array, callback, response) {
+	this.each = function (array, callback, response) {
 		var i = 0;
 		var done = function () {
 			if (i < array.length -1) {
