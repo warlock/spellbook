@@ -11,6 +11,11 @@ http://npmjs.com/package/spellbook
 npm install spellbook
 ```
 
+## MINIFIED CDN
+```
+http://cdn.spellbook.io/spellbook.js
+```
+
 ## Node.Js : Import module:
 ```javascript
 var sb = require("spellbook");
