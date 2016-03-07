@@ -362,6 +362,23 @@ var Spellbook = function () {
 		callback(next, end);
 	}
 
+	this.get =  function (obj, route) {
+    	if (typeof route === "string") {
+        	route = route.split(".");
+        	if (route.length === 1 ) {
+            	return obj[route[0]];
+        	} else {
+            	for (var i = 0; i < route.length; i++) {
+                	if (obj[route[i]] !== undefined) {
+                    	obj = obj[route[i]];
+                	} else {
+                    return undefined;
+                	}
+            	}
+            	return obj;
+        	}
+    	}
+	}
 
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
