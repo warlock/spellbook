@@ -348,6 +348,20 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
+**Get the element from the object "obj"**
+```
+var a = {
+    a : {
+        b : ["c", "d"]
+    }
+}
+
+sb.get(a, "a.b.1");
+```
+```
+-> d
+```
+
 **sb.each(array, callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
 var list = ['a', 'b', 'c'];
@@ -526,7 +540,7 @@ sb.isBoolean(obj);
 
 **sb.getRequest(url, callback);**
 ```javascript
-sb.get("http://api:3000/api/clients", function (err, resp) {
+sb.getRequest("http://api:3000/api/clients", function (err, resp) {
     if (err) {
         console.log(err);
     } else {
@@ -538,7 +552,7 @@ sb.get("http://api:3000/api/clients", function (err, resp) {
 
 **sb.postRequest(url, object, [optional, default: "application/json"], callback);**
 ```javascript
-sb.post("http://api:3000/api/spells", { "name" : "fire", "dmg" : 5 }, function (err, resp) {
+sb.postRequest("http://api:3000/api/spells", { "name" : "fire", "dmg" : 5 }, function (err, resp) {
     if (err) {
         console.log(err);
     } else {
