@@ -348,7 +348,7 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
-**Get the element from the object "obj"**
+**Get the element from the object "obj":**
 ```javascript
 var a = {
     a : {
