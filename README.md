@@ -524,7 +524,7 @@ sb.isBoolean(obj);
 ## ONLY LOAD IN NAVIGATOR
 >Perform an asynchronous HTTP (Ajax) request
 
-**sb.get(url, callback);**
+**sb.getRequest(url, callback);**
 ```javascript
 sb.get("http://api:3000/api/clients", function (err, resp) {
     if (err) {
@@ -536,7 +536,7 @@ sb.get("http://api:3000/api/clients", function (err, resp) {
 
 ```
 
-**sb.post(url, object, [optional, default: "application/json"], callback);**
+**sb.postRequest(url, object, [optional, default: "application/json"], callback);**
 ```javascript
 sb.post("http://api:3000/api/spells", { "name" : "fire", "dmg" : 5 }, function (err, resp) {
     if (err) {

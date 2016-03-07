@@ -413,7 +413,7 @@ var Spellbook = function () {
 if (typeof process === 'object') {
 	module.exports = new Spellbook;
 } else {
-	Spellbook.prototype.get = function (url, callback) {
+	Spellbook.prototype.getRequest = function (url, callback) {
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', encodeURI(url));
 		xhr.onload = function() {
@@ -426,7 +426,7 @@ if (typeof process === 'object') {
 		xhr.send();
 	}
 
-	Spellbook.prototype.post = function (url, data, header, callback) {
+	Spellbook.prototype.postRequest = function (url, data, header, callback) {
 		function param(object) {
     		var encodedString = '';
     		for (var prop in object) {
