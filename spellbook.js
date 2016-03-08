@@ -363,10 +363,10 @@ var Spellbook = function () {
 	}
 
 	this.get =  function (obj, route) {
-    	if (typeof route === "string") {
+    	if (obj !== undefined && typeof route === "string") {
         	route = route.split(".");
         	if (route.length === 1 ) {
-            	return obj[route[0]];
+            	return obj[0];
         	} else {
             	for (var i = 0; i < route.length; i++) {
                 	if (obj[route[i]] !== undefined) {
@@ -377,6 +377,8 @@ var Spellbook = function () {
             	}
             	return obj;
         	}
+    	} else {
+    		return undefined;
     	}
 	}
 
