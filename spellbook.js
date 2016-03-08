@@ -372,7 +372,7 @@ var Spellbook = function () {
                 	if (obj[route[i]] !== undefined) {
                     	obj = obj[route[i]];
                 	} else {
-                    return undefined;
+                    	return undefined;
                 	}
             	}
             	return obj;
