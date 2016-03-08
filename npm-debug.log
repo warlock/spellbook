@@ -1,0 +1,113 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.6.0
+3 info using node@v5.7.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/josep/Documentos/node/spellbook',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /root/.npm/spellbook/0.0.37/package.tgz not in flight; packing
+9 verbose correctMkdir /root/.npm correctMkdir not in flight; initializing
+10 info lifecycle spellbook@0.0.37~prepublish: spellbook@0.0.37
+11 silly lifecycle spellbook@0.0.37~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/root/.npm/spellbook/0.0.37/package.tgz',
+12 verbose tar pack   '/home/josep/Documentos/node/spellbook' ]
+13 verbose tarball /root/.npm/spellbook/0.0.37/package.tgz
+14 verbose folder /home/josep/Documentos/node/spellbook
+15 verbose addLocalTarball adding from inside cache /root/.npm/spellbook/0.0.37/package.tgz
+16 verbose correctMkdir /root/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd spellbook@0.0.37
+18 verbose afterAdd /root/.npm/spellbook/0.0.37/package/package.json not in flight; writing
+19 verbose correctMkdir /root/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /root/.npm/spellbook/0.0.37/package/package.json written
+21 silly publish { name: 'spellbook',
+21 silly publish   version: '0.0.37',
+21 silly publish   description: 'Javascript tools and Class extensions',
+21 silly publish   main: 'spellbook.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/warlock/spellbook.git' },
+21 silly publish   keywords:
+21 silly publish    [ 'spellbook',
+21 silly publish      'extension',
+21 silly publish      'javascript',
+21 silly publish      'array',
+21 silly publish      'object',
+21 silly publish      'range',
+21 silly publish      'util',
+21 silly publish      'stdlib',
+21 silly publish      'modules',
+21 silly publish      'async',
+21 silly publish      'each',
+21 silly publish      'promise',
+21 silly publish      'promises' ],
+21 silly publish   author:
+21 silly publish    { name: 'Josep Subils Rigau',
+21 silly publish      email: 'octozon@gmail.com',
+21 silly publish      url: 'http://octozon.com' },
+21 silly publish   license: 'MIT',
+21 silly publish   bugs: { url: 'https://github.com/warlock/spellbook/issues' },
+21 silly publish   homepage: 'http://www.spellbook.io',
+21 silly publish   readme: 'SpellBook\n===\n> Library for extend the javascript habilities.\n\nhttp://www.spellbook.io\n\nhttp://npmjs.com/package/spellbook\n\n## INSTALL/DOWNLOAD\n```sh\nnpm install spellbook\n```\n\n## MINIFIED CDN\n```\nhttp://cdn.spellbook.io/spellbook.js\n```\n\n## Node.Js : Import module:\n```javascript\nvar sb = require("spellbook");\n```\n\n## Web : Import module:\n```html\n<script src="spellbook/spellbook.js"></script>\n<script>\n  console.log(sb.range(5,10));\n</script>\n```\n\n## CLASS EXTENSION\n>Existing class methods will be ignored\n\n**Array.remove(obj);**\n\n```javascript\nvar list = [\'a\', 2, \'c\', 2];\nlist.remove(2);\n```\n```\n-> [\'a\', \'c\']\n```\n\n```javascript \nvar list = [\'a\', 2, \'c\', 2];\nlist.remove([2,\'a\']);\n```\n```\n-> [\'c\']\n```\n\n```javascript\nvar date = new Date();\nvar list = [\'a\', \'b\', 1, \'2\', date];\nlist.remove([\'b\', 1, date]);\n```\n```\n-> [\'a\', \'2\']\n```\n\n**Array.clear();**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.clear();\n```\n```\n-> []\n```\n\n**Array.random();**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.random();\n```\n```\n-> \'b\'\n```\n\n**Array.shuffle();**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.shuffle();\n```\n```\n-> [\'c\', \'a\', \'b\']\n```\n\n**Array.first();**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.first();\n```\n```\n-> \'a\'\n```\n\n**Array.last();**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.last();\n```\n```\n-> \'c\'\n```\n\n**Array.inArray(item);**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.inArray(\'b\');\n```\n```\n-> true\n```\n\n**Array.contains(item);**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.contains(\'b\');\n```\n```\n-> true\n```\n\n**Array.isArray();**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.isArray();\n```\n```\n-> true\n```\n\n**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.each(function (item, i, next, end) {\n    console.log("item: " + item );\n    setTimeout(function () {\n        next();\n    }, 3000);\n}, function () {\n    console.log("End");\n});\n```\n```\n-> item: a // Wait 3 seconds;\n-> item: b // Wait 3 seconds;\n-> item: c // Wait 3 seconds;\n-> End\n```\n\n**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.each(function (item, i, next, end) {\n    console.log("item: " + item );\n    setTimeout(function () {\n        if (i === 1) {\n            end("Bye!");\n        } else {\n            next();\n        }\n    }, 3000);\n}, function (data) {\n    if (data) {\n        console.log("End: " + data);\n    } else {\n        console.log("End");\n    }\n});\n```\n```\n-> item: a // Wait 3 seconds;\n-> item: b // Wait 3 seconds;\n-> End: Bye!\n```\n\n**Object.getKeys(keys);**\n```javascript\nvar spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};\nspells.getKeys("fire");\n```\n```\n-> {"fire": 5}\n```\n\n```javascript\nvar spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};\nspells.getKeys(["fire", "ice"]);\n```\n```\n-> {"fire": 5, "ice": 4}\n```\n\n**Object.extend(obj);**\n```javascript\nvar spells = {"fire": 5, "ice": 4};\nvar newspells = {"electro": 6, "wind": 7};\nspells.extend(newspells);\n```\n```\n-> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}\n```\n\n**Object.remove(keys);**\n```javascript\nvar spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};\nspells.remove("fire");\n```\n```\n-> {"ice": 4, "electro": 6, "wind": 7}\n```\n\n```javascript\nvar spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};\nspells.remove(["fire", "ice"]);\n```\n```\n-> {"electro": 6, "wind": 7}\n```\n\n**Object.isObject();**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nlist.isObject();\n```\n```\n-> true\n```\n\n**Boolean.isBoolean();**\n```javascript\nvar boh = false;\nboh.isBoolean();\n```\n```\n-> true\n```\n\n**Function.isFunction();**\n```javascript\nvar fun = function () { return "hi"; };\nfun.isFunction();\n```\n```\n-> true\n```\n\n**String.isString();**\n```javascript\nvar talk = "hi!";\ntalk.isString();\n```\n```\n-> true\n```\n\n**String.repeatify(num);**\n```javascript\n"hi".reatify(5);\n```\n```\n-> [\'hi\',\'hi\',\'hi\',\'hi\',\'hi\']\n```\n\n**(Number).times(callback(iteration)); Iterates function "number" times.**\n```javascript\n(3).times(function (i) {\n\tconsole.log("hi!");\n});\n```\n```\n-> hi!\n-> hi!\n-> hi!\n```\n\n**Number.isNumber();**\n```javascript\nvar num = 5.2;\nnum.isNumber();\n```\n```\n-> true\n```\n\n**Number.isInteger();**\n```javascript\nvar num = 5;\nnum.isInteger();\n```\n```\n-> true\n```\n\n## TOOLS:\n\n**Range:**\n```javascript\nsb.range(0,10);\n```\n```\n-> [0,1,2,3,4,5,6,7,8,9,10]\n```\n\n```javascript\nsb.range(-100,100,20);\n```\n```\n-> [-100,-80,-60,-40,-20,0,20,40,60,80,100]\n```\n\n```javascript\nsb.range(\'A\',\'F\');\n```\n```\n-> [\'A\',\'B\',\'C\',\'D\',\'E\',\'F\')\n```\n\n```javascript\nsb.range(\'m\',\'r\');\n```\n```\n-> [\'m\',\'n\',\'o\',\'p\',\'q\',\'r\']\n```\n\n**Clone Object in javascript ES5 with ES6 style:**\n```javascript\nvar NewObject = sb.assing(obj);\nvar NewObject = sb.clone(obj);\n```\n\n**Remove Objects from Array:**\n```javascript\nsb.remove(array, obj);\nsb.remove(array, [obj1, obj2]);\n```\n\n**Clear all values from Array:**\n```javascript\nsb.clear(array);\n```\n\n**Find Objects from Array:**\n```javascript\nsb.contains(array, obj);\nsb.inArray(array, obj);\n```\n\n**Get the element from the object "obj":**\n```javascript\nvar a = {\n    a : {\n        b : ["c", "d"]\n    }\n};\n\nsb.get(a, "a.b.1");\n```\n```\n-> d\n```\n\n**sb.each(array, callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nsb.each(list, function (item, i, next, end) {\n    console.log("item: " + item );\n    setTimeout(function () {\n        next();\n    }, 3000);\n}, function () {\n    console.log("End");\n});\n```\n```\n-> item: a // Wait 3 seconds;\n-> item: b // Wait 3 seconds;\n-> item: c // Wait 3 seconds;\n-> End\n```\n\n**sb.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**\n```javascript\nvar list = [\'a\', \'b\', \'c\'];\nsb.each(list, function (item, i, next, end) {\n    console.log("item: " + item );\n    setTimeout(function () {\n        if (i === 1) {\n            end("Bye!");\n        } else {\n            next();\n        }\n    }, 3000);\n}, function (data) {\n    if (data) {\n        console.log("End: " + data);\n    } else {\n        console.log("End");\n    }\n});\n```\n```\n-> item: a // Wait 3 seconds;\n-> item: b // Wait 3 seconds;\n-> End: Bye!\n```\n\n**sb.waterfall(functions_array, callback_end); Runs next function when "done" method is executed.**\n```javascript\nsb.waterfall([\n    function (done) {\n        console.log("fire");\n        done(5);\n    },\n    function (done, data) {\n        console.log("ice: " + data);\n        done("win");\n    }\n], function (data) {\n    console.log("End: " + data);\n});\n```\n```\n-> fire\n-> ice: 5\n-> End: win\n```\n\n**sb.waterfall Break the fall with "true"**\n```javascript\nsb.waterfall([\n    function (done) {\n        console.log("fire");\n        done(true, 5);\n    },\n    function (done, data) {\n        console.log("ice: " + data);\n        done("win");\n    }\n], function (data) {\n    console.log("End: " + data);\n});\n```\n```\n-> fire\n-> End: 5\n```\n\n**sb.forever Loops forever**\n```javascript\nsb.forever(function (next, end) {\n    console.log("Hi!")\n    setTimeout(function () {\n        next();\n    }, 3000);\n});\n```\n```\n-> Hi! // Wait 3 seconds;\n-> Hi! // Wait 3 seconds;\n-> ...\n``` \n\n**sb.forever Loops forever and break the loop**\n```javascript\nvar i = 0;\nsb.forever(function (next, end) {\n    console.log("loop: " + i);\n    if (i>=3) {\n        end("Now Break!!")\n    }\n    i++;\n    setTimeout(function () {\n        next();\n    }, 3000);\n}, function (data) {\n    console.log("Response: " + data);\n});\n```\n\n```\n-> loop: 0 // Wait 3 seconds;\n-> loop: 1 // Wait 3 seconds;\n-> loop: 2 // Wait 3 seconds;\n-> loop: 3 // Wait 3 seconds;\n-> Response: Now Break!!\n```\n\n**sb.times(number, callback(iteration)); Iterates function "number" times.**\n```javascript\nsb.times(3, function (iteration) {\n        console.log("Abracadabra!");\n});\n```\n```\n-> Abracadabra!\n-> Abracadabra!\n-> Abracadabra!\n```\n\n**Random number:**\n```javascript\nsb.random(5,10);\n```\n```\n-> 6\n```\n\n**Real date validator:**\n```javascript\nsb.checkDate(\'dd-mm-yyyy\', \'30/02/2015\');\n```\n```\n-> false\n```\n\n**Limit of words:**\n```javascript\nsb.excerpt(\'One, two, Freddy\\\'s coming for you\', 3);\n```\n```\n-> \'One, two, Freddy\'s\'\n```\n\n**Class boolean check:**\n```javascript\nsb.isFunction(obj);\nsb.isArray(obj);\nsb.isObject(obj);\nsb.isNumber(obj);\nsb.isInteger(obj);\nsb.isString(obj);\nsb.isBoolean(obj);\n```\n\n## ONLY LOAD IN NAVIGATOR\n>Perform an asynchronous HTTP (Ajax) request\n\n**sb.getRequest(url, callback);**\n```javascript\nsb.getRequest("http://api:3000/api/clients", function (err, resp) {\n    if (err) {\n        console.log(err);\n    } else {\n        console.log(resp);\n    }\n});\n\n```\n\n**sb.postRequest(url, object, [optional, default: "application/json"], callback);**\n```javascript\nsb.postRequest("http://api:3000/api/spells", { "name" : "fire", "dmg" : 5 }, function (err, resp) {\n    if (err) {\n        console.log(err);\n    } else {\n        console.log(resp);\n    }\n});\n\n```\n\n## License\nAll the code here is under MIT license. Which means you could do virtually anything with the code.\nI will appreciate it very much if you keep an attribution where appropriate.\n\nThe MIT License (MIT)\nCopyright (c) 2015 Josep Subils Rigau (josep@java.cat)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'd5c3c195ba369750ab794f11d182e6fc4d2746a5',
+21 silly publish   _id: 'spellbook@0.0.37',
+21 silly publish   _shasum: 'f9f6681839b4024036455d660313c99378450974',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name spellbook
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/spellbook
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /root/.npm/spellbook/0.0.37/package.tgz
+29 verbose request uri https://registry.npmjs.org/spellbook
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 12:59:11
+32 verbose request using bearer token for auth
+33 verbose request id 0d8212ff6795b01b
+34 http request PUT https://registry.npmjs.org/spellbook
+35 http 403 https://registry.npmjs.org/spellbook
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '96',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Tue, 08 Mar 2016 11:59:13 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-lcy1122-LCY',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1457438352.053160,VS0,VE1476' }
+37 verbose request invalidating /root/.npm/registry.npmjs.org/spellbook on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 0.0.37." : spellbook
+39 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+39 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+39 verbose stack     at emitTwo (events.js:100:13)
+39 verbose stack     at Request.emit (events.js:185:7)
+39 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1035:10)
+39 verbose stack     at emitOne (events.js:95:20)
+39 verbose stack     at Request.emit (events.js:182:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:962:12)
+40 verbose statusCode 403
+41 verbose pkgid spellbook
+42 verbose cwd /home/josep/Documentos/node/spellbook
+43 error Linux 4.2.0-27-generic
+44 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+45 error node v5.7.1
+46 error npm  v3.6.0
+47 error code E403
+48 error "You cannot publish over the previously published version 0.0.37." : spellbook
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]

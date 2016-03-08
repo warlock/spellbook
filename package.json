@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "Javascript tools and Class extensions",
   "main": "spellbook.js",
   "scripts": {
