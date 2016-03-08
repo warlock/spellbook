@@ -366,7 +366,7 @@ var Spellbook = function () {
     	if (obj !== undefined && typeof route === "string") {
         	route = route.split(".");
         	if (route.length === 1 ) {
-            	return obj[0];
+            	return obj[route[0]];
         	} else {
             	for (var i = 0; i < route.length; i++) {
                 	if (obj[route[i]] !== undefined) {
