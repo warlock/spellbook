@@ -382,12 +382,11 @@ var Spellbook = function () {
     	}
 	}
 
-
 	this.parallel = function (callbacks, response) {
         var it = 0;
         var data = [];
         var done = function (gdata) {
-        	if (gdata) data.push(gdata);
+                if (gdata) data.push(gdata);
             if (it < callbacks.length -1) {
                 it++;
             } else {
@@ -408,8 +407,7 @@ var Spellbook = function () {
                 async(i);
             }
         }
-	}
-
+    }
 
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
