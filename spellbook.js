@@ -382,6 +382,35 @@ var Spellbook = function () {
     	}
 	}
 
+
+	this.parallel = function (callbacks, response) {
+        var it = 0;
+        var data = [];
+        var done = function (gdata) {
+        	if (gdata) data.push(gdata);
+            if (it < callbacks.length -1) {
+                it++;
+            } else {
+                if (typeof response === 'function') {
+                    response(data);
+                }
+            }
+        };
+
+        var async = function (ix) {
+            setTimeout(function () {
+                callbacks[ix](done);
+            }, 0);
+        };
+
+        if (callbacks instanceof Array) {
+            for (var i = 0; i < callbacks.length; i++) {
+                async(i);
+            }
+        }
+	}
+
+
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
  		var delimiter = /[^mdy]/.exec(userFormat)[0];

@@ -429,7 +429,7 @@ sb.waterfall([
 -> End: win
 ```
 
-**sb.waterfall Break the fall with "true"**
+**sb.waterfall(array_functions(done, data), callback_end); Break the fall with "true".**
 ```javascript
 sb.waterfall([
     function (done) {
@@ -449,7 +449,41 @@ sb.waterfall([
 -> End: 5
 ```
 
-**sb.forever Loops forever**
+
+**sb.parallel(array_functions(done), callback_end(data)); Run functions in parallel and then execute "callback_end".**
+```javascript
+sb.parallel([
+    function (done) {
+        setTimeout(function () {
+            console.log("hi 3!");
+            done("a")
+        }, 3000);
+    },
+    function (done) {
+        setTimeout(function () {
+            console.log("hi 2!");
+            done("b");
+        }, 2000);
+    },
+    function (done) {
+        setTimeout(function () {
+            console.log("hi 1!");
+            done("c");
+        }, 1000);
+    }
+],function (data) {
+        console.log("End: " + JSON.stringify(data));
+});
+```
+```
+//Wait 1 second
+-> hi 1! //Wait 1 second
+-> hi 2! //Wait 1 second
+-> hi 3!
+-> End: ["c","b","a"]
+```
+
+**sb.forever(callback(next, end), callback_end); Loops forever.**
 ```javascript
 sb.forever(function (next, end) {
     console.log("Hi!")
@@ -462,9 +496,9 @@ sb.forever(function (next, end) {
 -> Hi! // Wait 3 seconds;
 -> Hi! // Wait 3 seconds;
 -> ...
-``` 
+```
 
-**sb.forever Loops forever and break the loop**
+**sb.forever(callback(next, end), callback_end); Loops forever and break the loop.**
 ```javascript
 var i = 0;
 sb.forever(function (next, end) {
@@ -480,7 +514,6 @@ sb.forever(function (next, end) {
     console.log("Response: " + data);
 });
 ```
-
 ```
 -> loop: 0 // Wait 3 seconds;
 -> loop: 1 // Wait 3 seconds;
