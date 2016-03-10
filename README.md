@@ -480,7 +480,7 @@ sb.parallel([
 -> hi 1! //Wait 1 second
 -> hi 2! //Wait 1 second
 -> hi 3!
--> End: ["c","b","a"]
+-> End: ["a","b","c"]
 ```
 
 **sb.forever(callback(next, end), callback_end); Loops forever.**
