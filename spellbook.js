@@ -481,7 +481,7 @@ if (typeof process === 'object') {
 			var finaldata = param(data);
 		}
 
-    	xhr = new XMLHttpRequest();
+    	var xhr = new XMLHttpRequest();
 		xhr.open('POST', encodeURI(url));
 		xhr.setRequestHeader('Content-Type', header);
 		xhr.onload = function() {
