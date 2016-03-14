@@ -569,32 +569,6 @@ sb.isString(obj);
 sb.isBoolean(obj);
 ```
 
-## ONLY LOAD IN NAVIGATOR
->Perform an asynchronous HTTP (Ajax) request
-
-**sb.ajax.get(url, callback);**
-```javascript
-sb.ajax.get("http://api:3000/api/clients", function (err, resp) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(resp);
-    }
-});
-
-```
-
-**sb.ajax.post(url, object, [optional, default: "application/json"], callback);**
-```javascript
-sb.ajax.post("http://api:3000/api/spells", { "name" : "fire", "dmg" : 5 }, function (err, resp) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(resp);
-    }
-});
-
-```
 
 ## License
 All the code here is under MIT license. Which means you could do virtually anything with the code.

@@ -484,6 +484,7 @@ if (typeof process === 'object') {
     	var xhr = new XMLHttpRequest();
 		xhr.open('POST', encodeURI(url));
 		xhr.setRequestHeader('Content-Type', header);
+		xhr.send(finaldata);
 		xhr.onload = function() {
     		if (xhr.status === 200 && xhr.responseText !== undefined) {
         		callback(null, xhr.responseText);
@@ -491,7 +492,6 @@ if (typeof process === 'object') {
         		callback('Request failed.  Returned status of ' + xhr.status);
     		}
 		};
-		xhr.send(finaldata);
 	}
 
 	var sb = new Spellbook();
