@@ -410,6 +410,39 @@ var Spellbook = function () {
         }
     }
 
+	this.parallelLimit = function (limit, callbacks, response) {
+		var it = 0;
+		var to = callbacks.length;
+		var data = [];
+		var async = function (ix) {
+			setTimeout(function () {
+				callbacks[ix](done);
+			}, 0);
+
+			var done = function (gdata) {
+				to--;
+				if (gdata) data[ix] = gdata;
+				if (it !== callbacks.length) {
+					async(it);
+					it++;
+				} else {
+					if (to === 0) {
+						if (typeof response === 'function') {
+							response(data);
+						}
+					}
+				}
+			}
+		}
+
+		if (callbacks instanceof Array) {
+			for (var i = 0; i < limit; i++) {
+				async(i);
+				it++;
+			}
+		}
+	}
+
 
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy';
