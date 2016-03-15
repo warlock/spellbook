@@ -13,8 +13,9 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-http://cdn.spellbook.io/spellbook.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.44/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
+http://cdn.spellbook.io/spellbook.js
 ```
 
 ## Node.Js : Import module:
