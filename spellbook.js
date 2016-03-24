@@ -422,6 +422,7 @@ var Spellbook = function() {
 		}
 
 		if (array instanceof Array) {
+			if (limit > array.length) limit =  array.length;
 			for (var i = 0; i < limit; i++) {
 				async(array[i], i);
 				it++;
