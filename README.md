@@ -409,6 +409,26 @@ sb.each(list, function (item, i, next, end) {
 -> End: Bye!
 ```
 
+**sb.eachParallelLimit(array, number_limit, callback_loop(item, index, next_method), callback_end); Runs in parallel limit and next loop when "next" method is executed. Alternative names: eachpl, epl.**
+```javascript
+var list = ['a', 'b', 'c', 'd'];
+sb.eachpl(list, 2, function (item, i, next) {
+    console.log("item: " + item );
+    setTimeout(function () {
+        next();
+    }, 2000);
+}, function () {
+    console.log("End");
+});
+```
+```
+-> item: a
+-> item: b
+-> item: c // Next to start when next method executed;
+-> item: d // Next to start when next method executed;
+-> End
+```
+
 **sb.waterfall(functions_array, callback_end); Runs next function when "done" method is executed.**
 ```javascript
 sb.waterfall([
