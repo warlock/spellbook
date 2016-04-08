@@ -283,16 +283,20 @@ var Spellbook = function() {
 
 	this.each = function(array, callback, response) {
 		var i = 0;
+
 		var done = function() {
-			if (i < array.length -1) {
-				i++;
-				callback(array[i], i, done, end);
-			} else if (typeof response === 'function') response();
+			if (i < array.length) {
+				i++
+				callback(array[i], i, done, end)
+			} else if (typeof response === 'function') response()
 		}
+
 		var end = function(data) {
-			if (typeof response === 'function') response(data);
+			if (typeof response === 'function') response(data)
 		}
-		callback(array[i], i, done, end);
+
+		if (i < array.length) done()
+		else if (typeof response === 'function') response()
 	}
 
 	this.waterfall = function(callbacks, response) {
@@ -421,13 +425,13 @@ var Spellbook = function() {
 			}
 		}
 
-		if (array instanceof Array) {
+		if (array instanceof Array && array.length > 0) {
 			if (limit > array.length) limit =  array.length;
 			for (var i = 0; i < limit; i++) {
 				async(array[i], i);
 				it++;
 			}
-		}
+		} else if ( typeof response === 'function') response(data)
 	}
 
 
