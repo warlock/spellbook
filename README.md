@@ -13,7 +13,7 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.52/spellbook.min.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.54/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
 http://cdn.spellbook.io/spellbook.js
@@ -257,6 +257,15 @@ talk.isString();
 ```
 ```
 -> true
+```
+
+**String.capitalize();**
+```javascript
+var spell = "abracadabra";
+spell.capitalize();
+```
+```
+-> Abracadabra
 ```
 
 **String.repeatify(num);**
@@ -592,6 +601,30 @@ sb.times(3, function (iteration) {
 -> Abracadabra!
 -> Abracadabra!
 -> Abracadabra!
+```
+
+**sb.forSync(initial_value, final_value, incremental_value, callback(index, next, end), callback_end(data))**
+```javascript
+sb.forSync(0, 10, 1, function (index, next, end) {
+    console.log(index)
+    next(5)
+}, function (data) {
+    console.log(data)
+})
+```
+```
+-> 0
+-> 1
+-> 2
+-> 3
+-> 4
+-> 5
+-> 6
+-> 7
+-> 8
+-> 9
+-> 10
+-> [ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
 ```
 
 **Random number:**

@@ -161,6 +161,12 @@ if (!Object.prototype.isObject) {
 	}
 }
 
+if (!String.prototype.capitalize) {
+	String.prototype.capitalize = function() {
+		return this.charAt(0).toUpperCase() + this.slice(1)
+	}
+}
+
 if (!String.prototype.isString) {
 	this.isString = function() {
     	return typeof this === "string" || this instanceof String
@@ -422,6 +428,18 @@ var Spellbook = function() {
 		} else if ( typeof response === 'function') response(data)
 	}
 
+	this.forSync = function (ini, fin, inc, callback, end) {
+		var store = []
+		var done = function (data) {
+			store.push(data)
+			if (ini < fin) {
+				ini = ini + inc
+				callback(ini, done, end)
+			} else if (typeof end === 'function') end(store)
+		}
+		callback(ini, done, end)
+	}
+
 
 	this.checkDate = function(value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy'
@@ -456,6 +474,10 @@ var Spellbook = function() {
 		return (data === null || data === "" || data === undefined)
 	}
 
+	this.capitalize = function (data) {
+		return data.charAt(0).toUpperCase() + data.slice(1)
+	}
+	
 	this.cp = function (source, target) {
     	return new Promise(function (resolve, reject) {
         	var rd = fs.createReadStream(source)
