@@ -635,6 +635,14 @@ sb.random(5,10);
 -> 6
 ```
 
+**sb.capitalize();**
+```javascript
+sb.capitalize("abracadabra");
+```
+```
+-> Abracadabra
+```
+
 **Real date validator:**
 ```javascript
 sb.checkDate('dd-mm-yyyy', '30/02/2015');
