@@ -686,7 +686,7 @@ sb.isBoolean(obj);
 
 ```javascript
 sb.cp("file.txt", "copyfile.txt")
-.then(function () {
+.then(function (res) {
     console.log("OK");
 })
 .catch(function (err) {
