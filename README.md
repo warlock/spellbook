@@ -694,6 +694,7 @@ sb.cp("file.txt", "copyfile.txt")
 })
 ```
 
+[![NPM](https://nodei.co/npm/spellbook.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/spellbook/)
 
 ## License
 All the code here is under MIT license. Which means you could do virtually anything with the code.
