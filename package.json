@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.0.55",
+  "version": "0.0.56",
   "description": "Javascript tools and Class extensions",
   "main": "spellbook.js",
   "scripts": {
@@ -23,7 +23,11 @@
     "async",
     "each",
     "promise",
-    "promises"
+    "promises",
+    "capitalize",
+    "iterator",
+    "tools",
+    "utils"
   ],
   "author": "Josep Subils Rigau <josep@spellbook.io> (http://spellbook.io)",
   "license": "MIT",

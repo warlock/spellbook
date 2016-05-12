@@ -13,7 +13,7 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.55/spellbook.min.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.56/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
 http://cdn.spellbook.io/spellbook.js
@@ -275,6 +275,12 @@ spell.capitalize();
 ```
 -> ['hi','hi','hi','hi','hi']
 ```
+
+**String.dos2unix(); Replace dos endline**
+```javascript
+string.dos2unix();
+```
+
 
 **(Number).times(callback(iteration)); Iterates function "number" times.**
 ```javascript
@@ -643,6 +649,11 @@ sb.capitalize("abracadabra");
 -> Abracadabra
 ```
 
+**sb.dos2unix(string); Replace dos endline**
+```javascript
+sb.dos2unix(string);
+```
+
 **Real date validator:**
 ```javascript
 sb.checkDate('dd-mm-yyyy', '30/02/2015');
@@ -668,6 +679,19 @@ sb.isNumber(obj);
 sb.isInteger(obj);
 sb.isString(obj);
 sb.isBoolean(obj);
+```
+
+##Node.js TOOLS:
+**sb.cp("file","copy"); Copy file with Promises**
+
+```javascript
+sb.cp("file.txt", "copyfile.txt")
+.then(function () {
+    console.log("OK");
+})
+.catch(function (err) {
+    console.log(err);
+})
 ```
 
 
