@@ -39,21 +39,21 @@ if (!Array.prototype.shuffle) {
 }
 
 if (!Array.prototype.first) {
-    Array.prototype.first = function () {
-    	return this[0]
-    }
+	Array.prototype.first = function () {
+		return this[0]
+	}
 }
 
 if (!Array.prototype.last) {
-    Array.prototype.last = function () {
-    	return this[this.length - 1]
-    }
+	Array.prototype.last = function () {
+		return this[this.length - 1]
+	}
 }
 
 if (!Array.prototype.inArray) {
-    Array.prototype.inArray = function (value) {
+	Array.prototype.inArray = function (value) {
 		return !!~this.indexOf(value)
-    }
+	}
 }
 
 
@@ -116,18 +116,18 @@ if (!Object.prototype.getKeys) {
 
 if (!String.prototype.repeatify) {
    String.prototype.repeatify = function (num) {
-      var strArray = []
-      for (var i = 0; i < num; i++) {
-        strArray.push(this.normalize())
-      }
-      return strArray
-    }
+	  var strArray = []
+	  for (var i = 0; i < num; i++) {
+		strArray.push(this.normalize())
+	  }
+	  return strArray
+	}
 }
 
 if (!String.prototype.dos2unix) {
    String.prototype.dos2unix = function () {
 		return this.replace(/\r\n/g, '\n')
-    }
+	}
 }
 
 if (!Number.prototype.times) {
@@ -175,7 +175,7 @@ if (!String.prototype.capitalize) {
 
 if (!String.prototype.isString) {
 	this.isString = function () {
-    	return typeof this === "string" || this instanceof String
+		return typeof this === "string" || this instanceof String
 	}
 }
 
@@ -191,27 +191,27 @@ var Spellbook = function () {
 	}
 
 	this.range = function (a, b, step) {
-    	var A = []
-    	if(typeof a == 'number'){
-        	A[0] = a
-        	step = step || 1
-        	while(a+step<= b) {
-           		A[A.length] = a += step
-        	}
-    	} else {
-        	var s = 'abcdefghijklmnopqrstuvwxyz'
-        	if(a === a.toUpperCase()) {
-           		b = b.toUpperCase()
-           		s = s.toUpperCase()
-        	}
-        	s = s.substring(s.indexOf(a), s.indexOf(b)+ 1)
-        	A = s.split('')     
-    	}
-    	return A
+		var A = []
+		if(typeof a == 'number'){
+			A[0] = a
+			step = step || 1
+			while(a+step<= b) {
+		   		A[A.length] = a += step
+			}
+		} else {
+			var s = 'abcdefghijklmnopqrstuvwxyz'
+			if(a === a.toUpperCase()) {
+				b = b.toUpperCase()
+				s = s.toUpperCase()
+			}
+			s = s.substring(s.indexOf(a), s.indexOf(b)+ 1)
+			A = s.split('')	 
+		}
+		return A
 	}
 
 	this.isFunction = function (fn) {
-    	return typeof fn === 'function'
+		return typeof fn === 'function'
 	}
 
 	this.isArray = function (obj) {
@@ -223,15 +223,15 @@ var Spellbook = function () {
 	}
 
 	this.isNumber = function (obj) {
-    	return typeof obj === "number" || obj instanceof Number
+		return typeof obj === "number" || obj instanceof Number
 	}
 
 	this.isString = function (obj ) {
-    	return typeof obj === "string" || obj instanceof String
+		return typeof obj === "string" || obj instanceof String
 	}
 
 	this.isBoolean = function (obj) {
- 	   	return typeof obj === "boolean"
+		return typeof obj === "boolean"
 	}
 
 	this.isInteger = function (obj) {
@@ -262,10 +262,10 @@ var Spellbook = function () {
 	}
 
 	this.remove = function (array, obj) {
-        if (typeof obj !== "object" && !obj instanceof Array) obj = [obj]
-        return array.filter(function (e) {
-        	if(obj.indexOf(e)<0) return e
-        })
+		if (typeof obj !== "object" && !obj instanceof Array) obj = [obj]
+		return array.filter(function (e) {
+			if(obj.indexOf(e)<0) return e
+		})
 	}
 
 	this.clear = function (array) {
@@ -341,43 +341,43 @@ var Spellbook = function () {
 	}
 
 	this.get =  function (obj, route) {
-    	if (obj !== undefined && typeof route === "string") {
-        	route = route.split(".")
-        	if (route.length === 1 ) return obj[route[0]]
-        	else {
-            	for (var i = 0; i < route.length; i++) {
-                	if (obj[route[i]] !== undefined) obj = obj[route[i]]
-                	else return undefined
-            	}
-            	return obj
-        	}
-    	} else return undefined
+		if (obj !== undefined && typeof route === "string") {
+			route = route.split(".")
+			if (route.length === 1 ) return obj[route[0]]
+			else {
+				for (var i = 0; i < route.length; i++) {
+					if (obj[route[i]] !== undefined) obj = obj[route[i]]
+					else return undefined
+				}
+				return obj
+			}
+		} else return undefined
 	}
 
 	this.parallel = function (callbacks, response) {
-        var it = 0
-        var data = []
-        var async = function (ix) {
-            setTimeout(function () {
-                callbacks[ix](done)
-            }, 0)
+		var it = 0
+		var data = []
+		var async = function (ix) {
+			setTimeout(function () {
+				callbacks[ix](done)
+			}, 0)
 
-       		var done = function (gdata) {
-           		if (gdata) data[ix] = gdata
-           		
-            	if (it < callbacks.length -1) it++
-            	else {
-               		if (typeof response === 'function')response(data)
-            	}
-        	}
-        }
+	   		var done = function (gdata) {
+		   		if (gdata) data[ix] = gdata
+		   		
+				if (it < callbacks.length -1) it++
+				else {
+			   		if (typeof response === 'function')response(data)
+				}
+			}
+		}
 
-        if (callbacks instanceof Array) {
-            for (var i = 0; i < callbacks.length; i++) {
-                async(i)
-            }
-        }
-    }
+		if (callbacks instanceof Array) {
+			for (var i = 0; i < callbacks.length; i++) {
+				async(i)
+			}
+		}
+	}
 
 	this.pl = this.parallelLimit = function (limit, callbacks, response) {
 		var it = 0
@@ -449,9 +449,9 @@ var Spellbook = function () {
 
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy'
- 		var delimiter = /[^mdy]/.exec(userFormat)[0]
- 		var theFormat = userFormat.split(delimiter)
-  		var theDate = value.split(delimiter)
+		var delimiter = /[^mdy]/.exec(userFormat)[0]
+		var theFormat = userFormat.split(delimiter)
+		var theDate = value.split(delimiter)
 		function isDate(date, format) {
 			var m, d, y, i = 0, len = format.length, f
 			for (i; i < len; i++) {
@@ -491,14 +491,14 @@ var Spellbook = function () {
 
 if (typeof process === 'object') {
 	Spellbook.prototype.cp = function (source, target) {
-    	return new Promise(function (resolve, reject) {
-        	var rd = fs.createReadStream(source)
-        	rd.on('error', reject)
-        	var wr = fs.createWriteStream(target)
-       		wr.on('error', function (err) { reject(err) })
-        	wr.on('finish', function (d) { resolve(d) } )
-        	rd.pipe(wr)
-    	})
+		return new Promise(function (resolve, reject) {
+			var rd = fs.createReadStream(source)
+			rd.on('error', reject)
+			var wr = fs.createWriteStream(target)
+			wr.on('error', function (err) { reject(err) })
+			wr.on('finish', function (d) { resolve(d) } )
+			rd.pipe(wr)
+		})
 	}
 	module.exports = new Spellbook
 } else {
@@ -508,22 +508,22 @@ if (typeof process === 'object') {
 		var xhr = new XMLHttpRequest()
 		xhr.open('GET', encodeURI(url))
 		xhr.onload = function () {
-    		if (xhr.status === 200) callback(false, xhr.responseText)
-    		else callback("Request failed.  Returned status of " + status)
+			if (xhr.status === 200) callback(false, xhr.responseText)
+			else callback("Request failed.  Returned status of " + status)
 		}
 		xhr.send()
 	}
 
 	Spellbook.prototype.ajax.post = function (url, data, header, callback) {
 		function param(object) {
-    		var encodedString = ''
-    		for (var prop in object) {
-        		if (object.hasOwnProperty(prop)) {
-            		if (encodedString.length > 0) encodedString += '&'
-            		encodedString += encodeURI(prop + '=' + object[prop])
-        		}
-    		}
-    		return encodedString
+			var encodedString = ''
+			for (var prop in object) {
+				if (object.hasOwnProperty(prop)) {
+					if (encodedString.length > 0) encodedString += '&'
+					encodedString += encodeURI(prop + '=' + object[prop])
+				}
+			}
+			return encodedString
 		}
 
 		if (typeof header === "function") {
@@ -532,13 +532,13 @@ if (typeof process === 'object') {
 			var finaldata = JSON.stringify(data)
 		} else var finaldata = param(data)
 
-    	var xhr = new XMLHttpRequest()
+		var xhr = new XMLHttpRequest()
 		xhr.open('POST', encodeURI(url))
 		xhr.setRequestHeader('Content-Type', header)
 		xhr.send(finaldata)
 		xhr.onload = function () {
-    		if (xhr.status === 200 && xhr.responseText !== undefined) callback(null, xhr.responseText)
-    		else if (xhr.status !== 200) callback('Request failed.  Returned status of ' + xhr.status)
+			if (xhr.status === 200 && xhr.responseText !== undefined) callback(null, xhr.responseText)
+			else if (xhr.status !== 200) callback('Request failed.  Returned status of ' + xhr.status)
 		}
 	}
 	var sb = new Spellbook()
