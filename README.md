@@ -4,16 +4,16 @@ SpellBook
 
 http://www.spellbook.io
 
+## INSTALL/DOWNLOAD
 http://npmjs.com/package/spellbook
 
-## INSTALL/DOWNLOAD
 ```sh
 npm install spellbook
 ```
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.56/spellbook.min.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.57/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
 http://cdn.spellbook.io/spellbook.js
@@ -32,287 +32,7 @@ var sb = require("spellbook");
 </script>
 ```
 
-## CLASS EXTENSION
->Existing class methods will be ignored
-
-**Array.remove(obj);**
-
-```javascript
-var list = ['a', 2, 'c', 2];
-list.remove(2);
-```
-```
--> ['a', 'c']
-```
-
-```javascript
-var list = ['a', 2, 'c', 2];
-list.remove([2,'a']);
-```
-```
--> ['c']
-```
-
-```javascript
-var date = new Date();
-var list = ['a', 'b', 1, '2', date];
-list.remove(['b', 1, date]);
-```
-```
--> ['a', '2']
-```
-
-**Array.clear();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.clear();
-```
-```
--> []
-```
-
-**Array.random();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.random();
-```
-```
--> 'b'
-```
-
-**Array.shuffle();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.shuffle();
-```
-```
--> ['c', 'a', 'b']
-```
-
-**Array.first();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.first();
-```
-```
--> 'a'
-```
-
-**Array.last();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.last();
-```
-```
--> 'c'
-```
-
-**Array.inArray(item);**
-```javascript
-var list = ['a', 'b', 'c'];
-list.inArray('b');
-```
-```
--> true
-```
-
-**Array.contains(item);**
-```javascript
-var list = ['a', 'b', 'c'];
-list.contains('b');
-```
-```
--> true
-```
-
-**Array.isArray();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.isArray();
-```
-```
--> true
-```
-
-**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
-```javascript
-var list = ['a', 'b', 'c'];
-list.each(function (item, i, next, end) {
-    console.log("item: " + item );
-    setTimeout(function () {
-        next();
-    }, 3000);
-}, function () {
-    console.log("End");
-});
-```
-```
--> item: a // Wait 3 seconds;
--> item: b // Wait 3 seconds;
--> item: c // Wait 3 seconds;
--> End
-```
-
-**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**
-```javascript
-var list = ['a', 'b', 'c'];
-list.each(function (item, i, next, end) {
-    console.log("item: " + item );
-    setTimeout(function () {
-        if (i === 1) {
-            end("Bye!");
-        } else {
-            next();
-        }
-    }, 3000);
-}, function (data) {
-    if (data) {
-        console.log("End: " + data);
-    } else {
-        console.log("End");
-    }
-});
-```
-```
--> item: a // Wait 3 seconds;
--> item: b // Wait 3 seconds;
--> End: Bye!
-```
-
-**Object.getKeys(keys);**
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.getKeys("fire");
-```
-```
--> {"fire": 5}
-```
-
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.getKeys(["fire", "ice"]);
-```
-```
--> {"fire": 5, "ice": 4}
-```
-
-**Object.extend(obj);**
-```javascript
-var spells = {"fire": 5, "ice": 4};
-var newspells = {"electro": 6, "wind": 7};
-spells.extend(newspells);
-```
-```
--> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
-```
-
-**Object.remove(keys);**
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.remove("fire");
-```
-```
--> {"ice": 4, "electro": 6, "wind": 7}
-```
-
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.remove(["fire", "ice"]);
-```
-```
--> {"electro": 6, "wind": 7}
-```
-
-**Object.isObject();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.isObject();
-```
-```
--> true
-```
-
-**Boolean.isBoolean();**
-```javascript
-var boh = false;
-boh.isBoolean();
-```
-```
--> true
-```
-
-**Function.isFunction();**
-```javascript
-var fun = function () { return "hi"; };
-fun.isFunction();
-```
-```
--> true
-```
-
-**String.isString();**
-```javascript
-var talk = "hi!";
-talk.isString();
-```
-```
--> true
-```
-
-**String.capitalize();**
-```javascript
-var spell = "abracadabra";
-spell.capitalize();
-```
-```
--> Abracadabra
-```
-
-**String.repeatify(num);**
-```javascript
-"hi".reatify(5);
-```
-```
--> ['hi','hi','hi','hi','hi']
-```
-
-**String.dos2unix(); Replace dos endline**
-```javascript
-string.dos2unix();
-```
-
-
-**(Number).times(callback(iteration)); Iterates function "number" times.**
-```javascript
-(3).times(function (i) {
-	console.log("hi!");
-});
-```
-```
--> hi!
--> hi!
--> hi!
-```
-
-**Number.isNumber();**
-```javascript
-var num = 5.2;
-num.isNumber();
-```
-```
--> true
-```
-
-**Number.isInteger();**
-```javascript
-var num = 5;
-num.isInteger();
-```
-```
--> true
-```
-
-## TOOLS:
+## Generic tools:
 
 **Range:**
 ```javascript
@@ -379,6 +99,56 @@ sb.get(a, "a.b.1");
 ```
 -> d
 ```
+
+**Random number:**
+```javascript
+sb.random(5,10);
+```
+```
+-> 6
+```
+
+**sb.capitalize();**
+```javascript
+sb.capitalize("abracadabra");
+```
+```
+-> Abracadabra
+```
+
+**sb.dos2unix(string); Replace dos endline**
+```javascript
+sb.dos2unix(string);
+```
+
+**Real date validator:**
+```javascript
+sb.checkDate('dd-mm-yyyy', '30/02/2015');
+```
+```
+-> false
+```
+
+**Limit of words:**
+```javascript
+sb.excerpt('One, two, Freddy\'s coming for you', 3);
+```
+```
+-> 'One, two, Freddy's'
+```
+
+**Class boolean check:**
+```javascript
+sb.isFunction(obj);
+sb.isArray(obj);
+sb.isObject(obj);
+sb.isNumber(obj);
+sb.isInteger(obj);
+sb.isString(obj);
+sb.isBoolean(obj);
+```
+
+##Iterators
 
 **sb.each(array, callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
 ```javascript
@@ -633,55 +403,293 @@ sb.forSync(0, 10, 1, function (index, next, end) {
 -> [ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
 ```
 
-**Random number:**
+
+## CLASS EXTENSION
+>Existing class methods will be ignored
+
+**START CLASS EXTENDER**
 ```javascript
-sb.random(5,10);
-```
-```
--> 6
+sb.extender()
 ```
 
-**sb.capitalize();**
+**Array.remove(obj);**
+
 ```javascript
-sb.capitalize("abracadabra");
+var list = ['a', 2, 'c', 2];
+list.remove(2);
+```
+```
+-> ['a', 'c']
+```
+
+```javascript
+var list = ['a', 2, 'c', 2];
+list.remove([2,'a']);
+```
+```
+-> ['c']
+```
+
+```javascript
+var date = new Date();
+var list = ['a', 'b', 1, '2', date];
+list.remove(['b', 1, date]);
+```
+```
+-> ['a', '2']
+```
+
+**Array.clear();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.clear();
+```
+```
+-> []
+```
+
+**Array.random();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.random();
+```
+```
+-> 'b'
+```
+
+**Array.shuffle();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.shuffle();
+```
+```
+-> ['c', 'a', 'b']
+```
+
+**Array.first();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.first();
+```
+```
+-> 'a'
+```
+
+**Array.last();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.last();
+```
+```
+-> 'c'
+```
+
+**Array.inArray(item);**
+```javascript
+var list = ['a', 'b', 'c'];
+list.inArray('b');
+```
+```
+-> true
+```
+
+**Array.contains(item);**
+```javascript
+var list = ['a', 'b', 'c'];
+list.contains('b');
+```
+```
+-> true
+```
+
+**Array.isArray();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.isArray();
+```
+```
+-> true
+```
+
+**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
+```javascript
+var list = ['a', 'b', 'c'];
+list.each(function (item, i, next, end) {
+    console.log("item: " + item );
+    setTimeout(function () {
+        next();
+    }, 3000);
+}, function () {
+    console.log("End");
+});
+```
+```
+-> item: a // Wait 3 seconds;
+-> item: b // Wait 3 seconds;
+-> item: c // Wait 3 seconds;
+-> End
+```
+
+**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**
+```javascript
+var list = ['a', 'b', 'c'];
+list.each(function (item, i, next, end) {
+    console.log("item: " + item );
+    setTimeout(function () {
+        if (i === 1) {
+            end("Bye!");
+        } else {
+            next();
+        }
+    }, 3000);
+}, function (data) {
+    if (data) {
+        console.log("End: " + data);
+    } else {
+        console.log("End");
+    }
+});
+```
+```
+-> item: a // Wait 3 seconds;
+-> item: b // Wait 3 seconds;
+-> End: Bye!
+```
+
+**Object.getKeys(keys);**
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.getKeys("fire");
+```
+```
+-> {"fire": 5}
+```
+
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.getKeys(["fire", "ice"]);
+```
+```
+-> {"fire": 5, "ice": 4}
+```
+
+**Object.extend(obj);**
+```javascript
+var spells = {"fire": 5, "ice": 4};
+var newspells = {"electro": 6, "wind": 7};
+spells.extend(newspells);
+```
+```
+-> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
+```
+
+**Object.remove(keys);**
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.remove("fire");
+```
+```
+-> {"ice": 4, "electro": 6, "wind": 7}
+```
+
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+spells.remove(["fire", "ice"]);
+```
+```
+-> {"electro": 6, "wind": 7}
+```
+
+**Object.isObject();**
+```javascript
+var list = ['a', 'b', 'c'];
+list.isObject();
+```
+```
+-> true
+```
+
+**Boolean.isBoolean();**
+```javascript
+var boh = false;
+boh.isBoolean();
+```
+```
+-> true
+```
+
+**Function.isFunction();**
+```javascript
+var fun = function () { return "hi"; };
+fun.isFunction();
+```
+```
+-> true
+```
+
+**String.isString();**
+```javascript
+var talk = "hi!";
+talk.isString();
+```
+```
+-> true
+```
+
+**String.capitalize();**
+```javascript
+var spell = "abracadabra";
+spell.capitalize();
 ```
 ```
 -> Abracadabra
 ```
 
-**sb.dos2unix(string); Replace dos endline**
+**String.repeatify(num);**
 ```javascript
-sb.dos2unix(string);
+"hi".reatify(5);
+```
+```
+-> ['hi','hi','hi','hi','hi']
 ```
 
-**Real date validator:**
+**String.dos2unix(); Replace dos endline**
 ```javascript
-sb.checkDate('dd-mm-yyyy', '30/02/2015');
-```
-```
--> false
+string.dos2unix();
 ```
 
-**Limit of words:**
+
+**(Number).times(callback(iteration)); Iterates function "number" times.**
 ```javascript
-sb.excerpt('One, two, Freddy\'s coming for you', 3);
+(3).times(function (i) {
+    console.log("hi!");
+});
 ```
 ```
--> 'One, two, Freddy's'
+-> hi!
+-> hi!
+-> hi!
 ```
 
-**Class boolean check:**
+**Number.isNumber();**
 ```javascript
-sb.isFunction(obj);
-sb.isArray(obj);
-sb.isObject(obj);
-sb.isNumber(obj);
-sb.isInteger(obj);
-sb.isString(obj);
-sb.isBoolean(obj);
+var num = 5.2;
+num.isNumber();
+```
+```
+-> true
 ```
 
-##Node.js TOOLS:
+**Number.isInteger();**
+```javascript
+var num = 5;
+num.isInteger();
+```
+```
+-> true
+```
+
+##Only Node.Js tools:
 **sb.cp("file","copy"); Copy file with Promises**
 
 ```javascript
