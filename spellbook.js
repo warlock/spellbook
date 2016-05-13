@@ -295,7 +295,7 @@ var Spellbook = function () {
 		callback(ini, done, end)
 	}
 
-	this.exteder = function () {
+	this.extender = function () {
 		if (!Array.prototype.remove) {
 			Array.prototype.remove = function (obj) {
 				var self = this
