@@ -225,12 +225,12 @@ var Spellbook = function () {
 				callbacks[ix](done)
 			}, 0)
 
-	   		var done = function (gdata) {
-		   		if (gdata) data[ix] = gdata
-		   		
+			var done = function (gdata) {
+				if (gdata) data[ix] = gdata
+				
 				if (it < callbacks.length -1) it++
 				else {
-			   		if (typeof response === 'function')response(data)
+					if (typeof response === 'function')response(data)
 				}
 			}
 		}
@@ -424,17 +424,17 @@ var Spellbook = function () {
 		}
 
 		if (!String.prototype.repeatify) {
-		   String.prototype.repeatify = function (num) {
-			  var strArray = []
-			  for (var i = 0; i < num; i++) {
-				strArray.push(this.normalize())
-			  }
-			  return strArray
+			String.prototype.repeatify = function (num) {
+				var strArray = []
+				for (var i = 0; i < num; i++) {
+					strArray.push(this.normalize())
+				}
+				return strArray
 			}
 		}
 
 		if (!String.prototype.dos2unix) {
-		   String.prototype.dos2unix = function () {
+			String.prototype.dos2unix = function () {
 				return this.replace(/\r\n/g, '\n')
 			}
 		}
@@ -509,7 +509,39 @@ if (typeof process === 'object') {
 	}
 	module.exports = new Spellbook
 } else {
+	Spellbook.prototype.ready = function (callback) {
+		document.addEventListener("DOMContentLoaded", function(event) {
+			callback(event)
+		})
+	}
+
 	Spellbook.prototype.ajax = {}
+
+	Spellbook.prototype.comp = {
+		data : {},
+		stack : [],
+		run : function () {
+			for (var i = 0; i < this.stack.length; i++) this.stack[i].action(this.stack[i].attr[0], this.stack[i].attr[1])
+			this.stack = []
+		},
+		get : function (name, attr) {
+			if (typeof this.data[name].action === 'function') this.stack.push({ action : this.data[name].action, attr : [this, attr]})
+			return this.data[name].html(this, attr)
+		},
+		set : function (name, html, action) {
+			this.data[name] = {}
+			this.data[name]['html'] = html
+			if (typeof action === 'function') this.data[name]['action'] = action
+		},
+		destroy : function (name) {
+			document.getElementById(name).innerHTML = ""
+		},
+		render : function (name, id, attr) {
+			document.getElementById(id).innerHTML = this.data[name].html(this, attr)
+			if (typeof this.data[name].action === 'function') this.stack.push({ action : this.data[name].action, attr : [this, attr]})
+			this.run()
+		}
+	}
 
 	Spellbook.prototype.ajax.get = function (url, callback) {
 		var xhr = new XMLHttpRequest()
