@@ -515,8 +515,6 @@ if (typeof process === 'object') {
 		})
 	}
 
-	Spellbook.prototype.ajax = {}
-
 	Spellbook.prototype.comp = {
 		data : {},
 		stack : [],
@@ -543,6 +541,22 @@ if (typeof process === 'object') {
 		}
 	}
 
+	Spellbook.prototype.on = function (obj, eventHandler, callback) {
+		obj.addEventListener(eventHandler, function (event) {
+			callback(event)
+		})
+	}
+
+	Spellbook.prototype.id = function (id) {
+		return document.getElementById(id)
+	}
+
+	Spellbook.prototype.class = function (id) {
+		return document.getElementsByClassName(id)
+	}
+
+	Spellbook.prototype.ajax = {}
+	
 	Spellbook.prototype.ajax.get = function (url, callback) {
 		var xhr = new XMLHttpRequest()
 		xhr.open('GET', encodeURI(url))
