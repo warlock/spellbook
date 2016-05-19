@@ -89,19 +89,19 @@ var Spellbook = function () {
 	this.contains = function (a, b) {
 		return !!~a.indexOf(b)
 	}
-/*
+
 	this.uniq = function (array, key) {
 		var narray = []
 		var keys = {}
-		array.forEach((e) => {
-			if(keys[e[key]] == undefined && e[key] !== undefined) {
-				narray.push(e[key])
-				keys[e[key]] = 1
+		for (var i = 0; i < array.length; i++) {
+			if(keys[array[i][key]] === undefined && array[i][key] !== undefined) {
+				narray.push(array[i][key])
+				keys[array[i][key]] = 1
 			}
-		})
+		}
 		return narray
 	}
-*/
+
 	this.checkDate = function (value, userFormat) {
 		userFormat = userFormat || 'mm/dd/yyyy'
 		var delimiter = /[^mdy]/.exec(userFormat)[0]
