@@ -90,6 +90,12 @@ var Spellbook = function () {
 		return !!~a.indexOf(b)
 	}
 
+	//Testing
+	this.size = function (obj) {
+		return Object.keys(obj).length
+	}
+
+	//Testing
 	this.uniq = function (array, key) {
 		var narray = []
 		var keys = {}
@@ -305,6 +311,193 @@ var Spellbook = function () {
 			} else if (typeof end === 'function') end(store)
 		}
 		callback(ini, done, end)
+	}
+
+
+	this.extender = function () {
+		if (!Array.prototype.remove) {
+			Array.prototype.remove = function (obj) {
+				var self = this
+				if (typeof obj !== "object" && !obj instanceof Array) obj = [obj]
+
+				return self.filter(function (e) {
+		 			if(obj.indexOf(e)<0) return e
+				})
+				
+			}
+		}
+
+		if (!Array.prototype.clear) {
+			Array.prototype.clear = function () {
+				this.splice(0, this.length)
+			}
+		}
+
+		if (!Array.prototype.random) {
+			Array.prototype.random = function () {
+				self = this
+				var index = Math.floor(Math.random() * (this.length))
+				return self[index]
+			}
+		}
+
+		if (!Array.prototype.shuffle) {
+			Array.prototype.shuffle = function () {
+				var input = this
+				for (var i = input.length-1; i >=0; i--) {
+					var randomIndex = Math.floor(Math.random()*(i+1))
+					var itemAtIndex = input[randomIndex]
+					input[randomIndex] = input[i]
+					input[i] = itemAtIndex
+				}
+				return input
+			}
+		}
+
+		if (!Array.prototype.first) {
+			Array.prototype.first = function () {
+				return this[0]
+			}
+		}
+
+		if (!Array.prototype.last) {
+			Array.prototype.last = function () {
+				return this[this.length - 1]
+			}
+		}
+
+		if (!Array.prototype.inArray) {
+			Array.prototype.inArray = function (value) {
+				return !!~this.indexOf(value)
+			}
+		}
+
+		if (!Array.prototype.contains) {
+			Array.prototype.contains = function (value) {
+				return !!~this.indexOf(value)
+			}
+		}
+
+		if (!Array.prototype.each) {
+			Array.prototype.each = function (callback, response) {
+				var self = this
+				var end = function (data) {
+					if (typeof response === 'function') response(data)
+				}
+				var i = 0
+				var done = function () {
+					if (i < self.length -1) {
+						i++
+						callback(self[i], i, done, end)
+					} else {
+						if (typeof response === 'function') response()
+					}
+				}
+				callback(self[i], i, done, end)
+			}
+		}
+
+		if (!Object.prototype.extend) {
+			Object.prototype.extend = function (obj) {
+				for (var i in obj) {
+					if (obj.hasOwnProperty(i)) this[i] = obj[i]
+				}
+			}
+		}
+
+		if (!Object.prototype.remove) {
+			Object.prototype.remove = function (keys) {
+				var self = this
+				if (typeof obj === "object" && obj instanceof Array) {
+					arr.forEach(function (key){
+						delete(self[key])
+					})
+				} else delete(self[keys])
+			}
+		}
+
+		if (!Object.prototype.getKeys) {
+			Object.prototype.getKeys = function(keys) {
+				var self = this
+				if (typeof obj === "object" && obj instanceof Array) {
+					var obj = {}
+					keys.forEach(function (key) {
+						obj[key] = self[key]
+					})
+				} else obj[keys] = self[keys]
+				return obj
+			}
+		}
+
+		if (!String.prototype.repeatify) {
+			String.prototype.repeatify = function (num) {
+				var strArray = []
+				for (var i = 0; i < num; i++) {
+					strArray.push(this.normalize())
+				}
+				return strArray
+			}
+		}
+
+		if (!String.prototype.dos2unix) {
+			String.prototype.dos2unix = function () {
+				return this.replace(/\r\n/g, '\n')
+			}
+		}
+
+		if (!Number.prototype.times) {
+			Number.prototype.times = function (callback) {
+				if (this % 1 === 0) {
+					for (var i = 0; i < this; i++) {
+						callback(i)
+					}
+				}
+			}
+		}
+
+		if (!Number.prototype.isInteger) {
+			Number.prototype.isInteger = function () {
+				this.isInteger = function (num) {
+					return num % 1 === 0
+				}
+			}
+		}
+
+		if (!Array.prototype.isArray) {
+			this.isArray = function () {
+				return typeof this === "object" && this instanceof Array
+			}
+		}
+
+		if (!Function.prototype.isFunction) {
+			this.isFunction = function () {
+				return typeof this === 'function'
+			}
+		}
+
+		if (!Object.prototype.isObject) {
+			this.isObject = function () {
+		 		return typeof this === "object" && (isArray(this) === false )
+			}
+		}
+
+		if (!String.prototype.capitalize) {
+			String.prototype.capitalize = function () {
+				return this.charAt(0).toUpperCase() + this.slice(1)
+			}
+		}
+
+		if (!String.prototype.isString) {
+			this.isString = function () {
+				return typeof this === "string" || this instanceof String
+			}
+		}
+
+		if (!Boolean.prototype.isBoolean) {
+			this.isBoolean = function () {
+		 	   	return typeof this === "boolean"
+			}
+		}
 	}
 
 }
