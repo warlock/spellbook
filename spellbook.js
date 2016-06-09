@@ -161,11 +161,11 @@ var Spellbook = function () {
 
 	this.each = function (array, callback, response) {
 		var i = 0
-
 		var done = function () {
 			if (i < array.length) {
-				callback(array[i], i, done, end)
+				y = i
 				i++
+				callback(array[y], y, done, end)
 			} else if (typeof response === 'function') response()
 		}
 
