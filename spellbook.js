@@ -164,8 +164,8 @@ var Spellbook = function () {
 
 		var done = function () {
 			if (i < array.length) {
-				i++
 				callback(array[i], i, done, end)
+				i++
 			} else if (typeof response === 'function') response()
 		}
 
