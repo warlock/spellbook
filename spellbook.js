@@ -15,7 +15,7 @@ var Spellbook = function () {
 				s = s.toUpperCase()
 			}
 			s = s.substring(s.indexOf(a), s.indexOf(b)+ 1)
-			A = s.split('')	 
+			A = s.split('')
 		}
 		return A
 	}
@@ -90,12 +90,10 @@ var Spellbook = function () {
 		return !!~a.indexOf(b)
 	}
 
-	//Testing
 	this.size = function (obj) {
 		return Object.keys(obj).length
 	}
 
-	//Testing
 	this.uniq = function (array, key) {
 		var narray = []
 		var keys = {}
@@ -233,7 +231,7 @@ var Spellbook = function () {
 
 			var done = function (gdata) {
 				if (gdata) data[ix] = gdata
-				
+
 				if (it < callbacks.length -1) it++
 				else {
 					if (typeof response === 'function')response(data)
@@ -323,7 +321,7 @@ var Spellbook = function () {
 				return self.filter(function (e) {
 		 			if(obj.indexOf(e)<0) return e
 				})
-				
+
 			}
 		}
 
@@ -562,7 +560,7 @@ if (typeof process === 'object') {
 	}
 
 	Spellbook.prototype.ajax = {}
-	
+
 	Spellbook.prototype.ajax.get = function (url, callback) {
 		var xhr = new XMLHttpRequest()
 		xhr.open('GET', encodeURI(url))

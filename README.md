@@ -86,6 +86,15 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
+**Get especific key from array of objects**
+```javascript
+var spells = [{ name : "fire", damage : 5},{ name : "ice", damage : 4}];
+sb.uniq(spells,"name");
+```
+```
+-> [ 'fire', 'ice' ]
+```
+
 **Get the element from the object "obj":**
 ```javascript
 var a = {
@@ -93,12 +102,21 @@ var a = {
         b : ["c", "d"]
     }
 };
-
 sb.get(a, "a.b.1");
 ```
 ```
 -> d
 ```
+
+**Get object size**
+```javascript
+var obj = { name : "fire", damage : 5};
+sb.size(obj)
+```
+```
+-> 2
+```
+
 
 **Random number:**
 ```javascript
