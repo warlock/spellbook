@@ -1,6 +1,6 @@
 SpellBook
 ===
-> Library for extend the javascript habilities.
+> Library for extend the javascript abilities.
 
 http://www.spellbook.io
 
@@ -86,7 +86,7 @@ sb.contains(array, obj);
 sb.inArray(array, obj);
 ```
 
-**Get especific key from array of objects**
+**Get specific key from array of objects**
 ```javascript
 var spells = [{ name : "fire", damage : 5},{ name : "ice", damage : 4}];
 sb.uniq(spells,"name");
