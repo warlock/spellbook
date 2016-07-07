@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.0.71",
+  "version": "0.0.72",
   "description": "Javascript tools and class extensions",
   "main": "spellbook.js",
   "scripts": {
@@ -11,20 +11,20 @@
     "url": "git+https://github.com/warlock/spellbook.git"
   },
   "keywords": [
-    "spellbook",
-    "extension",
+    "flow",
+    "performance",
     "javascript",
     "array",
-    "object",
-    "range",
+    "defered",
+    "then",
     "util",
     "stdlib",
     "modules",
     "async",
     "each",
     "promise",
-    "promises",
-    "capitalize",
+    "waterfall",
+    "await",
     "iterator",
     "tools",
     "utils"
