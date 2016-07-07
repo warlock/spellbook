@@ -94,7 +94,7 @@ var Spellbook = function () {
 		return Object.keys(obj).length
 	}
 
-	this.uniq = function (array, key) {
+	this.unq = this.uniq = function (array, key) {
 		var narray = []
 		var keys = {}
 		for (var i = 0; i < array.length; i++) {
@@ -175,7 +175,7 @@ var Spellbook = function () {
 		else if (typeof response === 'function') response()
 	}
 
-	this.waterfall = function (callbacks, response) {
+	this.wf = this.waterfall = function (callbacks, response) {
 		var i = 0
 		var done = function (data, respdata) {
 			if (i < callbacks.length-1) {
@@ -197,7 +197,7 @@ var Spellbook = function () {
 		if (callbacks instanceof Array) callbacks[i](done)
 	}
 
-	this.forever = function (callback, response) {
+	this.fe = this.forever = function (callback, response) {
 		var end = function (data) {
 			if (typeof response === 'function') response(data)
 		}
@@ -299,7 +299,7 @@ var Spellbook = function () {
 		} else if ( typeof response === 'function') response(data)
 	}
 
-	this.forSync = function (ini, fin, inc, callback, end) {
+	this.for = this.forSync = function (ini, fin, inc, callback, end) {
 		var store = []
 		var done = function (data) {
 			store.push(data)

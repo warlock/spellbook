@@ -13,7 +13,7 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.68/spellbook.min.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.70/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
 http://cdn.spellbook.io/spellbook.js
@@ -87,6 +87,7 @@ sb.inArray(array, obj);
 ```
 
 **Get specific key from array of objects**
+Alternative name: unq.
 ```javascript
 var spells = [{ name : "fire", damage : 5},{ name : "ice", damage : 4}];
 sb.uniq(spells,"name");
@@ -134,7 +135,9 @@ sb.capitalize("abracadabra");
 -> Abracadabra
 ```
 
-**sb.dos2unix(string); Replace dos endline**
+**sb.dos2unix(string);**
+Replace dos endline
+
 ```javascript
 sb.dos2unix(string);
 ```
@@ -168,7 +171,8 @@ sb.isBoolean(obj);
 
 ##Iterators
 
-**sb.each(array, callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
+**sb.each(array, callback_loop(item, index, next_method, end_method), callback_end);**
+Runs next function when "next" method is executed.
 ```javascript
 var list = ['a', 'b', 'c'];
 sb.each(list, function (item, i, next, end) {
@@ -187,7 +191,7 @@ sb.each(list, function (item, i, next, end) {
 -> End
 ```
 
-**sb.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**
+Call "end" method for break the loop.
 ```javascript
 var list = ['a', 'b', 'c'];
 sb.each(list, function (item, i, next, end) {
@@ -213,7 +217,8 @@ sb.each(list, function (item, i, next, end) {
 -> End: Bye!
 ```
 
-**sb.eachParallelLimit(array, number_limit, callback_loop(item, index, next_method), callback_end); Runs in parallel limit and next loop when "next" method is executed. Alternative names: eachpl, epl.**
+**sb.eachParallelLimit(array, number_limit, callback_loop(item, index, next_method), callback_end);**
+Runs in parallel limit and next loop when "next" method is executed. Alternative names: eachpl, epl.
 ```javascript
 var list = ['a', 'b', 'c', 'd'];
 sb.eachpl(list, 2, function (item, i, next) {
@@ -233,7 +238,9 @@ sb.eachpl(list, 2, function (item, i, next) {
 -> End
 ```
 
-**sb.waterfall(functions_array, callback_end); Runs next function when "done" method is executed.**
+**sb.waterfall(array_functions(done, data), callback_end);**
+Runs next function when "done" method is executed.
+Alternative name: wf.
 ```javascript
 sb.waterfall([
     function (done) {
@@ -254,9 +261,9 @@ sb.waterfall([
 -> End: win
 ```
 
-**sb.waterfall(array_functions(done, data), callback_end); Break the fall with "true".**
+Break the waterfall with "true".
 ```javascript
-sb.waterfall([
+sb.wf([
     function (done) {
         console.log("fire");
         done(true, 5);
@@ -275,7 +282,8 @@ sb.waterfall([
 ```
 
 
-**sb.parallel(array_functions(done), callback_end(data)); Run functions in parallel and then execute "callback_end".**
+**sb.parallel(array_functions(done), callback_end(data));**
+Run functions in parallel and then execute "callback_end".
 ```javascript
 sb.parallel([
     function (done) {
@@ -308,9 +316,10 @@ sb.parallel([
 -> End: ["a","b","c"]
 ```
 
-**sb.parallelLimit(number, array_functions(done), callback_end(data)); Run limit of functions in parallel and then execute "callback_end".**
+**sb.parallelLimit(number, array_functions(done), callback_end(data));**
+Run limit of functions in parallel and then execute "callback_end". Alternative name : pl
 ```javascript
-sb.parallelLimit(2, [
+sb.pl(2, [
     function (done) {
         setTimeout(function () { console.log("go 1!"); done("a") }, 1000); },
 	function (done) {
@@ -346,7 +355,10 @@ sb.parallelLimit(2, [
 -> we: ["a","b","c","a2","b2","c2","a3","b3","c3"]
 ```
 
-**sb.forever(callback(next, end), callback_end); Loops forever.**
+**sb.forever(callback(next, end), callback_end);**
+Loops syncronous forever.
+Alternative name: fe.
+
 ```javascript
 sb.forever(function (next, end) {
     console.log("Hi!")
@@ -361,14 +373,12 @@ sb.forever(function (next, end) {
 -> ...
 ```
 
-**sb.forever(callback(next, end), callback_end); Loops forever and break the loop.**
+Breaking forever loop.
 ```javascript
 var i = 0;
-sb.forever(function (next, end) {
+sb.fe(function (next, end) {
     console.log("loop: " + i);
-    if (i>=3) {
-        end("Now Break!!")
-    }
+    if (i>=3) end("Now Break!!");
     i++;
     setTimeout(function () {
         next();
@@ -385,7 +395,9 @@ sb.forever(function (next, end) {
 -> Response: Now Break!!
 ```
 
-**sb.times(number, callback(iteration)); Iterates function "number" times.**
+**sb.times(number, callback(iteration));**
+Iterates function "number" times.
+
 ```javascript
 sb.times(3, function (iteration) {
         console.log("Abracadabra!");
@@ -397,9 +409,12 @@ sb.times(3, function (iteration) {
 -> Abracadabra!
 ```
 
-**sb.forSync(initial_value, final_value, incremental_value, callback(index, next, end), callback_end(data))**
+**sb.for(initial, final, increment, callback(index, next, end), callback_end(data));**
+Syncronous "for" iterator.
+Alternative name: forSync.
+
 ```javascript
-sb.forSync(0, 10, 1, function (index, next, end) {
+sb.for(0, 10, 1, function (index, next, end) {
     console.log(index)
     next(5)
 }, function (data) {
@@ -529,7 +544,9 @@ list.isArray();
 -> true
 ```
 
-**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed.**
+**Array.each(callback_loop(item, index, next_method, end_method), callback_end);**
+Runs next loop when "next" method is executed.
+
 ```javascript
 var list = ['a', 'b', 'c'];
 list.each(function (item, i, next, end) {
@@ -548,24 +565,20 @@ list.each(function (item, i, next, end) {
 -> End
 ```
 
-**Array.each(callback_loop(item, index, next_method, end_method), callback_end); Runs next loop when "next" method is executed. Call "end" method for break the loop.**
+**Array.each(callback_loop(item, index, next_method, end_method), callback_end);**
+Runs next loop when "next" method is executed. Call "end" method for break the loop.
+
 ```javascript
 var list = ['a', 'b', 'c'];
 list.each(function (item, i, next, end) {
     console.log("item: " + item );
     setTimeout(function () {
-        if (i === 1) {
-            end("Bye!");
-        } else {
-            next();
-        }
+        if (i === 1) end("Bye!");
+        else next();
     }, 3000);
 }, function (data) {
-    if (data) {
-        console.log("End: " + data);
-    } else {
-        console.log("End");
-    }
+    if (data) console.log("End: " + data);
+    else console.log("End");
 });
 ```
 ```
@@ -638,7 +651,7 @@ boh.isBoolean();
 
 **Function.isFunction();**
 ```javascript
-var fun = function () { return "hi"; };
+var fun = function () { return "hi" };
 fun.isFunction();
 ```
 ```
@@ -671,13 +684,16 @@ spell.capitalize();
 -> ['hi','hi','hi','hi','hi']
 ```
 
-**String.dos2unix(); Replace dos endline**
+**String.dos2unix();**
+Replace dos endline
+
 ```javascript
 string.dos2unix();
 ```
 
 
-**(Number).times(callback(iteration)); Iterates function "number" times.**
+**(Number).times(callback(iteration));**
+Iterates function "number" times.
 ```javascript
 (3).times(function (i) {
     console.log("hi!");
