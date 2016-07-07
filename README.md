@@ -172,6 +172,7 @@ sb.isBoolean(obj);
 ##Iterators
 
 **sb.each(array, callback_loop(item, index, next_method, end_method), callback_end);**
+
 Runs next function when "next" method is executed.
 ```javascript
 var list = ['a', 'b', 'c'];
@@ -218,6 +219,7 @@ sb.each(list, function (item, i, next, end) {
 ```
 
 **sb.eachParallelLimit(array, number_limit, callback_loop(item, index, next_method), callback_end);**
+
 Runs in parallel limit and next loop when "next" method is executed. Alternative names: eachpl, epl.
 ```javascript
 var list = ['a', 'b', 'c', 'd'];
@@ -239,6 +241,7 @@ sb.eachpl(list, 2, function (item, i, next) {
 ```
 
 **sb.waterfall(array_functions(done, data), callback_end);**
+
 Runs next function when "done" method is executed.
 Alternative name: wf.
 ```javascript
@@ -283,6 +286,7 @@ sb.wf([
 
 
 **sb.parallel(array_functions(done), callback_end(data));**
+
 Run functions in parallel and then execute "callback_end".
 ```javascript
 sb.parallel([
@@ -317,6 +321,7 @@ sb.parallel([
 ```
 
 **sb.parallelLimit(number, array_functions(done), callback_end(data));**
+
 Run limit of functions in parallel and then execute "callback_end". Alternative name : pl
 ```javascript
 sb.pl(2, [
@@ -356,6 +361,7 @@ sb.pl(2, [
 ```
 
 **sb.forever(callback(next, end), callback_end);**
+
 Loops syncronous forever.
 Alternative name: fe.
 
@@ -396,6 +402,7 @@ sb.fe(function (next, end) {
 ```
 
 **sb.times(number, callback(iteration));**
+
 Iterates function "number" times.
 
 ```javascript
@@ -410,6 +417,7 @@ sb.times(3, function (iteration) {
 ```
 
 **sb.for(initial, final, increment, callback(index, next, end), callback_end(data));**
+
 Syncronous "for" iterator.
 Alternative name: forSync.
 
@@ -545,6 +553,7 @@ list.isArray();
 ```
 
 **Array.each(callback_loop(item, index, next_method, end_method), callback_end);**
+
 Runs next loop when "next" method is executed.
 
 ```javascript
@@ -566,6 +575,7 @@ list.each(function (item, i, next, end) {
 ```
 
 **Array.each(callback_loop(item, index, next_method, end_method), callback_end);**
+
 Runs next loop when "next" method is executed. Call "end" method for break the loop.
 
 ```javascript
@@ -685,6 +695,7 @@ spell.capitalize();
 ```
 
 **String.dos2unix();**
+
 Replace dos endline
 
 ```javascript
@@ -693,6 +704,7 @@ string.dos2unix();
 
 
 **(Number).times(callback(iteration));**
+
 Iterates function "number" times.
 ```javascript
 (3).times(function (i) {
@@ -724,7 +736,9 @@ num.isInteger();
 ```
 
 ##Only Node.Js tools:
-**sb.cp("file","copy"); Copy file with Promises**
+**sb.cp("file","copy");**
+
+Copy file with ES6 Promises
 
 ```javascript
 sb.cp("file.txt", "copyfile.txt")
