@@ -59,6 +59,10 @@ describe('Tools', () => {
 		it('Check number is not true', () => {
 			chai.assert.isNotTrue(sb.isFunction(1), "Is number")
 		})
+
+		it('Check object is not true', () => {
+			chai.assert.isNotTrue(sb.isFunction({}), "Is object")
+		})
 	})
 
 	describe('#isArray()', () => {
@@ -80,6 +84,10 @@ describe('Tools', () => {
 
 		it('Check number is not true', () => {
 			chai.assert.isNotTrue(sb.isArray(1), "Is number")
+		})
+
+		it('Check object is not true', () => {
+			chai.assert.isNotTrue(sb.isArray({}), "Is object")
 		})
 	})
 
