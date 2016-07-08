@@ -28,7 +28,7 @@ var Spellbook = function () {
 	}
 
 	this.isObject = function (obj) {
- 		return typeof obj === "object" && (isArray(obj) === false )
+ 		return typeof obj === "object" && (this.isArray(obj) === false )
 	}
 
 	this.isNumber = function (obj) {
