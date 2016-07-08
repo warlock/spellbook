@@ -4,7 +4,7 @@
   "description": "Javascript tools and class extensions",
   "main": "spellbook.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/warlock/spellbook/issues"
   },
-  "homepage": "http://www.spellbook.io"
+  "homepage": "http://www.spellbook.io",
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
 }
