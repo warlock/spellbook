@@ -4,7 +4,7 @@ SpellBook
 
 http://www.spellbook.io
 
-[![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook)
+[![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Dependency Status](https://david-dm.org/warlock/spellbook.svg)](https://david-dm.org/warlock/spellbook) [![devDependency Status](https://david-dm.org/warlock/spellbook/dev-status.svg)](https://david-dm.org/warlock/spellbook#info=devDependencies)
 
 ## INSTALL/DOWNLOAD
 http://npmjs.com/package/spellbook
