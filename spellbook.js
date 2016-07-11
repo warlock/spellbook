@@ -6,7 +6,7 @@ var Spellbook = function () {
 		if (typeof a == 'number') {
 			A[0] = a
 			step = step || 1
-			while(a+step<= b) A[A.length] = a += step
+			while (a+step<= b) A[A.length] = a += step
 		} else {
 			var s = 'abcdefghijklmnopqrstuvwxyz'
 			if (a === a.toUpperCase()) {
@@ -149,9 +149,7 @@ var Spellbook = function () {
 	this.times = function (number, callback) {
 		if (typeof number === 'number' && number > 0) {
 			if ( typeof callback === 'function') {
-				for (var i = 0; i < number; i++) {
-					callback(i)
-				}
+				for (var i = 0; i < number; i++) callback(i)
 			}
 		}
 	}
