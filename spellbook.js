@@ -67,9 +67,17 @@ var Spellbook = function () {
 	};
 
 	this.remove = function (array, obj) {
-		return array.filter(function (e) {
-			if (JSON.stringify(e) !== JSON.stringify(obj)) return e;
-		});
+		function filter(array, obj) {
+			return array.filter(function (e) {
+				if (JSON.stringify(e) !== JSON.stringify(obj)) return e;
+			});
+		}
+		if (typeof obj === 'object' && obj instanceof Array) {
+			obj.forEach(function (e) {
+				array = filter(array, e);
+			});
+			return array;
+		} else return filter(array, obj);
 	};
 
 	this.clear = function (array) {
