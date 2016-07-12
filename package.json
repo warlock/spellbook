@@ -1,10 +1,10 @@
 {
   "name": "spellbook",
-  "version": "0.0.75",
+  "version": "0.0.77",
   "description": "Javascript tools and class extensions",
   "main": "spellbook.js",
   "scripts": {
-    "test": "mocha --recursive test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
   },
   "homepage": "http://www.spellbook.io",
   "devDependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "mocha-jshint": "^2.3.1"
   }
 }

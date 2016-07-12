@@ -2,8 +2,8 @@
 var chai = require('chai')
 var sb = require('../spellbook')
 
-describe('Tools', function () {
-	describe('#range()', function () {
+describe('Tools: Generic', function () {
+	describe('sb.range()', function () {
 		it('Return array', function () {
 			chai.assert.typeOf(sb.range(), 'array')
 			chai.assert.lengthOf(sb.range(), 0)

@@ -2,7 +2,7 @@ var chai = require('chai')
 var sb = require('../spellbook')
 
 describe('Tools: Check Type', function () {
-	describe('#isFunction()', function () {
+	describe('sb.isFunction()', function () {
 		it('Check is function', function () {
 			chai.assert.isTrue(sb.isFunction(function () {}), "Is function")
 		})
@@ -28,7 +28,7 @@ describe('Tools: Check Type', function () {
 		})
 	})
 
-	describe('#isArray()', function () {
+	describe('sb.isArray()', function () {
 		it('Check is array', function () {
 			chai.assert.isTrue(sb.isArray([]), "Is array")
 		})
@@ -54,7 +54,7 @@ describe('Tools: Check Type', function () {
 		})
 	})
 
-	describe('#isObject()', function () {
+	describe('sb.isObject()', function () {
 		it('Check is object', function () {
 			chai.assert.isTrue(sb.isObject({}), "Is object")
 		})

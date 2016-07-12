@@ -4,7 +4,7 @@ SpellBook
 
 http://www.spellbook.io
 
-[![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Dependency Status](https://david-dm.org/warlock/spellbook.svg)](https://david-dm.org/warlock/spellbook) [![devDependency Status](https://david-dm.org/warlock/spellbook/dev-status.svg)](https://david-dm.org/warlock/spellbook#info=devDependencies)
+[![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook)[![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Dependency Status](https://david-dm.org/warlock/spellbook.svg)](https://david-dm.org/warlock/spellbook) [![devDependency Status](https://david-dm.org/warlock/spellbook/dev-status.svg)](https://david-dm.org/warlock/spellbook#info=devDependencies)
 
 ## INSTALL/DOWNLOAD
 http://npmjs.com/package/spellbook
@@ -15,7 +15,7 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.74/spellbook.min.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.77/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
 http://cdn.spellbook.io/spellbook.js
