@@ -146,7 +146,40 @@ describe('Generic Tools', function () {
 	})
 
 	describe('sb.inArray()', function () {
-		//TEST CONTAINS WITH inArray FUNCTION
+		var obj_array = [{a : 1}, {a : 2}, {b : 3}]
+		var number_array = [1, 2, 3]
+		var string_array = ['1', '2', '3']
+		/* BUG: NOT WORKING WITH OBJECTS
+		it('Check if contains object return true', function () {
+			var res = sb.inArray(obj_array, {a: 1})
+			console.log(res)
+			chai.assert.isTrue(res)
+		})
+
+		it('Check if not contains object return false', function () {
+			var res = sb.inArray(obj_array, {a : 2})
+			chai.assert.isFalse(res)
+		})
+		*/
+		it('Check if contains number return true', function () {
+			var res = sb.inArray(number_array, 2)
+			chai.assert.isTrue(res)
+		})
+
+		it('Check if not contains number return false', function () {
+			var res = sb.inArray(number_array, 5)
+			chai.assert.isFalse(res)
+		})
+
+		it('Check if contains string return true', function () {
+			var res = sb.inArray(string_array, '2')
+			chai.assert.isTrue(res)
+		})
+
+		it('Check if not contains string return false', function () {
+			var res = sb.inArray(string_array, '5')
+			chai.assert.isFalse(res)
+		})
 	})
 
 	describe('sb.uniq()', function () {
@@ -169,4 +202,27 @@ describe('Generic Tools', function () {
 		})
 	})
 
+
+	describe('sb.get()', function () {
+		var a = { a : {	b : ["c", "d"] } }
+		it('Check get a string', function () {
+			var res = sb.get(a, "a.b.0")
+			chai.assert.isString(res)
+		})
+
+		it('Check get "c" string', function () {
+			var res = sb.get(a, "a.b.0")
+			chai.assert.equal(res, "c")
+		})
+
+		it('Check get a array', function () {
+			var res = sb.get(a, "a.b")
+			chai.assert.isArray(res)
+		})
+
+		it('Check get a object', function () {
+			var res = sb.get(a, "a")
+			chai.assert.isObject(res)
+		})
+	})
 })
