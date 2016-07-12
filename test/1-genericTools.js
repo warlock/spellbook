@@ -196,9 +196,9 @@ describe('Generic Tools', function () {
 
 		it('Check if all elements is a numbers', function () {
 			var res = sb.uniq(obj_array, "a")
-			res.forEach((e) => {
-				chai.assert.isNumber(e)
-			})
+			for (var i = 0; i < res.length; i++) {
+				chai.assert.isNumber(res[i])
+			}
 		})
 	})
 
