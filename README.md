@@ -15,7 +15,7 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.78/spellbook.min.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.79/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
 http://cdn.spellbook.io/spellbook.js
@@ -35,8 +35,8 @@ var sb = require("spellbook");
 ```
 
 ## Generic tools:
-
 **Range:**
+
 ```javascript
 sb.range(0,10);
 ```
@@ -71,9 +71,13 @@ var NewObject = sb.assing(obj);
 var NewObject = sb.clone(obj);
 ```
 
-**Remove Object from Array:**
+**Remove Objects from Array:**
 ```javascript
 sb.remove(array, obj);
+```
+Can remove multiple objects.
+```javascript
+sb.remove(array, [obj, obj2]);
 ```
 
 **Clear all values from Array:**
@@ -83,11 +87,12 @@ sb.clear(array);
 
 **Find value in Array:**
 ```javascript
-sb.contains(array, obj);
-sb.inArray(array, obj);
+sb.contains(array, item);
+sb.inArray(array, item);
 ```
 
 **Get specific key from array of objects**
+
 Alternative name: unq.
 ```javascript
 var spells = [{ name : "fire", damage : 5},{ name : "ice", damage : 4}];
