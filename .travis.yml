@@ -3,6 +3,7 @@ node_js:
   - "6"
   - "5"
   - "4"
+  - '0.12'
   - "iojs"
 before_script:
   - npm install -g mocha
