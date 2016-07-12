@@ -3,7 +3,7 @@ var chai = require('chai')
 var sb = require('../spellbook')
 var object = { a : 1, b : 2 }
 
-describe('Tools: Generic', function () {
+describe('Generic Tools', function () {
 	describe('sb.range()', function () {
 		it('Return array', function () {
 			chai.assert.typeOf(sb.range(), 'array')
@@ -95,5 +95,15 @@ describe('Tools: Generic', function () {
 		})
 	})
 
-	
+	describe('sb.clear()', function () {
+		var array = [1,2,3]
+		it('Is a array', function () {
+			var res = sb.clear(array)
+			chai.assert.isNotArray(res)
+		})
+		it('Length is correct', function () {
+			var res = sb.clear(array)
+			chai.assert.isUndefined(res)
+		})
+	})
 })

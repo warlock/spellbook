@@ -1,7 +1,7 @@
 var chai = require('chai')
 var sb = require('../spellbook')
 
-describe('Tools: Check Type', function () {
+describe('Check data type', function () {
 	describe('sb.isFunction()', function () {
 		it('Check is function', function () {
 			chai.assert.isTrue(sb.isFunction(function () {}), "Is function")
