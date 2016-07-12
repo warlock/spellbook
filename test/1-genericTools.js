@@ -106,41 +106,41 @@ describe('Generic Tools', function () {
 			chai.assert.isUndefined(res)
 		})
 	})
-	/*
+
 	describe('sb.contains()', function () {
-		var obj_array = [{ a : 1}, { a : 2}, { b : 3}]
+		var obj_array = [{a : 1}, {a : 2}, {b : 3}]
 		var number_array = [1, 2, 3]
 		var string_array = ['1', '2', '3']
+		/*
 		it('Check if contains object return true', function () {
-			var res = sb.contains(obj_array, { a: 1})
+			var res = sb.contains(obj_array, {a: 1})
 			console.log(res)
 			chai.assert.isTrue(res)
 		})
 
 		it('Check if not contains object return false', function () {
-			var res = sb.contains(obj_array, {a:3})
+			var res = sb.contains(obj_array, {a : 2})
 			chai.assert.isFalse(res)
 		})
+		*/
 
 		it('Check if contains number return true', function () {
-			var res = sb.contains(obj_array, 2)
-			console.log(res)
+			var res = sb.contains(number_array, 2)
 			chai.assert.isTrue(res)
 		})
 
 		it('Check if not contains number return false', function () {
-			var res = sb.contains(obj_array, 5)
+			var res = sb.contains(number_array, 5)
 			chai.assert.isFalse(res)
 		})
 
 		it('Check if contains string return true', function () {
-			var res = sb.contains(obj_array, '2')
-			console.log(res)
+			var res = sb.contains(string_array, '2')
 			chai.assert.isTrue(res)
 		})
 
 		it('Check if not contains string return false', function () {
-			var res = sb.contains(obj_array, '5')
+			var res = sb.contains(string_array, '5')
 			chai.assert.isFalse(res)
 		})
 	})
@@ -148,5 +148,4 @@ describe('Generic Tools', function () {
 	describe('sb.inArray()', function () {
 		
 	})
-	*/
 })
