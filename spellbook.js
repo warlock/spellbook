@@ -52,7 +52,7 @@ var Spellbook = function () {
 		else return 0;
 	};
 
- 	this.clone = function (obj) {
+ 	this.clone = this.assign= function (obj) {
 		if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj) return obj;
 
 		var temp = obj.constructor();
@@ -64,10 +64,6 @@ var Spellbook = function () {
 			}
 		}
 		return temp;
-	};
-
-	this.assign = function (obj) {
-		return this.clone(obj);
 	};
 
 	this.remove = function (array, obj) {
