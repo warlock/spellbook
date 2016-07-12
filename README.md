@@ -81,7 +81,7 @@ sb.remove(array, obj);
 sb.clear(array);
 ```
 
-**Find Objects from Array:**
+**Find value in Array:**
 ```javascript
 sb.contains(array, obj);
 sb.inArray(array, obj);
