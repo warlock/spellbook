@@ -74,24 +74,45 @@ describe('Generic Tools', function () {
 		var obj_array = [{ a : 1}, { a : 2}, { b : 3}]
 		var number_array = [1, 2, 6]
 		var string_array = ["1", "2", "6"]
-		it('Delete object and return array', function () {
-			var res = sb.remove(obj_array, { b : 3 })
+/*
+		it('Test in empty value', function () {
+			var res = sb.remove(number_array, )
+			chai.assert.isArray(res)
+		})
+*/
+		it('Delete a number', function () {
+			var res = sb.remove(number_array, 2)
+			chai.assert.lengthOf(res, 2)
 			chai.assert.isArray(res)
 		})
 
-		it('Delete object and length is correct', function () {
+		it('Delete a multiple numbe', function () {
+			var res = sb.remove(number_array, [2,6])
+			chai.assert.lengthOf(res, 1)
+			chai.assert.isArray(res)
+		})
+
+		it('Delete a object', function () {
 			var res = sb.remove(obj_array, { b : 3 })
 			chai.assert.lengthOf(res, 2)
+			chai.assert.isArray(res)
 		})
-
-		it('Delete string and return array', function () {
-			var res = sb.remove(string_array, "6")
+		it('Delete multiple objects', function () {
+			var res = sb.remove(obj_array, [{ b : 3 }, { a : 1}])
+			chai.assert.lengthOf(res, 1)
 			chai.assert.isArray(res)
 		})
 
-		it('Delete string and length is correct', function () {
+		it('Delete string', function () {
 			var res = sb.remove(string_array, "2")
 			chai.assert.lengthOf(res, 2)
+			chai.assert.isArray(res)
+		})
+
+		it('Delete multiple string', function () {
+			var res = sb.remove(string_array, ["6", "2"])
+			chai.assert.lengthOf(res, 1)
+			chai.assert.isArray(res)
 		})
 	})
 
