@@ -1,7 +1,3 @@
-describe('JShint Syntax test', function () {
-	require('mocha-jshint')({
-		paths: [
-		'./spellbook.js'
-		]
-	});
+describe('JSHint, a JavaScript Code Quality Tool', function () {
+	require('mocha-jshint')({ paths: [ './spellbook.js' ] });
 });
