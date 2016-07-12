@@ -4,7 +4,7 @@ SpellBook
 
 http://www.spellbook.io
 
-[![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Dependency Status](https://david-dm.org/warlock/spellbook.svg)](https://david-dm.org/warlock/spellbook) [![devDependency Status](https://david-dm.org/warlock/spellbook/dev-status.svg)](https://david-dm.org/warlock/spellbook#info=devDependencies)
+[![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![npm](https://img.shields.io/npm/dm/localeval.svg?maxAge=2592000)](https://www.npmjs.com/package/spellbook) [![npm](https://img.shields.io/npm/dt/express.svg?maxAge=2592000)](https://www.npmjs.com/package/spellbook) [![Dependency Status](https://david-dm.org/warlock/spellbook.svg)](https://david-dm.org/warlock/spellbook) [![devDependency Status](https://david-dm.org/warlock/spellbook/dev-status.svg)](https://david-dm.org/warlock/spellbook#info=devDependencies)
 
 ## INSTALL/DOWNLOAD
 http://npmjs.com/package/spellbook
@@ -756,7 +756,6 @@ sb.cp("file.txt", "copyfile.txt")
 })
 ```
 
-[![NPM](https://nodei.co/npm/spellbook.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/spellbook/)
 
 ## License
 All the code here is under MIT license. Which means you could do virtually anything with the code.
