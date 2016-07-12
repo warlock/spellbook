@@ -97,11 +97,11 @@ describe('Generic Tools', function () {
 
 	describe('sb.clear()', function () {
 		var array = [1,2,3]
-		it('Is a array', function () {
+		it('Check is not a array', function () {
 			var res = sb.clear(array)
 			chai.assert.isNotArray(res)
 		})
-		it('Length is correct', function () {
+		it('Check length is isUndefined', function () {
 			var res = sb.clear(array)
 			chai.assert.isUndefined(res)
 		})
@@ -111,7 +111,7 @@ describe('Generic Tools', function () {
 		var obj_array = [{a : 1}, {a : 2}, {b : 3}]
 		var number_array = [1, 2, 3]
 		var string_array = ['1', '2', '3']
-		/*
+		/* BUG: NOT WORKING WITH OBJECTS
 		it('Check if contains object return true', function () {
 			var res = sb.contains(obj_array, {a: 1})
 			console.log(res)
@@ -146,6 +146,27 @@ describe('Generic Tools', function () {
 	})
 
 	describe('sb.inArray()', function () {
-		
+		//TEST CONTAINS WITH inArray FUNCTION
 	})
+
+	describe('sb.uniq()', function () {
+		var obj_array = [{a : 1}, {a : 2}, {a : 3}]
+		it('Check is array', function () {
+			var res = sb.uniq(obj_array, "a")
+			chai.assert.isArray(res)
+		})
+
+		it('Check length is 3', function () {
+			var res = sb.uniq(obj_array, "a")
+			chai.assert.lengthOf(res, 3)
+		})
+
+		it('Check if all elements is a numbers', function () {
+			var res = sb.uniq(obj_array, "a")
+			res.forEach((e) => {
+				chai.assert.isNumber(e)
+			})
+		})
+	})
+
 })
