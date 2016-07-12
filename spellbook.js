@@ -59,7 +59,7 @@ var Spellbook = function () {
 		for(var key in obj) {
 			if(Object.prototype.hasOwnProperty.call(obj, key)) {
 				obj.isActiveClone = null;
-				temp[key] = clone(obj[key]);
+				temp[key] = obj[key];
 				delete obj.isActiveClone;
 			}
 		}
@@ -67,9 +67,8 @@ var Spellbook = function () {
 	};
 
 	this.remove = function (array, obj) {
-		if (typeof obj === "object" && !(obj instanceof Array)) obj = [obj];
 		return array.filter(function (e) {
-			if(obj.indexOf(e)<0) return e;
+			if (JSON.stringify(e) !== JSON.stringify(obj)) return e;
 		});
 	};
 
