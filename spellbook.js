@@ -81,7 +81,7 @@ var Spellbook = function () {
 	};
 
 	this.clear = function (array) {
-		array.splice(0, array.length);
+		array.splice(array.length,0);
 	};
 
 	this.inArray = function (a, b) {
@@ -301,7 +301,7 @@ var Spellbook = function () {
 
 		if (!Array.prototype.clear) {
 			Array.prototype.clear = function () {
-				this.splice(0, this.length);
+				this.splice(this.length, 0);
 			};
 		}
 
