@@ -118,13 +118,13 @@ describe('Generic Tools', function () {
 
 	describe('sb.clear()', function () {
 		var array = [1,2,3]
-		it('Check is not a array', function () {
+		it('Check is a array', function () {
 			var res = sb.clear(array)
-			chai.assert.isNotArray(res)
+			chai.assert.isArray(res)
 		})
-		it('Check length is isUndefined', function () {
+		it('Check length is 0', function () {
 			var res = sb.clear(array)
-			chai.assert.isUndefined(res)
+			chai.assert.lengthOf(res, 0)
 		})
 	})
 
