@@ -58,7 +58,18 @@ var Spellbook = function () {
 		}
 	};
 
- 	this.clone = this.assign= function (obj) {
+
+	this.shuffle = function (array) {
+		for (var i = array.length-1; i >=0; i--) {
+			var randomIndex = Math.floor(Math.random()*(i+1));
+			var itemAtIndex = array[randomIndex];
+			array[randomIndex] = array[i];
+			array[i] = itemAtIndex;
+		}
+		return array;
+	};
+
+ 	this.clone = this.assign = function (obj) {
 		if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj) return obj;
 
 		var temp = obj.constructor();
@@ -310,9 +321,7 @@ var Spellbook = function () {
 
 		if (!Array.prototype.random) {
 			Array.prototype.random = function () {
-				self = this;
-				var index = Math.floor(Math.random() * (this.length));
-				return self[index];
+				return self.random(this);
 			};
 		}
 

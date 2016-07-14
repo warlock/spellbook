@@ -240,4 +240,19 @@ describe('Generic Tools', function () {
 			}
 		})
 	});
+
+	describe('sb.shuffle()', function () {
+		var a = [1,2,3,4,5]
+		it('Check if numbers array returns array', function () {
+			var res = sb.shuffle(a)
+			console.log(res)
+			chai.assert.isArray(res)
+		})
+
+		it('Check if numbers array returns array of numbers', function () {
+			for (var i = 0;i < a.length; i++) {
+				chai.assert.isNumber(a[i])
+			}
+		})
+	});
 })
