@@ -220,4 +220,24 @@ describe('Generic Tools', function () {
 			chai.assert.isObject(res)
 		})
 	})
+
+	describe('sb.random()', function () {
+		it('Check if return a number', function () {
+			for (var i = 0;i < 1000; i++) {
+				var res = sb.random(1,i)
+				chai.assert.isNumber(res)
+				var res = sb.random(res-1,i)
+				chai.assert.isNumber(res)
+			}
+		})
+
+		it('Check if array return a number', function () {
+			var arr = []
+			for (var i = 0;i < 1000; i++) {
+				arr.push(i)
+				var res = sb.random(arr)
+				chai.assert.isNumber(res)
+			}
+		})
+	});
 })

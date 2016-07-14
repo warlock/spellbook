@@ -49,7 +49,13 @@ var Spellbook = function () {
 
 	this.random = function (min, max) {
 		if (typeof min === "number" && typeof max === "number") return Math.floor(Math.random() * (max - min)) + min;
-		else return 0;
+		else {
+			if(!this.isArray(min)) return 0;
+			else {
+				var index = Math.floor(Math.random() * (min.length));
+				return min[index];
+			}
+		}
 	};
 
  	this.clone = this.assign= function (obj) {
@@ -289,19 +295,16 @@ var Spellbook = function () {
 
 
 	this.extender = function () {
+		var self = this;
 		if (!Array.prototype.remove) {
 			Array.prototype.remove = function (obj) {
-				var self = this;
-				if (typeof obj !== "object" && !(obj instanceof Array)) obj = [obj];
-				return self.filter(function (e) {
-		 			if(obj.indexOf(e)<0) return e;
-				});
+				return self.remove(this, obj);
 			};
 		}
 
 		if (!Array.prototype.clear) {
 			Array.prototype.clear = function () {
-				return this.splice(this.length, 0);
+				return self.remove(this);
 			};
 		}
 
