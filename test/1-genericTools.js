@@ -278,4 +278,26 @@ describe('Generic Tools', function () {
 			chai.assert.equal(res, 'a')
 		})
 	});
+
+	describe('sb.extend()', function () {
+		var obj = { a : 1 }
+		var obj2 = { b : 2 }
+		var objtest = { a : 1, b : 2 }
+		var res = sb.extend(obj, obj2)
+		it('Returns object', function () {
+			chai.assert.isObject(res)
+		});
+
+		it('Object is a fusion', function () {
+			chai.assert.notStrictEqual(res, objtest)
+		});
+
+		it('Attribute \'a\' is equal', function () {
+			chai.assert.equal(res.a, objtest.a)
+		});
+
+		it('Attribute \'b\' is equal', function () {
+			chai.assert.equal(res.b, objtest.b)
+		})
+	});
 })
