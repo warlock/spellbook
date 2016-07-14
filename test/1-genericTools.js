@@ -256,7 +256,6 @@ describe('Generic Tools', function () {
 
 		it('Check if numbers array have a same length', function () {
 			var res = sb.shuffle(a)
-			console.log(res)
 			chai.assert.lengthOf(res, a.length)
 		})
 
