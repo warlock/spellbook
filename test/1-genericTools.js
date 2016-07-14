@@ -245,7 +245,6 @@ describe('Generic Tools', function () {
 		var a = [1,2,3,4,5]
 		it('Check if numbers array returns array', function () {
 			var res = sb.shuffle(a)
-			console.log(res)
 			chai.assert.isArray(res)
 		})
 
@@ -254,5 +253,12 @@ describe('Generic Tools', function () {
 				chai.assert.isNumber(a[i])
 			}
 		})
+
+		it('Check if numbers array have a same length', function () {
+			var res = sb.shuffle(a)
+			console.log(res)
+			chai.assert.lengthOf(res, a.length)
+		})
+
 	});
 })
