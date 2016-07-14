@@ -242,22 +242,40 @@ describe('Generic Tools', function () {
 	});
 
 	describe('sb.shuffle()', function () {
-		var a = [1,2,3,4,5]
+		var array = [1,2,3,4,5]
 		it('Check if numbers array returns array', function () {
-			var res = sb.shuffle(a)
+			var res = sb.shuffle(array)
 			chai.assert.isArray(res)
 		})
 
 		it('Check if numbers array returns array of numbers', function () {
-			for (var i = 0;i < a.length; i++) {
-				chai.assert.isNumber(a[i])
+			for (var i = 0;i < array.length; i++) {
+				chai.assert.isNumber(array[i])
 			}
 		})
 
 		it('Check if numbers array have a same length', function () {
-			var res = sb.shuffle(a)
-			chai.assert.lengthOf(res, a.length)
+			var res = sb.shuffle(array)
+			chai.assert.lengthOf(res, array.length)
 		})
+	});
 
+
+	describe('sb.last()', function () {
+		var array = ['a','b','c']
+		it('Check if last element is correct', function () {
+			var res = sb.last(array)
+			chai.assert.isString(res)
+			chai.assert.equal(res, 'c')
+		})
+	});
+
+	describe('sb.first()', function () {
+		var array = ['a','b','c']
+		it('Check first element is correct', function () {
+			var res = sb.first(array)
+			chai.assert.isString(res)
+			chai.assert.equal(res, 'a')
+		})
 	});
 })

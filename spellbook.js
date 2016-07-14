@@ -69,6 +69,21 @@ var Spellbook = function () {
 		return array;
 	};
 
+	this.first = function (array) {
+		return array[0];
+	};
+
+	this.last = function (array) {
+		return array[array.length - 1];
+	};
+
+	this.extend = function (obj, obj2) {
+		for (var i in obj2) {
+			if (obj2.hasOwnProperty(i)) obj[i] = obj2[i];
+		}
+		return obj;
+	};
+
  	this.clone = this.assign = function (obj) {
 		if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj) return obj;
 
@@ -327,38 +342,31 @@ var Spellbook = function () {
 
 		if (!Array.prototype.shuffle) {
 			Array.prototype.shuffle = function () {
-				var input = this;
-				for (var i = input.length-1; i >=0; i--) {
-					var randomIndex = Math.floor(Math.random()*(i+1));
-					var itemAtIndex = input[randomIndex];
-					input[randomIndex] = input[i];
-					input[i] = itemAtIndex;
-				}
-				return input;
+				return self.shuffle(this);
 			};
 		}
 
 		if (!Array.prototype.first) {
 			Array.prototype.first = function () {
-				return this[0];
+				return self.first(this);
 			};
 		}
 
 		if (!Array.prototype.last) {
 			Array.prototype.last = function () {
-				return this[this.length - 1];
+				return self.last(this);
 			};
 		}
 
 		if (!Array.prototype.inArray) {
 			Array.prototype.inArray = function (value) {
-				return !!~this.indexOf(value);
+				return self.inArray(this, value);
 			};
 		}
 
 		if (!Array.prototype.contains) {
 			Array.prototype.contains = function (value) {
-				return !!~this.indexOf(value);
+				return self.inArray(this, value);
 			};
 		}
 
@@ -383,9 +391,7 @@ var Spellbook = function () {
 
 		if (!Object.prototype.extend) {
 			Object.prototype.extend = function (obj) {
-				for (var i in obj) {
-					if (obj.hasOwnProperty(i)) this[i] = obj[i];
-				}
+				self.extend(this, obj);
 			};
 		}
 

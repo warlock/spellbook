@@ -80,6 +80,30 @@ sb.random(['a','b','c']);
 -> a
 ```
 
+**sb.shuffle(array);**
+```javascript
+sb.shuffle(['a', 'b', 'c']);
+```
+```
+-> ['c', 'a', 'b']
+```
+
+**sb.first(array);**
+```javascript
+sb.first(['a', 'b', 'c']);
+```
+```
+-> a
+```
+
+**sb.last(array);**
+```javascript
+sb.last(['a', 'b', 'c']);
+```
+```
+-> c
+```
+
 **Clone Object in javascript ES5 with ES6 style:**
 ```javascript
 var NewObject = sb.assing(obj);
