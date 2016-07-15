@@ -155,14 +155,6 @@ var Spellbook = function () {
 		return data.replace(/\r\n/g, '\n');
 	};
 
-	this.times = function (number, callback) {
-		if (typeof number === 'number' && number > 0) {
-			if ( typeof callback === 'function') {
-				for (var i = 0; i < number; i++) callback(i);
-			}
-		}
-	};
-
 	this.each = function (array, callback, response) {
 		var i = 0;
 		var done = function () {
@@ -339,6 +331,11 @@ var Spellbook = function () {
 	};
 
 
+	this.times = function (fin, callback, end) {
+		this.for(0, fin, 1, callback, end);
+	};
+
+
 	this.extender = function () {
 		var self = this;
 		if (!Array.prototype.remove) {
@@ -391,20 +388,7 @@ var Spellbook = function () {
 
 		if (!Array.prototype.each) {
 			Array.prototype.each = function (callback, response) {
-				var self = this;
-				var end = function (data) {
-					if (typeof response === 'function') response(data);
-				};
-				var i = 0;
-				var done = function () {
-					if (i < self.length -1) {
-						i++;
-						callback(self[i], i, done, end);
-					} else {
-						if (typeof response === 'function') response();
-					}
-				};
-				callback(self[i], i, done, end);
+				self.each(this, callback, response);
 			};
 		}
 
@@ -416,44 +400,37 @@ var Spellbook = function () {
 
 		if (!Object.prototype.remove) {
 			Object.prototype.remove = function (keys) {
-				var self = this;
-				if (typeof obj === "object" && obj instanceof Array) {
-					arr.forEach(function (key) {
-						delete(self[key]);
-					});
-				} else delete(self[keys]);
+				return self.remove(this, keys);
 			};
 		}
 
 		if (!Object.prototype.getKeys) {
 			Object.prototype.getKeys = function(keys) {
-				self.getKeys(this, keys);
+				return self.getKeys(this, keys);
 			};
 		}
 
 		if (!String.prototype.repeatify) {
-				String.prototype.repeatify = function (num) {
-					return self.repeatify(this, num);
-				};
+			String.prototype.repeatify = function (num) {
+				return self.repeatify(this, num);
+			};
 		}
 
 		if (!Number.prototype.times) {
-			Number.prototype.times = function (callback) {
-				if (this % 1 === 0) {
-					for (var i = 0; i < this; i++) callback(i);
-				}
+			Number.prototype.times = function (callback, end) {
+				self.for(0, this, 1, callback, end);
 			};
 		}
 
 		if (!String.prototype.capitalize) {
 			String.prototype.capitalize = function () {
-				return this.charAt(0).toUpperCase() + this.slice(1);
+				return self.capitalize(this);
 			};
 		}
 
 		if (!String.prototype.dos2unix) {
 			String.prototype.dos2unix = function () {
-				return this.replace(/\r\n/g, '\n');
+				return self.dos2unix(this);
 			};
 		}
 
