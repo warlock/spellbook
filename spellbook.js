@@ -231,6 +231,16 @@ var Spellbook = function () {
 		return Object.keys(obj).length;
 	};
 
+	this.getKeys = function(obj, keys) {
+		var nobj = {};
+		if (this.isArray(keys)) {
+			keys.forEach(function (key) {
+				nobj[key] = obj[key];
+			});
+		} else nobj[keys] = obj[keys];
+		return nobj;
+	};
+
 	this.parallel = function (callbacks, response) {
 		var it = 0;
 		var data = [];

@@ -331,5 +331,34 @@ describe('Generic Tools', function () {
 		//Need test
 	})
 
-	
+	describe('sb.getKeys()', function () {
+		var obj = { a : 1, b : 2,  c : 3, d : 4}
+		var res = sb.getKeys(obj, 'a')
+		var res2 = sb.getKeys(obj, ['b','d'])
+
+		it('Returns object', function () {
+			chai.assert.isObject(res)
+		});
+
+		it('Object length', function () {
+			chai.assert.lengthOf(Object.keys(res), 1)
+		});
+
+		it('Validate value', function () {
+			chai.assert.equal(res.a, 1)
+		});
+
+		it('Returns object', function () {
+			chai.assert.isObject(res2)
+		});
+
+		it('Object length', function () {
+			chai.assert.lengthOf(Object.keys(res2), 2)
+		});
+
+		it('Validate values', function () {
+			chai.assert.equal(res2.b, 2)
+			chai.assert.equal(res2.d, 4)
+		});
+	});
 })
