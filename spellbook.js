@@ -419,14 +419,7 @@ var Spellbook = function () {
 
 		if (!Object.prototype.getKeys) {
 			Object.prototype.getKeys = function(keys) {
-				var self = this;
-				var obj = {};
-				if (typeof self === "object" && self instanceof Array) {
-					keys.forEach(function (key) {
-						obj[key] = self[key];
-					});
-				} else obj[keys] = self[keys];
-				return obj;
+				self.getKeys(this, keys);
 			};
 		}
 
