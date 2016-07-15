@@ -124,10 +124,6 @@ var Spellbook = function () {
 		return !!~a.indexOf(b);
 	};
 
-	this.size = function (obj) {
-		return Object.keys(obj).length;
-	};
-
 	this.unq = this.uniq = function (array, key) {
 		var narray = [];
 		var keys = {};
@@ -228,6 +224,10 @@ var Spellbook = function () {
 				return obj;
 			}
 		} else return undefined;
+	};
+
+	this.size = function (obj) {
+		return Object.keys(obj).length;
 	};
 
 	this.parallel = function (callbacks, response) {
