@@ -35,8 +35,7 @@ describe('Check data type', function () {
 		it('Check is integer', function () {
 			for (var key in data) {
 				if (key === 'int') chai.assert.isTrue(sb.isInteger(data[key]))
-				//else chai.assert.isNotTrue(sb.isInteger(data[key]), 'key ' + key)
-				//BUG: La comparacio amb bool retorna true
+				else chai.assert.isNotTrue(sb.isInteger(data[key]), 'key ' + key)
 			}
 		})
 	})

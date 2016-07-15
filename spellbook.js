@@ -44,7 +44,8 @@ var Spellbook = function () {
 	};
 
 	this.isInteger = function (obj) {
-		return obj % 1 === 0;
+		if (this.isNumber(obj)) return obj % 1 === 0;
+		else return false;
 	};
 
 	this.random = function (min, max) {
