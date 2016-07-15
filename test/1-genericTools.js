@@ -324,4 +324,12 @@ describe('Generic Tools', function () {
 			chai.assert.equal(res, 'Abc')
 		});
 	});
+
+	describe('sb.dos2unix()', function () {
+		var string_dos = 'hi'
+		var string_unix = "hi"
+		//Need test
+	})
+
+	
 })
