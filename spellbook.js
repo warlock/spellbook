@@ -241,6 +241,14 @@ var Spellbook = function () {
 		return nobj;
 	};
 
+	this.repeatify = function (val, num) {
+		var strArray = [];
+		for (var i = 0; i < num; i++) {
+			strArray.push(val.normalize());
+		}
+		return strArray;
+	};
+
 	this.parallel = function (callbacks, response) {
 		var it = 0;
 		var data = [];

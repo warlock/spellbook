@@ -361,4 +361,17 @@ describe('Generic Tools', function () {
 			chai.assert.equal(res2.d, 4)
 		});
 	});
+
+	describe('sb.repeatify()', function () {
+		var res = sb.repeatify('hi', 5)
+		it('Returns a correct length', function () {
+			chai.assert.lengthOf(res, 5)
+		});
+
+		it('Returns the same string in all cases', function () {
+			res.forEach(function (e) {
+				chai.assert.equal(e, 'hi')
+			})
+		});
+	});
 })
