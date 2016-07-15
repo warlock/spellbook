@@ -432,13 +432,9 @@ var Spellbook = function () {
 		}
 
 		if (!String.prototype.repeatify) {
-			String.prototype.repeatify = function (num) {
-				var strArray = [];
-				for (var i = 0; i < num; i++) {
-					strArray.push(this.normalize());
-				}
-				return strArray;
-			};
+				String.prototype.repeatify = function (num) {
+					return self.repeatify(this, num);
+				};
 		}
 
 		if (!Number.prototype.times) {
