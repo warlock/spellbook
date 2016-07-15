@@ -15,7 +15,7 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.82/spellbook.min.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.84/spellbook.min.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
 http://cdn.spellbook.io/spellbook.js
@@ -34,9 +34,8 @@ var sb = require("spellbook");
 </script>
 ```
 
-## Generic tools:
+# Generic tools
 **Range:**
-
 ```javascript
 sb.range(0,10);
 ```
@@ -104,6 +103,16 @@ sb.last(['a', 'b', 'c']);
 -> c
 ```
 
+**sb.extend(obj, obj2);**
+```javascript
+var spells = {"fire": 5, "ice": 4};
+var newspells = {"electro": 6, "wind": 7};
+sb.extend(spells, newspells);
+```
+```
+-> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
+```
+
 **Clone Object in javascript ES5 with ES6 style:**
 ```javascript
 var NewObject = sb.assing(obj);
@@ -163,13 +172,29 @@ sb.size(obj)
 -> 2
 ```
 
-
-**Random number:**
+**sb.getKeys(object, keys);**
 ```javascript
-sb.random(5,10);
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+sb.getKeys(spells, "fire");
 ```
 ```
--> 6
+-> {"fire": 5}
+```
+
+```javascript
+var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
+sb.getKeys(spells, ["fire", "wind"]);
+```
+```
+-> {"fire": 5, "wind" : 7}
+```
+
+**sb.repeatify(value, num);**
+```
+sb.reatify("hi", 5);
+```
+```
+-> ['hi','hi','hi','hi','hi']
 ```
 
 **sb.capitalize();**
@@ -187,23 +212,7 @@ Replace dos endline
 sb.dos2unix(string);
 ```
 
-**Real date validator:**
-```javascript
-sb.checkDate('dd-mm-yyyy', '30/02/2015');
-```
-```
--> false
-```
-
-**Limit of words:**
-```javascript
-sb.excerpt('One, two, Freddy\'s coming for you', 3);
-```
-```
--> 'One, two, Freddy's'
-```
-
-**Class boolean check:**
+**Type check:**
 ```javascript
 sb.isFunction(obj);
 sb.isArray(obj);
@@ -214,7 +223,8 @@ sb.isString(obj);
 sb.isBoolean(obj);
 ```
 
-##Iterators
+
+# Asyncronous Iterators
 
 **sb.each(array, callback_loop(item, index, next_method, end_method), callback_end);**
 
@@ -243,18 +253,12 @@ var list = ['a', 'b', 'c'];
 sb.each(list, function (item, i, next, end) {
     console.log("item: " + item );
     setTimeout(function () {
-        if (i === 1) {
-            end("Bye!");
-        } else {
-            next();
-        }
+        if (i === 1) end("Bye!");
+        else next();
     }, 3000);
 }, function (data) {
-    if (data) {
-        console.log("End: " + data);
-    } else {
-        console.log("End");
-    }
+    if (data) console.log("End: " + data);
+    else console.log("End");
 });
 ```
 ```
@@ -268,7 +272,7 @@ sb.each(list, function (item, i, next, end) {
 Runs in parallel limit and next loop when "next" method is executed. Alternative names: eachpl, epl.
 ```javascript
 var list = ['a', 'b', 'c', 'd'];
-sb.eachpl(list, 2, function (item, i, next) {
+sb.epl(list, 2, function (item, i, next) {
     console.log("item: " + item );
     setTimeout(function () {
         next();
@@ -371,25 +375,58 @@ Run limit of functions in parallel and then execute "callback_end". Alternative 
 ```javascript
 sb.pl(2, [
     function (done) {
-        setTimeout(function () { console.log("go 1!"); done("a") }, 1000); },
-	function (done) {
-		setTimeout(function () { console.log("go 2!"); done("b") }, 3000); },
-	function (done) {
-		setTimeout(function () { console.log("go 3!"); done("c") }, 1000); },
+        setTimeout(function () {
+          console.log("go 1!");
+          done("a")
+        }, 1000);
+    },
     function (done) {
-        setTimeout(function () { console.log("go 4!"); done("a2") }, 3000); },
+        setTimeout(function () {
+        console.log("go 2!");
+        done("b")
+    }, 3000); },
     function (done) {
-        setTimeout(function () { console.log("go 5!"); done("b2") }, 1000); },
+        setTimeout(function () {
+            console.log("go 3!");
+            done("c")
+        }, 1000);
+    },
     function (done) {
-        setTimeout(function () { console.log("go 6!"); done("c2") }, 3000); },
+        setTimeout(function () {
+            console.log("go 4!");
+            done("a2")
+        }, 3000);
+    },
     function (done) {
-        setTimeout(function () { console.log("go 7!"); done("a3") }, 1000); },
+        setTimeout(function () {
+            console.log("go 5!");
+            done("b2")
+        }, 1000);
+    },
     function (done) {
-        setTimeout(function () { console.log("go 8!"); done("b3") }, 3000); },
+        setTimeout(function () {
+            console.log("go 6!");
+            done("c2")
+        }, 3000); },
     function (done) {
-        setTimeout(function () { console.log("go 9!"); done("c3") }, 1000); }
+        setTimeout(function () {
+            console.log("go 7!");
+            done("a3")
+        }, 1000); },
+    function (done) {
+        setTimeout(function () {
+            console.log("go 8!");
+            done("b3")
+        }, 3000);
+    },
+    function (done) {
+        setTimeout(function () {
+            console.log("go 9!");
+            done("c3")
+        }, 1000);
+    }
 ],function (data) {
-	console.log("we: " + JSON.stringify(data));
+    console.log("we: " + JSON.stringify(data));
 });
 ```
 ```
@@ -446,19 +483,39 @@ sb.fe(function (next, end) {
 -> Response: Now Break!!
 ```
 
-**sb.times(number, callback(iteration));**
+**sb.times(number, callback(index, next, end), end);**
 
 Iterates function "number" times.
+```javascript
+sb.times(5, function (index, next, end) {
+        console.log("iterator: " + index);
+        if (index === 3) end()
+        else next();
+}, () => {
+        console.log("End!")
+})
+```
+```
+-> Iterator 0
+-> Iterator 1
+-> Iterator 2
+-> Iterator 3
+-> End!
+```
 
 ```javascript
-sb.times(3, function (iteration) {
-        console.log("Abracadabra!");
-});
+sb.times(5, function (index, next, end) {
+        console.log("Iterator " + index);
+        next();
+})
 ```
 ```
--> Abracadabra!
--> Abracadabra!
--> Abracadabra!
+-> Iterator 0
+-> Iterator 1
+-> Iterator 2
+-> Iterator 3
+-> Iterator 4
+-> Iterator 5
 ```
 
 **sb.for(initial, final, increment, callback(index, next, end), callback_end(data));**
@@ -489,311 +546,7 @@ sb.for(0, 10, 1, function (index, next, end) {
 -> [ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
 ```
 
-
-## CLASS EXTENSION
->Existing class methods will be ignored
-
-**START CLASS EXTENDER**
-```javascript
-sb.extender()
-```
-
-**Array.remove(obj);**
-
-```javascript
-var list = ['a', 2, 'c', 2];
-list.remove(2);
-```
-```
--> ['a', 'c']
-```
-
-```javascript
-var list = ['a', 2, 'c', 2];
-list.remove([2,'a']);
-```
-```
--> ['c']
-```
-
-```javascript
-var date = new Date();
-var list = ['a', 'b', 1, '2', date];
-list.remove(['b', 1, date]);
-```
-```
--> ['a', '2']
-```
-
-**Array.clear();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.clear();
-```
-```
--> []
-```
-
-**Array.random();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.random();
-```
-```
--> 'b'
-```
-
-**Array.shuffle();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.shuffle();
-```
-```
--> ['c', 'a', 'b']
-```
-
-**Array.first();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.first();
-```
-```
--> 'a'
-```
-
-**Array.last();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.last();
-```
-```
--> 'c'
-```
-
-**Array.inArray(item);**
-```javascript
-var list = ['a', 'b', 'c'];
-list.inArray('b');
-```
-```
--> true
-```
-
-**Array.contains(item);**
-```javascript
-var list = ['a', 'b', 'c'];
-list.contains('b');
-```
-```
--> true
-```
-
-**Array.isArray();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.isArray();
-```
-```
--> true
-```
-
-**Array.each(callback_loop(item, index, next_method, end_method), callback_end);**
-
-Runs next loop when "next" method is executed.
-
-```javascript
-var list = ['a', 'b', 'c'];
-list.each(function (item, i, next, end) {
-    console.log("item: " + item );
-    setTimeout(function () {
-        next();
-    }, 3000);
-}, function () {
-    console.log("End");
-});
-```
-```
--> item: a // Wait 3 seconds;
--> item: b // Wait 3 seconds;
--> item: c // Wait 3 seconds;
--> End
-```
-
-**Array.each(callback_loop(item, index, next_method, end_method), callback_end);**
-
-Runs next loop when "next" method is executed. Call "end" method for break the loop.
-
-```javascript
-var list = ['a', 'b', 'c'];
-list.each(function (item, i, next, end) {
-    console.log("item: " + item );
-    setTimeout(function () {
-        if (i === 1) end("Bye!");
-        else next();
-    }, 3000);
-}, function (data) {
-    if (data) console.log("End: " + data);
-    else console.log("End");
-});
-```
-```
--> item: a // Wait 3 seconds;
--> item: b // Wait 3 seconds;
--> End: Bye!
-```
-
-**Object.getKeys(keys);**
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.getKeys("fire");
-```
-```
--> {"fire": 5}
-```
-
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.getKeys(["fire", "ice"]);
-```
-```
--> {"fire": 5, "ice": 4}
-```
-
-**Object.extend(obj);**
-```javascript
-var spells = {"fire": 5, "ice": 4};
-var newspells = {"electro": 6, "wind": 7};
-spells.extend(newspells);
-```
-```
--> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
-```
-
-**Object.remove(keys);**
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.remove("fire");
-```
-```
--> {"ice": 4, "electro": 6, "wind": 7}
-```
-
-```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-spells.remove(["fire", "ice"]);
-```
-```
--> {"electro": 6, "wind": 7}
-```
-
-**Object.isObject();**
-```javascript
-var list = ['a', 'b', 'c'];
-list.isObject();
-```
-```
--> true
-```
-
-**Boolean.isBoolean();**
-```javascript
-var boh = false;
-boh.isBoolean();
-```
-```
--> true
-```
-
-**Function.isFunction();**
-```javascript
-var fun = function () { return "hi" };
-fun.isFunction();
-```
-```
--> true
-```
-
-**String.isString();**
-```javascript
-var talk = "hi!";
-talk.isString();
-```
-```
--> true
-```
-
-**String.capitalize();**
-```javascript
-var spell = "abracadabra";
-spell.capitalize();
-```
-```
--> Abracadabra
-```
-
-**String.repeatify(num);**
-```javascript
-"hi".reatify(5);
-```
-```
--> ['hi','hi','hi','hi','hi']
-```
-
-**String.dos2unix();**
-
-Replace dos endline
-
-```javascript
-string.dos2unix();
-```
-
-
-**(Number).times(callback(iteration));**
-
-Iterates function "number" times.
-```javascript
-(3).times(function (i) {
-    console.log("hi!");
-});
-```
-```
--> hi!
--> hi!
--> hi!
-```
-
-**Number.isNumber();**
-```javascript
-var num = 5.2;
-num.isNumber();
-```
-```
--> true
-```
-
-**Number.isInteger();**
-```javascript
-var num = 5;
-num.isInteger();
-```
-```
--> true
-```
-
-##Only Node.Js tools:
-**sb.cp("file","copy");**
-
-Copy file with ES6 Promises
-
-```javascript
-sb.cp("file.txt", "copyfile.txt")
-.then(function (res) {
-    console.log("OK");
-})
-.catch(function (err) {
-    console.log(err);
-})
-```
+#And much more... http://www.spellbook.io
 
 
 ## License
