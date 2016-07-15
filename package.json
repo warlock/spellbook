@@ -37,6 +37,8 @@
   "homepage": "http://www.spellbook.io",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha-jshint": "^2.3.1"
+    "coveralls": "^2.11.11",
+    "mocha-jshint": "^2.3.1",
+    "mocha-lcov-reporter": "^1.2.0"
   }
 }
