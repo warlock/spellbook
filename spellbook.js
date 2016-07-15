@@ -430,43 +430,11 @@ var Spellbook = function () {
 			};
 		}
 
-		if (!String.prototype.dos2unix) {
-			String.prototype.dos2unix = function () {
-				return this.replace(/\r\n/g, '\n');
-			};
-		}
-
 		if (!Number.prototype.times) {
 			Number.prototype.times = function (callback) {
 				if (this % 1 === 0) {
 					for (var i = 0; i < this; i++) callback(i);
 				}
-			};
-		}
-
-		if (!Number.prototype.isInteger) {
-			Number.prototype.isInteger = function () {
-				this.isInteger = function (num) {
-					return num % 1 === 0;
-				};
-			};
-		}
-
-		if (!Array.prototype.isArray) {
-			this.isArray = function () {
-				return typeof this === "object" && this instanceof Array;
-			};
-		}
-
-		if (!Function.prototype.isFunction) {
-			this.isFunction = function () {
-				return typeof this === 'function';
-			};
-		}
-
-		if (!Object.prototype.isObject) {
-			this.isObject = function () {
-		 		return typeof this === "object" && (isArray(this) === false);
 			};
 		}
 
@@ -476,15 +444,47 @@ var Spellbook = function () {
 			};
 		}
 
+		if (!String.prototype.dos2unix) {
+			String.prototype.dos2unix = function () {
+				return this.replace(/\r\n/g, '\n');
+			};
+		}
+
+		if (!Number.prototype.isInteger) {
+			Number.prototype.isInteger = function () {
+				this.isInteger = function () {
+					return self.isInteger(this);
+				};
+			};
+		}
+
+		if (!Array.prototype.isArray) {
+			this.isArray = function () {
+				return self.isArray(this);
+			};
+		}
+
+		if (!Function.prototype.isFunction) {
+			this.isFunction = function () {
+				return self.isFunction(this);
+			};
+		}
+
+		if (!Object.prototype.isObject) {
+			this.isObject = function () {
+		 		return self.isObject(this);
+			};
+		}
+
 		if (!String.prototype.isString) {
 			this.isString = function () {
-				return typeof this === "string" || this instanceof String;
+				return self.isString(this);
 			};
 		}
 
 		if (!Boolean.prototype.isBoolean) {
 			this.isBoolean = function () {
-		 	   	return typeof this === "boolean";
+		 	   	return self.isBoolean(this);
 			};
 		}
 	};
