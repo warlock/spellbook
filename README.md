@@ -1,5 +1,7 @@
 SpellBook
 ===
+
+[![Join the chat at https://gitter.im/warlock/spellbook](https://badges.gitter.im/warlock/spellbook.svg)](https://gitter.im/warlock/spellbook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 > Library for extend the javascript abilities.
 
 http://www.spellbook.io
