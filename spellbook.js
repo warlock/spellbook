@@ -155,6 +155,44 @@ var Spellbook = function () {
 		return data.replace(/\r\n/g, '\n');
 	};
 
+
+	this.get =  function (obj, route) {
+		if (obj !== undefined && typeof route === "string") {
+			route = route.split(".");
+			if (route.length === 1 ) return obj[route[0]];
+			else {
+				for (var i = 0; i < route.length; i++) {
+					if (obj[route[i]] !== undefined) obj = obj[route[i]];
+					else return undefined;
+				}
+				return obj;
+			}
+		} else return undefined;
+	};
+
+	this.size = function (obj) {
+		return Object.keys(obj).length;
+	};
+
+	this.getKeys = function(obj, keys) {
+		var nobj = {};
+		if (this.isArray(keys)) {
+			keys.forEach(function (key) {
+				nobj[key] = obj[key];
+			});
+		} else nobj[keys] = obj[keys];
+		return nobj;
+	};
+
+	this.repeatify = function (val, num) {
+		var strArray = [];
+		for (var i = 0; i < num; i++) {
+			strArray.push(val.normalize());
+		}
+		return strArray;
+	};
+
+	//ASYNCRONOUS COLECTION SNC LIBRARY
 	this.each = function (array, callback, response) {
 		var i = 0;
 		var done = function () {
@@ -203,42 +241,6 @@ var Spellbook = function () {
 			callback(next, end);
 		};
 		callback(next, end);
-	};
-
-	this.get =  function (obj, route) {
-		if (obj !== undefined && typeof route === "string") {
-			route = route.split(".");
-			if (route.length === 1 ) return obj[route[0]];
-			else {
-				for (var i = 0; i < route.length; i++) {
-					if (obj[route[i]] !== undefined) obj = obj[route[i]];
-					else return undefined;
-				}
-				return obj;
-			}
-		} else return undefined;
-	};
-
-	this.size = function (obj) {
-		return Object.keys(obj).length;
-	};
-
-	this.getKeys = function(obj, keys) {
-		var nobj = {};
-		if (this.isArray(keys)) {
-			keys.forEach(function (key) {
-				nobj[key] = obj[key];
-			});
-		} else nobj[keys] = obj[keys];
-		return nobj;
-	};
-
-	this.repeatify = function (val, num) {
-		var strArray = [];
-		for (var i = 0; i < num; i++) {
-			strArray.push(val.normalize());
-		}
-		return strArray;
 	};
 
 	this.parallel = function (callbacks, response) {
@@ -334,248 +336,7 @@ var Spellbook = function () {
 	this.times = function (fin, callback, end) {
 		this.for(0, fin, 1, callback, end);
 	};
-
-
-	this.extender = function () {
-		var self = this;
-		if (!Array.prototype.remove) {
-			Array.prototype.remove = function (obj) {
-				return self.remove(this, obj);
-			};
-		}
-
-		if (!Array.prototype.clear) {
-			Array.prototype.clear = function () {
-				return self.remove(this);
-			};
-		}
-
-		if (!Array.prototype.random) {
-			Array.prototype.random = function () {
-				return self.random(this);
-			};
-		}
-
-		if (!Array.prototype.shuffle) {
-			Array.prototype.shuffle = function () {
-				return self.shuffle(this);
-			};
-		}
-
-		if (!Array.prototype.first) {
-			Array.prototype.first = function () {
-				return self.first(this);
-			};
-		}
-
-		if (!Array.prototype.last) {
-			Array.prototype.last = function () {
-				return self.last(this);
-			};
-		}
-
-		if (!Array.prototype.inArray) {
-			Array.prototype.inArray = function (value) {
-				return self.inArray(this, value);
-			};
-		}
-
-		if (!Array.prototype.contains) {
-			Array.prototype.contains = function (value) {
-				return self.inArray(this, value);
-			};
-		}
-
-		if (!Array.prototype.each) {
-			Array.prototype.each = function (callback, response) {
-				self.each(this, callback, response);
-			};
-		}
-
-		if (!Object.prototype.extend) {
-			Object.prototype.extend = function (obj) {
-				self.extend(this, obj);
-			};
-		}
-
-		if (!Object.prototype.remove) {
-			Object.prototype.remove = function (keys) {
-				return self.remove(this, keys);
-			};
-		}
-
-		if (!Object.prototype.getKeys) {
-			Object.prototype.getKeys = function(keys) {
-				return self.getKeys(this, keys);
-			};
-		}
-
-		if (!String.prototype.repeatify) {
-			String.prototype.repeatify = function (num) {
-				return self.repeatify(this, num);
-			};
-		}
-
-		if (!Number.prototype.times) {
-			Number.prototype.times = function (callback, end) {
-				self.for(0, this, 1, callback, end);
-			};
-		}
-
-		if (!String.prototype.capitalize) {
-			String.prototype.capitalize = function () {
-				return self.capitalize(this);
-			};
-		}
-
-		if (!String.prototype.dos2unix) {
-			String.prototype.dos2unix = function () {
-				return self.dos2unix(this);
-			};
-		}
-
-		if (!Number.prototype.isInteger) {
-			Number.prototype.isInteger = function () {
-				this.isInteger = function () {
-					return self.isInteger(this);
-				};
-			};
-		}
-
-		if (!Array.prototype.isArray) {
-			this.isArray = function () {
-				return self.isArray(this);
-			};
-		}
-
-		if (!Function.prototype.isFunction) {
-			this.isFunction = function () {
-				return self.isFunction(this);
-			};
-		}
-
-		if (!Object.prototype.isObject) {
-			this.isObject = function () {
-		 		return self.isObject(this);
-			};
-		}
-
-		if (!String.prototype.isString) {
-			this.isString = function () {
-				return self.isString(this);
-			};
-		}
-
-		if (!Boolean.prototype.isBoolean) {
-			this.isBoolean = function () {
-		 	   	return self.isBoolean(this);
-			};
-		}
-	};
 };
 
-if (typeof process === 'object') {
-	Spellbook.prototype.cp = function (source, target) {
-		return new Promise(function (resolve, reject) {
-			var rd = fs.createReadStream(source);
-			rd.on('error', reject);
-			var wr = fs.createWriteStream(target);
-			wr.on('error', function (err) {
-				reject(err);
-			});
-			wr.on('finish', function (d) {
-				resolve(d);
-			});
-			rd.pipe(wr);
-		});
-	};
-	module.exports = new Spellbook();
-} else {
-	Spellbook.prototype.ready = function (callback) {
-		document.addEventListener("DOMContentLoaded", function(event) {
-			callback(event);
-		});
-	};
-
-	Spellbook.prototype.comp = {
-		data : {},
-		stack : [],
-		run : function () {
-			for (var i = 0; i < this.stack.length; i++) this.stack[i].action(this.stack[i].attr[0], this.stack[i].attr[1]);
-			this.stack = [];
-		},
-		get : function (name, attr) {
-			if (typeof this.data[name].action === 'function') this.stack.push({ action : this.data[name].action, attr : [this, attr]});
-			return this.data[name].html(this, attr);
-		},
-		set : function (name, html, action) {
-			this.data[name] = {};
-			this.data[name].html = html;
-			if (typeof action === 'function') this.data[name].action = action;
-		},
-		destroy : function (name) {
-			document.getElementById(name).innerHTML = "";
-		},
-		render : function (name, id, attr) {
-			document.getElementById(id).innerHTML = this.data[name].html(this, attr);
-			if (typeof this.data[name].action === 'function') this.stack.push({ action : this.data[name].action, attr : [this, attr]});
-			this.run();
-		}
-	};
-
-	Spellbook.prototype.on = function (obj, eventHandler, callback) {
-		obj.addEventListener(eventHandler, function (event) {
-			callback(event);
-		});
-	};
-
-	Spellbook.prototype.id = function (id) {
-		return document.getElementById(id);
-	};
-
-	Spellbook.prototype.class = function (id) {
-		return document.getElementsByClassName(id);
-	};
-
-	Spellbook.prototype.ajax = {};
-
-	Spellbook.prototype.ajax.get = function (url, callback) {
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', encodeURI(url));
-		xhr.onload = function () {
-			if (xhr.status === 200) callback(false, xhr.responseText);
-			else callback("Request failed.  Returned status of " + status);
-		};
-		xhr.send();
-	};
-
-	Spellbook.prototype.ajax.post = function (url, data, header, callback) {
-		var finaldata = "";
-		function param(object) {
-			var encodedString = '';
-			for (var prop in object) {
-				if (object.hasOwnProperty(prop)) {
-					if (encodedString.length > 0) encodedString += '&';
-					encodedString += encodeURI(prop + '=' + object[prop]);
-				}
-			}
-			return encodedString;
-		}
-
-		if (typeof header === "function") {
-			callback = header;
-			header = "application/json";
-			finaldata = JSON.stringify(data);
-		} else finaldata = param(data);
-
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', encodeURI(url));
-		xhr.setRequestHeader('Content-Type', header);
-		xhr.send(finaldata);
-		xhr.onload = function () {
-			if (xhr.status === 200 && xhr.responseText !== undefined) callback(null, xhr.responseText);
-			else if (xhr.status !== 200) callback('Request failed.  Returned status of ' + xhr.status);
-		};
-	};
-	var sb = new Spellbook();
-}
+if (typeof process === 'object') module.exports = new Spellbook();
+else var sb = new Spellbook();
