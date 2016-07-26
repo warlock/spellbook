@@ -28,7 +28,7 @@ var Spellbook = function () {
 	};
 
 	this.isObject = function (obj) {
- 		return typeof obj === "object" && (this.isArray(obj) === false );
+		return typeof obj === "object" && (this.isArray(obj) === false);
 	};
 
 	this.isNumber = function (obj) {
@@ -85,7 +85,7 @@ var Spellbook = function () {
 		return obj;
 	};
 
- 	this.clone = this.assign = function (obj) {
+	this.clone = this.assign = function (obj) {
 		if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj) return obj;
 
 		var temp = obj.constructor();
@@ -197,7 +197,7 @@ var Spellbook = function () {
 		var i = 0;
 		var done = function () {
 			if (i < array.length) {
-				y = i;
+				var y = i;
 				i++;
 				callback(array[y], y, done, end);
 			} else if (typeof response === 'function') response();
@@ -237,7 +237,7 @@ var Spellbook = function () {
 		var end = function (data) {
 			if (typeof response === 'function') response(data);
 		};
-		var next = function (data) {
+		var next = function () {
 			callback(next, end);
 		};
 		callback(next, end);
@@ -303,7 +303,7 @@ var Spellbook = function () {
 
 			var done = function (gdata) {
 				to--;
-				if (gdata) data[ix] = gdata;
+				if (gdata) data[index] = gdata;
 				if (it !== array.length) {
 					async(array[it], it);
 					it++;
@@ -339,4 +339,7 @@ var Spellbook = function () {
 };
 
 if (typeof process === 'object') module.exports = new Spellbook();
-else var sb = new Spellbook();
+else {
+	var sb = new Spellbook();
+	if(sb !== undefined) throw new Error('No Spellbook loaded');
+}
