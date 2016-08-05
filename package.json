@@ -1,7 +1,7 @@
 {
   "name": "spellbook",
-  "version": "0.0.86",
-  "description": "Javascript tools and class extensions",
+  "version": "0.0.87",
+  "description": "Functional library for Javascript",
   "main": "spellbook.js",
   "scripts": {
     "test": "mocha"
