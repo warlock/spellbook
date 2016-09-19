@@ -202,7 +202,6 @@ describe('Generic Tools', function () {
 		var array = [{ a : 1, b : 1 }, { a : 1, b : 2 }, { a : 2, b : 3 }]
 		it('Check it return\'s array', function () {
 			var res = sb.filter(array, { a : 1 })
-			console.log(res)
 			chai.assert.isArray(res)
 		})
 
