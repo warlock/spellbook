@@ -208,7 +208,7 @@ describe('Generic Tools', function () {
 
 		it('Return correct number of values', function () {
 			var res = sb.filter(array, { a : 1 })
-			res.forEach((e) => {
+			res.forEach(function (e) {
 				chai.assert.equal(e.a, 1, "Not correct values")
 			})
 			chai.assert.lengthOf(res, 2)
@@ -216,7 +216,7 @@ describe('Generic Tools', function () {
 
 		it('Return correct number of values', function () {
 			var res = sb.filter(array, { a : 2 })
-			res.forEach((e) => {
+			res.forEach(function (e) {
 				chai.assert.equal(e.a, 2, "Not correct values")
 			})
 			chai.assert.lengthOf(res, 1)
@@ -224,7 +224,7 @@ describe('Generic Tools', function () {
 
 		it('Return correct number of values', function () {
 			var res = sb.filter(array, { a : 3 })
-			res.forEach((e) => {
+			res.forEach(function (e) {
 				chai.assert.equal(e.a, 3, "Not correct values")
 			})
 
@@ -233,11 +233,11 @@ describe('Generic Tools', function () {
 
 		it('Return correct number of values', function () {
 			var res = sb.filter(array, { a : 1, b : 3 })
-			res.forEach((e) => {
+			res.forEach(function (e) {
 				chai.assert.equal(e.a, 1, "Not correct values")
 			})
 
-			res.forEach((e) => {
+			res.forEach(function (e) {
 				chai.assert.equal(e.b, 3, "Not correct values")
 			})
 			chai.assert.lengthOf(res, 0)
