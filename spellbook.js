@@ -137,6 +137,25 @@ var Spellbook = function () {
 		return narray;
 	};
 
+	this.filter = function (array, obj) {
+		if (this.empty(array)) throw new Error('Filter function not contains array.');
+		else if (this.empty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
+		else {
+			var keys = Object.keys(obj);
+			return array.filter(function (e) {
+				var chck = true;
+				keys.forEach(function (k) {
+					if (typeof e[k] === 'string') {
+						if(e[k].indexOf(obj[k]) < 0) chck = false;
+					} else {
+						if(e[k] !== obj[k]) chck = false;
+					}
+				});
+				return chck;
+			});
+		}
+	};
+
 	this.excerpt = function (str, nwords) {
 		var words = str.split(' ');
 		words.splice(nwords, words.length-1);

@@ -143,16 +143,70 @@ sb.contains(array, item);
 sb.inArray(array, item);
 ```
 
+**Check empty values (null, "", [], undefined)**
+```javascript
+var a = ""
+if (sb.empty(a)) return true
+```
+```
+-> true
+```
+
+sb.empty && sb.get combination:
+```javascript
+var a = { a : [{ a : [1, 2, 3]}], b : 4 }
+if (sb.empty(sb.get('a', 'a.0.a.1'))) return true
+```
+```
+-> false
+```
+
+```javascript
+var a = { a : [{ a : [1, 2, 3]}], b : 4 }
+if (sb.empty(sb.get('a', 'a.0.b.1'))) return true
+```
+```
+-> true
+```
+
+Can negate a sb.empty in same example:
+```javascript
+var a = { a : [{ a : [1, 2, 3]}], b : 4 }
+return !sb.empty(sb.get('a', 'a.0.b.1'))
+```
+```
+-> false
+```
+
 **Get specific key from array of objects**
 
 Alternative name: unq.
 ```javascript
-var spells = [{ name : "fire", damage : 5},{ name : "ice", damage : 4}];
+var spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }];
 sb.uniq(spells,"name");
 ```
 ```
 -> [ 'fire', 'ice' ]
 ```
+
+**Filter specific values from array of objects**
+
+```javascript
+var spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }, { name : "water", damage : 5 }];
+sb.filter(spells,{ damage : 5 });
+```
+```
+-> [{ name : "fire", damage : 5 },{ name : "water", damage : 5 }]
+```
+
+```javascript
+var spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }, { name : "water", damage : 5 }];
+sb.filter(spells,{ name : "fire", name : "ice" });
+```
+```
+-> [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }]
+```
+
 
 **Get the element from the object "obj":**
 ```javascript

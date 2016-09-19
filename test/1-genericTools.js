@@ -198,6 +198,52 @@ describe('Generic Tools', function () {
 		})
 	})
 
+	describe('sb.filter()', function () {
+		var array = [{ a : 1, b : 1 }, { a : 1, b : 2 }, { a : 2, b : 3 }]
+		it('Check it return\'s array', function () {
+			var res = sb.filter(array, { a : 1 })
+			console.log(res)
+			chai.assert.isArray(res)
+		})
+
+		it('Return correct number of values', function () {
+			var res = sb.filter(array, { a : 1 })
+			res.forEach((e) => {
+				chai.assert.equal(e.a, 1, "Not correct values")
+			})
+			chai.assert.lengthOf(res, 2)
+		})
+
+		it('Return correct number of values', function () {
+			var res = sb.filter(array, { a : 2 })
+			res.forEach((e) => {
+				chai.assert.equal(e.a, 2, "Not correct values")
+			})
+			chai.assert.lengthOf(res, 1)
+		})
+
+		it('Return correct number of values', function () {
+			var res = sb.filter(array, { a : 3 })
+			res.forEach((e) => {
+				chai.assert.equal(e.a, 3, "Not correct values")
+			})
+
+			chai.assert.lengthOf(res, 0)
+		})
+
+		it('Return correct number of values', function () {
+			var res = sb.filter(array, { a : 1, b : 3 })
+			res.forEach((e) => {
+				chai.assert.equal(e.a, 1, "Not correct values")
+			})
+
+			res.forEach((e) => {
+				chai.assert.equal(e.b, 3, "Not correct values")
+			})
+			chai.assert.lengthOf(res, 0)
+		})
+	})
+
 	describe('sb.get()', function () {
 		var a = { a : {	b : ["c", "d"] } }
 		it('Check get a string', function () {
