@@ -360,5 +360,5 @@ var Spellbook = function () {
 if (typeof process === 'object') module.exports = new Spellbook();
 else {
 	var sb = new Spellbook();
-	if(sb !== undefined) throw new Error('No Spellbook loaded');
+	if (sb === undefined) throw new Error('No Spellbook loaded');
 }
