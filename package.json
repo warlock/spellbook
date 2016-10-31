@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.0.91",
+  "version": "0.0.92",
   "description": "Functional library for Javascript",
   "main": "spellbook.js",
   "scripts": {
@@ -37,10 +37,10 @@
   "homepage": "http://www.spellbook.io",
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.12",
-    "eslint": "^3.2.2",
-    "eslint-plugin-mocha": "^4.3.0",
-    "mocha-eslint": "^3.0.0",
+    "coveralls": "^2.11.14",
+    "eslint": "^3.9.1",
+    "eslint-plugin-mocha": "^4.7.0",
+    "mocha-eslint": "^3.0.1",
     "mocha-jshint": "^2.3.1",
     "mocha-lcov-reporter": "^1.2.0"
   }
