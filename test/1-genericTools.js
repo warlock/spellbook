@@ -376,6 +376,13 @@ describe('Generic Tools', function () {
 		//Need test
 	})
 
+	describe('sb.keys()', function () {
+		var obj = { a : 1, b : 2,  c : 3, d : 4}
+		//chai.assert.strictEqual(sb.keys(obj), Object.keys(obj), 'Correct result')
+		chai.assert.isArray(sb.keys(obj), 'is Array')
+		chai.assert.lengthOf(sb.keys(obj), 4, 'Same length')
+	})
+
 	describe('sb.getKeys()', function () {
 		var obj = { a : 1, b : 2,  c : 3, d : 4}
 		var res = sb.getKeys(obj, 'a')

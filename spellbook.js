@@ -193,6 +193,10 @@ var Spellbook = function () {
 		return Object.keys(obj).length;
 	};
 
+	this.keys = function (obj) {
+		return Object.keys(obj);
+	};
+
 	this.getKeys = function(obj, keys) {
 		var nobj = {};
 		if (this.isArray(keys)) {
