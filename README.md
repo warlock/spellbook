@@ -15,13 +15,13 @@ npm install spellbook
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.93/spellbook.min.js
-http://cdn.bootcss.com/spellbook/0.0.93/spellbook.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.0.94/spellbook.min.js
+http://cdn.bootcss.com/spellbook/0.0.94/spellbook.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
-https://static.dpaw.wa.gov.au/static/libs/spellbook/0.0.93/spellbook.js
-https://static.dpaw.wa.gov.au/static/libs/spellbook/0.0.93/spellbook.min.js
-https://static.dpaw.wa.gov.au/static/libs/spellbook/0.0.93/spellbook.min.js.map
+https://static.dpaw.wa.gov.au/static/libs/spellbook/0.0.94/spellbook.js
+https://static.dpaw.wa.gov.au/static/libs/spellbook/0.0.94/spellbook.min.js
+https://static.dpaw.wa.gov.au/static/libs/spellbook/0.0.94/spellbook.min.js.map
 http://cdn.spellbook.io/spellbook.js
 ```
 

@@ -167,7 +167,7 @@ var Spellbook = function () {
 	};
 
 	this.capitalize = function (data) {
-		return data.charAt(0).toUpperCase() + data.slice(1);
+		return data.slice(0,1).toUpperCase() + data.slice(1);
 	};
 
 	this.dos2unix = function (data) {
