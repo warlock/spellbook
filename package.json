@@ -43,5 +43,8 @@
     "mocha-eslint": "^3.0.1",
     "mocha-jshint": "^2.3.1",
     "mocha-lcov-reporter": "^1.2.0"
+  },
+  "dependencies": {
+    "snc": "^1.0.2"
   }
 }
