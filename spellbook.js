@@ -16,12 +16,12 @@ var Spellbook = function () {
 	this.dos2unix = tools.dos2unix;
 	this.empty = tools.empty;
 	this.isEmpty = tools.empty;
-	this.capitalize = tools.capitalize;
 	this.chain = chain;
 
 	//STRING TOOLS
 	this.toInt = string.toInt;
 	this.excerpt = string.excerpt;
+	this.capitalize = string.capitalize;
 
 	//NUMBER TOOLS
 	this.toString = number.toString;
