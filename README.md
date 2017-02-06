@@ -25,6 +25,11 @@ https://static.dpaw.wa.gov.au/static/libs/spellbook/0.0.94/spellbook.min.js.map
 http://cdn.spellbook.io/spellbook.js
 ```
 
+### GIT URL
+```
+https://github.com/warlock/spellbook.git
+```
+
 ## Node.Js : Import module:
 ```javascript
 var sb = require("spellbook");
