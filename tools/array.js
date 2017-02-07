@@ -41,7 +41,6 @@ module.exports = {
     if (type.isArray(array)) return !!~array.indexOf(value);
     else throw new Error('inArray function not contains array.');
 	},
-  contains : this.inArray,
   uniq : function (array, key) {
     var narray = [];
     var keys = {};

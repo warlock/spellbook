@@ -29,6 +29,7 @@ var Spellbook = function () {
 	//GENERIC
 	this.toString = generic.toString;
 	this.size = generic.size;
+	this.contains = generic.contains;
 
 	//TYPE
 	this.isFunction = type.isFunction;
@@ -48,7 +49,6 @@ var Spellbook = function () {
 	this.remove = array.remove;
 	this.clear = array.clear;
 	this.inArray = array.inArray;
-	this.contains = array.inArray;
 	this.unq = array.uniq;
 	this.uniq = array.uniq;
 	this.filter = array.filter;

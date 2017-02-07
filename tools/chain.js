@@ -66,6 +66,12 @@ module.exports = function (data) {
       return this;
     };
 
+
+    this.contains = function (value) {
+      this.data = generic.contains(this.data, value);
+        return this;
+    };
+
     //TYPE
     this.isFunction = function () {
       this.data = type.isFunction(this.data);
@@ -139,11 +145,6 @@ module.exports = function (data) {
     };
 
     this.inArray = function (object) {
-      this.data = array.inArray(this.data, object);
-      return this;
-    };
-
-    this.contains = function (object) {
       this.data = array.inArray(this.data, object);
       return this;
     };

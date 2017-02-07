@@ -12,5 +12,10 @@ module.exports = {
       else if (type.isObject(value)) return Object.keys(value).length
       else throw new Error('Size function not contains compatible values.');
     }
+  },
+  contains : function (data, value) {
+    if (type.isArray(data) || type.isString(data)) return !!~data.indexOf(value);
+    else if (type.isObject(data)) return !!~Object.keys(data).indexOf(value);
+    else throw new Error('inArray function not contains array.');
   }
 }
