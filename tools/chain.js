@@ -147,11 +147,13 @@ module.exports = function (data) {
     }
 
     this.toJSON = function () {
-      this.data = object.toJSON(this.data);
+      this.data = string.toJSON(this.data);
+      return this;
     }
 
     this.json = function () {
-      this.data = object.toJSON(this.data);
+      this.data = string.toJSON(this.data);
+      return this;
     }
 
     // METHOD MAIN
