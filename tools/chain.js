@@ -188,6 +188,15 @@ module.exports = function (data) {
       return this;
     }
 
+    this.reduce = function (callback) {
+      this.data = array.reduce(this.data, callback);
+      return this;
+    }
+
+    this.forEach = function (callback) {
+      array.forEach(this.data, callback);
+    }
+
     //OBJECT
     this.extend = function (object) {
       this.data = object.extend(this.data, object);

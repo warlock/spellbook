@@ -73,5 +73,11 @@ module.exports = {
 	},
   map : function (array, callback) {
     return array.map(callback);
+  },
+  reduce : function (array, callback) {
+    return array.reduce(callback);
+  },
+  forEach : function (array, callback) {
+    array.forEach(callback);
   }
 }

@@ -58,6 +58,8 @@ var Spellbook = function () {
 	this.uniq = array.uniq;
 	this.filter = array.filter;
 	this.map = array.map;
+	this.reduce = array.reduce;
+	this.forEach = array.forEach;
 
 	//OBJECT
 	this.extend = object.extend;
