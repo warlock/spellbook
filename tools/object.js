@@ -1,3 +1,5 @@
+var type = require('./type');
+
 module.exports = {
   extend : function (obj, obj2) {
     for (var i in obj2) {
@@ -40,7 +42,7 @@ module.exports = {
 	},
   getKeys : function(obj, keys) {
 		var nobj = {};
-		if (this.isArray(keys)) {
+		if (type.isArray(keys)) {
 			keys.forEach(function (key) {
 				nobj[key] = obj[key];
 			});

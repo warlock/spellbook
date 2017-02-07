@@ -1,18 +1,24 @@
+var type = require('./type');
+
 module.exports = {
   shuffle : function (array) {
-		for (var i = array.length-1; i >=0; i--) {
-			var randomIndex = Math.floor(Math.random()*(i+1));
-			var itemAtIndex = array[randomIndex];
-			array[randomIndex] = array[i];
-			array[i] = itemAtIndex;
-		}
-		return array;
+    if (type.isArray(array)) {
+  		for (var i = array.length-1; i >=0; i--) {
+  			var randomIndex = Math.floor(Math.random()*(i+1));
+  			var itemAtIndex = array[randomIndex];
+  			array[randomIndex] = array[i];
+  			array[i] = itemAtIndex;
+  		}
+  		return array;
+    } else throw new Error('Shuffle function not contains array.');
 	},
   first : function (array) {
-		return array[0];
+    if (type.isArray(array)) return array[0];
+    else throw new Error('first function not contains array.');
 	},
   last : function (array) {
-		return array[array.length - 1];
+		if (type.isArray(array)) return array[array.length - 1];
+    else throw new Error('Last function not contains array.');
 	},
   remove : function (array, obj) {
     function filter(array, obj) {
@@ -26,6 +32,7 @@ module.exports = {
       });
       return array;
     } else return filter(array, obj);
+
   },
   clear : function (array) {
     return array.splice(array.length,0);
@@ -47,8 +54,8 @@ module.exports = {
   },
   unq : this.unq,
   filter : function (array, obj) {
-		if (this.empty(array)) throw new Error('Filter function not contains array.');
-		else if (this.empty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
+		if (array === null || array === "" || array === undefined) throw new Error('Filter function not contains array.');
+		else if ((obj === null || obj === "" || obj === undefined) && typeof obj !== 'object') throw new Error('Find in array need a object.');
 		else {
 			var keys = Object.keys(obj);
 			return array.filter(function (e) {
