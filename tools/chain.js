@@ -5,7 +5,8 @@ var array = require('./array');
 var object = require('./object');
 var string = require('./string');
 var number = require('./number');
-var generic = require('./generic')
+var boolean = require('./boolean');
+var generic = require('./generic');
 
 module.exports = function (data) {
   if (type.isEmpty(data)) throw new Error('Chain function not contains values.');
@@ -45,6 +46,16 @@ module.exports = function (data) {
 
     this.split = function (separator, limit) {
       this.data = string.split(this.data, separator, limit);
+      return this;
+    }
+
+    this.toLowerCase = function () {
+      this.data = string.toLowerCase(this.data);
+      return this;
+    }
+
+    this.toUpperCase = function () {
+      this.data = string.toUpperCase(this.data);
       return this;
     }
 
@@ -196,6 +207,17 @@ module.exports = function (data) {
     this.getKeys = function () {
       this.data = object.getKeys(this.data);
       return this;
+    }
+
+    //BOOLEAN
+    this.isTrue = function () {
+      this.data = boolean.isTrue(this.data);
+      return this.data;
+    }
+
+    this.isFalse = function () {
+      this.data = boolean.isFalse(this.data);
+      return this.data;
     }
 
     //ASYNCRONOUS SNC LIBRARY

@@ -6,6 +6,7 @@ var array = require('./tools/array');
 var object = require('./tools/object');
 var string = require('./tools/string');
 var number = require('./tools/number');
+var boolean = require('./tools/boolean');
 var generic = require('./tools/generic');
 var Chain = require('./tools/chain');
 
@@ -22,6 +23,8 @@ var Spellbook = function () {
 	this.json = string.json;
 	this.dos2unix = string.dos2unix;
 	this.split = string.split;
+	this.toUpperCase = string.toUpperCase;
+	this.toLowerCase = string.toLowerCase;
 
 	//NUMBER
 	this.duplicate = number.duplicate;
@@ -63,6 +66,10 @@ var Spellbook = function () {
 	this.get =  object.get;
 	this.keys = object.keys;
 	this.getKeys = object.getKeys;
+
+	//boolean
+	this.isTrue = boolean.isTrue;
+	this.isFalse = boolean.isFalse;
 
 	//ASYNCRONOUS SNC LIBRARY
 	this.each = snc.each;
