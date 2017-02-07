@@ -1,7 +1,9 @@
+var type = require('./type');
+
 module.exports = {
   range : function (a, b, step) {
 		var A = [];
-		if (this.empty(a) || this.empty(b)) return A;
+		if (type.isEmpty(a) || type.isEmpty(b)) return A;
 		if (typeof a == 'number') {
 			A[0] = a;
 			step = step || 1;
@@ -20,7 +22,7 @@ module.exports = {
   random : function (min, max) {
     if (typeof min === "number" && typeof max === "number") return Math.floor(Math.random() * (max - min)) + min;
     else {
-      if(!this.isArray(min)) return 0;
+      if(!type.isArray(min)) return 0;
       else {
         var index = Math.floor(Math.random() * (min.length));
         return min[index];

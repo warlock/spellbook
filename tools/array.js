@@ -39,7 +39,7 @@ module.exports = {
   },
   inArray : function (array, value) {
     if (type.isArray(array)) return !!~array.indexOf(value);
-    else
+    else throw new Error('inArray function not contains array.');
 	},
   contains : this.inArray,
   uniq : function (array, key) {
