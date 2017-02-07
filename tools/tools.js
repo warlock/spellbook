@@ -28,10 +28,5 @@ module.exports = {
         return min[index];
       }
     }
-  },
-  repeatify : function (val, num) {
-		var strArray = [];
-		for (var i = 0; i < num; i++) strArray.push(val);
-		return strArray;
-	}
+  }
 }

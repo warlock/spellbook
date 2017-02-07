@@ -26,5 +26,8 @@ module.exports = {
   },
   json : function (value) {
     return JSON.parse(value);
+  },
+  split : function (value, separator, limit) {
+    return value.split(separator, limit)
   }
 }

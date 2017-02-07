@@ -13,7 +13,6 @@ var Spellbook = function () {
 	//TOOLS
 	this.range = tools.range;
 	this.random = tools.random;
-	this.repeatify = tools.repeatify;
 
 	//STRING
 	this.toInt = string.toInt;
@@ -22,6 +21,7 @@ var Spellbook = function () {
 	this.toJSON = string.toJSON;
 	this.json = string.json;
 	this.dos2unix = string.dos2unix;
+	this.split = string.split;
 
 	//NUMBER
 	this.duplicate = number.duplicate;
@@ -30,6 +30,8 @@ var Spellbook = function () {
 	this.toString = generic.toString;
 	this.size = generic.size;
 	this.contains = generic.contains;
+	this.reverse = generic.reverse;
+	this.repeatify = generic.repeatify;
 
 	//TYPE
 	this.isFunction = type.isFunction;
@@ -52,6 +54,7 @@ var Spellbook = function () {
 	this.unq = array.uniq;
 	this.uniq = array.uniq;
 	this.filter = array.filter;
+	this.map = array.map;
 
 	//OBJECT
 	this.extend = object.extend;

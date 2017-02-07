@@ -16,6 +16,19 @@ module.exports = {
   contains : function (data, value) {
     if (type.isArray(data) || type.isString(data)) return !!~data.indexOf(value);
     else if (type.isObject(data)) return !!~Object.keys(data).indexOf(value);
-    else throw new Error('inArray function not contains array.');
+    else throw new Error('Contains function not contains values.');
+  },
+  reverse : function (data) {
+    if (type.isArray(data)) return data.reverse();
+    else if (type.isString(data)) return data.split('').reverse().join('')
+    else throw new Error('Reverse function not contains array or string.');
+  },
+  repeatify : function (value, num) {
+    if (type.isEmpty(value)) throw new Error('Repeatify function not have values.');
+    else {
+      var strArray = [];
+      for (var i = 0; i < num; i++) strArray.push(value);
+      return strArray;
+    }
   }
 }

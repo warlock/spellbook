@@ -38,7 +38,6 @@
   "homepage": "http://www.spellbook.io",
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.15",
     "eslint": "^3.12.2",
     "eslint-plugin-mocha": "^4.8.0",
     "mocha-eslint": "^3.0.1",
@@ -47,6 +46,6 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "snc": "^1.0.4"
+    "snc": "*"
   }
 }

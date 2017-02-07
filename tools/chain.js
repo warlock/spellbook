@@ -12,12 +12,6 @@ module.exports = function (data) {
   else {
     this.data = data;
 
-    //TOOLS
-    this.repeatify = function (num) {
-      this.data = tools.repeatify(this.data, num);
-      return this;
-    }
-
     //STRING
     this.toInt = function () {
       this.data = string.toInt(this.data);
@@ -49,6 +43,11 @@ module.exports = function (data) {
       return this;
     }
 
+    this.split = function (separator, limit) {
+      this.data = string.split(this.data, separator, limit);
+      return this;
+    }
+
     //NUMBER
     this.duplicate = function () {
       this.data = number.duplicate(this.data);
@@ -66,11 +65,20 @@ module.exports = function (data) {
       return this;
     };
 
-
     this.contains = function (value) {
       this.data = generic.contains(this.data, value);
         return this;
     };
+
+    this.reverse = function () {
+      this.data = generic.reverse(this.data);
+      return this;
+    }
+
+    this.repeatify = function (num) {
+      this.data = generic.repeatify(this.data, num);
+      return this;
+    }
 
     //TYPE
     this.isFunction = function () {
@@ -164,6 +172,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.map = function (callback) {
+      this.data = array.map(this.data, callback);
+      return this;
+    }
+
     //OBJECT
     this.extend = function (object) {
       this.data = object.extend(this.data, object);
@@ -195,7 +208,7 @@ module.exports = function (data) {
     }
 
     //RETURN VALUE
-    this.value = function () {
+    this.value = this.return = function () {
       return this.data
     }
 

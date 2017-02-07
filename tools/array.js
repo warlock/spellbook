@@ -70,5 +70,8 @@ module.exports = {
 				return chck;
 			});
 		}
-	}
+	},
+  map : function (array, callback) {
+    return array.map(callback);
+  }
 }
