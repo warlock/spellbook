@@ -7,7 +7,7 @@ var object = require('./tools/object');
 var string = require('./tools/string');
 var number = require('./tools/number');
 var generic = require('./tools/generic');
-var chain = require('./tools/chain');
+var Chain = require('./tools/chain');
 
 var Spellbook = function () {
 	//TOOLS
@@ -42,7 +42,7 @@ var Spellbook = function () {
 	this.isBoolean = type.isBoolean;
 	this.isInteger = type.isInteger;
 	this.isEmpty = type.isEmpty;
-	this.empty = type.empty;
+	this.empty = type.isEmpty;
 
 	//ARRAY
 	this.shuffle = array.shuffle;
@@ -82,7 +82,9 @@ var Spellbook = function () {
 	this.times = snc.times;
 
 	//CHAIN
-	this.chain = chain;
+	this.chain = function (data) {
+		return new Chain(data);
+	};
 };
 
 module.exports = new Spellbook();
