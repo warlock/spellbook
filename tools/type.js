@@ -20,5 +20,9 @@ module.exports = {
   isInteger: function (obj) {
     if (this.isNumber(obj)) return obj % 1 === 0;
     else return false;
-  }
+  },
+  isEmpty : function (data) {
+    return (data === null || data === "" || data === undefined);
+  },
+  empty : this.empty
 }

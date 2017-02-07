@@ -26,7 +26,7 @@ module.exports = {
         if (JSON.stringify(e) !== JSON.stringify(obj)) return e;
       });
     }
-    if (typeof obj === 'object' && obj instanceof Array) {
+    if (type.isArray(obj)) {
       obj.forEach(function (e) {
         array = filter(array, e);
       });
@@ -37,8 +37,9 @@ module.exports = {
   clear : function (array) {
     return array.splice(array.length,0);
   },
-  inArray : function (a, b) {
-		return !!~a.indexOf(b);
+  inArray : function (array, value) {
+    if (type.isArray(array)) return !!~array.indexOf(value);
+    else
 	},
   contains : this.inArray,
   uniq : function (array, key) {
@@ -54,8 +55,8 @@ module.exports = {
   },
   unq : this.unq,
   filter : function (array, obj) {
-		if (array === null || array === "" || array === undefined) throw new Error('Filter function not contains array.');
-		else if ((obj === null || obj === "" || obj === undefined) && typeof obj !== 'object') throw new Error('Find in array need a object.');
+		if (type.isEmpty(array)) throw new Error('Filter function not contains array.');
+		else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
 		else {
 			var keys = Object.keys(obj);
 			return array.filter(function (e) {

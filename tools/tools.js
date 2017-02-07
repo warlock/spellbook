@@ -33,9 +33,5 @@ module.exports = {
 			strArray.push(val.normalize());
 		}
 		return strArray;
-	},
-  empty : function (data) {
-		return (data === null || data === "" || data === undefined);
-	},
-  isEmpty : this.empty
+	}
 }

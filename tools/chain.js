@@ -69,6 +69,16 @@ module.exports = function (data) {
       return this;
     };
 
+    this.isEmpty = function () {
+      this.data = type.isEmpty(this.data);
+      return this;
+    };
+
+    this.empty = function () {
+      this.data = type.isEmpty(this.data);
+      return this;
+    };
+
     //ARRAY TOOLS
     this.shuffle = function () {
       this.data = array.shuffle(this.data);

@@ -14,10 +14,6 @@ var Spellbook = function () {
 	this.range = tools.range;
 	this.random = tools.random;
 	this.repeatify = tools.repeatify;
-	this.dos2unix = tools.dos2unix;
-	this.empty = tools.empty;
-	this.isEmpty = tools.empty;
-	this.chain = chain;
 
 	//STRING TOOLS
 	this.toInt = string.toInt;
@@ -25,6 +21,7 @@ var Spellbook = function () {
 	this.capitalize = string.capitalize;
 	this.toJSON = string.toJSON;
 	this.json = string.toJSON;
+	this.dos2unix = string.dos2unix;
 
 	//NUMBER TOOLS
 	this.duplicate = number.duplicate;
@@ -40,6 +37,8 @@ var Spellbook = function () {
 	this.isString = type.isString;
 	this.isBoolean = type.isBoolean;
 	this.isInteger = type.isInteger;
+	this.isEmpty = type.isEmpty;
+	this.empty = type.empty;
 
 	//ARRAY TOOLS
 	this.shuffle = array.shuffle;
@@ -78,6 +77,9 @@ var Spellbook = function () {
 	this.for = snc.forSync;
 	this.forSync =  snc.forSync;
 	this.times = snc.times;
+
+	//CHAIN TOOL
+	this.chain = chain;
 };
 
 module.exports = new Spellbook();
