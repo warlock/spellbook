@@ -5,7 +5,7 @@ module.exports = {
     if (type.isEmpty(value)) throw new Error('Function not contains value to parse.');
     else return JSON.stringify(value);
   },
-  size(value) {
+  size : function (value) {
     if (type.isEmpty(value)) throw new Error('Size function not contains values.');
     else {
       if (type.isArray(value) || type.isString(value)) return value.length

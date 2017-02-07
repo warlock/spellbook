@@ -169,8 +169,8 @@ module.exports = function (data) {
       return this;
     };
 
-    this.get =  function (get) {
-      this.data = object.get(this.data, get);
+    this.get =  function (route) {
+      this.data = object.get(this.data, route);
       return this;
     };
 
