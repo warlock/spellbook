@@ -45,8 +45,8 @@
     "mocha-jshint": "^2.3.1",
     "mocha-lcov-reporter": "^1.2.0",
     "webpack": "^2.2.1"
-    },
+  },
   "dependencies": {
-    "snc": "^1.0.2"
+    "snc": "*"
   }
 }

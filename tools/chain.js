@@ -189,7 +189,7 @@ module.exports = function (data) {
       snc.each(this.data, callback, response)
     }
 
-    this.epl = this.eachpl = this.eachParallelLimit = function (limit, callback, response) {
+    this.epl = function (limit, callback, response) {
       snc.epl(this.data, limit, callback, response)
     }
 
