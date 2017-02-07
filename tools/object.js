@@ -34,9 +34,6 @@ module.exports = {
 			}
 		} else return undefined;
 	},
-  size : function (obj) {
-		return Object.keys(obj).length;
-	},
   keys : function (obj) {
 		return Object.keys(obj);
 	},

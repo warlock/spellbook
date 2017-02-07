@@ -67,4 +67,16 @@ describe('Type', function () {
 		})
 	})
 
+	describe('sb.isEmpty()', function () {
+		it('Check is empty', function () {
+			chai.assert.isNotTrue(sb.isEmpty('a'), 'is string')
+			chai.assert.isNotTrue(sb.isEmpty(['a']), 'is array')
+			chai.assert.isNotTrue(sb.isEmpty({ 'a' : 'a' }), 'is object')
+			chai.assert.isTrue(sb.isEmpty(null), 'is null')
+			chai.assert.isTrue(sb.isEmpty(undefined), 'is null')
+			//chai.assert.isTrue(sb.isEmpty([]), 'is empty array')
+			chai.assert.isTrue(sb.isEmpty(""), 'is empty string')
+		})
+	})
+
 })

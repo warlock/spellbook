@@ -8,9 +8,17 @@ var number = require('./number');
 var generic = require('./generic')
 
 module.exports = function (data) {
+  if (type.isEmpty(data)) throw new Error('Chain function not contains values.');
+  else {
     this.data = data;
 
-    //STRING TOOLS
+    //TOOLS
+    this.repeatify = function (num) {
+      this.data = tools.repeatify(this.data, num);
+      return this;
+    }
+
+    //STRING
     this.toInt = function () {
       this.data = string.toInt(this.data);
       return this;
@@ -21,19 +29,44 @@ module.exports = function (data) {
       return this;
     };
 
-    //GENERIC TOOLS
-    this.toString = function () {
-      this.data = generic.toString(this.data);
+    this.dos2unix = function () {
+      this.data = string.dos2unix(this.data);
       return this;
     };
 
-    //NUMBER TOOLS
+    this.capitalize = function () {
+      this.data = string.capitalize(this.data);
+      return this;
+    };
+
+    this.toJSON = function () {
+      this.data = string.toJSON(this.data);
+      return this;
+    }
+
+    this.json = function () {
+      this.data = string.json(this.data);
+      return this;
+    }
+
+    //NUMBER
     this.duplicate = function () {
       this.data = number.duplicate(this.data);
       return this;
     };
 
-    //TYPE TOOLS
+    //GENERIC
+    this.toString = function () {
+      this.data = generic.toString(this.data);
+      return this;
+    };
+
+    this.size = function () {
+      this.data = generic.size(this.data);
+      return this;
+    };
+
+    //TYPE
     this.isFunction = function () {
       this.data = type.isFunction(this.data);
       return this;
@@ -79,7 +112,7 @@ module.exports = function (data) {
       return this;
     };
 
-    //ARRAY TOOLS
+    //ARRAY
     this.shuffle = function () {
       this.data = array.shuffle(this.data);
       return this;
@@ -130,7 +163,7 @@ module.exports = function (data) {
       return this;
     };
 
-    //OBJECT TOOLS
+    //OBJECT
     this.extend = function (object) {
       this.data = object.extend(this.data, object);
       return this;
@@ -138,11 +171,6 @@ module.exports = function (data) {
 
     this.get =  function (get) {
       this.data = object.get(this.data, get);
-      return this;
-    };
-
-    this.size = function () {
-      this.data = object.size(this.data);
       return this;
     };
 
@@ -156,21 +184,7 @@ module.exports = function (data) {
       return this;
     }
 
-    this.toJSON = function () {
-      this.data = string.toJSON(this.data);
-      return this;
-    }
-
-    this.json = function () {
-      this.data = string.toJSON(this.data);
-      return this;
-    }
-
-    // METHOD MAIN
-    this.value = function () {
-      return this.data
-    }
-
+    //ASYNCRONOUS SNC LIBRARY
     this.each = function (callback, response) {
       snc.each(this.data, callback, response)
     }
@@ -179,5 +193,11 @@ module.exports = function (data) {
       snc.epl(this.data, limit, callback, response)
     }
 
+    //RETURN VALUE
+    this.value = function () {
+      return this.data
+    }
+
     return this
+  }
 }

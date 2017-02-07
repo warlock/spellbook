@@ -21,5 +21,19 @@ describe('Generic', function () {
 		it('Return string from string', function () {
 			chai.assert.typeOf(sb.toString("STRING"), 'string')
 		})
-		})
+	})
+
+	describe('sb.size()', function () {
+		it('Returns a number', function () {
+			chai.assert.isNumber(sb.size(object))
+		});
+
+		it('Returns a number', function () {
+			chai.assert.isNumber(sb.size(array))
+		});
+
+		it('Returns a number', function () {
+			chai.assert.isNumber(sb.size("string"))
+		});
+	});
 })

@@ -79,18 +79,6 @@ describe('Object', function () {
 		})
 	});
 
-	describe('sb.size()', function () {
-		var obj = { a : 1, b : 2 }
-		var res = sb.size(obj)
-		it('Returns a number', function () {
-			chai.assert.isNumber(res)
-		});
-
-		it('Object is a fusion', function () {
-			chai.assert.equal(res, 2)
-		});
-	});
-
 	describe('sb.keys()', function () {
 		var obj = { a : 1, b : 2,  c : 3, d : 4}
 		//chai.assert.strictEqual(sb.keys(obj), Object.keys(obj), 'Correct result')

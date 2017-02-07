@@ -15,21 +15,22 @@ var Spellbook = function () {
 	this.random = tools.random;
 	this.repeatify = tools.repeatify;
 
-	//STRING TOOLS
+	//STRING
 	this.toInt = string.toInt;
 	this.excerpt = string.excerpt;
 	this.capitalize = string.capitalize;
 	this.toJSON = string.toJSON;
-	this.json = string.toJSON;
+	this.json = string.json;
 	this.dos2unix = string.dos2unix;
 
-	//NUMBER TOOLS
+	//NUMBER
 	this.duplicate = number.duplicate;
 
-	//GENERIC TOOLS
+	//GENERIC
 	this.toString = generic.toString;
+	this.size = generic.size;
 
-	//TYPE TOOLS
+	//TYPE
 	this.isFunction = type.isFunction;
 	this.isArray = type.isArray;
 	this.isObject = type.isObject;
@@ -40,7 +41,7 @@ var Spellbook = function () {
 	this.isEmpty = type.isEmpty;
 	this.empty = type.empty;
 
-	//ARRAY TOOLS
+	//ARRAY
 	this.shuffle = array.shuffle;
 	this.first = array.first;
 	this.last = array.last;
@@ -52,16 +53,15 @@ var Spellbook = function () {
 	this.uniq = array.uniq;
 	this.filter = array.filter;
 
-	//OBJECT TOOLS
+	//OBJECT
 	this.extend = object.extend;
 	this.assign = object.assign;
 	this.clone = object.assign;
 	this.get =  object.get;
-	this.size = object.size;
 	this.keys = object.keys;
 	this.getKeys = object.getKeys;
 
-	//ASYNCRONOUS COLECTION SNC LIBRARY
+	//ASYNCRONOUS SNC LIBRARY
 	this.each = snc.each;
 	this.waterfall = snc.waterfall;
 	this.wf = snc.waterfall;
@@ -78,7 +78,7 @@ var Spellbook = function () {
 	this.forSync =  snc.forSync;
 	this.times = snc.times;
 
-	//CHAIN TOOL
+	//CHAIN
 	this.chain = chain;
 };
 

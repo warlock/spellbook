@@ -42,18 +42,6 @@ describe('Array', function () {
 		})
 	});
 
-	describe('sb.size()', function () {
-		var obj = { a : 1, b : 2 }
-		var res = sb.size(obj)
-		it('Returns a number', function () {
-			chai.assert.isNumber(res)
-		});
-
-		it('Object is a fusion', function () {
-			chai.assert.equal(res, 2)
-		});
-	});
-
 	describe('sb.remove()', function () {
 		var obj_array = [{ a : 1}, { a : 2}, { b : 3}]
 		var number_array = [1, 2, 6]
