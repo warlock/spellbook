@@ -47,6 +47,6 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "snc": "*"
+    "snc": "^1.0.4"
   }
 }
