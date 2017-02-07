@@ -6,6 +6,7 @@ var array = require('./tools/array');
 var object = require('./tools/object');
 var string = require('./tools/string');
 var number = require('./tools/number');
+var generic = require('./tools/generic');
 var chain = require('./tools/chain');
 
 var Spellbook = function () {
@@ -22,10 +23,14 @@ var Spellbook = function () {
 	this.toInt = string.toInt;
 	this.excerpt = string.excerpt;
 	this.capitalize = string.capitalize;
+	this.toJSON = string.toJSON;
+	this.json = string.toJSON;
 
 	//NUMBER TOOLS
-	this.toString = number.toString;
 	this.duplicate = number.duplicate;
+
+	//GENERIC TOOLS
+	this.toString = generic.toString;
 
 	//TYPE TOOLS
 	this.isFunction = type.isFunction;
@@ -75,8 +80,4 @@ var Spellbook = function () {
 	this.times = snc.times;
 };
 
-if (typeof process === 'object') module.exports = new Spellbook();
-else {
-	var sb = new Spellbook();
-	if (sb === undefined) throw new Error('No Spellbook loaded');
-}
+module.exports = new Spellbook();

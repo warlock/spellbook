@@ -5,6 +5,7 @@ var array = require('./array');
 var object = require('./object');
 var string = require('./string');
 var number = require('./number');
+var generic = require('./generic')
 
 module.exports = function (data) {
     this.data = data;
@@ -20,12 +21,13 @@ module.exports = function (data) {
       return this;
     };
 
-    //NUMBER TOOLS
+    //GENERIC TOOLS
     this.toString = function () {
-      this.data = number.toString(this.data);
+      this.data = generic.toString(this.data);
       return this;
     };
 
+    //NUMBER TOOLS
     this.duplicate = function () {
       this.data = number.duplicate(this.data);
       return this;
@@ -118,6 +120,7 @@ module.exports = function (data) {
       return this;
     };
 
+    //OBJECT TOOLS
     this.extend = function (object) {
       this.data = object.extend(this.data, object);
       return this;
@@ -141,6 +144,14 @@ module.exports = function (data) {
     this.getKeys = function () {
       this.data = object.getKeys(this.data);
       return this;
+    }
+
+    this.toJSON = function () {
+      this.data = object.toJSON(this.data);
+    }
+
+    this.json = function () {
+      this.data = object.toJSON(this.data);
     }
 
     // METHOD MAIN

@@ -12,5 +12,11 @@ module.exports = {
     var words = str.split(' ');
     words.splice(nwords, words.length-1);
     return words.join(' ');
+  },
+  toJSON : function (str) {
+    return JSON.parse(str);
+  },
+  json : function (str) {
+    return JSON.parse(str);
   }
 }

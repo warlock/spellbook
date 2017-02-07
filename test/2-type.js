@@ -11,7 +11,7 @@ var data = {
 }
 
 
-describe('Check data type', function () {
+describe('Type', function () {
 	describe('sb.isFunction()', function () {
 		it('Check is function', function () {
 			for (var key in data) {
