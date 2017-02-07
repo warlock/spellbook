@@ -4,3 +4,7 @@ test
 .coveralls.yml
 .eslintrc.js
 .travis.yml
+*.swp
+build
+.DS_Store
+webpack.config.js

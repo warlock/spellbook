@@ -4,7 +4,8 @@
   "description": "Functional library for Javascript",
   "main": "spellbook.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -42,8 +43,9 @@
     "eslint-plugin-mocha": "^4.8.0",
     "mocha-eslint": "^3.0.1",
     "mocha-jshint": "^2.3.1",
-    "mocha-lcov-reporter": "^1.2.0"
-  },
+    "mocha-lcov-reporter": "^1.2.0",
+    "webpack": "^2.2.1"
+    },
   "dependencies": {
     "snc": "^1.0.2"
   }
