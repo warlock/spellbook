@@ -29,5 +29,15 @@ module.exports = {
     if (type.isNumber(value) && type.isNumber(number)) {
       return value + number;
     } else throw new Error('Sum function only can operate with numbers.');
+  },
+  'divide': function (value, number) {
+    if (type.isNumber(value) && type.isNumber(number)) {
+      return value / number;
+    } else throw new Error('Divide function only can operate with numbers.');
+  },
+  'mult': function (value, number) {
+    if (type.isNumber(value) && type.isNumber(number)) {
+      return number * value;
+    } else throw new Error('Mult function only can operate with numbers.');
   }
 };

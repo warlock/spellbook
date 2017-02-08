@@ -33,6 +33,8 @@ var Spellbook = function () {
 	this.sum = number.sum;
 	this.min = number.min;
 	this.max = number.max;
+	this.divide = number.divide;
+	this.mult = number.mult;
 
 	//GENERIC
 	this.toString = generic.toString;

@@ -91,6 +91,21 @@ module.exports = function (data) {
       return this;
     };
 
+    this.mult = function (value) {
+      this.data = number.mult(this.data, value);
+      return this;
+    };
+
+    this.divide = function (value) {
+      this.data = number.divide(this.data, value);
+      return this;
+    };
+
+    this.numerator = function (value) {
+      this.data = number.divide(value, this.data);
+      return this;
+    };
+
     //GENERIC
     this.toString = function () {
       this.data = generic.toString(this.data);
