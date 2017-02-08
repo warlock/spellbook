@@ -13,6 +13,17 @@ module.exports = function (data) {
   else {
     this.data = data;
 
+    //TOOLS
+    this.ifElse = function (func_true, func_false) {
+      this.data = tools.ifElse(this.data, func_true, func_false)
+      return this;
+    }
+
+    this.function = function (callback) {
+      this.data = tools.function(this.data, callback)
+      return this;
+    }
+
     //STRING
     this.toInt = function () {
       this.data = string.toInt(this.data);

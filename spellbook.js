@@ -14,6 +14,8 @@ var Spellbook = function () {
 	//TOOLS
 	this.range = tools.range;
 	this.random = tools.random;
+	this.ifElse = tools.ifElse;
+	this.function = tools.function;
 
 	//STRING
 	this.toInt = string.toInt;

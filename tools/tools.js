@@ -28,5 +28,12 @@ module.exports = {
         return min[index];
       }
     }
+  },
+  ifElse : function (condition, func_true, func_false) {
+    if (condition) return func_true();
+    else return func_false();
+  },
+  function : function (data, callback) {
+    return callback(data)
   }
 }
