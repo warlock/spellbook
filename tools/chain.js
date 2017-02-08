@@ -15,14 +15,14 @@ module.exports = function (data) {
 
     //TOOLS
     this.ifElse = function (func_true, func_false) {
-      this.data = tools.ifElse(this.data, func_true, func_false)
+      this.data = tools.ifElse(this.data, func_true, func_false);
       return this;
-    }
+    };
 
     this.function = function (callback) {
-      this.data = tools.function(this.data, callback)
+      this.data = tools.function(this.data, callback);
       return this;
-    }
+    };
 
     //STRING
     this.toInt = function () {
@@ -48,31 +48,46 @@ module.exports = function (data) {
     this.toJSON = function () {
       this.data = string.toJSON(this.data);
       return this;
-    }
+    };
 
     this.json = function () {
       this.data = string.json(this.data);
       return this;
-    }
+    };
 
     this.split = function (separator, limit) {
       this.data = string.split(this.data, separator, limit);
       return this;
-    }
+    };
 
     this.toLowerCase = function () {
       this.data = string.toLowerCase(this.data);
       return this;
-    }
+    };
 
     this.toUpperCase = function () {
       this.data = string.toUpperCase(this.data);
       return this;
-    }
+    };
 
     //NUMBER
     this.duplicate = function () {
       this.data = number.duplicate(this.data);
+      return this;
+    };
+
+    this.min = function () {
+      this.data = number.min(this.data);
+      return this;
+    };
+
+    this.max = function () {
+      this.data = number.max(this.data);
+      return this;
+    };
+
+    this.sum = function (value) {
+      this.data = number.sum(this.data, value);
       return this;
     };
 
@@ -95,12 +110,12 @@ module.exports = function (data) {
     this.reverse = function () {
       this.data = generic.reverse(this.data);
       return this;
-    }
+    };
 
     this.repeatify = function (num) {
       this.data = generic.repeatify(this.data, num);
       return this;
-    }
+    };
 
     //TYPE
     this.isFunction = function () {
@@ -165,7 +180,7 @@ module.exports = function (data) {
     };
 
     this.remove = function (object) {
-      this.data = array.remove(this.data, object)
+      this.data = array.remove(this.data, object);
       return this;
     };
 
@@ -197,16 +212,16 @@ module.exports = function (data) {
     this.map = function (callback) {
       this.data = array.map(this.data, callback);
       return this;
-    }
+    };
 
     this.reduce = function (callback) {
       this.data = array.reduce(this.data, callback);
       return this;
-    }
+    };
 
     this.forEach = function (callback) {
       array.forEach(this.data, callback);
-    }
+    };
 
     //OBJECT
     this.extend = function (object) {
@@ -227,33 +242,33 @@ module.exports = function (data) {
     this.getKeys = function () {
       this.data = object.getKeys(this.data);
       return this;
-    }
+    };
 
     //BOOLEAN
     this.isTrue = function () {
       this.data = boolean.isTrue(this.data);
       return this.data;
-    }
+    };
 
     this.isFalse = function () {
       this.data = boolean.isFalse(this.data);
       return this.data;
-    }
+    };
 
     //ASYNCRONOUS SNC LIBRARY
     this.each = function (callback, response) {
-      snc.each(this.data, callback, response)
-    }
+      snc.each(this.data, callback, response);
+    };
 
     this.epl = function (limit, callback, response) {
-      snc.epl(this.data, limit, callback, response)
-    }
+      snc.epl(this.data, limit, callback, response);
+    };
 
     //RETURN VALUE
     this.value = this.return = function () {
-      return this.data
-    }
+      return this.data;
+    };
 
-    return this
+    return this;
   }
-}
+};

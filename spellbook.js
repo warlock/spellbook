@@ -30,6 +30,9 @@ var Spellbook = function () {
 
 	//NUMBER
 	this.duplicate = number.duplicate;
+	this.sum = number.sum;
+	this.min = number.min;
+	this.max = number.max;
 
 	//GENERIC
 	this.toString = generic.toString;

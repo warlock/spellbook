@@ -3,7 +3,7 @@ var type = require('./type');
 module.exports = {
   toInt : function (value) {
     if (type.isEmpty(value)) throw new Error('To int needs a string value.');
-    if (type.isString(value)) return parseInt(value)
+    if (type.isString(value)) return parseInt(value);
     else throw new Error('toInt function has incompatible value.');
   },
   dos2unix : function (value) {
@@ -33,7 +33,7 @@ module.exports = {
   },
   split : function (value, separator, limit) {
     if (type.isEmpty(value)) throw new Error('Split function needs a string value.');
-    if (type.isString(value)) return value.split(separator, limit)
+    if (type.isString(value)) return value.split(separator, limit);
     else throw new Error('Split function has incompatible value.');
   },
   toLowerCase : function (value) {
@@ -47,4 +47,4 @@ module.exports = {
     if (type.isString(value)) return value.toUpperCase();
     else throw new Error('toUpperCase function has incompatible value.');
   }
-}
+};

@@ -34,6 +34,6 @@ module.exports = {
     else return func_false();
   },
   function : function (data, callback) {
-    return callback(data)
+    return callback(data);
   }
-}
+};

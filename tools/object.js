@@ -46,4 +46,4 @@ module.exports = {
 		} else nobj[keys] = obj[keys];
 		return nobj;
 	}
-}
+};

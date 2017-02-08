@@ -24,4 +24,4 @@ module.exports = {
   isEmpty : function (data) {
     return (data === null || data === "" || data === undefined);
   }
-}
+};

@@ -1,8 +1,8 @@
 module.exports = {
-  isTrue: function (data) {
+  'isTrue': function (data) {
     return value === true;
   },
-  isFalse: function (value) {
+  'isFalse': function (value) {
     return value === false;
   }
-}
+};
