@@ -75,6 +75,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.replace = function (oldstr, newstr) {
+      this.data = string.replace(this.data, oldstr, newstr);
+      return this;
+    };
+
     //NUMBER
     this.duplicate = function () {
       this.data = number.duplicate(this.data);
@@ -307,6 +312,16 @@ module.exports = function (data) {
 
     this.isFalse = function () {
       this.data = boolean.isFalse(this.data);
+      return this.data;
+    };
+
+    this.eq = function (value) {
+      this.data = boolean.eq(this.data, value);
+      return this.data;
+    };
+
+    this.isEqual = function () {
+      this.data = boolean.isEqual(this.data, value);
       return this.data;
     };
 

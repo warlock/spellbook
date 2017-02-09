@@ -28,6 +28,7 @@ var Spellbook = function () {
 	this.toUpperCase = string.toUpperCase;
 	this.toLowerCase = string.toLowerCase;
 	this.trim = string.trim;
+	this.replace = string.replace;
 
 	//NUMBER
 	this.duplicate = number.duplicate;
@@ -87,6 +88,8 @@ var Spellbook = function () {
 	//boolean
 	this.isTrue = boolean.isTrue;
 	this.isFalse = boolean.isFalse;
+	this.eq = boolean.eq;
+	this.isEqual = boolean.isEqual;
 
 	//ASYNCRONOUS SNC LIBRARY
 	this.each = snc.each;
