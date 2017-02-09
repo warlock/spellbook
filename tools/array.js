@@ -52,17 +52,6 @@ module.exports = {
     }
     return narray;
   },
-  'unq': function (array, key) {
-    var narray = [];
-    var keys = {};
-    for (var i = 0; i < array.length; i++) {
-      if(keys[array[i][key]] === undefined && array[i][key] !== undefined) {
-        narray.push(array[i][key]);
-        keys[array[i][key]] = 1;
-      }
-    }
-    return narray;
-  },
   'filter': function (array, obj) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');
     else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
