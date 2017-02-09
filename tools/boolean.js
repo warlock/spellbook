@@ -8,7 +8,10 @@ module.exports = {
   'eq' : function (value, check) {
     return value === check;
   },
-  'isEqual' : function (value, check) {
+  'isEqual': function (value, check) {
     return value === check;
+  },
+  'Not': function (value) {
+    return !value;
   }
 };

@@ -90,6 +90,7 @@ var Spellbook = function () {
 	this.isFalse = boolean.isFalse;
 	this.eq = boolean.eq;
 	this.isEqual = boolean.isEqual;
+	this.Not = boolean.Not;
 
 	//ASYNCRONOUS SNC LIBRARY
 	this.each = snc.each;

@@ -307,22 +307,27 @@ module.exports = function (data) {
     //BOOLEAN
     this.isTrue = function () {
       this.data = boolean.isTrue(this.data);
-      return this.data;
+      return this;
     };
 
     this.isFalse = function () {
       this.data = boolean.isFalse(this.data);
-      return this.data;
+      return this;
     };
 
     this.eq = function (value) {
       this.data = boolean.eq(this.data, value);
-      return this.data;
+      return this;
     };
 
     this.isEqual = function () {
       this.data = boolean.isEqual(this.data, value);
-      return this.data;
+      return this;
+    };
+
+    this.Not = function () {
+      this.data = boolean.Not(this.data);
+      return this;
     };
 
     //ASYNCRONOUS SNC LIBRARY
@@ -335,7 +340,7 @@ module.exports = function (data) {
     };
 
     //RETURN VALUE
-    this.value = this.return = function () {
+    this.value = this.return = this.r = function () {
       return this.data;
     };
 
