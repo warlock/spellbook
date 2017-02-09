@@ -52,9 +52,19 @@ module.exports = {
     }
     return narray;
   },
-  'unq': this.unq,
+  'unq': function (array, key) {
+    var narray = [];
+    var keys = {};
+    for (var i = 0; i < array.length; i++) {
+      if(keys[array[i][key]] === undefined && array[i][key] !== undefined) {
+        narray.push(array[i][key]);
+        keys[array[i][key]] = 1;
+      }
+    }
+    return narray;
+  },
   'filter': function (array, obj) {
-    if (type.isEmpty(array)) throw new Error('Filter function not contains array.');
+    if (type.isEmpty(array)) throw new Error('filter function not contains array.');
     else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
     else {
       var keys = Object.keys(obj);
@@ -79,5 +89,12 @@ module.exports = {
   },
   'forEach': function (array, callback) {
     array.forEach(callback);
+  },
+  'sort': function (array, callback) {
+    if (type.isArray(array)) {
+      if (type.isFunction(callback)) {
+        return array.sort(callback)
+      } else return array.sort(array);
+    } else throw new Error('sort function not contains array.');
   }
 };

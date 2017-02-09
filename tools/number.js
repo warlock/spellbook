@@ -39,5 +39,25 @@ module.exports = {
     if (type.isNumber(value) && type.isNumber(number)) {
       return number * value;
     } else throw new Error('Mult function only can operate with numbers.');
+  },
+  'ceil': function (value) {
+    if (type.isNumber(value)) {
+      return Math.ceil(value);
+    } else throw new Error('ceil function only can operate with numbers.');
+  },
+  'round': function (value) {
+    if (type.isNumber(value)) {
+      return Math.round(value);
+    } else throw new Error('round function only can operate with numbers.');
+  },
+  'floor': function (value) {
+    if (type.isNumber(value)) {
+      return Math.floor(value);
+    } else throw new Error('floor function only can operate with numbers.');
+  },
+  'trunc': function (value) {
+    if (type.isNumber(value)) {
+      return Math.trunc(value);
+    } else throw new Error('floor function only can operate with numbers.');
   }
 };

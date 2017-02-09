@@ -27,6 +27,7 @@ var Spellbook = function () {
 	this.split = string.split;
 	this.toUpperCase = string.toUpperCase;
 	this.toLowerCase = string.toLowerCase;
+	this.trim = string.trim;
 
 	//NUMBER
 	this.duplicate = number.duplicate;
@@ -35,6 +36,10 @@ var Spellbook = function () {
 	this.max = number.max;
 	this.divide = number.divide;
 	this.mult = number.mult;
+	this.ceil = number.ceil;
+	this.round = number.round;
+	this.floor = number.floor;
+	this.trunc = number.trunc;
 
 	//GENERIC
 	this.toString = generic.toString;
@@ -53,6 +58,8 @@ var Spellbook = function () {
 	this.isInteger = type.isInteger;
 	this.isEmpty = type.isEmpty;
 	this.empty = type.isEmpty;
+	this.isNull = type.isNull;
+	this.isUndefined = type.isUndefined;
 
 	//ARRAY
 	this.shuffle = array.shuffle;
@@ -66,6 +73,7 @@ var Spellbook = function () {
 	this.filter = array.filter;
 	this.map = array.map;
 	this.reduce = array.reduce;
+	this.sort = array.sort;
 	this.forEach = array.forEach;
 
 	//OBJECT

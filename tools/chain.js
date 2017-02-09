@@ -70,6 +70,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.trim = function () {
+      this.data = string.trim(this.data);
+      return this;
+    };
+
     //NUMBER
     this.duplicate = function () {
       this.data = number.duplicate(this.data);
@@ -103,6 +108,26 @@ module.exports = function (data) {
 
     this.numerator = function (value) {
       this.data = number.divide(value, this.data);
+      return this;
+    };
+
+    this.ceil = function () {
+      this.data = number.ceil(this.data);
+      return this;
+    };
+
+    this.round = function () {
+      this.data = number.round(this.data);
+      return this;
+    };
+
+    this.floor = function () {
+      this.data = number.floor(this.data);
+      return this;
+    };
+
+    this.trunc = function () {
+      this.data = number.trunc(this.data);
       return this;
     };
 
@@ -178,6 +203,16 @@ module.exports = function (data) {
       return this;
     };
 
+    this.isNull = function () {
+      this.data = type.isNull(this.data);
+      return this;
+    };
+
+    this.isUndefined = function () {
+      this.data = type.isUndefined(this.data);
+      return this;
+    };
+
     //ARRAY
     this.shuffle = function () {
       this.data = array.shuffle(this.data);
@@ -231,6 +266,11 @@ module.exports = function (data) {
 
     this.reduce = function (callback) {
       this.data = array.reduce(this.data, callback);
+      return this;
+    };
+
+    this.sort = function (callback) {
+      this.data = array.sort(this.data, callback);
       return this;
     };
 
