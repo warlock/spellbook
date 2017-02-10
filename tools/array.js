@@ -35,22 +35,25 @@ module.exports = {
 
   },
   'clear': function (array) {
-    return array.splice(array.length,0);
+    if (type.isArray(array)) return array.splice(array.length,0);
+    else throw new Error('clear function not contains array.');
   },
   'inArray': function (array, value) {
     if (type.isArray(array)) return !!~array.indexOf(value);
     else throw new Error('inArray function not contains array.');
   },
   'uniq': function (array, key) {
-    var narray = [];
-    var keys = {};
-    for (var i = 0; i < array.length; i++) {
-      if(keys[array[i][key]] === undefined && array[i][key] !== undefined) {
-        narray.push(array[i][key]);
-        keys[array[i][key]] = 1;
+    if (type.isArray(array)) {
+      var narray = [];
+      var keys = {};
+      for (var i = 0; i < array.length; i++) {
+        if(keys[array[i][key]] === undefined && array[i][key] !== undefined) {
+          narray.push(array[i][key]);
+          keys[array[i][key]] = 1;
+        }
       }
-    }
-    return narray;
+      return narray;
+    } else throw new Error('uniq function not contains array.');
   },
   'filter': function (array, obj) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');
@@ -71,13 +74,25 @@ module.exports = {
     }
   },
   'map': function (array, callback) {
-    return array.map(callback);
+    if (type.isArray(array)) {
+      if (type.isFunction(callback)) {
+        return array.map(callback);
+      } else return array.sort(array);
+    } else throw new Error('map function not contains array.');
   },
   'reduce': function (array, callback) {
-    return array.reduce(callback);
+    if (type.isArray(array)) {
+      if (type.isFunction(callback)) {
+        return array.reduce(callback);
+      } else return array.sort(array);
+    } else throw new Error('reduce function not contains array.');
   },
   'forEach': function (array, callback) {
-    array.forEach(callback);
+    if (type.isArray(array)) {
+      if (type.isFunction(callback)) {
+        array.forEach(callback);
+      } else return array.sort(array);
+    } else throw new Error('forEach function not contains array.');
   },
   'sort': function (array, callback) {
     if (type.isArray(array)) {
