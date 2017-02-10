@@ -6,6 +6,7 @@ var object = require('./object');
 var string = require('./string');
 var number = require('./number');
 var boolean = require('./boolean');
+var events = require('./events');
 var generic = require('./generic');
 
 module.exports = function (data) {
@@ -284,8 +285,8 @@ module.exports = function (data) {
     };
 
     //OBJECT
-    this.extend = function (object) {
-      this.data = object.extend(this.data, object);
+    this.extend = function (obj) {
+      this.data = object.extend(this.data, obj);
       return this;
     };
 
@@ -327,6 +328,22 @@ module.exports = function (data) {
 
     this.Not = function () {
       this.data = boolean.Not(this.data);
+      return this;
+    };
+
+    //EVENT
+    this.on = function (ev, callback) {
+      events.on(ev, callback);
+      return this;
+    };
+
+    this.emit = function (ev) {
+      events.emit(ev, this.data);
+      return this;
+    };
+
+    this.emit = function (ev, data) {
+      events.delete(ev);
       return this;
     };
 
