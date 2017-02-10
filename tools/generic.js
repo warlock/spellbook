@@ -32,10 +32,10 @@ module.exports = {
     }
   },
   'concat': function (val, val1) {
-    if (type.isEmpty(val) || type.isEmpty(val)) throw new Error('concat function not have values.');
+    if (type.isEmpty(val) || type.isEmpty(val1)) throw new Error('concat function not have values.');
     else {
-      if (type.isString(val) && type.isString(val)) return val + val;
-      else if (type.isArray(val) && type.isArray(val)) return val.concat(val);
+      if (type.isString(val) && type.isString(val)) return val + val1;
+      else if (type.isArray(val) && type.isArray(val)) return val.concat(val1);
       else throw new Error('concat function not contains same values.');
     }
   }
