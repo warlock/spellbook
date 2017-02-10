@@ -8,9 +8,12 @@ var string = require('./tools/string');
 var number = require('./tools/number');
 var boolean = require('./tools/boolean');
 var generic = require('./tools/generic');
+var events = require('./tools/events');
 var Chain = require('./tools/chain');
 
 var Spellbook = function () {
+	this.eventstack = {};
+
 	//TOOLS
 	this.range = tools.range;
 	this.random = tools.random;
@@ -48,6 +51,7 @@ var Spellbook = function () {
 	this.contains = generic.contains;
 	this.reverse = generic.reverse;
 	this.repeatify = generic.repeatify;
+	this.concat = generic.concat;
 
 	//TYPE
 	this.isFunction = type.isFunction;
@@ -91,6 +95,11 @@ var Spellbook = function () {
 	this.eq = boolean.eq;
 	this.isEqual = boolean.isEqual;
 	this.Not = boolean.Not;
+
+	//EVENT
+	this.on = events.on;
+	this.emit = events.emit;
+	this.delete = events.delete;
 
 	//ASYNCRONOUS SNC LIBRARY
 	this.each = snc.each;

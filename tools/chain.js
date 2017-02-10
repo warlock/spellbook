@@ -163,6 +163,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.concat = function (val) {
+      this.data = generic.concat(this.data, val);
+      return this;
+    };
+
     //TYPE
     this.isFunction = function () {
       this.data = type.isFunction(this.data);
