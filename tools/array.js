@@ -55,19 +55,6 @@ module.exports = {
       return narray;
     } else throw new Error('uniq function not contains array.');
   },
-  'unq': function (array, key) {
-    if (type.isArray(array)) {
-      var narray = [];
-      var keys = {};
-      for (var i = 0; i < array.length; i++) {
-        if(keys[array[i][key]] === undefined && array[i][key] !== undefined) {
-          narray.push(array[i][key]);
-          keys[array[i][key]] = 1;
-        }
-      }
-      return narray;
-    } else throw new Error('unq function not contains array.');
-  },
   'filter': function (array, obj) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');
     else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
