@@ -338,7 +338,7 @@ module.exports = function (data) {
 
     //EVENT
     this.on = function (ev, callback) {
-      events.on(ev, callback);
+      events.on(ev, callback, this.data);
       return this;
     };
 

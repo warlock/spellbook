@@ -2,7 +2,7 @@ var type = require('./type');
 
 var events = {
 	'eventstack': {},
-	'on': function (ev, callback) {
+	'on': function (ev, callback, data) {
 		if (type.isEmpty(ev)) throw new Error('on function need event');
 		else if (type.isArray(ev)) {
 			for (var y = 0; y < ev.length; y++) {
@@ -16,9 +16,9 @@ var events = {
 		if (type.isEmpty(ev)) throw new Error('No event selected.');
 		else if (type.isArray(ev)) {
 			for (var i = 0; i < ev.length; i++) {
-				if (type.isFunction(events.eventstack[ev[i]])) events.eventstack[ev[i]](data);
+				if (type.isFunction(events.eventstack[ev[i]])) events.eventstack[ev[i]](data, this.data);
 			}
-		} else if (type.isFunction(events.eventstack[ev])) events.eventstack[ev](data);
+		} else if (type.isFunction(events.eventstack[ev])) events.eventstack[ev](data, this.data);
 	},
 	'delete': function (ev) {
 		if (type.isEmpty(ev)) throw new Error('No event selected.');
