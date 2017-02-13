@@ -12,7 +12,6 @@ var events = require('./tools/events');
 var Chain = require('./tools/chain');
 
 var Spellbook = function () {
-	this.eventstack = {};
 
 	//TOOLS
 	this.range = tools.range;
