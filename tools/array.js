@@ -77,7 +77,7 @@ module.exports = {
     if (type.isArray(array)) {
       if (type.isFunction(callback)) {
         return array.map(callback);
-      } else return array.sort(array);
+      } else throw new Error('map function not contains callback.');
     } else throw new Error('map function not contains array.');
   },
   'reduce': function (array, callback) {
