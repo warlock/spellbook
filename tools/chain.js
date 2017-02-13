@@ -347,7 +347,7 @@ module.exports = function (data) {
       return this;
     };
 
-    this.emit = function (ev, data) {
+    this.delete = function (ev, data) {
       events.delete(ev);
       return this;
     };
@@ -362,8 +362,12 @@ module.exports = function (data) {
     };
 
     //RETURN VALUE
-    this.value = this.return = this.r = function () {
+    this.value = this.return = this.r = this.r = function () {
       return this.data;
+    };
+
+    this.noReturn = this.end = function () {
+
     };
 
     return this;
