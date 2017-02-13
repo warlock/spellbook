@@ -9,6 +9,6 @@ module.exports = {
       path: 'build/'
     },
     plugins: [
-      //new webpack.optimize.UglifyJsPlugin()
+      new webpack.optimize.UglifyJsPlugin()
     ]
 };
