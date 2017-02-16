@@ -1,6 +1,6 @@
-SpellBook
+Spellbook
 ===
-> Functional library for Javascript
+> Functional and asynchronous conjurations for Javascript
 
 http://www.spellbook.io
 
