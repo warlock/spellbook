@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Functional library for Javascript",
   "main": "spellbook.js",
   "scripts": {
@@ -18,8 +18,8 @@
     "array",
     "functional",
     "then",
-    "util",
-    "stdlib",
+    "chain",
+    "event",
     "modules",
     "async",
     "each",
