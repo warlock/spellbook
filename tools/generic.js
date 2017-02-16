@@ -38,5 +38,6 @@ module.exports = {
       else if (type.isArray(val) && type.isArray(val)) return val.concat(val1);
       else throw new Error('concat function not contains same values.');
     }
-  }
+  },
+  'return': function (x) { return x }
 };

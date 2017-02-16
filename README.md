@@ -7,22 +7,25 @@ http://www.spellbook.io
 [![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook)
 
 ## INSTALL/DOWNLOAD
-http://npmjs.com/package/spellbook
-
 ```sh
 npm install spellbook
 ```
 
 ## MINIFIED CDN
 ```
-https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.1.7/spellbook.min.js
-http://cdn.bootcss.com/spellbook/0.1.7/spellbook.js
+https://cdnjs.cloudflare.com/ajax/libs/spellbook/0.1.8/spellbook.min.js
+http://cdn.bootcss.com/spellbook/0.1.8/spellbook.js
 https://cdn.rawgit.com/warlock/spellbook/minified/spellbook-min.js
 https://gitcdn.xyz/repo/warlock/spellbook/minified/spellbook-min.js
-https://static.dpaw.wa.gov.au/static/libs/spellbook/0.1.7/spellbook.js
-https://static.dpaw.wa.gov.au/static/libs/spellbook/0.1.7/spellbook.min.js
-https://static.dpaw.wa.gov.au/static/libs/spellbook/0.1.7/spellbook.min.js.map
+https://static.dpaw.wa.gov.au/static/libs/spellbook/0.1.8/spellbook.js
+https://static.dpaw.wa.gov.au/static/libs/spellbook/0.1.8/spellbook.min.js
+https://static.dpaw.wa.gov.au/static/libs/spellbook/0.1.8/spellbook.min.js.map
 http://cdn.spellbook.io/spellbook.js
+```
+
+### NPM URL
+```
+http://npmjs.com/package/spellbook
 ```
 
 ### GIT URL
@@ -36,10 +39,18 @@ var sb = require("spellbook");
 ```
 
 ## Web : Import module:
-```html
+```javascript
 <script src="spellbook/spellbook.js"></script>
 <script>
-  console.log(sb.range(5,10));
+  let a = sb.chain(sb.range(1,5))
+    .size()
+    .isNumber()
+    .ifElse(
+    () => { return `hello` },
+    () => { return `bye` })
+    .function(x => { return `${sb.capitalize(x)} Spellbook` })
+    .value()
+  console.log(a)
 </script>
 ```
 
@@ -609,7 +620,7 @@ sb.for(0, 10, 1, function (index, next, end) {
 -> [ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
 ```
 
-#And much more... http://www.spellbook.io
+#Events and much more... http://www.spellbook.io
 
 
 ## License

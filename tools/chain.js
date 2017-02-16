@@ -219,6 +219,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.isNaN = function () {
+      this.data = type.isNaN(this.data);
+      return this;
+    };
+
     this.isUndefined = function () {
       this.data = type.isUndefined(this.data);
       return this;
@@ -362,7 +367,7 @@ module.exports = function (data) {
     };
 
     //RETURN VALUE
-    this.value = this.return = this.r = this.r = function () {
+    this.value = this.v = this.return = this.r = function () {
       return this.data;
     };
 

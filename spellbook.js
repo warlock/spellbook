@@ -51,6 +51,7 @@ var Spellbook = function () {
 	this.reverse = generic.reverse;
 	this.repeatify = generic.repeatify;
 	this.concat = generic.concat;
+	this.return = generic.return;
 
 	//TYPE
 	this.isFunction = type.isFunction;
@@ -63,6 +64,7 @@ var Spellbook = function () {
 	this.isEmpty = type.isEmpty;
 	this.empty = type.isEmpty;
 	this.isNull = type.isNull;
+	this.isNaN = type.isNaN;
 	this.isUndefined = type.isUndefined;
 
 	//ARRAY

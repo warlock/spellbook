@@ -27,6 +27,9 @@ module.exports = {
   'isNull': function (data) {
     return data === null;
   },
+  'isNaN': function (data) {
+    return isNaN(data);
+  },
   'isUndefined': function (data) {
     return data === undefined;
   }
