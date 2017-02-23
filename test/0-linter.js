@@ -3,6 +3,7 @@ describe('Linter Quality Code', function () {
 		describe('ESLint: JavaScript Code Quality Tool', function () {
 			var lint = require('mocha-eslint');
 			lint('spellbook.js', { "no-nested-ternary" : false });
+			lint('./tools/*', { "no-nested-ternary" : false });
 		});
 	}
 

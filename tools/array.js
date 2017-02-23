@@ -97,7 +97,7 @@ module.exports = {
   'sort': function (array, callback) {
     if (type.isArray(array)) {
       if (type.isFunction(callback)) {
-        return array.sort(callback)
+        return array.sort(callback);
       } else return array.sort(array);
     } else throw new Error('sort function not contains array.');
   }

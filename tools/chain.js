@@ -15,8 +15,8 @@ module.exports = function (data) {
     this.data = data;
 
     //TOOLS
-    this.ifElse = function (func_true, func_false) {
-      this.data = tools.ifElse(this.data, func_true, func_false);
+    this.ifElse = function (funcTrue, funcFalse) {
+      this.data = tools.ifElse(this.data, funcTrue, funcFalse);
       return this;
     };
 
@@ -150,7 +150,7 @@ module.exports = function (data) {
 
     this.contains = function (value) {
       this.data = generic.contains(this.data, value);
-        return this;
+      return this;
     };
 
     this.reverse = function () {
@@ -331,19 +331,19 @@ module.exports = function (data) {
       return this;
     };
 
-    this.isEqual = function () {
+    this.isEqual = function (value) {
       this.data = boolean.isEqual(this.data, value);
       return this;
     };
 
-    this.Not = function () {
-      this.data = boolean.Not(this.data);
+    this.not = function () {
+      this.data = boolean.not(this.data);
       return this;
     };
 
     //EVENT
     this.on = function (ev, callback) {
-      events.on(ev, callback, this.data);
+      events.on(ev, callback);
       return this;
     };
 
@@ -352,7 +352,7 @@ module.exports = function (data) {
       return this;
     };
 
-    this.delete = function (ev, data) {
+    this.delete = function (ev) {
       events.delete(ev);
       return this;
     };
@@ -372,7 +372,7 @@ module.exports = function (data) {
     };
 
     this.noReturn = this.end = function () {
-
+      return null;
     };
 
     return this;

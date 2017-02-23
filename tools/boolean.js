@@ -1,11 +1,11 @@
 module.exports = {
   'isTrue': function (data) {
-    return value === true;
+    return data === true;
   },
   'isFalse': function (value) {
     return value === false;
   },
-  'eq' : function (value, check) {
+  'eq': function (value, check) {
     return value === check;
   },
   'isEqual': function (value, check) {

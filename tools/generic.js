@@ -39,5 +39,7 @@ module.exports = {
       else throw new Error('concat function not contains same values.');
     }
   },
-  'return': function (x) { return x }
+  'return': function (x) {
+    return x;
+  }
 };

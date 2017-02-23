@@ -2,23 +2,23 @@ var type = require('./type');
 
 module.exports = {
   'range': function (a, b, step) {
-		var A = [];
-		if (type.isEmpty(a) || type.isEmpty(b)) return A;
-		if (typeof a == 'number') {
-			A[0] = a;
-			step = step || 1;
-			while (a+step<= b) A[A.length] = a += step;
-		} else {
-			var s = 'abcdefghijklmnopqrstuvwxyz';
-			if (a === a.toUpperCase()) {
-				b = b.toUpperCase();
-				s = s.toUpperCase();
-			}
-			s = s.substring(s.indexOf(a), s.indexOf(b)+ 1);
-			A = s.split('');
-		}
-		return A;
-	},
+    var A = [];
+    if (type.isEmpty(a) || type.isEmpty(b)) return A;
+    if (typeof a == 'number') {
+      A[0] = a;
+      step = step || 1;
+      while (a+step<= b) A[A.length] = a += step;
+    } else {
+      var s = 'abcdefghijklmnopqrstuvwxyz';
+      if (a === a.toUpperCase()) {
+        b = b.toUpperCase();
+        s = s.toUpperCase();
+      }
+      s = s.substring(s.indexOf(a), s.indexOf(b)+ 1);
+      A = s.split('');
+    }
+    return A;
+  },
   'random': function (min, max) {
     if (typeof min === "number" && typeof max === "number") return Math.floor(Math.random() * (max - min)) + min;
     else {
@@ -29,9 +29,9 @@ module.exports = {
       }
     }
   },
-  'ifElse': function (condition, func_true, func_false) {
-    if (condition) return func_true();
-    else return func_false();
+  'ifElse': function (condition, funcTrue, funcFalse) {
+    if (condition) return funcTrue();
+    else return funcFalse();
   },
   'function': function (data, callback) {
     return callback(data);

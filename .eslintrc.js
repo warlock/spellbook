@@ -1,10 +1,12 @@
 module.exports = {
     "env": {
+        "node": true,
         "browser": true,
         "commonjs": true
     },
     "extends": "eslint:recommended",
     "rules": {
+        "object-shorthand": "off",
         "accessor-pairs": "error",
         "array-bracket-spacing": "error",
         "array-callback-return": "off",
@@ -55,7 +57,10 @@ module.exports = {
         "id-blacklist": "error",
         "id-length": "off",
         "id-match": "error",
-        "indent": "off",
+        "indent": [
+            "error",
+            2
+        ],
         "init-declarations": "error",
         "jsx-quotes": "error",
         "key-spacing": "error",
@@ -77,7 +82,7 @@ module.exports = {
         "new-parens": "error",
         "newline-after-var": "off",
         "newline-before-return": "off",
-        "newline-per-chained-call": "error",
+        "newline-per-chained-call": "off",
         "no-alert": "error",
         "no-array-constructor": "error",
         "no-bitwise": "off",
@@ -167,7 +172,6 @@ module.exports = {
         "object-curly-newline": "error",
         "object-curly-spacing": "error",
         "object-property-newline": "error",
-        "object-shorthand": "error",
         "one-var": "off",
         "one-var-declaration-per-line": "error",
         "operator-assignment": "off",
@@ -177,7 +181,7 @@ module.exports = {
         "prefer-const": "error",
         "prefer-reflect": "off",
         "prefer-rest-params": "error",
-        "prefer-spread": "error",
+        "prefer-spread": "off",
         "prefer-template": "error",
         "quote-props": "error",
         "quotes": "off",

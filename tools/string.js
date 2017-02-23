@@ -3,7 +3,7 @@ var type = require('./type');
 module.exports = {
   'toInt': function (value) {
     if (type.isEmpty(value)) throw new Error('To int needs an string value.');
-    else if (type.isString(value)) return parseInt(value);
+    else if (type.isString(value)) return parseInt(value,10);
     else throw new Error('toInt function has incompatible value.');
   },
   'dos2unix': function (value) {
@@ -53,8 +53,8 @@ module.exports = {
     else throw new Error('trim function has incompatible value.');
   },
   'replace': function (value, oldstr, newstr) {
-    if (type.isEmpty(value) || type.isEmpty(oldstr) && type.isEmpty(oldstar)) throw new Error('replace function needs an string value.');
-    else if (type.isString(value) || type.isString(oldstr) && type.isString(oldstar)) return value.replace(oldstr, newstr);
+    if ((type.isEmpty(value) || type.isEmpty(oldstr)) && type.isEmpty(oldstr)) throw new Error('replace function needs an string value.');
+    else if ((type.isString(value) || type.isString(oldstr)) && type.isString(oldstr)) return value.replace(oldstr, newstr);
     else throw new Error('replace function has incompatible value.');
   }
 };
