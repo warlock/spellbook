@@ -93,8 +93,8 @@ var Spellbook = function () {
   //boolean
   this.isTrue = boolean.isTrue;
   this.isFalse = boolean.isFalse;
-  this.eq = boolean.eq;
   this.isEqual = boolean.isEqual;
+  this.eq = boolean.isEqual;
   this.Not = boolean.Not;
 
   //EVENT

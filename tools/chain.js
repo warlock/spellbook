@@ -326,12 +326,12 @@ module.exports = function (data) {
       return this;
     };
 
-    this.eq = function (value) {
-      this.data = boolean.eq(this.data, value);
+    this.isEqual = function (value) {
+      this.data = boolean.isEqual(this.data, value);
       return this;
     };
 
-    this.isEqual = function (value) {
+    this.eq = function (value) {
       this.data = boolean.isEqual(this.data, value);
       return this;
     };
