@@ -6,7 +6,7 @@ module.exports = {
     return value === false;
   },
   'isEqual': function (value, check) {
-    return value === check;
+    return JSON.stringify(value) === JSON.stringify(check);
   },
   'Not': function (value) {
     return !value;
