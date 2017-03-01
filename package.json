@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "Functional and asynchronous conjurations for Javascript",
   "main": "spellbook.js",
   "scripts": {
@@ -38,14 +38,14 @@
   "homepage": "http://www.spellbook.io",
   "devDependencies": {
     "chai": "^3.5.0",
-    "eslint": "^3.12.2",
+    "eslint": "^3.16.1",
     "eslint-plugin-mocha": "^4.8.0",
     "mocha-eslint": "^3.0.1",
     "mocha-jshint": "^2.3.1",
-    "mocha-lcov-reporter": "^1.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "snc": "^1.0.7"
+    "snc": "*"
   }
 }
