@@ -260,12 +260,12 @@ module.exports = function (data) {
       return this;
     };
 
-    this.unq = function (object) {
-      this.data = array.uniq(this.data, object);
+    this.unq = this.uniq = function () {
+      this.data = array.uniq(this.data);
       return this;
     };
 
-    this.uniq = function (object) {
+    this.uniqBy = function (object) {
       this.data = array.uniq(this.data, object);
       return this;
     };

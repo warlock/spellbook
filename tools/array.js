@@ -42,7 +42,7 @@ module.exports = {
     if (type.isArray(array)) return !!~array.indexOf(value);
     else throw new Error('inArray function not contains array.');
   },
-  'uniq': function (array, key) {
+  'uniqBy': function (array, key) {
     if (type.isArray(array)) {
       var narray = [];
       var keys = {};
@@ -54,6 +54,11 @@ module.exports = {
       }
       return narray;
     } else throw new Error('uniq function not contains array.');
+  },
+  'uniq': function (array) {
+    return array.filter(function (item, pos) {
+      return array.indexOf(item) === pos;
+    });
   },
   'filter': function (array, obj) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');

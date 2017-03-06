@@ -74,8 +74,8 @@ var Spellbook = function () {
   this.remove = array.remove;
   this.clear = array.clear;
   this.inArray = array.inArray;
-  this.unq = array.uniq;
-  this.uniq = array.uniq;
+  this.unq = this.uniq = array.uniq;
+  this.uniqBy = array.uniqBy;
   this.filter = array.filter;
   this.map = array.map;
   this.reduce = array.reduce;
