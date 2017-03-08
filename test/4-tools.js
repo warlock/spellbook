@@ -183,6 +183,7 @@ describe('Tools', function () {
 		});
 	});
 
+/*
 	describe('sb.uniq()', function () {
 		var obj_array = [{a : 1}, {a : 2}, {a : 3}];
 		it('Check is array', function () {
@@ -202,6 +203,7 @@ describe('Tools', function () {
 			}
 		});
 	});
+	*/
 
 	describe('sb.filter()', function () {
 		var array = [{ a : 1, b : 1 }, { a : 1, b : 2 }, { a : 2, b : 3 }];

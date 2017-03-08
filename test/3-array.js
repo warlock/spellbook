@@ -131,27 +131,25 @@ describe('Array', function () {
 		});
 	});
 
-/*
 		describe('sb.uniqBy()', function () {
-			var objArray = [{a : 1}, {a : 2}, {a : 3}]
+			var objArray = [{"a": 1}, {"a": 2}, {"a": 3}];
 			it('Check is array', function () {
-				var res = sb.uniqBy(objArray, "a")
-				chai.assert.isArray(res)
-			})
+				var res = sb.uniqBy(objArray, "a");
+				chai.assert.isArray(res);
+			});
 
 			it('Check length is 3', function () {
-				var res = sb.uniqBy(objArray, "a")
-				chai.assert.lengthOf(res, 3)
-			})
+				var res = sb.uniqBy(objArray, "a");
+				chai.assert.lengthOf(res, 3);
+			});
 
 			it('Check if all elements is a numbers', function () {
-				var res = sb.uniqBy(objArray, "a")
+				var res = sb.uniqBy(objArray, "a");
 				for (var i = 0; i < res.length; i++) {
-					chai.assert.isNumber(res[i])
+					chai.assert.isNumber(res[i]);
 				}
-			})
-		})
-		*/
+			});
+		});
 
 		describe('sb.filter()', function () {
 			var array = [{
