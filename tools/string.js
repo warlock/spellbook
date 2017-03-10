@@ -52,9 +52,9 @@ module.exports = {
     else if (type.isString(value)) return value.trim();
     else throw new Error('trim function has incompatible value.');
   },
-  'replace': function (value, oldstr, newstr) {
-    if ((type.isEmpty(value) || type.isEmpty(oldstr)) && type.isEmpty(oldstr)) throw new Error('replace function needs an string value.');
-    else if ((type.isString(value) || type.isString(oldstr)) && type.isString(oldstr)) return value.replace(oldstr, newstr);
+  'replace': function (value, oldregex, newstr) {
+    if (type.isEmpty(value) && type.isEmpty(newstr)) throw new Error('replace function needs an string value.');
+    else if (type.isString(value) && type.isString(newstr)) return value.replace(oldregex, newstr);
     else throw new Error('replace function has incompatible value.');
   }
 };
