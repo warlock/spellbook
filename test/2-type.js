@@ -11,7 +11,10 @@ var data = {
 	"int": 1,
 	"string": 'hi',
 	"obj": {"a": 'b'},
-	"bool": true
+	"bool": true,
+	"array": [1,2,3],
+	"null": null,
+	"undefined": undefined
 };
 
 describe('Type', function () {
@@ -24,8 +27,17 @@ describe('Type', function () {
 		});
 	});
 
+	describe('sb.isArray()', function () {
+		it('Check is Array', function () {
+			for (var key in data) {
+				if (key === 'array') chai.assert.isTrue(sb.isArray(data[key]));
+				else chai.assert.isNotTrue(sb.isArray(data[key]));
+			}
+		});
+	});
+
 	describe('sb.isNumber()', function () {
-		it('Check is number', function () {
+		it('Check float is number', function () {
 			for (var key in data) {
 				if (key === 'num') chai.assert.isTrue(sb.isNumber(data[key]));
 				else if (key === 'int') chai.assert.isTrue(sb.isNumber(data[key]));
@@ -38,7 +50,7 @@ describe('Type', function () {
 		it('Check is integer', function () {
 			for (var key in data) {
 				if (key === 'int') chai.assert.isTrue(sb.isInteger(data[key]));
-				else chai.assert.isNotTrue(sb.isInteger(data[key]), 'key ' + key);
+				else chai.assert.isNotTrue(sb.isInteger(data[key]));
 			}
 		});
 	});
@@ -56,7 +68,7 @@ describe('Type', function () {
 		it('Check is object', function () {
 			for (var key in data) {
 				if (key === 'obj') chai.assert.isTrue(sb.isObject(data[key]));
-				else chai.assert.isNotTrue(sb.isObject(data[key]))
+				else chai.assert.isNotTrue(sb.isObject(data[key]));
 			}
 		});
 	});
@@ -70,6 +82,26 @@ describe('Type', function () {
 		});
 	});
 
+	describe('sb.isNull', function () {
+		it('Check value is null', function () {
+			for (var key in data) {
+				if (key === 'null') chai.assert.isTrue(sb.isNull(data[key]));
+				else chai.assert.isNotTrue(sb.isNull(data[key]));
+			}
+		});
+	});
+
+/*
+	describe('sb.isNaN', function () {
+		it('Check value is not a number', function () {
+			for (var key in data) {
+				if (key === 'num' || key === 'int' || key === 'bool' || key === 'null') chai.assert.isFalse(sb.isNaN(data[key]));
+				else chai.assert.isNotTrue(sb.isNaN(data[key]));
+			}
+		});
+	});
+*/
+
 	describe('sb.isEmpty()', function () {
 		it('Check is empty', function () {
 			chai.assert.isNotTrue(sb.isEmpty('a'), 'is string');
@@ -79,6 +111,15 @@ describe('Type', function () {
 			chai.assert.isTrue(sb.isEmpty(undefined), 'is null');
 			//chai.assert.isTrue(sb.isEmpty([]), 'is empty array')
 			chai.assert.isTrue(sb.isEmpty(""), 'is empty string');
+		});
+	});
+
+	describe('sb.isUndefined()', function () {
+		it('Check is undefined', function () {
+			for (var key in data) {
+				if (key === 'undefined') chai.assert.isTrue(sb.isUndefined(data[key]));
+				else chai.assert.isNotTrue(sb.isUndefined(data[key]));
+			}
 		});
 	});
 });
