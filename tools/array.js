@@ -55,10 +55,19 @@ module.exports = {
       return narray;
     } else throw new Error('uniq function not contains array.');
   },
-  'uniq': function (array) {
-    return array.filter(function (item, pos) {
-      return array.indexOf(item) === pos;
-    });
+  'uniq': function (array, data) {
+    var arr = [];
+    var contains = function(array, value) {
+      for(var i = 0; i < array.length; i++) {
+        if(JSON.stringify(array[i]) === JSON.stringify(value)) return true;
+      }
+      return false;
+    };
+
+    for(var i = 0; i < array.length; i++) {
+      if(!contains(arr, data[i])) arr.push(data[i]);
+    }
+    return arr;
   },
   'filter': function (array, obj) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');
