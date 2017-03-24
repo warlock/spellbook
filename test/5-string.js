@@ -1,12 +1,7 @@
-/*eslint no-unused-vars: 0*/
 /*global describe it*/
 
-var chai = require('chai')
-var sb = require('../spellbook')
-var object = {
-	"a": 1,
-	"b": 2
-};
+var chai = require('chai');
+var sb = require('../spellbook');
 
 describe('String', function () {
 	describe('sb.toInt()', function () {
@@ -27,12 +22,13 @@ describe('String', function () {
 		});
 	});
 
+/*
 	describe('sb.dos2unix()', function () {
 		var stringDos = 'hi';
 		var stringUnix = "hi";
 		//Need test
 	});
-
+*/
 	describe('sb.excerpt()', function () {
 		//Need test
 	});

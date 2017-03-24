@@ -1,6 +1,5 @@
-/*eslint no-unused-vars: 0*/
 /*eslint global-require: 0*/
-/*global describe it*/
+/*global require describe */
 
 describe('Linter Quality Code', function () {
 	if (process.versions.node.split('.')[0]>3) {

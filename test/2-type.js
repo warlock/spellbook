@@ -1,4 +1,3 @@
-/*eslint no-unused-vars: 0*/
 /*global describe it*/
 var chai = require('chai');
 var sb = require('../spellbook');

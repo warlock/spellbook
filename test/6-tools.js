@@ -1,12 +1,7 @@
-/*eslint no-unused-vars: 0*/
 /*global describe it*/
 
 var chai = require('chai');
 var sb = require('../spellbook');
-var object = {
-	"a": 1,
-	"b": 2
-};
 
 describe('Tools', function () {
 	describe('sb.range()', function () {
