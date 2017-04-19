@@ -4,7 +4,7 @@ Spellbook
 
 http://www.spellbook.io
 
-[![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook)[![Known Vulnerabilities](https://snyk.io/test/github/warlock/spellbook/badge.svg)](https://snyk.io/test/github/warlock/spellbook)
+[![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Known Vulnerabilities](https://snyk.io/test/github/warlock/spellbook/badge.svg)](https://snyk.io/test/github/warlock/spellbook)
 
 ## INSTALL/DOWNLOAD
 ```sh
