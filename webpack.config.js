@@ -1,12 +1,13 @@
+var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  "entry": './spellbook.js',
+  "entry": './src/main.js',
   "output": {
-    "path": __dirname + "/build",
+    "path": path.resolve('./'),
     "libraryTarget": "var",
     "library": "sb",
-    "filename": 'bundle.js'
+    "filename": 'spellbook.js'
   },
   "plugins": [
     new webpack.optimize.UglifyJsPlugin()

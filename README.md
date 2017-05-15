@@ -35,15 +35,14 @@ var sb = require("spellbook");
 ```javascript
 <script src="spellbook/spellbook.js"></script>
 <script>
-  let a = sb.chain(sb.range(1,5))
-    .size()
-    .isNumber()
-    .ifElse(
-    () => { return `hello` },
-    () => { return `bye` })
-    .function(x => { return `${sb.capitalize(x)} Spellbook` })
-    .value()
-  console.log(a)
+let a = sb.chain([{ a : 'hi', b : 3 }, { a : "hello", b : 3 }, { a : "bye", b : 2 }])
+.filter({ b : 3 })
+.first()
+.get('a')
+.toUpperCase()
+.return()
+
+console.log(a)
 </script>
 ```
 
