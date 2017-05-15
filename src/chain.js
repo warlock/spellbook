@@ -270,8 +270,13 @@ module.exports = function (data) {
       return this;
     };
 
-    this.filter = function (object) {
-      this.data = array.filter(this.data, object);
+    this.filter = function (func) {
+      this.data = array.filter(this.data, func);
+      return this;
+    };
+
+    this.filterBy = function (object) {
+      this.data = array.filterBy(this.data, object);
       return this;
     };
 

@@ -69,7 +69,12 @@ module.exports = {
     }
     return arr;
   },
-  'filter': function (array, obj) {
+  'filter': function (array, func) {
+    if (type.isEmpty(array)) throw new Error('filter function not contains array.');
+    else if (type.isEmpty(func) && typeof obj !== 'function') throw new Error('Find in array need a object.');
+    else return array.filter(func);
+  },
+  'filterBy': function (array, obj) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');
     else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
     else {

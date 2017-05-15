@@ -2,6 +2,16 @@
 
 var chai = require('chai');
 var sb = require('../spellbook');
+var arraytest = [{
+  "a": 1,
+  "b": 1
+}, {
+  "a": 1,
+  "b": 2
+}, {
+  "a": 2,
+  "b": 3
+}];
 
 describe('Array', function () {
 
@@ -130,83 +140,85 @@ describe('Array', function () {
     });
   });
 
-    describe('sb.uniqBy()', function () {
-      var objArray = [{"a": 1}, {"a": 2}, {"a": 3}];
-      it('Check is array', function () {
-        var res = sb.uniqBy(objArray, "a");
-        chai.assert.isArray(res);
-      });
-
-      it('Check length is 3', function () {
-        var res = sb.uniqBy(objArray, "a");
-        chai.assert.lengthOf(res, 3);
-      });
-
-      it('Check if all elements is a numbers', function () {
-        var res = sb.uniqBy(objArray, "a");
-        for (var i = 0; i < res.length; i++) {
-          chai.assert.isNumber(res[i]);
-        }
-      });
+  describe('sb.uniqBy()', function () {
+    var objArray = [{"a": 1}, {"a": 2}, {"a": 3}];
+    it('Check is array', function () {
+      var res = sb.uniqBy(objArray, "a");
+      chai.assert.isArray(res);
     });
 
-    describe('sb.filter()', function () {
-      var array = [{
+    it('Check length is 3', function () {
+      var res = sb.uniqBy(objArray, "a");
+      chai.assert.lengthOf(res, 3);
+    });
+
+    it('Check if all elements is a numbers', function () {
+      var res = sb.uniqBy(objArray, "a");
+      for (var i = 0; i < res.length; i++) {
+        chai.assert.isNumber(res[i]);
+      }
+    });
+  });
+
+  describe('sb.filter()', function () {
+    var array = sb.assign(arraytest);
+
+    it('Check length is 3', function () {
+      var res = sb.filter(array, function (x) {
+        return x.a > 1;
+      });
+      chai.assert.lengthOf(res, 1);
+    });
+  });
+
+  describe('sb.filterBy()', function () {
+    var array = sb.assign(arraytest);
+
+    it('Check it return\'s array', function () {
+      var res = sb.filterBy(array, {"a": 1});
+      chai.assert.isArray(res);
+    });
+
+    it('Return correct number of values', function () {
+      var res = sb.filterBy(array, {"a": 1});
+      res.forEach(function (e) {
+        chai.assert.equal(e.a, 1, "Not correct values");
+      });
+      chai.assert.lengthOf(res, 2);
+    });
+
+    it('Return correct number of values', function () {
+      var res = sb.filterBy(array, {"a": 2});
+      res.forEach(function (e) {
+        chai.assert.equal(e.a, 2, "Not correct values");
+      });
+      chai.assert.lengthOf(res, 1);
+    });
+
+    it('Return correct number of values', function () {
+      var res = sb.filterBy(array, {"a": 3});
+      res.forEach(function (e) {
+        chai.assert.equal(e.a, 3, "Not correct values");
+      });
+
+      chai.assert.lengthOf(res, 0);
+    });
+
+    it('Return correct number of values', function () {
+      var res = sb.filterBy(array, {
         "a": 1,
-        "b": 1
-      }, {
-        "a": 1,
-        "b": 2
-      }, {
-        "a": 2,
         "b": 3
-      }];
-
-      it('Check it return\'s array', function () {
-        var res = sb.filter(array, {"a": 1});
-        chai.assert.isArray(res);
       });
 
-      it('Return correct number of values', function () {
-        var res = sb.filter(array, {"a": 1});
-        res.forEach(function (e) {
-          chai.assert.equal(e.a, 1, "Not correct values");
-        });
-        chai.assert.lengthOf(res, 2);
+      res.forEach(function (e) {
+        chai.assert.equal(e.a, 1, "Not correct values");
       });
 
-      it('Return correct number of values', function () {
-        var res = sb.filter(array, {"a": 2});
-        res.forEach(function (e) {
-          chai.assert.equal(e.a, 2, "Not correct values");
-        });
-        chai.assert.lengthOf(res, 1);
+      res.forEach(function (e) {
+        chai.assert.equal(e.b, 3, "Not correct values");
       });
 
-      it('Return correct number of values', function () {
-        var res = sb.filter(array, {"a": 3});
-        res.forEach(function (e) {
-          chai.assert.equal(e.a, 3, "Not correct values");
-        });
-
-        chai.assert.lengthOf(res, 0);
-      });
-
-      it('Return correct number of values', function () {
-        var res = sb.filter(array, {
-          "a": 1,
-          "b": 3
-        });
-
-        res.forEach(function (e) {
-          chai.assert.equal(e.a, 1, "Not correct values");
-        });
-
-        res.forEach(function (e) {
-          chai.assert.equal(e.b, 3, "Not correct values");
-        });
-
-        chai.assert.lengthOf(res, 0);
-      });
+      chai.assert.lengthOf(res, 0);
     });
+  });
 });

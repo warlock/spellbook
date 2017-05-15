@@ -76,6 +76,7 @@ module.exports ={
   "uniq": array.uniq,
   "uniqBy": array.uniqBy,
   "filter": array.filter,
+  "filterBy": array.filterBy,
   "map": array.map,
   "reduce": array.reduce,
   "sort": array.sort,
