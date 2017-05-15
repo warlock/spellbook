@@ -6,7 +6,7 @@ module.exports = {
     return typeof obj === "object" && obj instanceof Array;
   },
   'isObject': function (obj) {
-    return (typeof obj === "object") && !(obj instanceof Array) && !(obj === null);
+    return (typeof obj === "object") && !(obj instanceof Array) && obj !== null;
   },
   'isNumber': function (obj) {
     return typeof obj === "number" || obj instanceof Number;

@@ -11,118 +11,115 @@ var generic = require('./generic');
 var events = require('./events');
 var Chain = require('./chain');
 
-var Spellbook = function () {
-
-  //TOOLS
-  this.range = tools.range;
-  this.random = tools.random;
-  this.ifElse = tools.ifElse;
-  this.function = tools.function;
+module.exports ={
+  "range": tools.range,
+  "random": tools.random,
+  "ifElse": tools.ifElse,
+  "function": tools.function,
 
   //STRING
-  this.toInt = string.toInt;
-  this.excerpt = string.excerpt;
-  this.capitalize = string.capitalize;
-  this.toJSON = string.toJSON;
-  this.json = string.json;
-  this.dos2unix = string.dos2unix;
-  this.split = string.split;
-  this.toUpperCase = string.toUpperCase;
-  this.toLowerCase = string.toLowerCase;
-  this.trim = string.trim;
-  this.replace = string.replace;
+  "toInt": string.toInt,
+  "excerpt": string.excerpt,
+  "capitalize": string.capitalize,
+  "toJSON": string.toJSON,
+  "json": string.json,
+  "dos2unix": string.dos2unix,
+  "split": string.split,
+  "toUpperCase": string.toUpperCase,
+  "toLowerCase": string.toLowerCase,
+  "trim": string.trim,
+  "replace": string.replace,
 
   //NUMBER
-  this.duplicate = number.duplicate;
-  this.sum = number.sum;
-  this.min = number.min;
-  this.max = number.max;
-  this.divide = number.divide;
-  this.mult = number.mult;
-  this.ceil = number.ceil;
-  this.round = number.round;
-  this.floor = number.floor;
-  this.trunc = number.trunc;
+  "duplicate": number.duplicate,
+  "sum": number.sum,
+  "min": number.min,
+  "max": number.max,
+  "divide": number.divide,
+  "mult": number.mult,
+  "ceil": number.ceil,
+  "round": number.round,
+  "floor": number.floor,
+  "trunc": number.trunc,
 
   //GENERIC
-  this.toString = generic.toString;
-  this.size = generic.size;
-  this.contains = generic.contains;
-  this.reverse = generic.reverse;
-  this.repeatify = generic.repeatify;
-  this.concat = generic.concat;
-  this.return = generic.return;
+  "toString": generic.toString,
+  "size": generic.size,
+  "contains": generic.contains,
+  "reverse": generic.reverse,
+  "repeatify": generic.repeatify,
+  "concat": generic.concat,
+  "return": generic.return,
 
   //TYPE
-  this.isFunction = type.isFunction;
-  this.isArray = type.isArray;
-  this.isObject = type.isObject;
-  this.isNumber = type.isNumber;
-  this.isString = type.isString;
-  this.isBoolean = type.isBoolean;
-  this.isInteger = type.isInteger;
-  this.isEmpty = type.isEmpty;
-  this.empty = type.isEmpty;
-  this.isNull = type.isNull;
-  this.isNaN = type.isNaN;
-  this.isUndefined = type.isUndefined;
+  "isFunction": type.isFunction,
+  "isArray": type.isArray,
+  "isObject": type.isObject,
+  "isNumber": type.isNumber,
+  "isString": type.isString,
+  "isBoolean": type.isBoolean,
+  "isInteger": type.isInteger,
+  "isEmpty": type.isEmpty,
+  "empty": type.isEmpty,
+  "isNull": type.isNull,
+  "isNaN": type.isNaN,
+  "isUndefined": type.isUndefined,
 
   //ARRAY
-  this.shuffle = array.shuffle;
-  this.first = array.first;
-  this.last = array.last;
-  this.remove = array.remove;
-  this.clear = array.clear;
-  this.inArray = array.inArray;
-  this.unq = this.uniq = array.uniq;
-  this.uniqBy = array.uniqBy;
-  this.filter = array.filter;
-  this.map = array.map;
-  this.reduce = array.reduce;
-  this.sort = array.sort;
-  this.forEach = array.forEach;
+  "shuffle": array.shuffle,
+  "first": array.first,
+  "last": array.last,
+  "remove": array.remove,
+  "clear": array.clear,
+  "inArray": array.inArray,
+  "unq": array.uniq,
+  "uniq": array.uniq,
+  "uniqBy": array.uniqBy,
+  "filter": array.filter,
+  "map": array.map,
+  "reduce": array.reduce,
+  "sort": array.sort,
+  "forEach": array.forEach,
 
   //OBJECT
-  this.extend = object.extend;
-  this.assign = object.assign;
-  this.clone = object.assign;
-  this.get =  object.get;
-  this.keys = object.keys;
-  this.getKeys = object.getKeys;
+  "extend": object.extend,
+  "assign": object.assign,
+  "clone": object.assign,
+  "get": object.get,
+  "keys": object.keys,
+  "getKeys": object.getKeys,
 
   //boolean
-  this.isTrue = boolean.isTrue;
-  this.isFalse = boolean.isFalse;
-  this.isEqual = boolean.isEqual;
-  this.eq = boolean.isEqual;
-  this.Not = boolean.Not;
+  "isTrue": boolean.isTrue,
+  "isFalse": boolean.isFalse,
+  "isEqual": boolean.isEqual,
+  "eq": boolean.isEqual,
+  "Not": boolean.Not,
 
   //EVENT
-  this.on = events.on;
-  this.emit = events.emit;
-  this.delete = events.delete;
+  "on": events.on,
+  "emit": events.emit,
+  "delete": events.delete,
 
   //ASYNCRONOUS SNC LIBRARY
-  this.each = snc.each;
-  this.waterfall = snc.waterfall;
-  this.wf = snc.waterfall;
-  this.forever = snc.forever;
-  this.fe = snc.forever;
-  this.parallel = snc.parallel;
-  this.par = snc.parallel;
-  this.parallelLimit = snc.parallelLimit;
-  this.pl = snc.parallelLimit;
-  this.epl = snc.epl;
-  this.eachpl = snc.eachpl;
-  this.eachParallelLimit = snc.eachParallelLimit;
-  this.for = snc.forSync;
-  this.forSync =  snc.forSync;
-  this.times = snc.times;
+  "each": snc.each,
+  "waterfall": snc.waterfall,
+  "wf": snc.waterfall,
+  "forever": snc.forever,
+  "fe": snc.forever,
+  "parallel": snc.parallel,
+  "par": snc.parallel,
+  "parallelLimit": snc.parallelLimit,
+  "pl": snc.parallelLimit,
+  "epl": snc.epl,
+  "eachpl": snc.eachpl,
+  "eachParallelLimit": snc.eachParallelLimit,
+  "for": snc.forSync,
+  "forSync": snc.forSync,
+  "times": snc.times,
 
   //CHAIN
-  this.chain = function (data) {
+  "chain": function (data) {
     return new Chain(data);
-  };
+  }
 };
-
-module.exports = new Spellbook();
