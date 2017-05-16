@@ -8,8 +8,5 @@ module.exports = {
     "library": "sb",
     "filename": "spellbook.js",
     "libraryTarget": "umd"
-  },
-  "plugins": [
-    new webpack.optimize.UglifyJsPlugin()
-  ]
+  }
 };

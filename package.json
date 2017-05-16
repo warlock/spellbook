@@ -5,7 +5,7 @@
   "main": "spellbook.js",
   "scripts": {
     "test": "mocha",
-    "build": "webpack"
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
