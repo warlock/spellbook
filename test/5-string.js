@@ -33,7 +33,7 @@ describe('String', function () {
     //Need test
   });
 
-  describe('Parse JSON', function () {
-    chai.assert.isObject(sb.json(sb.toString({"a": '5'})), 'Is an object');
+  describe('sb.json()', function () {
+    chai.assert.isObject(sb.json("{'a': '5'}")), 'Is an object');
   });
 });
