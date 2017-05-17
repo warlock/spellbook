@@ -56,5 +56,18 @@ module.exports = {
     if (type.isEmpty(value) && type.isEmpty(newstr)) throw new Error('replace function needs an string value.');
     else if (type.isString(value) && type.isString(newstr)) return value.replace(oldregex, newstr);
     else throw new Error('replace function has incompatible value.');
+  },
+  'pad': function (chain, targetLength,padString) {
+    targetLength = targetLength>>0;
+    padString = String(padString || ' ');
+    if (chain.length > targetLength) {
+      return String(chain);
+    } else {
+      targetLength = targetLength-chain.length;
+      if (targetLength > padString.length) {
+        padString += padString.repeat(targetLength/padString.length);
+      }
+      return padString.slice(0,targetLength) + String(chain);
+    }
   }
 };

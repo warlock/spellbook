@@ -81,6 +81,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.pad = function (target, pad) {
+      this.data = string.pad(this.data, target, pad);
+      return this;
+    };
+
     //NUMBER
     this.duplicate = function () {
       this.data = number.duplicate(this.data);

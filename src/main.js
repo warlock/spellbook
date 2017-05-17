@@ -29,6 +29,7 @@ module.exports ={
   "toLowerCase": string.toLowerCase,
   "trim": string.trim,
   "replace": string.replace,
+  "pad": string.pad,
 
   //NUMBER
   "duplicate": number.duplicate,
