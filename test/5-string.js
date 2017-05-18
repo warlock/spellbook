@@ -34,6 +34,6 @@ describe('String', function () {
   });
 
   describe('sb.json()', function () {
-    chai.assert.isObject(sb.json("{'a': '5'}"), 'Is an object');
+    chai.assert.isObject(sb.json('{ "a" : "5" }'), 'Is an object');
   });
 });
