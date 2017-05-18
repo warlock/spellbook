@@ -1,6 +1,11 @@
 var type = require('./type');
 
 module.exports = {
+  /**
+   * @param array {Array} : array to process.
+   *
+   * @return {Array}
+   */
   'shuffle': function (array) {
     if (type.isArray(array)) {
       for (var i = array.length-1; i >=0; i--) {
@@ -12,14 +17,30 @@ module.exports = {
       return array;
     } else throw new Error('Shuffle function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   *
+   * @return {Array}
+   */
   'first': function (array) {
     if (type.isArray(array)) return array[0];
     else throw new Error('first function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   *
+   * @return {Array}
+   */
   'last': function (array) {
     if (type.isArray(array)) return array[array.length - 1];
     else throw new Error('Last function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param obj {Any} : any to remove of array.
+   *
+   * @return {Array}
+   */
   'remove': function (array, obj) {
     function filter(array, obj) {
       return array.filter(function (e) {
@@ -34,14 +55,31 @@ module.exports = {
     } else return filter(array, obj);
 
   },
+  /**
+   * @param array {Array} : array to process.
+   *
+   * @return {Array}
+   */
   'clear': function (array) {
     if (type.isArray(array)) return array.splice(array.length,0);
     else throw new Error('clear function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param key {Any} : any to find in array.
+   *
+   * @return {Array}
+   */
   'inArray': function (array, value) {
     if (type.isArray(array)) return !!~array.indexOf(value);
     else throw new Error('inArray function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param key {String|Number} : .
+   *
+   * @return {Array}
+   */
   'uniqBy': function (array, key) {
     if (type.isArray(array)) {
       var narray = [];
@@ -55,6 +93,12 @@ module.exports = {
       return narray;
     } else throw new Error('uniq function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param data {Array|Object|String|Number} : .
+   *
+   * @return {Array}
+   */
   'uniq': function (array, data) {
     var arr = [];
     var contains = function(array, value) {
@@ -69,11 +113,23 @@ module.exports = {
     }
     return arr;
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param func {Function} : function to filter array.
+   *
+   * @return {Array}
+   */
   'filter': function (array, func) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');
     else if (type.isEmpty(func) && typeof obj !== 'function') throw new Error('Find in array need a object.');
     else return array.filter(func);
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param obj {Object} : object to filter array.
+   *
+   * @return {Array}
+   */
   'filterBy': function (array, obj) {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.');
     else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.');
@@ -92,6 +148,12 @@ module.exports = {
       });
     }
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param callback {Function} : function to map array.
+   *
+   * @return {Array}
+   */
   'map': function (array, callback) {
     if (type.isArray(array)) {
       if (type.isFunction(callback)) {
@@ -99,6 +161,12 @@ module.exports = {
       } else throw new Error('map function not contains callback.');
     } else throw new Error('map function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param callback {Function} : function to reduce array.
+   *
+   * @return {Array}
+   */
   'reduce': function (array, callback) {
     if (type.isArray(array)) {
       if (type.isFunction(callback)) {
@@ -106,6 +174,12 @@ module.exports = {
       } else return array.sort(array);
     } else throw new Error('reduce function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param callback {Function} : function to forEach array.
+   *
+   * @return {Array}
+   */
   'forEach': function (array, callback) {
     if (type.isArray(array)) {
       if (type.isFunction(callback)) {
@@ -113,6 +187,12 @@ module.exports = {
       } else return array.sort(array);
     } else throw new Error('forEach function not contains array.');
   },
+  /**
+   * @param array {Array} : array to process.
+   * @param callback {Function} : function with sort.
+   *
+   * @return {Array}
+   */
   'sort': function (array, callback) {
     if (type.isArray(array)) {
       if (type.isFunction(callback)) {
