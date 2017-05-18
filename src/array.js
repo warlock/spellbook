@@ -1,7 +1,8 @@
 var type = require('./type');
 
 module.exports = {
-  /**
+
+  /*
    * @param array {Array} : array to process.
    *
    * @return {Array}
@@ -17,7 +18,8 @@ module.exports = {
       return array;
     } else throw new Error('Shuffle function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    *
    * @return {Array}
@@ -26,7 +28,8 @@ module.exports = {
     if (type.isArray(array)) return array[0];
     else throw new Error('first function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    *
    * @return {Array}
@@ -35,7 +38,8 @@ module.exports = {
     if (type.isArray(array)) return array[array.length - 1];
     else throw new Error('Last function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param obj {Any} : any to remove of array.
    *
@@ -55,7 +59,8 @@ module.exports = {
     } else return filter(array, obj);
 
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    *
    * @return {Array}
@@ -64,7 +69,8 @@ module.exports = {
     if (type.isArray(array)) return array.splice(array.length,0);
     else throw new Error('clear function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param key {Any} : any to find in array.
    *
@@ -74,7 +80,8 @@ module.exports = {
     if (type.isArray(array)) return !!~array.indexOf(value);
     else throw new Error('inArray function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param key {String|Number} : .
    *
@@ -93,7 +100,8 @@ module.exports = {
       return narray;
     } else throw new Error('uniq function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param data {Array|Object|String|Number} : .
    *
@@ -113,7 +121,8 @@ module.exports = {
     }
     return arr;
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param func {Function} : function to filter array.
    *
@@ -124,7 +133,8 @@ module.exports = {
     else if (type.isEmpty(func) && typeof obj !== 'function') throw new Error('Find in array need a object.');
     else return array.filter(func);
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param obj {Object} : object to filter array.
    *
@@ -148,7 +158,8 @@ module.exports = {
       });
     }
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param callback {Function} : function to map array.
    *
@@ -161,7 +172,8 @@ module.exports = {
       } else throw new Error('map function not contains callback.');
     } else throw new Error('map function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param callback {Function} : function to reduce array.
    *
@@ -174,7 +186,8 @@ module.exports = {
       } else return array.sort(array);
     } else throw new Error('reduce function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param callback {Function} : function to forEach array.
    *
@@ -187,7 +200,8 @@ module.exports = {
       } else return array.sort(array);
     } else throw new Error('forEach function not contains array.');
   },
-  /**
+
+  /*
    * @param array {Array} : array to process.
    * @param callback {Function} : function with sort.
    *
