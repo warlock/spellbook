@@ -5,7 +5,8 @@
   "main": "spellbook.js",
   "scripts": {
     "test": "mocha",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "coveralls": "mocha --require blanket --reporter mocha-lcov-reporter | coveralls"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,9 @@
   },
   "homepage": "http://www.spellbook.io",
   "devDependencies": {
+    "blanket": "^1.2.3",
     "chai": "^3.5.0",
+    "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
     "eslint-plugin-mocha": "^4.9.0",
     "mocha-eslint": "^3.0.1",
