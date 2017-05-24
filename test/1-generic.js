@@ -1,14 +1,15 @@
 /*global describe it*/
 var chai = require('chai');
 var sb = require('../spellbook');
-var object = {
-  "a": 1,
-  "b": 2
-};
-
-var array = [1, 2, 3, 4];
 
 describe('Generic', function () {
+  var object = {
+    "a": 1,
+    "b": 2
+  };
+
+  var array = [1, 2, 3, 4];
+
   describe('sb.toString()', function () {
     it('Return string from object', function () {
       chai.assert.typeOf(sb.toString(object), 'string');
