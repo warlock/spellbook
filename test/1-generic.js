@@ -10,6 +10,12 @@ describe('Generic', function () {
 
   var array = [1, 2, 3, 4];
 
+  describe('sb.chain()', function () {
+    it('Returns a object', function () {
+      chai.assert.typeOf(sb.chain('test'), 'object');
+    });
+  });
+
   describe('sb.toString()', function () {
     it('Return string from object', function () {
       chai.assert.typeOf(sb.toString(object), 'string');
