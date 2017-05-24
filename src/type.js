@@ -11,15 +11,15 @@ module.exports = {
   'isNumber': function (obj) {
     return typeof obj === "number" || obj instanceof Number;
   },
+  'isInteger': function (obj) {
+    if (this.isNumber(obj)) return obj % 1 === 0;
+    else return false;
+  },
   'isString': function (obj ) {
     return typeof obj === "string" || obj instanceof String;
   },
   'isBoolean': function (obj) {
     return typeof obj === "boolean";
-  },
-  'isInteger': function (obj) {
-    if (this.isNumber(obj)) return obj % 1 === 0;
-    else return false;
   },
   'isEmpty': function (data) {
     return (data === null || data === "" || data === undefined);
