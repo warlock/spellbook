@@ -187,7 +187,7 @@ describe('Array', function () {
   });
 
   describe('sb.filter()', function () {
-    var array = sb.assign(arraytest);
+    var array = Object.assign([],arraytest);
 
     it('Check length is 3', function () {
       var res = sb.filter(array, function (x) {
@@ -198,7 +198,7 @@ describe('Array', function () {
   });
 
   describe('sb.filterBy()', function () {
-    var array = sb.assign(arraytest);
+    var array = Object.assign([],arraytest);
 
     it('Check it return\'s array', function () {
       var res = sb.filterBy(array, {"a": 1});
