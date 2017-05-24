@@ -1,7 +1,7 @@
 /*global describe it*/
 
 var chai = require('chai');
-var sb = require('../spellbook');
+var sb = require('../src/main');
 
 describe('String', function () {
   describe('sb.toInt()', function () {

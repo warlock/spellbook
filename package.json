@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "build": "webpack -p",
-    "coveralls": "mocha --require blanket --reporter mocha-lcov-reporter | coveralls"
+    "coverblanket": "mocha --require blanket --reporter mocha-lcov-reporter | coveralls",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",

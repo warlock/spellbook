@@ -1,19 +1,20 @@
 /*global describe it*/
 
 var chai = require('chai');
-var sb = require('../spellbook');
-var arraytest = [{
-  "a": 1,
-  "b": 1
-}, {
-  "a": 1,
-  "b": 2
-}, {
-  "a": 2,
-  "b": 3
-}];
+var sb = require('../src/main');
 
 describe('Array', function () {
+
+  var arraytest = [{
+    "a": 1,
+    "b": 1
+  }, {
+    "a": 1,
+    "b": 2
+  }, {
+    "a": 2,
+    "b": 3
+  }];
 
   describe('sb.shuffle()', function () {
     var array = [1,2,3,4,5];

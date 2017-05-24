@@ -1,13 +1,14 @@
 /*global describe it*/
 
 var chai = require('chai');
-var sb = require('../spellbook');
-var object = {
-  "a": 1,
-  "b": 2
-};
+var sb = require('../src/main');
 
 describe('Object', function () {
+  var object = {
+    "a": 1,
+    "b": 2
+  };
+
   describe('sb.assing()', function () {
     var objCopy = sb.assign(object);
     it('Return object', function () {

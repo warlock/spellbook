@@ -1,6 +1,6 @@
 /*global describe it*/
 var chai = require('chai');
-var sb = require('../spellbook');
+var sb = require('../src/main');
 
 var data = {
   "func": function () {
