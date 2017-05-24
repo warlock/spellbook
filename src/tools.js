@@ -3,24 +3,27 @@ var type = require('./type');
 module.exports = {
   'range': function (a, b, step) {
     var A = [];
-    if (type.isEmpty(a) || type.isEmpty(b)) return A;
-    if (typeof a == 'number') {
-      A[0] = a;
-      step = step || 1;
-      while (a+step<= b) A[A.length] = a += step;
-    } else {
-      var s = 'abcdefghijklmnopqrstuvwxyz';
-      if (a === a.toUpperCase()) {
-        b = b.toUpperCase();
-        s = s.toUpperCase();
+    if (type.isEmpty(a) || type.isEmpty(b)) return [];
+    if (typeof a !== typeof b) return [];
+    else {
+      if (type.isNumber(a)) {
+        A[0] = a;
+        step = step || 1;
+        while (a+step<= b) A[A.length] = a += step;
+      } else {
+        var s = 'abcdefghijklmnopqrstuvwxyz';
+        if (a === a.toUpperCase()) {
+          b = b.toUpperCase();
+          s = s.toUpperCase();
+        }
+        s = s.substring(s.indexOf(a), s.indexOf(b)+ 1);
+        A = s.split('');
       }
-      s = s.substring(s.indexOf(a), s.indexOf(b)+ 1);
-      A = s.split('');
+      return A;
     }
-    return A;
   },
   'random': function (min, max) {
-    if (typeof min === "number" && typeof max === "number") return Math.floor(Math.random() * (max - min)) + min;
+    if (type.isNumber(min) && type.isNumber(max)) return Math.floor(Math.random() * (max - min)) + min;
     else {
       if(!type.isArray(min)) return 0;
       else {

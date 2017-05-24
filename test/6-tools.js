@@ -31,14 +31,17 @@ describe('Tools', function () {
       for (var i = 0; i<res.length; i++) chai.assert.typeOf(res[i], 'string');
     });
 
-		/*
-		it('Testing combinations: 1, Z', function () {
-			var res = sb.range(1,'Z')
-			assert.typeOf(res, 'array')
-			assert.lengthOf(res, 26)
-			for (var i = 0;i<res.length; i++) assert.typeOf(res[i], 'string')
-		})
-		*/
+    it('Testing combinations: 1, Z', function () {
+      var res = sb.range(1,'Z');
+      chai.assert.typeOf(res, 'array');
+      chai.assert.lengthOf(res, 0);
+    });
+
+    it('Testing combinations: Z, 1', function () {
+      var res = sb.range('Z',1);
+      chai.assert.typeOf(res, 'array');
+      chai.assert.lengthOf(res, 0);
+    });
   });
 
   describe('sb.random()', function () {
