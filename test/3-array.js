@@ -32,17 +32,20 @@ describe('Array', function () {
       var res = sb.shuffle(array);
       chai.assert.lengthOf(res, array.length);
     });
-  });
 
+    it('Check if contains the same values', function () {
+      var res = sb.shuffle(array);
+      array.forEach(function (value) {
+        chai.expect(res).to.include(value);
+      });
+    });
 
-  describe('sb.last()', function () {
-    var array = ['a','b','c'];
-    it('Check if last element is correct', function () {
-      var res = sb.last(array);
-      chai.assert.isString(res);
-      chai.assert.equal(res, 'c');
+    it('Check the array is no\'t the same order', function () {
+      var res = sb.shuffle(array);
+      chai.assert.notStrictEqual(array, res, 'These array values are not strictly equal');
     });
   });
+
 
   describe('sb.first()', function () {
     var array = ['a','b','c'];
@@ -53,17 +56,19 @@ describe('Array', function () {
     });
   });
 
+  describe('sb.last()', function () {
+    var array = ['a','b','c'];
+    it('Check if last element is correct', function () {
+      var res = sb.last(array);
+      chai.assert.isString(res);
+      chai.assert.equal(res, 'c');
+    });
+  });
+
   describe('sb.remove()', function () {
     var objArray = [{"a": 1}, {"a": 2}, {"b": 3}];
     var numberArray = [1, 2, 6];
     var stringArray = ["1", "2", "6"];
-
-    /*
-    it('Test in empty value', function () {
-      var res = sb.remove(numberArray, )
-      chai.assert.isArray(res)
-    })
-    */
 
     it('Delete a number', function () {
       var res = sb.remove(numberArray, 2);
@@ -71,7 +76,7 @@ describe('Array', function () {
       chai.assert.isArray(res);
     });
 
-    it('Delete a multiple numbe', function () {
+    it('Delete a multiple numbers', function () {
       var res = sb.remove(numberArray, [2,6]);
       chai.assert.lengthOf(res, 1);
       chai.assert.isArray(res);
@@ -156,6 +161,26 @@ describe('Array', function () {
       var res = sb.uniqBy(objArray, "a");
       for (var i = 0; i < res.length; i++) {
         chai.assert.isNumber(res[i]);
+      }
+    });
+  });
+
+  describe('sb.uniq()', function () {
+    var objArray = [{"a": 1}, {"a": 2}, {"a": 2}, {"a": 3}];
+    it('Check is array', function () {
+      var res = sb.uniq(objArray);
+      chai.assert.isArray(res);
+    });
+
+    it('Check length is 3', function () {
+      var res = sb.uniq(objArray);
+      chai.assert.lengthOf(res, 3);
+    });
+
+    it('Check if all elements is a numbers', function () {
+      var res = sb.uniq(objArray, "a");
+      for (var i = 0; i < res.length; i++) {
+        chai.assert.isObject(res[i]);
       }
     });
   });
