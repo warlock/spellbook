@@ -62,5 +62,44 @@ describe('Tools', function () {
         chai.assert.isNumber(res);
       }
     });
+
+    it('Check invalid parameters', function () {
+      var res = sb.random('a');
+      chai.assert.equal(res, 0, 'When fail returns 0');
+      chai.assert.isNumber(res);
+    });
+  });
+
+  describe('sb.ifElse()', function () {
+    it('Check if true returns a true a function', function () {
+      var valtrue = sb.ifElse(true, function () {
+        return true;
+      },
+      function () {
+        return false;
+      });
+
+      chai.assert.isTrue(valtrue);
+    });
+
+    it('Check if false returns a false a function', function () {
+      var valfalse = sb.ifElse(false, function () {
+        return true;
+      },
+      function () {
+        return false;
+      });
+
+      chai.assert.isFalse(valfalse);
+    });
+
+    it('Check if false returns a false a function', function () {
+      var valfunc = sb.function("hello", function (data) {
+        return data + " test";
+      });
+
+      chai.assert.isString(valfunc);
+      chai.assert.equal(valfunc, "hello test");
+    });
   });
 });
