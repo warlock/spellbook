@@ -1,9 +1,14 @@
 var type = require('./type');
 
 module.exports = {
-  'toString': function (value) {
-    if (type.isEmpty(value)) throw new Error('toString function not contains value to parse.');
-    else return JSON.stringify(value);
+
+   /**
+   * @param {Any} data : The name of event.
+   * @returns {String} : Return stringify from Any.
+   */
+  'toString': function (data) {
+    if (type.isEmpty(data)) throw new Error('toString function not contains value to parse.');
+    else return JSON.stringify(data);
   },
   'size': function (value) {
     if (type.isEmpty(value)) throw new Error('size function not contains values.');
