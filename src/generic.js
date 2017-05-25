@@ -73,7 +73,12 @@ module.exports = {
       else throw new Error('concat function not contains same values.');
     }
   },
-  'return': function (x) {
-    return x;
+
+  /**
+   * @param {Any} data : Date for return
+   * @returns {Any} : Return any data passed for param.
+   */
+  'return': function (data) {
+    return data;
   }
 };
