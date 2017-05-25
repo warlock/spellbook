@@ -44,11 +44,18 @@ module.exports = {
     else if (type.isString(data)) return data.split('').reverse().join('');
     else throw new Error('Reverse function not contains array or string.');
   },
-  'repeatify': function (value, num) {
-    if (type.isEmpty(value)) throw new Error('repeatify function not have values.');
+
+   /**
+   * @param {Any} data : Data for process
+   * @param {Number} num : Number of elements in array.
+   * @returns {Array} : Return array with data repeated.
+   */
+  'repeatify': function (data, num) {
+    if (type.isEmpty(data)) throw new Error('repeatify function not have data for repeat.');
+    else if (type.isEmpty(num) || type.isNumber(num)) throw new Error('repeatify function not have a number for repeat.');
     else {
       var strArray = [];
-      for (var i = 0; i < num; i++) strArray.push(value);
+      for (var i = 0; i < num; i++) strArray.push(data);
       return strArray;
     }
   },
