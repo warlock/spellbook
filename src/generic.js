@@ -3,18 +3,23 @@ var type = require('./type');
 module.exports = {
 
    /**
-   * @param {Any} data : The name of event.
+   * @param {Any} data : Data for stringify.
    * @returns {String} : Return stringify from Any.
    */
   'toString': function (data) {
     if (type.isEmpty(data)) throw new Error('toString function not contains value to parse.');
     else return JSON.stringify(data);
   },
-  'size': function (value) {
-    if (type.isEmpty(value)) throw new Error('size function not contains values.');
+
+   /**
+   * @param {Array|String|Object} data : Data for check length.
+   * @returns {Number} : Return data length.
+   */
+  'size': function (data) {
+    if (type.isEmpty(data)) throw new Error('size function not contains values.');
     else {
-      if (type.isArray(value) || type.isString(value)) return value.length;
-      else if (type.isObject(value)) return Object.keys(value).length;
+      if (type.isArray(data) || type.isString(data)) return data.length;
+      else if (type.isObject(data)) return Object.keys(data).length;
       else throw new Error('size function not contains compatible values.');
     }
   },
