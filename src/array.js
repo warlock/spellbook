@@ -1,4 +1,5 @@
 var type = require('./type');
+var object = require('./object');
 
 module.exports = {
 
@@ -8,7 +9,7 @@ module.exports = {
    */
   'shuffle': function (array) {
     if (type.isArray(array)) {
-      var arrnew = Object.assign([], array);
+      var arrnew = object.assign(array);
       for (var i = arrnew.length-1; i >=0; i--) {
         var randomIndex = Math.floor(Math.random()*(i+1));
         var itemAtIndex = arrnew[randomIndex];
@@ -43,7 +44,7 @@ module.exports = {
    * @returns {Array} : Return array without element.
    */
   'remove': function (array, obj) {
-    var newarr = Object.assign([], array);
+    var newarr = object.assign(array);
     function filter(newarr, obj) {
       return newarr.filter(function (e) {
         if (JSON.stringify(e) !== JSON.stringify(obj)) return e;
@@ -63,7 +64,7 @@ module.exports = {
    * @returns {Array} : Returns a empty array.
    */
   'clear': function (array) {
-    var newarr = Object.assign([], array);
+    var newarr = object.assign(array);
     if (type.isArray(newarr)) return newarr.splice(newarr.length,0);
     else throw new Error('clear function not contains array.');
   },
