@@ -23,11 +23,22 @@ module.exports = {
       else throw new Error('size function not contains compatible values.');
     }
   },
+
+   /**
+   * @param {Array|String|Object} data : Data container
+   * @param {String} value : Value for search in data.
+   * @returns {Boolean} : Return true or false if data contains a value.
+   */
   'contains': function (data, value) {
     if (type.isArray(data) || type.isString(data)) return !!~data.indexOf(value);
     else if (type.isObject(data)) return !!~Object.keys(data).indexOf(value);
     else throw new Error('contains function not contains values.');
   },
+
+  /**
+   * @param {Array|String} data : Array or String for process
+   * @returns {Array|String} : Return data in reverse order.
+   */
   'reverse': function (data) {
     if (type.isArray(data)) return data.reverse();
     else if (type.isString(data)) return data.split('').reverse().join('');
