@@ -179,7 +179,7 @@ module.exports = {
   },
 
   /**
-   * @param {Array} array {Array} : array to process.
+   * @param {Array} array : array to process.
    * @param {Function} callback : function to forEach array.
    * @returns {undefined}
    */
