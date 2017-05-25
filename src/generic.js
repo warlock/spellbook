@@ -59,6 +59,12 @@ module.exports = {
       return strArray;
     }
   },
+
+   /**
+   * @param {String|Array} val : Data for concatenate
+   * @param {String|Array} val1 : Data for concatenate
+   * @returns {String|Array} : Return concatenate data
+   */
   'concat': function (val, val1) {
     if (type.isEmpty(val) || type.isEmpty(val1)) throw new Error('concat function not have values.');
     else {
