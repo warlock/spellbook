@@ -4,7 +4,7 @@ Spellbook
 
 http://www.spellbook.io
 
-[![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![GitHub version](https://badge.fury.io/gh/warlock%2Fspellbook.svg)](https://badge.fury.io/gh/warlock%2Fspellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Known Vulnerabilities](https://snyk.io/test/github/warlock/spellbook/badge.svg)](https://snyk.io/test/github/warlock/spellbook) [![GitHub stars](https://img.shields.io/github/stars/warlock/spellbook.svg?style=social&label=Star)]() [![Twitter Follow](https://img.shields.io/twitter/follow/hexley.svg?style=social&label=Follow)]()
+[![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![GitHub version](https://badge.fury.io/gh/warlock%2Fspellbook.svg)](https://badge.fury.io/gh/warlock%2Fspellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Known Vulnerabilities](https://snyk.io/test/github/warlock/spellbook/badge.svg)](https://snyk.io/test/github/warlock/spellbook) [![GitHub stars](https://img.shields.io/github/stars/warlock/spellbook.svg?style=social&label=Star)](https://github.com/warlock/spellbook)
 
 ## INSTALL/DOWNLOAD
 ```sh
