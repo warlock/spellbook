@@ -6,8 +6,7 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
     "build": "./node_modules/webpack/webpack.js -p",
-    "coverblanket": "./node_modules/mocha/bin/mocha --require blanket --reporter mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js",
-    "coveralls": "./node_modules/coveralls/bin/coveralls.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "cover": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -39,7 +38,6 @@
   },
   "homepage": "http://www.spellbook.io",
   "devDependencies": {
-    "blanket": "^1.2.3",
     "chai": "^4.0.1",
     "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
@@ -48,7 +46,6 @@
     "mocha": "^3.4.2",
     "mocha-eslint": "^3.0.1",
     "mocha-jshint": "^2.3.1",
-    "mocha-lcov-reporter": "^1.3.0",
     "webpack": "^2.6.1"
   },
   "dependencies": {
