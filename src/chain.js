@@ -325,6 +325,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.merge = function (obj) {
+      this.data = object.merge(this.data, obj);
+      return this;
+    };
+
     //BOOLEAN
     this.isTrue = function () {
       this.data = boolean.isTrue(this.data);

@@ -90,6 +90,7 @@ module.exports ={
   "get": object.get,
   "keys": object.keys,
   "getKeys": object.getKeys,
+  "merge": object.merge,
 
   //boolean
   "isTrue": boolean.isTrue,

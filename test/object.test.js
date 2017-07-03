@@ -135,4 +135,15 @@ describe('Object', function () {
       chai.assert.equal(res2.d, 4);
     });
   });
+
+  describe('sb.merge()', function () {
+    var obj = {
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4
+    };
+    var res = sb.merge(object, obj);
+    chai.assert.lengthOf(Object.keys(res), 4);
+  });
 });

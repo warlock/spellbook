@@ -20,19 +20,6 @@ module.exports = {
     }
     return temp;
   },
-  'clone': function (obj) {
-    if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj) return obj;
-
-    var temp = obj.constructor();
-    for (var key in obj) {
-      if(Object.prototype.hasOwnProperty.call(obj, key)) {
-        obj.isActiveClone = null;
-        temp[key] = obj[key];
-        delete obj.isActiveClone;
-      }
-    }
-    return temp;
-  },
   'get': function (obj, route) {
     if (obj !== undefined && typeof route === "string") {
       route = route.split(".");
@@ -49,7 +36,7 @@ module.exports = {
   'keys': function (obj) {
     return Object.keys(obj);
   },
-  'getKeys': function(obj, keys) {
+  'getKeys': function (obj, keys) {
     var nobj = {};
     if (type.isArray(keys)) {
       keys.forEach(function (key) {
@@ -57,5 +44,17 @@ module.exports = {
       });
     } else nobj[keys] = obj[keys];
     return nobj;
+  },
+  'merge': function (obj, obj2) {
+    var nobj = {};
+    if (type.isObject(obj) && type.isObject(obj2)) {
+      Object.keys(obj).forEach(function (key) {
+        nobj[key] = obj[key];
+      });
+      Object.keys(obj2).forEach(function (key) {
+        nobj[key] = obj2[key];
+      });
+      return nobj;
+    } else throw new Error('Merge option need two objects for work');
   }
 };
