@@ -351,6 +351,11 @@ module.exports = function (data) {
       return this;
     };
 
+    this.Not = function () {
+      this.data = boolean.not(this.data);
+      return this;
+    };
+
     this.not = function () {
       this.data = boolean.not(this.data);
       return this;
@@ -379,6 +384,14 @@ module.exports = function (data) {
 
     this.epl = function (limit, callback, response) {
       snc.epl(this.data, limit, callback, response);
+    };
+
+    this.and = function (data) {
+      if (this.data) {
+        this.data = data;
+        return this;
+      } else return false;
+
     };
 
     //RETURN VALUE
