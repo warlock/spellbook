@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "Functional and asynchronous conjurations for Javascript",
   "main": "spellbook.js",
   "scripts": {
