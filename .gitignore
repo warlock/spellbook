@@ -3,3 +3,4 @@ npm-debug.log
 *.swp
 build
 .DS_Store
+test.js
