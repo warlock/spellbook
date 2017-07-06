@@ -29,7 +29,7 @@ module.exports = {
    * @param {Boolean} bool : Get de boolean value.
    * @returns {Boolean} : Return negative value.
    */
-  'Not': function (bool) {
+  'not': function (bool) {
     return bool === false;
   },
   'and': function (bool, data) {
