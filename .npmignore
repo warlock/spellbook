@@ -10,3 +10,4 @@ build
 webpack.config.js
 src
 test.js
+.vscode
