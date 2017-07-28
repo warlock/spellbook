@@ -3,7 +3,7 @@ var type = require('./type');
 var events = {
   'eventstack': {},
 
-   /**
+  /**
    * @param {String} ev : The name of event.
    * @param {Function} callback : Function executed when event is triggered.
    * @returns {undefined}

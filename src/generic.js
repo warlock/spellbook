@@ -2,7 +2,7 @@ var type = require('./type');
 
 module.exports = {
 
-   /**
+  /**
    * @param {Any} data : Data for stringify.
    * @returns {String} : Return stringify from Any.
    */
@@ -11,7 +11,7 @@ module.exports = {
     else return JSON.stringify(data);
   },
 
-   /**
+  /**
    * @param {Array|String|Object} data : Data for check length.
    * @returns {Number} : Return data length.
    */
@@ -24,7 +24,7 @@ module.exports = {
     }
   },
 
-   /**
+  /**
    * @param {Array|String|Object} data : Data container
    * @param {String} value : Value for search in data.
    * @returns {Boolean} : Return true or false if data contains a value.
@@ -45,7 +45,7 @@ module.exports = {
     else throw new Error('Reverse function not contains array or string.');
   },
 
-   /**
+  /**
    * @param {Any} data : Data for process
    * @param {Number} num : Number of elements in array.
    * @returns {Array} : Return array with data repeated.
@@ -60,7 +60,7 @@ module.exports = {
     }
   },
 
-   /**
+  /**
    * @param {String|Array} val : Data for concatenate
    * @param {String|Array} val1 : Data for concatenate
    * @returns {String|Array} : Return concatenate data
