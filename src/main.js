@@ -65,6 +65,9 @@ module.exports ={
   "isNull": type.isNull,
   "isNaN": type.isNaN,
   "isUndefined": type.isUndefined,
+  "e": function (obj, keys) {
+    return type.isEmpty(object.get(obj, keys));
+  },
 
   //ARRAY
   "shuffle": array.shuffle,
@@ -123,6 +126,10 @@ module.exports ={
 
   //CHAIN
   "chain": function (data) {
+    return new Chain(data);
+  },
+
+  "c": function (data) {
     return new Chain(data);
   }
 };
