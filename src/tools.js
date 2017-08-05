@@ -1,4 +1,4 @@
-var type = require('./type');
+var type = require('tck');
 
 module.exports = {
   'range': function (a, b, step) {
