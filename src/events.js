@@ -1,4 +1,4 @@
-var type = require('./type');
+var type = require('tck');
 
 var events = {
   'eventstack': {},

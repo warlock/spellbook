@@ -1,7 +1,7 @@
 // http://www.spellbook.io
 var snc = require('snc');
+var type = require('tck');
 var tools = require('./tools');
-var type = require('./type');
 var array = require('./array');
 var object = require('./object');
 var string = require('./string');
@@ -11,7 +11,7 @@ var generic = require('./generic');
 var events = require('./events');
 var Chain = require('./chain');
 
-module.exports ={
+module.exports = {
   "range": tools.range,
   "random": tools.random,
   "ifElse": tools.ifElse,

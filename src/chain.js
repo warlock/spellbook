@@ -1,6 +1,6 @@
 var snc = require('snc');
 var tools = require('./tools');
-var type = require('./type');
+var type = require('tck');
 var array = require('./array');
 var object = require('./object');
 var string = require('./string');
