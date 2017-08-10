@@ -4,10 +4,11 @@ test
 .coveralls.yml
 .eslintrc.js
 .travis.yml
+.babelrc
 *.swp
-build
 .DS_Store
 webpack.config.js
-src
 test.js
 .vscode
+spellbook.js
+package-lock.json

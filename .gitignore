@@ -1,6 +1,6 @@
 node_modules
 npm-debug.log
 *.swp
-build
 .DS_Store
 test.js
+package-lock.json

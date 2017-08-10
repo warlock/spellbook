@@ -22,13 +22,13 @@ describe('String', function () {
     });
   });
 
-/*
+  /*
   describe('sb.dos2unix()', function () {
     var stringDos = 'hi';
     var stringUnix = "hi";
     //Need test
   });
-*/
+  */
   describe('sb.excerpt()', function () {
     //Need test
   });
