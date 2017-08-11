@@ -231,7 +231,7 @@ sb.filter(spells,{ name : "fire", name : "ice" })
 
 **Get object size**
 ```javascript
-const obj = { name : "fire", damage : 5}
+const obj = { name : "fire", damage : 5 }
 sb.size(obj)
 ```
 ```
@@ -240,7 +240,7 @@ sb.size(obj)
 
 **sb.getKeys(object, keys)**
 ```javascript
-const spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
+const spells = { "fire": 5, "ice": 4, "electro": 6, "wind": 7 }
 sb.getKeys(spells, "fire")
 ```
 ```
@@ -248,7 +248,7 @@ sb.getKeys(spells, "fire")
 ```
 
 ```javascript
-const spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
+const spells = { "fire": 5, "ice": 4, "electro": 6, "wind": 7 }
 sb.getKeys(spells, ["fire", "wind"])
 ```
 ```
