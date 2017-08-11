@@ -4,16 +4,16 @@ module.exports = {
    * @param {Boolean} bool : Get de boolean value.
    * @returns {Boolean} : Return true if value is true.
    */
-  'isTrue': function (bool) {
-    return bool === true;
+  isTrue: bool => {
+    return bool === true
   },
 
   /**
    * @param {Boolean} bool : Get de boolean value.
    * @returns {Boolean} : Return true if value is false.
    */
-  'isFalse': function (bool) {
-    return bool === false;
+  isFalse: bool => {
+    return bool === false
   },
 
   /**
@@ -21,16 +21,16 @@ module.exports = {
    * @param {Any} check : Get any value.
    * @returns {Boolean} : Return result of comparision.
    */
-  'isEqual': function (value, check) {
-    return JSON.stringify(value) === JSON.stringify(check);
+  isEqual: (value, check) => {
+    return JSON.stringify(value) === JSON.stringify(check)
   },
 
   /**
    * @param {Boolean} bool : Get de boolean value.
    * @returns {Boolean} : Return reverse boolean.
    */
-  'not': function (bool) {
-    return bool === false;
+  not: bool => {
+    return bool === false
   },
 
   /**
@@ -38,8 +38,8 @@ module.exports = {
    * @param {Boolean} bool2 : Get de boolean value.
    * @returns {Boolean} : Return comparation boolean.
    */
-  'and': function (bool, bool2) {
-    if (bool && bool2) return true;
-    else return false;
+  and: (bool, bool2) => {
+    if (bool && bool2) return true
+    else return false
   }
-};
+}

@@ -1,39 +1,36 @@
 /*global describe it*/
 
-var chai = require('chai');
-var sb = require('../src/main');
+const chai = require('chai')
+const sb = require('../src/main')
 
-describe('String', function () {
-  describe('sb.toInt()', function () {
-    it('Return number', function () {
-      chai.assert.typeOf(sb.toInt('123'), 'number');
-    });
-  });
+describe('String', () => {
+  describe('sb.toInt()', () => {
+    it('Return number', () => {
+      chai.assert.typeOf(sb.toInt('123'), 'number')
+    })
+  })
 
-  describe('sb.capitalize()', function () {
-    var string = 'abc';
-    var res = sb.capitalize(string);
-    it('Returns a string with same length', function () {
-      chai.assert.lengthOf(res, string.length);
-    });
+  describe('sb.capitalize()', () => {
+    var string = 'abc'
+    const res = sb.capitalize(string)
+    it('Returns a string with same length', () => {
+      chai.assert.lengthOf(res, string.length)
+    })
 
-    it('Returns the same string', function () {
-      chai.assert.equal(res, 'Abc');
-    });
-  });
+    it('Returns the same string', () => {
+      chai.assert.equal(res, 'Abc')
+    })
+  })
 
-  /*
-  describe('sb.dos2unix()', function () {
-    var stringDos = 'hi';
-    var stringUnix = "hi";
+  describe('sb.dos2unix()', () => {
     //Need test
-  });
-  */
-  describe('sb.excerpt()', function () {
+  })
+  
+  describe('sb.excerpt()', () => {
     //Need test
-  });
+  })
 
-  describe('sb.json()', function () {
-    chai.assert.isObject(sb.json('{ "a" : "5" }'), 'Is an object');
-  });
-});
+  describe('sb.json()', () => {
+    chai.assert.isObject(sb.json('{ "a" : "5" }'), 'Is an object')
+  })
+})
