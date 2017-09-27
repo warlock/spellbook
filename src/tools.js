@@ -1,4 +1,4 @@
-var type = require('tck')
+const type = require('tck')
 
 module.exports = {
   range: (a, b, step) => {
