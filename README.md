@@ -2,7 +2,7 @@ Spellbook
 ===
 > Functional and asynchronous conjurations for Javascript
 
-http://www.spellbook.io
+http://spellbook.js.gl
 
 [![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![GitHub version](https://badge.fury.io/gh/warlock%2Fspellbook.svg)](https://badge.fury.io/gh/warlock%2Fspellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Known Vulnerabilities](https://snyk.io/test/github/warlock/spellbook/badge.svg)](https://snyk.io/test/github/warlock/spellbook)
 
@@ -326,7 +326,7 @@ sb.each(list, (item, index, next, end) => {
     if (index === 1) end(`Bye!`)
     else next()
   }, 3000)
-}, (data) => {
+}, data => {
   if (data) console.log(`End: ${data}`)
   else console.log(`End`)
 })
@@ -346,7 +346,7 @@ sb.epl(list, 2, (item, index, next) => {
   console.log(`item: ${item}`)
   setTimeout(next, 2000)
 }, () => {
-  console.log(`End`)
+  console.log('End')
 })
 ```
 ```
@@ -631,7 +631,7 @@ sb.for(1, 10, 2, (index, next, end) => {
 -> [ 1, 3, 5, 7, 9, 11 ]
 ```
 
-# Events and much more... http://www.spellbook.io
+# Events and much more... http://spellbook.js.gl
 
 
 ## License

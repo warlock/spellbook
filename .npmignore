@@ -1,14 +1,14 @@
 node_modules
-npm-debug.log
 test
+playground
+npm-debug.log
 .coveralls.yml
 .eslintrc.js
 .travis.yml
 .babelrc
+.vscode
 *.swp
 .DS_Store
 webpack.config.js
-test.js
-.vscode
 spellbook.js
 package-lock.json
