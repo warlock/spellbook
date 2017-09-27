@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Functional and asynchronous conjurations for Javascript",
   "main": "src/main.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "tools",
     "utils"
   ],
-  "author": "Josep Subils Rigau <josep@spellbook.io> (http://spellbook.io)",
+  "author": "Josep Subils Rigau <josep@js.gl> (http://js.gl)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/warlock/spellbook/issues"
