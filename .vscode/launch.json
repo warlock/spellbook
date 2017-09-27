@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Node.js",
-      "program": "${workspaceRoot}/spellbook.js"
+      "program": "${workspaceRoot}/src/main.js"
     }
   ]
 }

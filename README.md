@@ -2,13 +2,13 @@ Spellbook
 ===
 > Functional and asynchronous conjurations for Javascript
 
-http://www.spellbook.io
+http://spellbook.io
 
 [![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![GitHub version](https://badge.fury.io/gh/warlock%2Fspellbook.svg)](https://badge.fury.io/gh/warlock%2Fspellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Known Vulnerabilities](https://snyk.io/test/github/warlock/spellbook/badge.svg)](https://snyk.io/test/github/warlock/spellbook)
 
 ## INSTALL/DOWNLOAD
 ```sh
-npm install spellbook
+npm install spellbook -S
 ```
 
 ## MINIFIED CDN
@@ -28,11 +28,11 @@ https://github.com/warlock/spellbook
 
 ## Node.Js : Import module:
 ```javascript
-var sb = require("spellbook");
+const sb = require("spellbook")
 ```
 
 ## Web : Import module:
-```javascript
+```html
 <script src="spellbook/spellbook.js"></script>
 <script>
 let a = sb.chain([{ a : 'hi', b : 3 }, { a : "hello", b : 3 }, { a : "bye", b : 2 }])
@@ -49,28 +49,28 @@ console.log(a)
 # Generic tools
 **Range:**
 ```javascript
-sb.range(0,10);
+sb.range(0,10)
 ```
 ```
 -> [0,1,2,3,4,5,6,7,8,9,10]
 ```
 
 ```javascript
-sb.range(-100,100,20);
+sb.range(-100,100,20)
 ```
 ```
 -> [-100,-80,-60,-40,-20,0,20,40,60,80,100]
 ```
 
 ```javascript
-sb.range('A','F');
+sb.range('A','F')
 ```
 ```
 -> ['A','B','C','D','E','F')
 ```
 
 ```javascript
-sb.range('m','r');
+sb.range('m','r')
 ```
 ```
 -> ['m','n','o','p','q','r']
@@ -78,48 +78,48 @@ sb.range('m','r');
 
 **Random:**
 ```javascript
-sb.random(0,10);
+sb.random(0,10)
 ```
 ```
 -> 3
 ```
 
 ```javascript
-sb.random(['a','b','c']);
+sb.random(['a','b','c'])
 ```
 ```
 -> a
 ```
 
-**sb.shuffle(array);**
+**sb.shuffle(array)**
 ```javascript
-sb.shuffle(['a', 'b', 'c']);
+sb.shuffle(['a', 'b', 'c'])
 ```
 ```
 -> ['c', 'a', 'b']
 ```
 
-**sb.first(array);**
+**sb.first(array)**
 ```javascript
-sb.first(['a', 'b', 'c']);
+sb.first(['a', 'b', 'c'])
 ```
 ```
 -> a
 ```
 
-**sb.last(array);**
+**sb.last(array)**
 ```javascript
-sb.last(['a', 'b', 'c']);
+sb.last(['a', 'b', 'c'])
 ```
 ```
 -> c
 ```
 
-**sb.extend(obj, obj2);**
+**sb.extend(obj, obj2)**
 ```javascript
-var spells = {"fire": 5, "ice": 4};
-var newspells = {"electro": 6, "wind": 7};
-sb.extend(spells, newspells);
+const spells = {"fire": 5, "ice": 4}
+const newspells = {"electro": 6, "wind": 7}
+sb.extend(spells, newspells)
 ```
 ```
 -> {"fire": 5, "ice": 4, "electro": 6, "wind": 7}
@@ -127,34 +127,47 @@ sb.extend(spells, newspells);
 
 **Clone Object in javascript ES5 with ES6 style:**
 ```javascript
-var NewObject = sb.assing(obj);
-var NewObject = sb.clone(obj);
+const NewObject = sb.assing(obj)
+const NewObject2 = sb.clone(NewObject)
 ```
 
 **Remove Objects from Array:**
 ```javascript
-sb.remove(array, obj);
+sb.remove(array, obj)
 ```
 Can remove multiple objects.
 ```javascript
-sb.remove(array, [obj, obj2]);
+sb.remove(array, [obj, obj2])
 ```
 
 **Clear all values from Array:**
 ```javascript
-sb.clear(array);
+sb.clear(array)
 ```
 
 **Find value in Array:**
 ```javascript
-sb.contains(array, item);
-sb.inArray(array, item);
+sb.contains(array, item)
+sb.inArray(array, item)
 ```
 
-**Check empty values (null, "", [], undefined)**
+**Get the element from the object "obj":**
 ```javascript
-var a = ""
-if (sb.empty(a)) return true
+const a = {
+    a : {
+        b : ["c", "d"]
+    }
+}
+sb.get(a, "a.b.1")
+```
+```
+-> d
+```
+
+**Check empty values (null, '', [], undefined)**
+```javascript
+const a = ''
+if (sb.isEmpty(a)) return true
 ```
 ```
 -> true
@@ -162,25 +175,26 @@ if (sb.empty(a)) return true
 
 sb.empty && sb.get combination:
 ```javascript
-var a = { a : [{ a : [1, 2, 3]}], b : 4 }
-if (sb.empty(sb.get('a', 'a.0.a.1'))) return true
+const a = { a : [{ a : [1, 2, 3]}], b : 4 }
+sb.empty(sb.get(a, 'a.0.a.1'))
 ```
 ```
 -> false
 ```
 
+sb.empty && sb.get CHAIN combination:
 ```javascript
-var a = { a : [{ a : [1, 2, 3]}], b : 4 }
-if (sb.empty(sb.get('a', 'a.0.b.1'))) return true
+const a = { a : [{ a : [1, 2, 3]}], b : 4 }
+sb.chain(a).get('a.0.a.1').isEmpty().value()
 ```
 ```
--> true
+-> false
 ```
 
-Can negate a sb.empty in same example:
+sb.empty && sb.get SHORT combination:
 ```javascript
-var a = { a : [{ a : [1, 2, 3]}], b : 4 }
-return !sb.empty(sb.get('a', 'a.0.b.1'))
+const a = { a : [{ a : [1, 2, 3]}], b : 4 }
+sb.e(a, 'a.0.a.1')
 ```
 ```
 -> false
@@ -190,8 +204,8 @@ return !sb.empty(sb.get('a', 'a.0.b.1'))
 
 Alternative name: unq.
 ```javascript
-var spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }];
-sb.uniq(spells,"name");
+const spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }]
+sb.uniq(spells, 'name')
 ```
 ```
 -> [ 'fire', 'ice' ]
@@ -200,178 +214,166 @@ sb.uniq(spells,"name");
 **Filter specific values from array of objects**
 
 ```javascript
-var spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }, { name : "water", damage : 5 }];
-sb.filter(spells,{ damage : 5 });
+const spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }, { name : "water", damage : 5 }]
+sb.filter(spells,{ damage : 5 })
 ```
 ```
 -> [{ name : "fire", damage : 5 },{ name : "water", damage : 5 }]
 ```
 
 ```javascript
-var spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }, { name : "water", damage : 5 }];
-sb.filter(spells,{ name : "fire", name : "ice" });
+const spells = [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }, { name : "water", damage : 5 }]
+sb.filter(spells,{ name : "fire", name : "ice" })
 ```
 ```
 -> [{ name : "fire", damage : 5 },{ name : "ice", damage : 4 }]
 ```
 
-
-**Get the element from the object "obj":**
-```javascript
-var a = {
-    a : {
-        b : ["c", "d"]
-    }
-};
-sb.get(a, "a.b.1");
-```
-```
--> d
-```
-
 **Get object size**
 ```javascript
-var obj = { name : "fire", damage : 5};
+const obj = { name : "fire", damage : 5 }
 sb.size(obj)
 ```
 ```
 -> 2
 ```
 
-**sb.getKeys(object, keys);**
+**sb.getKeys(object, keys)**
 ```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-sb.getKeys(spells, "fire");
+const spells = { "fire": 5, "ice": 4, "electro": 6, "wind": 7 }
+sb.getKeys(spells, "fire")
 ```
 ```
 -> {"fire": 5}
 ```
 
 ```javascript
-var spells = {"fire": 5, "ice": 4, "electro": 6, "wind": 7};
-sb.getKeys(spells, ["fire", "wind"]);
+const spells = { "fire": 5, "ice": 4, "electro": 6, "wind": 7 }
+sb.getKeys(spells, ["fire", "wind"])
 ```
 ```
 -> {"fire": 5, "wind" : 7}
 ```
 
-**sb.repeatify(value, num);**
+**sb.repeatify(value, num)**
 ```
-sb.reatify("hi", 5);
+sb.reatify("hi", 5)
 ```
 ```
 -> ['hi','hi','hi','hi','hi']
 ```
 
-**sb.capitalize();**
+**sb.capitalize()**
 ```javascript
-sb.capitalize("abracadabra");
+sb.capitalize("abracadabra")
 ```
 ```
 -> Abracadabra
 ```
 
-**sb.dos2unix(string);**
+**sb.dos2unix(string)**
 Replace dos endline
 
 ```javascript
-sb.dos2unix(string);
+sb.dos2unix(string)
 ```
 
 **Type check:**
 ```javascript
-sb.isFunction(obj);
-sb.isArray(obj);
-sb.isObject(obj);
-sb.isNumber(obj);
-sb.isInteger(obj);
-sb.isString(obj);
-sb.isBoolean(obj);
+sb.isFunction(obj)
+sb.isArray(obj)
+sb.isObject(obj)
+sb.isNumber(obj)
+sb.isInteger(obj)
+sb.isString(obj)
+sb.isBoolean(obj)
+sb.isEmpty(obj)
+sb.isUndefined(obj)
+sb.isNull(obj)
+sb.isNaN(obj)
 ```
 
 
 # Asyncronous Iterators
 
-**sb.each(array, callback_loop(item, index, next_method, end_method), callback_end);**
+**sb.each(array, callback_loop(item, index, next_method, end_method), callback_end)**
 
 Runs next function when "next" method is executed.
 ```javascript
-var list = ['a', 'b', 'c'];
-sb.each(list, function (item, i, next, end) {
-    console.log("item: " + item );
-    setTimeout(function () {
-        next();
-    }, 3000);
-}, function () {
-    console.log("End");
-});
+const list = ['a', 'b', 'c']
+
+sb.each(list, (item, index, next, end) => {
+  console.log(`item: ${item}`)
+  setTimeout(next, 3000)
+}, () => {
+  console.log(`End`)
+})
 ```
 ```
--> item: a // Wait 3 seconds;
--> item: b // Wait 3 seconds;
--> item: c // Wait 3 seconds;
+-> item: a // Wait 3 seconds
+-> item: b // Wait 3 seconds
+-> item: c // Wait 3 seconds
 -> End
 ```
 
 Call "end" method for break the loop.
 ```javascript
-var list = ['a', 'b', 'c'];
-sb.each(list, function (item, i, next, end) {
-    console.log("item: " + item );
-    setTimeout(function () {
-        if (i === 1) end("Bye!");
-        else next();
-    }, 3000);
-}, function (data) {
-    if (data) console.log("End: " + data);
-    else console.log("End");
-});
+const list = ['a', 'b', 'c']
+
+sb.each(list, (item, index, next, end) => {
+  console.log(`item: ${item}`)
+  setTimeout(() => {
+    if (index === 1) end(`Bye!`)
+    else next()
+  }, 3000)
+}, data => {
+  if (data) console.log(`End: ${data}`)
+  else console.log(`End`)
+})
 ```
 ```
--> item: a // Wait 3 seconds;
--> item: b // Wait 3 seconds;
+-> item: a // Wait 3 seconds
+-> item: b // Wait 3 seconds
 -> End: Bye!
 ```
 
-**sb.eachParallelLimit(array, number_limit, callback_loop(item, index, next_method), callback_end);**
+**sb.eachParallelLimit(array, number_limit, callback_loop(item, index, next_method), callback_end)**
 
 Runs in parallel limit and next loop when "next" method is executed. Alternative names: eachpl, epl.
 ```javascript
-var list = ['a', 'b', 'c', 'd'];
-sb.epl(list, 2, function (item, i, next) {
-    console.log("item: " + item );
-    setTimeout(function () {
-        next();
-    }, 2000);
-}, function () {
-    console.log("End");
-});
+const list = ['a', 'b', 'c', 'd']
+sb.epl(list, 2, (item, index, next) => {
+  console.log(`item: ${item}`)
+  setTimeout(next, 2000)
+}, () => {
+  console.log('End')
+})
 ```
 ```
 -> item: a
 -> item: b
--> item: c // Next to start when next method executed;
--> item: d // Next to start when next method executed;
+-> item: c // Next to start when next method executed
+-> item: d // Next to start when next method executed
 -> End
 ```
 
-**sb.waterfall(array_functions(done, data), callback_end);**
+**sb.waterfall(array_functions(done, data), callback_end)**
 
 Runs next function when "done" method is executed.
 Alternative name: wf.
 ```javascript
 sb.waterfall([
-    function (done) {
-        console.log("fire");
-        done(5);
-    },
-    function (done, data) {
-        console.log("ice: " + data);
-        done("win");
-    }
-], function (data) {
-    console.log("End: " + data);
-});
+  done => {
+    console.log(`fire`)
+    done(5)
+  },
+  (done, data) => {
+    console.log(`ice: ${data}`)
+    done(`win`)
+  }
+], data => {
+  console.log(`End: ${data}`)
+})
 ```
 ```
 -> fire
@@ -382,17 +384,17 @@ sb.waterfall([
 Break the waterfall with "true".
 ```javascript
 sb.wf([
-    function (done) {
-        console.log("fire");
-        done(true, 5);
-    },
-    function (done, data) {
-        console.log("ice: " + data);
-        done("win");
-    }
-], function (data) {
-    console.log("End: " + data);
-});
+  done => {
+    console.log(`fire`)
+    done(true, 5)
+  },
+  (done, data) => {
+    console.log(`ice: ${data}`)
+    done(`win`)
+  }
+], data => {
+  console.log(`End: ${data}`)
+})
 ```
 ```
 -> fire
@@ -400,32 +402,32 @@ sb.wf([
 ```
 
 
-**sb.parallel(array_functions(done), callback_end(data));**
+**sb.parallel(array_functions(done), callback_end(data))**
 
 Run functions in parallel and then execute "callback_end".
 ```javascript
 sb.parallel([
-    function (done) {
-        setTimeout(function () {
-            console.log("hi 3!");
-            done("a")
-        }, 3000);
-    },
-    function (done) {
-        setTimeout(function () {
-            console.log("hi 2!");
-            done("b");
-        }, 2000);
-    },
-    function (done) {
-        setTimeout(function () {
-            console.log("hi 1!");
-            done("c");
-        }, 1000);
-    }
-],function (data) {
-        console.log("End: " + JSON.stringify(data));
-});
+  done => {
+    setTimeout(() => {
+      console.log(`hi 3!`)
+      done(`a`)
+    }, 3000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log(`hi 2!`)
+      done(`b`)
+    }, 2000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log(`hi 1!`)
+      done(`c`)
+    }, 1000)
+  }
+],data => {
+  console.log(`End: ${JSON.stringify(data)}`)
+})
 ```
 ```
 //Wait 1 second
@@ -435,65 +437,68 @@ sb.parallel([
 -> End: ["a","b","c"]
 ```
 
-**sb.parallelLimit(number, array_functions(done), callback_end(data));**
+**sb.parallelLimit(number, array_functions(done), callback_end(data))**
 
 Run limit of functions in parallel and then execute "callback_end". Alternative name : pl
 ```javascript
 sb.pl(2, [
-    function (done) {
-        setTimeout(function () {
-          console.log("go 1!");
-          done("a")
-        }, 1000);
-    },
-    function (done) {
-        setTimeout(function () {
-        console.log("go 2!");
-        done("b")
-    }, 3000); },
-    function (done) {
-        setTimeout(function () {
-            console.log("go 3!");
-            done("c")
-        }, 1000);
-    },
-    function (done) {
-        setTimeout(function () {
-            console.log("go 4!");
-            done("a2")
-        }, 3000);
-    },
-    function (done) {
-        setTimeout(function () {
-            console.log("go 5!");
-            done("b2")
-        }, 1000);
-    },
-    function (done) {
-        setTimeout(function () {
-            console.log("go 6!");
-            done("c2")
-        }, 3000); },
-    function (done) {
-        setTimeout(function () {
-            console.log("go 7!");
-            done("a3")
-        }, 1000); },
-    function (done) {
-        setTimeout(function () {
-            console.log("go 8!");
-            done("b3")
-        }, 3000);
-    },
-    function (done) {
-        setTimeout(function () {
-            console.log("go 9!");
-            done("c3")
-        }, 1000);
-    }
-],function (data) {
-    console.log("we: " + JSON.stringify(data));
-});
+  done => {
+    setTimeout(() => {
+      console.log("go 1!")
+      done("a")
+    }, 1000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log("go 2!")
+      done("b")
+    }, 3000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log("go 3!")
+      done("c")
+    }, 1000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log("go 4!")
+      done("a2")
+    }, 3000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log("go 5!")
+      done("b2")
+    }, 1000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log("go 6!")
+      done("c2")
+   }, 3000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log("go 7!")
+      done("a3")
+    }, 1000)
+  },
+  done => {
+    setTimeout(() => {
+      console.log("go 8!")
+      done("b3")
+    }, 3000)
+  },
+  done => {
+    setTimeout(() => {
+       console.log("go 9!")
+       done("c3")
+    }, 1000)
+  }
+],data => {
+  console.log(`we: ${JSON.stringify(data)}`)
+})
 ```
 ```
 -> go 1!
@@ -508,57 +513,53 @@ sb.pl(2, [
 -> we: ["a","b","c","a2","b2","c2","a3","b3","c3"]
 ```
 
-**sb.forever(callback(next, end), callback_end);**
+**sb.forever(callback(repeat, end), callback_end)**
 
 Loops syncronous forever.
 Alternative name: fe.
 
 ```javascript
-sb.forever(function (next, end) {
-    console.log("Hi!")
-    setTimeout(function () {
-        next();
-    }, 3000);
-});
+sb.forever((repeat, end) => {
+  console.log(`Hi!`)
+  setTimeout(repeat, 3000)
+})
 ```
 ```
--> Hi! // Wait 3 seconds;
--> Hi! // Wait 3 seconds;
+-> Hi! // Wait 3 seconds
+-> Hi! // Wait 3 seconds
 -> ...
 ```
 
 Breaking forever loop.
 ```javascript
-var i = 0;
-sb.fe(function (next, end) {
-    console.log("loop: " + i);
-    if (i>=3) end("Now Break!!");
-    i++;
-    setTimeout(function () {
-        next();
-    }, 3000);
-}, function (data) {
-    console.log("Response: " + data);
-});
+var i = 0
+sb.fe((repeat, end) => {
+  console.log(`loop: ${i}`)
+  if (i>=3) end(`Now Break!!!`)
+  i++
+  setTimeout(repeat, 3000)
+}, data => {
+  console.log(`Response: ${data}`)
+})
 ```
 ```
--> loop: 0 // Wait 3 seconds;
--> loop: 1 // Wait 3 seconds;
--> loop: 2 // Wait 3 seconds;
--> loop: 3 // Wait 3 seconds;
+-> loop: 0 // Wait 3 seconds
+-> loop: 1 // Wait 3 seconds
+-> loop: 2 // Wait 3 seconds
+-> loop: 3 // Wait 3 seconds
 -> Response: Now Break!!
 ```
 
-**sb.times(number, callback(index, next, end), end);**
+**sb.times(number, callback(index, next, end), end)**
 
 Iterates function "number" times.
 ```javascript
-sb.times(5, function (index, next, end) {
-        console.log("iterator: " + index);
-        if (index === 3) end()
-        else next();
+sb.times(5, (index, next, end) => {
+  console.log(`Iterator: ${index}`)
+  if (index === 3) end()
+  else next()
 }, () => {
-        console.log("End!")
+  console.log(`End!`)
 })
 ```
 ```
@@ -570,9 +571,9 @@ sb.times(5, function (index, next, end) {
 ```
 
 ```javascript
-sb.times(5, function (index, next, end) {
-        console.log("Iterator " + index);
-        next();
+sb.times(5, (index, next, end) => {
+  console.log(`Iterator ${index}`)
+  next()
 })
 ```
 ```
@@ -584,17 +585,17 @@ sb.times(5, function (index, next, end) {
 -> Iterator 5
 ```
 
-**sb.for(initial, final, increment, callback(index, next, end), callback_end(data));**
+**sb.for(initial, final, increment, callback(index, next, end), callback_end(data))**
 
 Syncronous "for" iterator.
 Alternative name: forSync.
 
 ```javascript
-sb.for(0, 10, 1, function (index, next, end) {
-    console.log(index)
-    next(5)
-}, function (data) {
-    console.log(data)
+sb.for(0, 10, 1, (index, next, end) => {
+  console.log(index)
+  next(5)
+}, data => {
+  console.log(data)
 })
 ```
 ```
@@ -609,15 +610,33 @@ sb.for(0, 10, 1, function (index, next, end) {
 -> 8
 -> 9
 -> 10
--> [ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
+-> [ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
 ```
 
-#Events and much more... http://www.spellbook.io
+```javascript
+sb.for(1, 10, 2, (index, next, end) => {
+  console.log(index)
+  next(index)
+}, data => {
+  console.log(data)
+})
+```
+```
+-> 1
+-> 3
+-> 5
+-> 7
+-> 9
+-> 11
+-> [ 1, 3, 5, 7, 9, 11 ]
+```
+
+# Events and much more... http://spellbook.io
 
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2015 Josep Subils (josep@spellbook.io)
+Copyright (c) 2015 Josep Subils (js@js.gl)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

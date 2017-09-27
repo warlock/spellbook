@@ -1,149 +1,149 @@
 /*global describe it*/
 
-var chai = require('chai');
-var sb = require('../src/main');
+const chai = require('chai')
+const sb = require('../src/main')
 
-describe('Object', function () {
+describe('Object', () => {
   var object = {
     "a": 1,
     "b": 2
-  };
+  }
 
-  describe('sb.assing()', function () {
-    var objCopy = sb.assign(object);
-    it('Return object', function () {
-      chai.assert.isObject(objCopy);
-    });
+  describe('sb.assing()', () => {
+    var objCopy = sb.assign(object)
+    it('Return object', () => {
+      chai.assert.isObject(objCopy)
+    })
 
-    it('The same object', function () {
-      chai.assert.notEqual(objCopy, object);
-    });
+    it('The same object', () => {
+      chai.assert.notEqual(objCopy, object)
+    })
 
-    it('The same data', function () {
-      chai.assert.notStrictEqual(objCopy, object, "The same values");
-    });
-  });
+    it('The same data', () => {
+      chai.assert.notStrictEqual(objCopy, object, "The same values")
+    })
+  })
 
-  describe('sb.clone()', function () {
-    var objCopy = sb.clone(object);
-    it('Return object', function () {
-      chai.assert.isObject(objCopy);
-    });
+  describe('sb.clone()', () => {
+    var objCopy = sb.clone(object)
+    it('Return object', () => {
+      chai.assert.isObject(objCopy)
+    })
 
-    it('The same object', function () {
-      chai.assert.notEqual(objCopy, object);
-    });
+    it('The same object', () => {
+      chai.assert.notEqual(objCopy, object)
+    })
 
-    it('The same data', function () {
-      chai.assert.notStrictEqual(objCopy, object, "The same values");
-    });
-  });
+    it('The same data', () => {
+      chai.assert.notStrictEqual(objCopy, object, "The same values")
+    })
+  })
 
-  describe('sb.get()', function () {
-    var a = {"a": {"b": ["c", "d"]}};
-    it('Check get a string', function () {
-      var res = sb.get(a, "a.b.0");
-      chai.assert.isString(res);
-    });
+  describe('sb.get()', () => {
+    var a = {"a": {"b": ["c", "d"]}}
+    it('Check get a string', () => {
+      const res = sb.get(a, "a.b.0")
+      chai.assert.isString(res)
+    })
 
-    it('Check get "c" string', function () {
-      var res = sb.get(a, "a.b.0");
-      chai.assert.equal(res, "c");
-    });
+    it('Check get "c" string', () => {
+      const res = sb.get(a, "a.b.0")
+      chai.assert.equal(res, "c")
+    })
 
-    it('Check get a array', function () {
-      var res = sb.get(a, "a.b");
-      chai.assert.isArray(res);
-    });
+    it('Check get a array', () => {
+      const res = sb.get(a, "a.b")
+      chai.assert.isArray(res)
+    })
 
-    it('Check get a object', function () {
-      var res = sb.get(a, "a");
-      chai.assert.isObject(res);
-    });
-  });
+    it('Check get a object', () => {
+      const res = sb.get(a, "a")
+      chai.assert.isObject(res)
+    })
+  })
 
-  describe('sb.extend()', function () {
-    var obj = {"a": 1};
-    var obj2 = {"b": 2};
+  describe('sb.extend()', () => {
+    var obj = {"a": 1}
+    var obj2 = {"b": 2}
     var objtest = {
       "a": 1,
       "b": 2
-    };
+    }
 
-    var res = sb.extend(obj, obj2);
-    it('Returns object', function () {
-      chai.assert.isObject(res);
-    });
+    const res = sb.extend(obj, obj2)
+    it('Returns object', () => {
+      chai.assert.isObject(res)
+    })
 
-    it('Object is a fusion', function () {
-      chai.assert.notStrictEqual(res, objtest);
-    });
+    it('Object is a fusion', () => {
+      chai.assert.notStrictEqual(res, objtest)
+    })
 
-    it('Attribute \'a\' is equal', function () {
-      chai.assert.equal(res.a, objtest.a);
-    });
+    it('Attribute \'a\' is equal', () => {
+      chai.assert.equal(res.a, objtest.a)
+    })
 
-    it('Attribute \'b\' is equal', function () {
-      chai.assert.equal(res.b, objtest.b);
-    });
-  });
+    it('Attribute \'b\' is equal', () => {
+      chai.assert.equal(res.b, objtest.b)
+    })
+  })
 
-  describe('sb.keys()', function () {
+  describe('sb.keys()', () => {
     var obj = {
       "a": 1,
       "b": 2,
       "c": 3,
       "d": 4
-    };
+    }
     //chai.assert.strictEqual(sb.keys(obj), Object.keys(obj), 'Correct result')
-    chai.assert.isArray(sb.keys(obj), 'is Array');
-    chai.assert.lengthOf(sb.keys(obj), 4, 'Same length');
-  });
+    chai.assert.isArray(sb.keys(obj), 'is Array')
+    chai.assert.lengthOf(sb.keys(obj), 4, 'Same length')
+  })
 
-  describe('sb.getKeys()', function () {
+  describe('sb.getKeys()', () => {
     var obj = {
       "a": 1,
       "b": 2,
       "c": 3,
       "d": 4
-    };
-    var res = sb.getKeys(obj, 'a');
-    var res2 = sb.getKeys(obj, ['b','d']);
+    }
+    const res = sb.getKeys(obj, 'a')
+    const res2 = sb.getKeys(obj, ['b','d'])
 
-    it('Returns object', function () {
-      chai.assert.isObject(res);
-    });
+    it('Returns object', () => {
+      chai.assert.isObject(res)
+    })
 
-    it('Object length', function () {
-      chai.assert.lengthOf(Object.keys(res), 1);
-    });
+    it('Object length', () => {
+      chai.assert.lengthOf(Object.keys(res), 1)
+    })
 
-    it('Validate value', function () {
-      chai.assert.equal(res.a, 1);
-    });
+    it('Validate value', () => {
+      chai.assert.equal(res.a, 1)
+    })
 
-    it('Returns object', function () {
-      chai.assert.isObject(res2);
-    });
+    it('Returns object', () => {
+      chai.assert.isObject(res2)
+    })
 
-    it('Object length', function () {
-      chai.assert.lengthOf(Object.keys(res2), 2);
-    });
+    it('Object length', () => {
+      chai.assert.lengthOf(Object.keys(res2), 2)
+    })
 
-    it('Validate values', function () {
-      chai.assert.equal(res2.b, 2);
-      chai.assert.equal(res2.d, 4);
-    });
-  });
+    it('Validate values', () => {
+      chai.assert.equal(res2.b, 2)
+      chai.assert.equal(res2.d, 4)
+    })
+  })
 
-  describe('sb.merge()', function () {
+  describe('sb.merge()', () => {
     var obj = {
       "a": 1,
       "b": 2,
       "c": 3,
       "d": 4
-    };
-    var res = sb.merge(object, obj);
-    chai.assert.lengthOf(Object.keys(res), 4);
-  });
-});
+    }
+    const res = sb.merge(object, obj)
+    chai.assert.lengthOf(Object.keys(res), 4)
+  })
+})

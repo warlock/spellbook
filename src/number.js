@@ -1,63 +1,63 @@
-var type = require('tck');
+const type = require('tck')
 
 module.exports = {
-  'duplicate': function (value) {
-    if (type.isNumber(value)) return value * 2;
-    else throw new Error('Duplicate function needs a number.');
+  duplicate: value => {
+    if (type.isNumber(value)) return value * 2
+    else throw new Error('Duplicate function needs a number.')
   },
-  'min': function (value) {
+  min: value => {
     if (type.isArray(value)) {
-      var checknum = true;
-      value.forEach(function (num) {
-        if (checknum && !type.isNumber(num)) checknum = false;
-      });
-      if (checknum) return Math.min.apply(Math, value);
-      else throw new Error('Min funciton needs an array of numbers.');
-    } else throw new Error('Min funciton needs an array.');
+      var checknum = true
+      value.forEach(num => {
+        if (checknum && !type.isNumber(num)) checknum = false
+      })
+      if (checknum) return Math.min.apply(Math, value)
+      else throw new Error('Min funciton needs an array of numbers.')
+    } else throw new Error('Min funciton needs an array.')
   },
-  'max': function (value) {
+  max: value => {
     if (type.isArray(value)) {
-      var checknum = true;
-      value.forEach(function (num) {
-        if (checknum && !type.isNumber(num)) checknum = false;
-      });
-      if (checknum) return Math.max.apply(Math, value);
-      else throw new Error('Min funciton needs an array of numbers.');
-    } else throw new Error('Min funciton needs an array.');
+      var checknum = true
+      value.forEach(num => {
+        if (checknum && !type.isNumber(num)) checknum = false
+      })
+      if (checknum) return Math.max.apply(Math, value)
+      else throw new Error('Min funciton needs an array of numbers.')
+    } else throw new Error('Min funciton needs an array.')
   },
-  'sum': function (value, number) {
+  sum: (value, number) => {
     if (type.isNumber(value) && type.isNumber(number)) {
-      return value + number;
-    } else throw new Error('Sum function only can operate with numbers.');
+      return value + number
+    } else throw new Error('Sum function only can operate with numbers.')
   },
-  'divide': function (value, number) {
+  divide: (value, number) => {
     if (type.isNumber(value) && type.isNumber(number)) {
-      return value / number;
-    } else throw new Error('Divide function only can operate with numbers.');
+      return value / number
+    } else throw new Error('Divide function only can operate with numbers.')
   },
-  'mult': function (value, number) {
+  mult: (value, number) => {
     if (type.isNumber(value) && type.isNumber(number)) {
-      return number * value;
-    } else throw new Error('Mult function only can operate with numbers.');
+      return number * value
+    } else throw new Error('Mult function only can operate with numbers.')
   },
-  'ceil': function (value) {
+  ceil: value => {
     if (type.isNumber(value)) {
-      return Math.ceil(value);
-    } else throw new Error('ceil function only can operate with numbers.');
+      return Math.ceil(value)
+    } else throw new Error('ceil function only can operate with numbers.')
   },
-  'round': function (value) {
+  round: value => {
     if (type.isNumber(value)) {
-      return Math.round(value);
-    } else throw new Error('round function only can operate with numbers.');
+      return Math.round(value)
+    } else throw new Error('round function only can operate with numbers.')
   },
-  'floor': function (value) {
+  floor: value => {
     if (type.isNumber(value)) {
-      return Math.floor(value);
-    } else throw new Error('floor function only can operate with numbers.');
+      return Math.floor(value)
+    } else throw new Error('floor function only can operate with numbers.')
   },
-  'trunc': function (value) {
+  trunc: value => {
     if (type.isNumber(value)) {
-      return Math.trunc(value);
-    } else throw new Error('floor function only can operate with numbers.');
+      return Math.trunc(value)
+    } else throw new Error('floor function only can operate with numbers.')
   }
-};
+}
