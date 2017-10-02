@@ -2,7 +2,7 @@ Spellbook
 ===
 > Functional and asynchronous conjurations for Javascript
 
-http://spellbook.io
+http://spellbook.js.gl
 
 [![npm version](https://badge.fury.io/js/spellbook.svg)](https://badge.fury.io/js/spellbook) [![GitHub version](https://badge.fury.io/gh/warlock%2Fspellbook.svg)](https://badge.fury.io/gh/warlock%2Fspellbook) [![Build Status](https://travis-ci.org/warlock/spellbook.svg?branch=master)](https://travis-ci.org/warlock/spellbook) [![Known Vulnerabilities](https://snyk.io/test/github/warlock/spellbook/badge.svg)](https://snyk.io/test/github/warlock/spellbook)
 
@@ -13,7 +13,7 @@ npm install spellbook -S
 
 ## MINIFIED CDN
 ```
-http://cdn.spellbook.io/spellbook.js
+http://cdn.js.gl/spellbook.js
 ```
 
 ### NPM URL
@@ -631,7 +631,7 @@ sb.for(1, 10, 2, (index, next, end) => {
 -> [ 1, 3, 5, 7, 9, 11 ]
 ```
 
-# Events and much more... http://spellbook.io
+# Events and much more... http://spellbook.js.gl
 
 
 ## License
