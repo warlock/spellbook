@@ -217,6 +217,11 @@ module.exports = class {
     return this
   }
 
+  isSet () {
+    this.data = type.isSet(this.data)
+    return this
+  }
+
   empty () {
     this.data = type.isEmpty(this.data)
     return this

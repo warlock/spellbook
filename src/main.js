@@ -61,6 +61,7 @@ module.exports = {
   isBoolean: type.isBoolean,
   isInteger: type.isInteger,
   isEmpty: type.isEmpty,
+  isSet: type.isSet,
   empty: type.isEmpty,
   isNull: type.isNull,
   isNaN: type.isNaN,
