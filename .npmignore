@@ -11,5 +11,4 @@ npm-debug.log
 .DS_Store
 webpack.config.js
 spellbook.js
-package-lock.json
 LICENSE
