@@ -38,9 +38,9 @@
   },
   "homepage": "http://spellbook.js.gl",
   "dependencies": {
-    "eem": "*",
-    "snc": "*",
-    "tck": "*"
+    "eem": "^1.2.3",
+    "snc": "^1.1.8",
+    "tck": "^1.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
