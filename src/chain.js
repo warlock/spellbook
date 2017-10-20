@@ -80,12 +80,12 @@ module.exports = class {
   }
 
   replace (oldstr, newstr) {
-    data = string.replace(this.data, oldstr, newstr)
+    this.data = string.replace(this.data, oldstr, newstr)
     return this
   }
 
   pad (target, pad) {
-    data = string.pad(this.data, target, pad)
+    this.data = string.pad(this.data, target, pad)
     return this
   }
 
