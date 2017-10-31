@@ -1,6 +1,11 @@
 const type = require('tck')
 
 module.exports = {
+
+  /**
+   * @param {Number} value  : numer to process.
+   * @returns {Number} : Return value duplicated.
+   */
   duplicate: value => {
     if (type.isNumber(value)) return value * 2
     else throw new Error('Duplicate function needs a number.')
