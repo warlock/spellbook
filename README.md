@@ -633,7 +633,7 @@ sb.for(1, 10, 2, (index, next, end) => {
 -> [ 1, 3, 5, 7, 9, 11 ]
 ```
 
-**snc.all(array, callback(element, done))**
+**sb.all(array, callback(element, done))**
 
 Execute all elements in array in parallel. And get all responses in order.
 
