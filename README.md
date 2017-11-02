@@ -638,7 +638,7 @@ sb.for(1, 10, 2, (index, next, end) => {
 Execute all elements in array in parallel. And get all responses in order.
 
 ```javascript
-s.all([3,2,1], (element, done) => {
+sb.all([3,2,1], (element, done) => {
 setTimeout(() => {
 console.log(element)
 done(element)
