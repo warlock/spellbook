@@ -405,6 +405,8 @@ sb.wf([
 **sb.parallel(array_functions(done), callback_end(data))**
 
 Run functions in parallel and then execute "callback_end".
+Alternative name: p.
+
 ```javascript
 sb.parallel([
   done => {
@@ -629,6 +631,29 @@ sb.for(1, 10, 2, (index, next, end) => {
 -> 9
 -> 11
 -> [ 1, 3, 5, 7, 9, 11 ]
+```
+
+**snc.all(array, callback(element, done))**
+
+Execute all elements in array in parallel. And get all responses in order.
+
+```javascript
+s.all([3,2,1], (element, done) => {
+setTimeout(() => {
+console.log(element)
+done(element)
+}, element * 1000)
+},
+res => {
+console.log(`Reponse: ${JSON.stringify(res)}`)
+})
+```
+
+```
+-> 1
+-> 2
+-> 3
+-> [3,2,1]
 ```
 
 # Events and much more... http://spellbook.js.gl
