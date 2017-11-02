@@ -39,7 +39,7 @@
   "homepage": "http://spellbook.js.gl",
   "dependencies": {
     "eem": "^1.2.3",
-    "snc": "^1.1.9",
+    "snc": "^1.2.0",
     "tck": "^1.0.7"
   },
   "devDependencies": {

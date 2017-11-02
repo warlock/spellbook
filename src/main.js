@@ -124,6 +124,7 @@ module.exports = {
   for: snc.forSync,
   forSync: snc.forSync,
   times: snc.times,
+  all: snc.all,
 
   //CHAIN
   chain: data => {
