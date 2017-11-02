@@ -374,6 +374,13 @@ module.exports = class {
     return this
   }
 
+  and (data) {
+    if (this.data) {
+      this.data = data
+      return this
+    } else return false
+  }
+
   //EVENT
   on (ev, callback) {
     events.on(ev, callback)
@@ -397,13 +404,6 @@ module.exports = class {
 
   epl (limit, callback, response) {
     snc.epl(this.data, limit, callback, response)
-  }
-
-  and (data) {
-    if (this.data) {
-      this.data = data
-      return this
-    } else return false
   }
 
   //RETURN VALUE
