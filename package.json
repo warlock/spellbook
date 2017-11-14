@@ -1,6 +1,6 @@
 {
   "name": "spellbook",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "Functional and asynchronous conjurations for Javascript",
   "main": "src/main.js",
   "scripts": {
@@ -22,14 +22,10 @@
     "chain",
     "event",
     "modules",
-    "async",
-    "each",
-    "promise",
-    "waterfall",
-    "await",
     "iterator",
     "tools",
-    "utils"
+    "utils",
+    "map"
   ],
   "author": "Josep Subils Rigau <josep@js.gl> (http://js.gl)",
   "license": "MIT",
@@ -39,19 +35,18 @@
   "homepage": "http://spellbook.js.gl",
   "dependencies": {
     "eem": "^1.2.3",
-    "snc": "^1.2.0",
-    "tck": "^1.0.7"
+    "tck": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
-    "eslint": "^4.10.0",
+    "eslint": "^4.11.0",
     "eslint-plugin-mocha": "^4.11.0",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",

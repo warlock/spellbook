@@ -1,4 +1,3 @@
-const snc = require('snc')
 const type = require('tck')
 const events = require('eem')
 const tools = require('./tools')
@@ -395,15 +394,6 @@ module.exports = class {
   delete (ev) {
     events.delete(ev)
     return this
-  }
-
-  //ASYNCRONOUS SNC LIBRARY
-  each (callback, response) {
-    snc.each(this.data, callback, response)
-  }
-
-  epl (limit, callback, response) {
-    snc.epl(this.data, limit, callback, response)
   }
 
   //RETURN VALUE
