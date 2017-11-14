@@ -1,5 +1,3 @@
-// http://www.spellbook.io
-const snc = require('snc')
 const type = require('tck')
 const events = require('eem')
 const tools = require('./tools')
@@ -107,24 +105,6 @@ module.exports = {
   on: events.on,
   emit: events.emit,
   delete: events.delete,
-
-  //ASYNCRONOUS SNC LIBRARY
-  each: snc.each,
-  waterfall: snc.waterfall,
-  wf: snc.waterfall,
-  forever: snc.forever,
-  fe: snc.forever,
-  parallel: snc.parallel,
-  par: snc.parallel,
-  parallelLimit: snc.parallelLimit,
-  pl: snc.parallelLimit,
-  epl: snc.epl,
-  eachpl: snc.eachpl,
-  eachParallelLimit: snc.eachParallelLimit,
-  for: snc.forSync,
-  forSync: snc.forSync,
-  times: snc.times,
-  all: snc.all,
 
   //CHAIN
   chain: data => {
