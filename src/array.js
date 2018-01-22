@@ -9,7 +9,7 @@ module.exports = {
    */
   shuffle: array => {
     if (type.isArray(array)) {
-      var newarray = Object.assign([], array)
+      const newarray = Object.assign([], array)
       return newarray.sort((a, b) => {
         return 0.5 - Math.random()
       })
@@ -60,7 +60,7 @@ module.exports = {
    * @returns {Array} : Returns a empty array.
    */
   clear: array => {
-    var newarr = object.assign(array)
+    const newarr = object.assign(array)
     if (type.isArray(newarr)) return newarr.splice(newarr.length,0)
     else throw new Error('clear function not contains array.')
   },
@@ -133,7 +133,7 @@ module.exports = {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.')
     else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.')
     else {
-      var keys = Object.keys(obj)
+      const keys = Object.keys(obj)
       return array.filter(e => {
         var chck = true
         keys.forEach(k => {
