@@ -27,7 +27,7 @@ module.exports = {
     else {
       if(!type.isArray(min)) return 0
       else {
-        var index = Math.floor(Math.random() * (min.length))
+        const index = Math.floor(Math.random() * (min.length))
         return min[index]
       }
     }
