@@ -2,7 +2,7 @@ const type = require('tck')
 
 module.exports = {
   extend: (obj, obj2) => {
-    for (var i in obj2) {
+    for (let i in obj2) {
       if (obj2.hasOwnProperty(i)) obj[i] = obj2[i]
     }
     return obj
@@ -25,7 +25,7 @@ module.exports = {
       route = route.split(".")
       if (route.length === 1 ) return obj[route[0]]
       else {
-        for (var i = 0; i < route.length; i++) {
+        for (let i = 0; i < route.length; i++) {
           if (!type.isEmpty(obj[route[i]])) obj = obj[route[i]]
           else return undefined
         }
