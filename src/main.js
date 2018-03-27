@@ -84,6 +84,7 @@ module.exports = {
   reduce: array.reduce,
   sort: array.sort,
   forEach: array.forEach,
+  chunk: array.chunk,
 
   //OBJECT
   extend: object.extend,

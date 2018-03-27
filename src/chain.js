@@ -312,6 +312,11 @@ module.exports = class {
     return this
   }
 
+  chunk (callback) {
+    this.data = array.chunk(this.data, callback)
+    return this
+  }
+
   forEach (callback) {
     array.forEach(this.data, callback)
   }
