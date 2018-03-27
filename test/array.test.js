@@ -253,4 +253,22 @@ describe('Array', () => {
       chai.assert.lengthOf(res, 0)
     })
   })
+
+  describe('sb.chunk', () => {
+    const newRange = Array.from(Array(10).keys())
+    it('Make 3 elements pack', () => {
+      const res = sb.chunk(newRange, 3)
+      chai.assert.lengthOf(res, 4)
+    })
+
+    it('Make 2 elements pack', () => {
+      const res = sb.chunk(newRange, 2)
+      chai.assert.lengthOf(res, 5)
+    })
+
+    it('Make 5 elements pack', () => {
+      const res = sb.chunk(newRange, 5)
+      chai.assert.lengthOf(res, 2)
+    })
+  })
 })
