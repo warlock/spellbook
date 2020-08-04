@@ -4,7 +4,7 @@
   "description": "Functional and asynchronous conjurations for Javascript",
   "main": "src/main.js",
   "scripts": {
-    "test": "npx mocha",
+    "test": "mocha",
     "build": "webpack -p"
   },
   "repository": {
@@ -34,6 +34,7 @@
   "homepage": "http://spellbook.js.gl",
   "dependencies": {
     "eem": "^1.2.3",
+    "mocha": "^8.1.0",
     "tck": "^1.2.0"
   },
   "devDependencies": {
