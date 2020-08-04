@@ -13,7 +13,7 @@ npm install spellbook -S
 
 ## MINIFIED CDN
 ```
-http://cdn.js.gl/spellbook.js
+https://cdn.jsdelivr.net/npm/spellbook@latest/spellbook.js
 ```
 
 ### NPM URL
