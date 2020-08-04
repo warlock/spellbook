@@ -2,7 +2,6 @@ const type = require('tck')
 const object = require('./object')
 
 module.exports = {
-
   /**
    * @param {Array} array : Array to process.
    * @returns {Array} : Return shuffled array
@@ -10,10 +9,9 @@ module.exports = {
   shuffle: array => {
     if (type.isArray(array)) {
       const newarray = Object.assign([], array)
-      return newarray.sort((a, b) => {
-        return 0.5 - Math.random()
-      })
-    } else throw new Error('Shuffle function not contains array.')
+      return newarray.sort((a, b) => 0.5 - Math.random())
+    }
+    throw new Error('Shuffle function not contains array.')
   },
 
   /**
@@ -22,7 +20,7 @@ module.exports = {
    */
   first: array => {
     if (type.isArray(array)) return array[0]
-    else throw new Error('first function not contains array.')
+    throw new Error('first function not contains array.')
   },
 
   /**
@@ -31,7 +29,7 @@ module.exports = {
    */
   last: array => {
     if (type.isArray(array)) return array[array.length - 1]
-    else throw new Error('Last function not contains array.')
+    throw new Error('Last function not contains array.')
   },
 
   /**
@@ -47,13 +45,11 @@ module.exports = {
       })
     }
     if (type.isArray(obj)) {
-      obj.forEach(e => {
-        newarr = filter(newarr, e)
-      })
+      obj.forEach(e => (newarr = filter(newarr, e)))
       return newarr
-    } else return filter(newarr, obj)
+    }
+    return filter(newarr, obj)
   },
-
 
   /**
    * @param {Array} array : Array to process.
@@ -61,8 +57,8 @@ module.exports = {
    */
   clear: array => {
     const newarr = object.assign(array)
-    if (type.isArray(newarr)) return newarr.splice(newarr.length,0)
-    else throw new Error('clear function not contains array.')
+    if (type.isArray(newarr)) return newarr.splice(newarr.length, 0)
+    throw new Error('clear function not contains array.')
   },
 
   /**
@@ -72,7 +68,7 @@ module.exports = {
    */
   inArray: (array, value) => {
     if (type.isArray(array)) return !!~array.indexOf(value)
-    else throw new Error('inArray function not contains array.')
+    throw new Error('inArray function not contains array.')
   },
 
   /**
@@ -85,13 +81,14 @@ module.exports = {
       var narray = []
       var keys = {}
       for (let i = 0; i < array.length; i++) {
-        if(keys[array[i][key]] === undefined && array[i][key] !== undefined) {
+        if (keys[array[i][key]] === undefined && array[i][key] !== undefined) {
           narray.push(array[i][key])
           keys[array[i][key]] = 1
         }
       }
       return narray
-    } else throw new Error('uniq function not contains array.')
+    }
+    throw new Error('uniq function not contains array.')
   },
 
   /**
@@ -101,14 +98,14 @@ module.exports = {
   uniq: array => {
     var newarr = []
     const contains = (array, value) => {
-      for(let i = 0; i < array.length; i++) {
-        if(JSON.stringify(array[i]) === JSON.stringify(value)) return true
+      for (let i = 0; i < array.length; i++) {
+        if (JSON.stringify(array[i]) === JSON.stringify(value)) return true
       }
       return false
     }
 
-    for(let i = 0; i < array.length; i++) {
-      if(!contains(newarr, array[i])) newarr.push(array[i])
+    for (let i = 0; i < array.length; i++) {
+      if (!contains(newarr, array[i])) newarr.push(array[i])
     }
     return newarr
   },
@@ -121,7 +118,7 @@ module.exports = {
   filter: (array, func) => {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.')
     else if (type.isEmpty(func) || !type.isFunction(func)) throw new Error('Find in array need a function.')
-    else return array.filter(func)
+    return array.filter(func)
   },
 
   /**
@@ -132,20 +129,18 @@ module.exports = {
   filterBy: (array, obj) => {
     if (type.isEmpty(array)) throw new Error('filter function not contains array.')
     else if (type.isEmpty(obj) && typeof obj !== 'object') throw new Error('Find in array need a object.')
-    else {
-      const keys = Object.keys(obj)
-      return array.filter(e => {
-        var chck = true
-        keys.forEach(k => {
-          if (typeof e[k] === 'string') {
-            if(e[k].indexOf(obj[k]) < 0) chck = false
-          } else {
-            if(e[k] !== obj[k]) chck = false
-          }
-        })
-        return chck
+    const keys = Object.keys(obj)
+    return array.filter(e => {
+      var chck = true
+      keys.forEach(k => {
+        if (typeof e[k] === 'string') {
+          if (e[k].indexOf(obj[k]) < 0) chck = false
+        } else {
+          if (e[k] !== obj[k]) chck = false
+        }
       })
-    }
+      return chck
+    })
   },
 
   /**
@@ -155,10 +150,10 @@ module.exports = {
    */
   map: (array, callback) => {
     if (type.isArray(array)) {
-      if (type.isFunction(callback)) {
-        return array.map(callback)
-      } else throw new Error('map function not contains callback function.')
-    } else throw new Error('map function not contains array.')
+      if (type.isFunction(callback)) return array.map(callback)
+      throw new Error('map function not contains callback function.')
+    }
+    throw new Error('map function not contains array.')
   },
 
   /**
@@ -168,10 +163,10 @@ module.exports = {
    */
   reduce: (array, callback) => {
     if (type.isArray(array)) {
-      if (type.isFunction(callback)) {
-        return array.reduce(callback)
-      } else throw new Error('map function not contains callback function.')
-    } else throw new Error('reduce function not contains array.')
+      if (type.isFunction(callback)) return array.reduce(callback)
+      throw new Error('map function not contains callback function.')
+    }
+    throw new Error('reduce function not contains array.')
   },
 
   /**
@@ -182,8 +177,9 @@ module.exports = {
   forEach: (array, callback) => {
     if (type.isArray(array)) {
       if (type.isFunction(callback)) array.forEach(callback)
-      else throw new Error('forEach function not contains callback function.')
-    } else throw new Error('forEach function not contains array.')
+      throw new Error('forEach function not contains callback function.')
+    }
+    throw new Error('forEach function not contains array.')
   },
 
   /**
@@ -193,10 +189,10 @@ module.exports = {
    */
   sort: (array, callback) => {
     if (type.isArray(array)) {
-      if (type.isFunction(callback)) {
-        return array.sort(callback)
-      } else return array.sort()
-    } else throw new Error('sort function not contains array.')
+      if (type.isFunction(callback)) return array.sort(callback)
+      return array.sort()
+    }
+    throw new Error('sort function not contains array.')
   },
 
   /**
@@ -207,7 +203,7 @@ module.exports = {
   chunk: (array, size) => {
     var newArray = []
     for (var i = 0; i < array.length; i += size) {
-      newArray.push(array.slice(i,i+size))
+      newArray.push(array.slice(i, i + size))
     }
     return newArray
   }

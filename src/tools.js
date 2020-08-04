@@ -9,14 +9,14 @@ module.exports = {
       if (type.isNumber(a)) {
         A[0] = a
         step = step || 1
-        while (a+step<= b) A[A.length] = a += step
+        while (a + step <= b) A[A.length] = a += step
       } else {
         var s = 'abcdefghijklmnopqrstuvwxyz'
         if (a === a.toUpperCase()) {
           b = b.toUpperCase()
           s = s.toUpperCase()
         }
-        s = s.substring(s.indexOf(a), s.indexOf(b)+ 1)
+        s = s.substring(s.indexOf(a), s.indexOf(b) + 1)
         A = s.split('')
       }
       return A
@@ -25,18 +25,14 @@ module.exports = {
   random: (min, max) => {
     if (type.isNumber(min) && type.isNumber(max)) return Math.floor(Math.random() * (max - min)) + min
     else {
-      if(!type.isArray(min)) return 0
-      else {
-        const index = Math.floor(Math.random() * (min.length))
-        return min[index]
-      }
+      if (!type.isArray(min)) return 0
+      const index = Math.floor(Math.random() * min.length)
+      return min[index]
     }
   },
   ifElse: (condition, funcTrue, funcFalse) => {
     if (condition) return funcTrue()
-    else return funcFalse()
+    return funcFalse()
   },
-  function: (data, callback) => {
-    return callback(data)
-  }
+  function: (data, callback) => callback(data)
 }

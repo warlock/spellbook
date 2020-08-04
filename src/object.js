@@ -8,11 +8,11 @@ module.exports = {
     return obj
   },
   assign: obj => {
-    if(type.isNull(obj) || !type.isObject(obj) || 'isActiveClone' in obj) return obj
+    if (type.isNull(obj) || !type.isObject(obj) || 'isActiveClone' in obj) return obj
 
     var temp = obj.constructor()
     for (let key in obj) {
-      if(Object.prototype.hasOwnProperty.call(obj, key)) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
         obj.isActiveClone = null
         temp[key] = obj[key]
         delete obj.isActiveClone
@@ -22,8 +22,8 @@ module.exports = {
   },
   get: (obj, route) => {
     if (!type.isEmpty(obj) && type.isString(route)) {
-      route = route.split(".")
-      if (route.length === 1 ) return obj[route[0]]
+      route = route.split('.')
+      if (route.length === 1) return obj[route[0]]
       else {
         for (let i = 0; i < route.length; i++) {
           if (!type.isEmpty(obj[route[i]])) obj = obj[route[i]]
@@ -31,7 +31,8 @@ module.exports = {
         }
         return obj
       }
-    } else return undefined
+    }
+    return undefined
   },
   keys: obj => {
     return Object.keys(obj)
@@ -55,6 +56,7 @@ module.exports = {
         nobj[key] = obj2[key]
       })
       return nobj
-    } else throw new Error('Merge option need two objects for work')
+    }
+    throw new Error('Merge option need two objects for work')
   }
 }

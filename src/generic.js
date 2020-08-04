@@ -1,14 +1,13 @@
 const type = require('tck')
 
 module.exports = {
-
   /**
    * @param {Any} data : Data for stringify.
    * @returns {String} : Return stringify from Any.
    */
   toString: data => {
     if (type.isEmpty(data)) throw new Error('toString function not contains value to parse.')
-    else return JSON.stringify(data)
+    return JSON.stringify(data)
   },
 
   /**
@@ -20,7 +19,7 @@ module.exports = {
     else {
       if (type.isArray(data) || type.isString(data)) return data.length
       else if (type.isObject(data)) return Object.keys(data).length
-      else throw new Error('size function not contains compatible values.')
+      throw new Error('size function not contains compatible values.')
     }
   },
 
@@ -32,7 +31,7 @@ module.exports = {
   contains: (data, value) => {
     if (type.isArray(data) || type.isString(data)) return !!~data.indexOf(value)
     else if (type.isObject(data)) return !!~Object.keys(data).indexOf(value)
-    else throw new Error('contains function not contains values.')
+    throw new Error('contains function not contains values.')
   },
 
   /**
@@ -42,7 +41,7 @@ module.exports = {
   reverse: data => {
     if (type.isArray(data)) return data.reverse()
     else if (type.isString(data)) return data.split('').reverse().join('')
-    else throw new Error('Reverse function not contains array or string.')
+    throw new Error('Reverse function not contains array or string.')
   },
 
   /**
@@ -53,11 +52,9 @@ module.exports = {
   repeatify: (data, num) => {
     if (type.isEmpty(data)) throw new Error('repeatify function not have data for repeat.')
     else if (type.isEmpty(num) || !type.isNumber(num)) throw new Error('repeatify function not have a number for repeat.')
-    else {
-      var strArray = []
-      for (let i = 0; i < num; i++) strArray.push(data)
-      return strArray
-    }
+    var strArray = []
+    for (let i = 0; i < num; i++) strArray.push(data)
+    return strArray
   },
 
   /**
@@ -70,7 +67,7 @@ module.exports = {
     else {
       if (type.isString(val) && type.isString(val)) return val + val1
       else if (type.isArray(val) && type.isArray(val)) return val.concat(val1)
-      else throw new Error('concat function not contains same values.')
+      throw new Error('concat function not contains same values.')
     }
   },
 
@@ -78,7 +75,5 @@ module.exports = {
    * @param {Any} data : Date for return
    * @returns {Any} : Return any data passed for param.
    */
-  return: data => {
-    return data
-  }
+  return: data => data
 }

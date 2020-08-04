@@ -64,10 +64,7 @@ module.exports = {
   isNull: type.isNull,
   isNaN: type.isNaN,
   isUndefined: type.isUndefined,
-  e: (obj, keys) => {
-    return type.isEmpty(object.get(obj, keys))
-  },
-
+  e: (obj, keys) => type.isEmpty(object.get(obj, keys)),
   //ARRAY
   shuffle: array.shuffle,
   first: array.first,
@@ -108,11 +105,6 @@ module.exports = {
   delete: events.delete,
 
   //CHAIN
-  chain: data => {
-    return new Chain(data)
-  },
-
-  c: data => {
-    return new Chain(data)
-  }
+  chain: data => new Chain(data),
+  c: data => new Chain(data)
 }
